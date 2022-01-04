@@ -1,9 +1,24 @@
-import './App.scss';
 import Web3Component from './views/Web3Component';
+import logo from './logo.svg';
+import './App.scss';
 
 const App = () => (
     <div className="App">
-        <Web3Component />
+        <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+                Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <a
+                className="App-link"
+                href="https://reactjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Learn React
+                <Web3Component />
+            </a>
+        </header>
     </div>
 );
 
