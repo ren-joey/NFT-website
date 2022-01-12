@@ -49,6 +49,10 @@ module.exports = {
         'import/newline-after-import': 'off',
         'import/prefer-default-export': 'off',
 
+        /* typescript */
+        '@typescript-eslint/no-explicit-any': 'off',
+
+
         /* react */
         'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
         'react/react-in-jsx-scope': 'off',

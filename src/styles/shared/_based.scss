@@ -1,0 +1,21 @@
+// body {
+// font-family: '微软雅黑';
+// font-family: 'Avenir', Helvetica, Arial, sans-serif;
+// font-family: system-ui,PingFang TC,Heiti TC,sans-serif;
+// }
+
+html,
+body,
+.app {
+    height: 100%;
+    font-family: \5FAE\8EDF\6B63\9ED1\9AD4,Microsoft JhengHei,微软雅黑,arial,helvetica,sans-serif;
+    user-select: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .rule-body * {
+        user-select: text;
+    }
+}
