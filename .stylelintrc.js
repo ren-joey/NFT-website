@@ -16,6 +16,8 @@ module.exports = {
         "declaration-block-trailing-semicolon": null,
         "selector-no-qualifying-type": null,
         "keyframes-name-pattern": null,
+        "color-function-notation": 'legacy',
+        "alpha-value-notation": null,
 
         "scss/at-import-partial-extension-blacklist": null,
 

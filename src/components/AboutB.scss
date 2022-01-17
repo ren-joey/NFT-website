@@ -1,0 +1,171 @@
+.about-b {
+    margin-top: 168px;
+
+    .lang-hgl {
+        color: #00e4ff;
+    }
+
+    .desc-area {
+        display: flex;
+        width: 100%;
+
+        .guide-line {
+            width: 280px;
+
+            .line {
+                position: relative;
+                margin-top: 55px;
+                margin-left: 180px;
+                width: 2px;
+                height: 300px;
+                background-color: #fff;
+
+                .skull {
+                    position: absolute;
+                    top: -55px;
+                    left: 1px;
+                    padding-bottom: calc(120px / 100 * 66);
+                    width: 120px;
+                    transform: translateX(-50%);
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    background-image: url("/assets/images/skull_icon.svg");
+                }
+
+                .star {
+                    position: absolute;
+                    top: 46%;
+                    left: 1px;
+                    width: 37px;
+                    height: 37px;
+                    transform: translateX(-50%);
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    background-image: url("/assets/images/star_icon.svg");
+                }
+            }
+        }
+
+        .content {
+            .title-img {
+                width: 327px;
+                height: 69px;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("/assets/images/about_b.png");
+            }
+
+            .desc {
+                margin-top: 2rem;
+                font-size: 1.3rem;
+                line-height: 2.1rem;
+                color: #fff;
+            }
+        }
+    }
+
+    .feature-card-area {
+        position: relative;
+        margin-top: -80px;
+        z-index: 1;
+
+        .feature-card-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            .feature-card {
+                flex: 0 0 auto;
+                width: 33.3333%;
+
+                .feature-card-icon {
+                    position: relative;
+                    margin: 0 auto;
+                    padding-bottom: 100%;
+                    width: 100%;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    z-index: 2;
+
+                    &.idx-1 {
+                        background-image: url("/assets/images/feature_icon_1.png");
+                    }
+
+                    &.idx-2 {
+                        background-image: url("/assets/images/feature_icon_2.png");
+                    }
+
+                    &.idx-3 {
+                        background-image: url("/assets/images/feature_icon_3.png");
+                    }
+
+                    &.idx-4 {
+                        background-image: url("/assets/images/feature_icon_4.png");
+                    }
+
+                    &.idx-5 {
+                        background-image: url("/assets/images/feature_icon_5.png");
+                    }
+                }
+
+                .card-body {
+                    position: relative;
+                    margin: -50% 15px 0;
+                    padding: 36% 1.6rem 70px;
+                    width: calc(100% - 30px);
+                    font-weight: bolder;
+                    text-align: center;
+                    color: #fff;
+                    background-color: rgba(255, 255, 255, 0.3);
+                    // border: 3px solid linear-gradient(to bottom, #fff 0%, #f03 50%, #8916f5 100%);
+                    border: 3px solid #ff89a1;
+                    border-radius: 2.4rem;
+                    z-index: 1;
+                    box-shadow: 0 0 50px #fff inset, 0 5px 30px rgba(0, 0, 0, 0.3);
+
+                    & > .title {
+                        font-size: 2.2rem;
+                        white-space: nowrap;
+                    }
+
+                    & > .desc {
+                        margin-top: 1.6rem;
+                        font-size: 1.3rem;
+                        line-height: 2.1rem;
+                    }
+                }
+            }
+
+            .aside {
+                position: relative;
+                flex: 0 0 auto;
+                width: 16.6666%;
+            }
+
+            .line-right-bottom {
+                position: absolute;
+                top: 70%;
+                left: 0;
+                height: 2px;
+                width: 80%;
+                background-color: #fff;
+            }
+
+            .b-alien-slider {
+                position: relative;
+                height: 100%;
+                z-index: 1;
+
+                .b-alien {
+                    position: absolute;
+                    left: -43%;
+                    bottom: -8%;
+                    width: 360px;
+                    padding-bottom: calc(360px / 655 * 739);
+                    background-image: url('/assets/images/b_alien_1.png');
+                    background-size: 100% 100%;
+                }
+            }
+        }
+    }
+}

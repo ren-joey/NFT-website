@@ -93,6 +93,9 @@
         "chunkhash",
         "ttfb",
         "noopener",
-        "noreferrer"
+        "noreferrer",
+        "roadmap",
+        "mainchain",
+        "rnft"
     ]
 }

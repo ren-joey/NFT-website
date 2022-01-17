@@ -36,7 +36,13 @@ module.exports = {
         'comma-dangle': ['error', 'never'],
         'arrow-body-style': ['error', 'as-needed'],
         'global-require': 'off',
-        'max-len': ['warn', { code: 100, tabWidth: 4, ignoreUrls: true }],
+        'max-len': ['warn', {
+            code: 100,
+            tabWidth: 4,
+            ignoreUrls: true,
+            ignoreComments: true,
+            ignoreStrings: true
+        }],
         'object-curly-newline': ['error', { multiline: true }],
         'no-underscore-dangle': 'off',
         camelcase: 'off',
