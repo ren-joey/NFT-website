@@ -1,0 +1,159 @@
+@import "src/styles/shared/variables";
+
+.first-area {
+    padding-top: $header-size;
+
+    &.sm {
+        height: $header-size-sm;
+    }
+
+    .b-alien-area {
+        position: relative;
+        margin: 50px auto 0;
+        width: 100%;
+        padding-bottom: calc(100% / 296 * 362); // 296x362
+        background-image: url('/assets/images/b_alien_pc.png');
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+
+        @media (min-width: 992px) {
+            width: 300px;
+            padding-bottom: calc(300px / 296 * 362);
+        }
+
+        .spotlight {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 80px;
+            padding-bottom: calc(80px / 156 * 328); // 156x328
+            background-image: url('/assets/images/spotlight_left.png');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            transform: translate(-60%, -50%);
+
+            &.reverse {
+                right: 0;
+                left: auto;
+                transform: translate(60%, -50%) scaleX(-1);
+            }
+        }
+
+    }
+
+    .reveal-time-area {
+        position: relative;
+        margin-top: -10px;
+        text-align: center;
+        z-index: 1;
+
+        .reveal-time {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: 1rem;
+            border: 1px solid #fff;
+            background-color: #000;
+        }
+    }
+
+    .counter-area {
+        margin-right: 0.5rem;
+        width: 100%;
+
+        @media (min-width: 992px) {
+            margin: 0.5rem auto;
+            width: 680px;
+        }
+
+        .row {
+            .col {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .counter {
+            position: relative;
+
+            .digit {
+                position: relative;
+                text-align: center;
+                font-family: 'a4-speed';
+                font-size: 6rem;
+                font-weight: bolder;
+                color: transparent;
+                background-clip: text;
+                background-image: url('/assets/images/wave.gif');
+                // filter: drop-shadow(0 0 20px #a04187);
+                z-index: 2;
+
+                &.idx-2 {
+                    background-position: right top;
+                }
+
+                &.idx-3 {
+                    background-position: left center;
+                }
+
+                &.idx-4 {
+                    background-position: right center;
+                }
+            }
+
+            .digit-shadow {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                color: #aa0397;
+                font-family: 'a4-speed';
+                font-size: 6rem;
+                font-weight: bolder;
+                text-shadow: 0 10px 30px #C100AA, 0 5px 10px #aa0397;
+                z-index: 1;
+            }
+
+            .unit {
+                margin-top: -1rem;
+                font-size: 1.4rem;
+                color: #fff;
+                font-weight: bolder;
+                text-align: center;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+
+    .title-area {
+        margin-top: 3rem;
+        text-align: center;
+
+        & > .title {
+            font-size: 3rem;
+            color: #fff;
+            font-weight: bolder;
+            text-shadow: 0 2px 2px #9256A2, 0 2px 2px #9256A2, 0 4px 3px #652D7C, 0 4px 3px #652D7C;
+        }
+
+        & > .desc {
+            margin-top: 1.6rem;
+            font-size: 1.6rem;
+            color: #fff;
+            font-weight: bolder;
+            line-height: 2.4rem;
+            letter-spacing: 2px;
+        }
+
+        .lang-hgl-bg {
+            display: inline-block;
+            padding: 0 0.5rem;
+            margin: 0 0.5rem;
+            line-height: 1.8rem;
+            color: #e426b3;
+            background-color: #fff;
+        }
+    }
+}

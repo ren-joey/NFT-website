@@ -1,0 +1,42 @@
+import ZH_TW from "src/lang/ZH_TW";
+
+export interface Lang {
+    readonly FIRST_AREA_TITLE: string;
+    readonly FIRST_AREA_DESC: string;
+    readonly ABOUT_B_DESC: string;
+    readonly ABOUT_B_CARD_1_TITLE: string;
+    readonly ABOUT_B_CARD_1_DESC: string;
+    readonly ABOUT_B_CARD_2_TITLE: string;
+    readonly ABOUT_B_CARD_2_DESC: string;
+    readonly ABOUT_B_CARD_3_TITLE: string;
+    readonly ABOUT_B_CARD_3_DESC: string;
+    readonly ABOUT_B_CARD_4_TITLE: string;
+    readonly ABOUT_B_CARD_4_DESC: string;
+    readonly ABOUT_B_CARD_5_TITLE: string;
+    readonly ABOUT_B_CARD_5_DESC: string;
+    readonly ROADMAP_CARD_1_DATE: string;
+    readonly ROADMAP_CARD_1_TITLE: string;
+    readonly ROADMAP_CARD_1_SUBTITLE: string;
+    readonly ROADMAP_CARD_1_REMARK: string;
+    readonly ROADMAP_CARD_2_DATE: string;
+    readonly ROADMAP_CARD_2_TITLE: string;
+    readonly ROADMAP_CARD_2_SUBTITLE: string;
+    readonly ROADMAP_CARD_2_REMARK: string;
+    readonly ROADMAP_CARD_3_DATE: string;
+    readonly ROADMAP_CARD_3_TITLE: string;
+    readonly ROADMAP_CARD_3_SUBTITLE: string;
+    readonly ROADMAP_CARD_3_REMARK: string;
+    readonly ROADMAP_CARD_4_DATE: string;
+    readonly ROADMAP_CARD_4_TITLE: string;
+    readonly ROADMAP_CARD_4_SUBTITLE: string;
+    readonly ROADMAP_CARD_4_REMARK: string;
+    readonly ROADMAP_CARD_5_DATE: string;
+    readonly ROADMAP_CARD_5_TITLE: string;
+    readonly ROADMAP_CARD_5_SUBTITLE: string;
+    readonly ROADMAP_CARD_5_REMARK: string;
+    readonly COPYRIGHT: string;
+}
+
+const lang = (): Lang => ZH_TW;
+
+export default lang;

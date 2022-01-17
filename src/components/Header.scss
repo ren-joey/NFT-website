@@ -1,0 +1,13 @@
+@import "src/styles/shared/variables";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header-size;
+
+    &.sm {
+        height: $header-size-sm;
+    }
+}
