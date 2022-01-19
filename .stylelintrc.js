@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ["stylelint-config-standard"],
+    extends: ["stylelint-config-standard-scss"],
     plugins: ["stylelint-scss", "stylelint-order"],
     rules: {
         "max-nesting-depth": null,
@@ -64,6 +64,7 @@ module.exports = {
             "line-height",
             "color",
             "background",
+            "background-image",
             "background-position",
             "background-repeat",
             "background-size",

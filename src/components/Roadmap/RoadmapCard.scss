@@ -1,0 +1,89 @@
+.roadmap-card-row {
+    display: flex;
+    margin-top: 65px;
+    width: 100%;
+
+    .roadmap-time {
+        position: relative;
+        width: 198px;
+
+        & > .time {
+            position: absolute;
+            top: calc(50% - 2rem);
+            right: 2rem;
+            padding: 0.5rem 1.2rem;
+            font-size: 1.4rem;
+            font-weight: bolder;
+            color: #8525bb;
+            background-color: #fff;
+            border: 2px solid #8525bb;
+            border-radius: 1.4rem;
+            outline: 2px solid #fff;
+            letter-spacing: 1px;
+            -webkit-text-stroke-width: 2px;
+        }
+    }
+
+    .roadmap-main {
+        flex: 1;
+
+        .roadmap-card {
+            overflow: hidden;
+            width: 90%;
+            border: 2px solid #fff;
+            border-radius: 2rem;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) inset, 0 5px 30px rgba(0, 0, 0, 0.3);
+
+            .card-top {
+                position: relative;
+                padding: 2.4rem 2.4rem 2.4rem 4.8rem;
+                color: #fff;
+                background-color: rgba(255, 255, 255, 0.3);
+
+                & > .title {
+                    position: relative;
+                    margin-bottom: 1rem;
+                    font-size: 2rem;
+                    font-weight: bolder;
+
+                    .star {
+                        position: absolute;
+                        width: 1.4rem;
+                        height: 1.4rem;
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                        background-image: url("/assets/images/star_icon.svg");
+                    }
+                }
+
+                & > .subtitle {
+                    font-size: 1.6rem;
+                    font-weight: lighter;
+                }
+
+                & > .star {
+                    position: absolute;
+                    top: 2.4rem;
+                    left: 2rem;
+                    width: 2rem;
+                    height: 2rem;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    background-image: url("/assets/images/star_icon.svg");
+                }
+            }
+
+            .card-bottom {
+                padding: 2rem;
+                color: #00e4ff;
+                background-color: rgba(85, 0, 141, 0.3);
+
+                & > .remark {
+                    font-size: 1.6rem;
+                    font-weight: bolder;
+                    line-height: 2.4rem;
+                }
+            }
+        }
+    }
+}

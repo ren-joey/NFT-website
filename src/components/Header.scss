@@ -4,10 +4,140 @@
     position: fixed;
     top: 0;
     left: 0;
+    padding-top: $header-flexible-size-sm;
     width: 100%;
-    height: $header-size;
+    z-index: 10;
 
-    &.sm {
+    @media (min-width: 992px) {
+        padding-top: $header-flexible-size;
+    }
+
+    .header-container {
+        display: flex;
+        margin: 0 auto;
+        width: calc(100% - 20px);
         height: $header-size-sm;
+
+        @media (min-width: 992px) {
+            width: calc(100% - 40px);
+            height: $header-size;
+        }
+
+        @media (min-width: 1440px) {
+            width: calc(100% - 180px);
+        }
+
+        .logo {
+            margin-right: auto;
+            width: $header-size-sm * 344 / 158;
+            height: $header-size-sm;
+            background-image: url("/assets/images/vbc_logo.svg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 80% 80%;
+
+            @media (min-width: 992px) {
+                width: $header-size * 344 / 158 * 0.8;
+                height: $header-size * 0.8;
+            }
+
+            @media (min-width: 1440px) {
+                width: $header-size * 344 / 158;
+                height: $header-size;
+            }
+        }
+
+        .nav-area {
+            display: none;
+
+            @media (min-width: 992px) {
+                display: flex;
+                justify-content: space-around;
+                max-width: 850px;
+                height: $header-size;
+                flex: 1;
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                .icon {
+                    margin-right: 0.5rem;
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+
+                    @media (min-width: 1440px) {
+                        width: 1.8rem;
+                        height: 1.8rem;
+                    }
+
+                    &.opensea {
+                        background-image: url("/assets/images/opensea_icon.svg");
+                    }
+
+                    &.discord {
+                        background-image: url("/assets/images/discord_icon.svg");
+                    }
+
+                    &.twitter {
+                        background-image: url("/assets/images/twitter_icon.svg");
+                    }
+
+                    &.roadmap-icon {
+                        background-image: url("/assets/images/skull_icon.svg");
+                    }
+                }
+
+                .nav-text {
+                    font-size: 1.5rem;
+                    font-family: coco;
+                    color: #fff;
+                    flex: 1;
+
+                    @media (min-width: 1440px) {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+
+        .lang-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            margin-left: auto;
+            height: $header-size-sm;
+
+            @media (min-width: 992px) {
+                height: $header-size;
+            }
+
+            @media (min-width: 1440px) {
+                margin-right: 40px;
+            }
+
+            .lang-nav {
+                margin: 0 0.3rem;
+                font-size: 1.2rem;
+                font-weight: bolder;
+                color: #fff;
+                cursor: pointer;
+
+                @media (min-width: 1440px) {
+                    font-size: 1.4rem;
+                }
+
+                &.active {
+                    padding: 0.2rem 1rem;
+                    border: 1px solid #fff;
+                    border-radius: 2rem
+                }
+            }
+        }
     }
 }

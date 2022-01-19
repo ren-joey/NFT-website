@@ -1,0 +1,93 @@
+.about-b {
+    margin-top: 168px;
+
+    .lang-hgl {
+        color: #00e4ff;
+    }
+
+    .desc-area {
+        display: flex;
+        width: 100%;
+
+        .guide-line {
+            width: 280px;
+
+            .line {
+                position: relative;
+                margin-top: 55px;
+                margin-left: 180px;
+                width: 2px;
+                height: 300px;
+                background-color: #fff;
+
+                .skull {
+                    position: absolute;
+                    top: -55px;
+                    left: 1px;
+                    padding-bottom: calc(120px / 100 * 66);
+                    width: 120px;
+                    transform: translateX(-50%);
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    background-image: url("/assets/images/skull_icon.svg");
+                }
+
+                .star {
+                    position: absolute;
+                    top: 46%;
+                    left: 1px;
+                    width: 37px;
+                    height: 37px;
+                    transform: translateX(-50%);
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    background-image: url("/assets/images/star_icon.svg");
+                }
+            }
+        }
+
+        .content {
+            .title-img {
+                width: 327px;
+                height: 69px;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("/assets/images/about_b.png");
+            }
+
+            .desc {
+                margin-top: 2rem;
+                font-size: 1.3rem;
+                line-height: 2.1rem;
+                color: #fff;
+            }
+        }
+    }
+
+    .feature-card-area {
+        position: relative;
+        margin-top: -80px;
+        z-index: 1;
+
+        .feature-card-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            .aside {
+                position: relative;
+                flex: 0 0 auto;
+                width: 16.6666%;
+            }
+
+            .line-right-bottom {
+                position: absolute;
+                top: 70%;
+                left: 0;
+                width: 80%;
+                height: 2px;
+                background-color: #fff;
+            }
+        }
+    }
+}
