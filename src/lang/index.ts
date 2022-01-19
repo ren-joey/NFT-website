@@ -35,6 +35,7 @@ export interface Lang {
     readonly ROADMAP_CARD_5_SUBTITLE: string;
     readonly ROADMAP_CARD_5_REMARK: string;
     readonly COPYRIGHT: string;
+    readonly [index: string]: string;
 }
 
 const lang = (): Lang => ZH_TW;

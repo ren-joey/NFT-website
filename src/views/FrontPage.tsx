@@ -1,29 +1,35 @@
-import React, { useState } from "react";
-import AboutB from "src/components/AboutB";
-import FirstArea from "src/components/FirstArea";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AboutB from "src/components/AboutB/AboutB";
+import BgEffects from "src/components/BgEffects";
+import FirstArea from "src/components/FirstArea/FirstArea";
 import Footer from "src/components/Footer";
 import Header from "src/components/Header";
-import Roadmap from "src/components/Roadmap";
+import Roadmap from "src/components/Roadmap/Roadmap";
 import 'src/views/FrontPage.scss';
 
-const FrontPage = () => (
-    <div className="wrapper">
+const FrontPage = () => {
+    gsap.registerPlugin(ScrollTrigger);
 
-        <div className="container">
+    return (
+        <div className="wrapper">
             <Header />
 
-            <FirstArea />
+            <div className="container">
+                <FirstArea />
 
-            <AboutB />
+                <AboutB />
 
-            <Roadmap />
+                <Roadmap />
+            </div>
 
             <Footer />
-        </div>
 
-        {/* [DEV] */}
-        <div className="preview"></div>
-    </div>
-);
+            <BgEffects />
+
+            {/* <div className="preview"></div> */}
+        </div>
+    );
+}
 
 export default FrontPage;
