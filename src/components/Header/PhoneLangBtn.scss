@@ -1,0 +1,23 @@
+.lang-area-phone {
+    & > .lang-btn {
+        margin-top: 0.6rem;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        text-align: center;
+
+        & > .text {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0);
+            border-radius: 2rem;
+            transition: 0s;
+        }
+
+        &.active {
+            & > .text {
+                border: 1px solid rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}

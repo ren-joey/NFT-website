@@ -1,19 +1,28 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
+import { scrollTriggerInit } from "src/animation/scrollTrigger";
 import AboutB from "src/components/AboutB/AboutB";
 import BgEffects from "src/components/BgEffects";
 import FirstArea from "src/components/FirstArea/FirstArea";
 import Footer from "src/components/Footer";
-import Header from "src/components/Header";
+import Header from "src/components/Header/Header";
 import Roadmap from "src/components/Roadmap/Roadmap";
+import { LangContext } from "src/Context/LangContext";
 import { RwdContext } from "src/Context/RwdContext";
+import EN from "src/lang/EN";
+import ZH_CN from "src/lang/ZH_CN";
+import ZH_TW from "src/lang/ZH_TW";
 import 'src/views/FrontPage.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FrontPage = () => {
     const [device, setDevice] = useState(window.innerWidth >= 992 ? 'desktop' : 'phone');
+    const zhTW = ZH_TW;
+    const zhCN = ZH_CN;
+    const [lang, setLang] = useState({...zhTW});
+    const [selectedLang, setSelectedLang] = useState('ZH_TW');
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -24,57 +33,47 @@ const FrontPage = () => {
             }
         });
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                start: 'top -50',
-                end: 99999,
-                toggleClass: {
-                    targets: '.header',
-                    className: 'header-scrolled'
-                }
-            }
-        })
+        // initialize the gsap scroll trigger
+        scrollTriggerInit();
+    });
 
-        tl.to('.speed-lines', {
-            opacity: 0,
-            ease: 'none',
-            scrollTrigger: {
-                start: 'top top',
-                end: 'bottom 30%',
-                scrub: true
-            }
-        }).set('.speed-lines', {
-            scrollTrigger: {
-                start: 'bottom top',
-                toggleClass: {
-                    targets: '.speed-lines',
-                    className: 'd-none'
-                },
-                scrub: true
-            }
-        });
-    }, []);
+    useEffect(() => {
+        if (selectedLang === 'ZH_TW') {
+            setLang({...zhTW});
+        } else if  (selectedLang === 'ZH_CN') {
+            setLang({...zhCN});
+        } else if (selectedLang === 'EN') {
+            setLang({...EN})
+        } else {
+            setLang({...zhTW})
+        }
+    }, [selectedLang]);
 
     return (
-        <RwdContext.Provider value={{ device }}>
-            <div className="fp-wrapper">
-                <Header />
+        <LangContext.Provider value={{ ...lang }}>
+            <RwdContext.Provider value={{ device }}>
+                <div className="fp-wrapper">
+                    <Header
+                        selectedLang={selectedLang}
+                        setSelectedLang={setSelectedLang}
+                    />
 
-                <div className="fp-container">
-                    <FirstArea />
+                    <div className="fp-container">
+                        <FirstArea />
 
-                    <AboutB />
+                        <AboutB />
 
-                    <Roadmap />
+                        <Roadmap />
+                    </div>
+
+                    <Footer />
+
+                    <BgEffects />
+
+                    {/* <div className="fp-preview"></div> */}
                 </div>
-
-                <Footer />
-
-                <BgEffects />
-
-                {/* <div className="fp-preview"></div> */}
-            </div>
-        </RwdContext.Provider>
+            </RwdContext.Provider>
+        </LangContext.Provider>
     );
 }
 

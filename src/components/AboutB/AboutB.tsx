@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import 'src/components/AboutB/AboutB.scss'
+import 'src/components/AboutB/AboutB.scss';
 import { LangContext } from 'src/Context/LangContext';
 import BAlienSlider from './BAlienSlider';
 import FeatureCard from './FeatureCard';
@@ -10,7 +10,7 @@ const AboutB = () => {
     return (
         <div className="about-b">
             <div className="desc-area">
-                <div className="guide-line">
+                <div className="guide-line pc">
                     <div className="line">
                         <div className="skull"></div>
                         <div className="star"></div>
@@ -28,19 +28,19 @@ const AboutB = () => {
 
                     <FeatureCard idx={1} />
                     <FeatureCard idx={2} />
-                    <FeatureCard idx={3} />
+                    <FeatureCard idx={3} line={false}/>
 
+                    <div className="line-turning-around"></div>
                 </div>
                 <div className="feature-card-row">
                     <div className="aside"></div>
+                    <div className="line-turning-left"></div>
 
-                    <FeatureCard idx={4} />
                     <FeatureCard idx={5} />
+                    <FeatureCard idx={4} line={false} />
 
                     <div className="aside">
                         <BAlienSlider />
-
-                        {/* <div className="line-right-bottom"></div> */}
                     </div>
                 </div>
             </div>
@@ -62,6 +62,6 @@ const AboutB = () => {
             </div>
         </div>
     );
-}
+};
 
 export default AboutB;
