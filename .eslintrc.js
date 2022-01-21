@@ -50,6 +50,7 @@ module.exports = {
         'linebreak-style': 'off',
         'object-shorthand': 'off',
         'no-nested-ternary': 'off',
+        'semi': [2, 'always'],
 
         /* import */
         'import/newline-after-import': 'off',
@@ -57,7 +58,7 @@ module.exports = {
 
         /* typescript */
         '@typescript-eslint/no-explicit-any': 'off',
-
+        'react-hooks/exhaustive-deps': 'off',
 
         /* react */
         'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],

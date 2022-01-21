@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
 import { LangContext } from "src/Context/LangContext";
-import 'src/components/AboutB/FeatureCard.scss'
+import 'src/components/AboutB/FeatureCard.scss';
 import { RwdContext } from "src/Context/RwdContext";
 interface Props {
-    idx: number
+    idx: number,
+    line?: boolean
 }
 
-const FeatureCard = ({ idx }: Props) => {
+const FeatureCard = ({ idx, line = true }: Props) => {
     const lang = React.useContext(LangContext);
     const { device } = React.useContext(RwdContext);
 
@@ -31,9 +32,11 @@ const FeatureCard = ({ idx }: Props) => {
                 <div className="desc" dangerouslySetInnerHTML={{__html: desc}}></div>
             </div>
 
+            { line && device === 'desktop' ? <div className="right-line"></div> : ''}
+
             <div className="backdrop"></div>
         </div>
     );
-}
+};
 
 export default FeatureCard;

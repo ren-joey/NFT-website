@@ -1,3 +1,5 @@
+@import "src/styles/shared/variables";
+
 .roadmap {
     margin-top: 40px;
 
@@ -15,19 +17,25 @@
         }
 
         .guide-line {
+            position: relative;
             width: 198px;
 
             .line {
-                position: relative;
-                margin-top: 55px;
-                margin-left: 110px;
-                width: 2px;
-                height: 300px;
+                position: absolute;
+                top: -8px;
+                left: 100px;
+                width: $line-width;
+                height: 2000px;
                 background-color: #fff;
+
+                @media (min-width: 1440px) {
+                    left: 114px;
+                }
             }
         }
 
         .title-img {
+            position: relative;
             margin-left: 5%;
             padding-bottom: calc(45% / 412 * 64);
             width: 45%;
@@ -40,6 +48,21 @@
                 padding-bottom: 0;
                 width: 412px;
                 height: 64px;
+            }
+
+            @media (min-width: 1440px) {
+                margin-left: 15px;
+            }
+
+            .star {
+                position: absolute;
+                top: -20px;
+                left: -148px;
+                width: 100px;
+                height: 100px;
+                background-image: url("/assets/images/glowing_star.png");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
             }
         }
     }

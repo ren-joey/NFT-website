@@ -16,6 +16,11 @@
 
         @media (min-width: 992px) {
             width: 198px;
+            text-align: center;
+        }
+
+        @media (min-width: 1440px) {
+            margin-left: 16px;
         }
 
         & > .time {
@@ -31,9 +36,9 @@
             -webkit-text-stroke-width: 2px;
 
             @media (min-width: 992px) {
-                position: absolute;
                 top: calc(50% - 2rem);
                 right: 2rem;
+                display: inline-block;
             }
         }
     }
@@ -58,6 +63,7 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) inset, 0 5px 30px rgba(0, 0, 0, 0.3);
 
             @media (min-width: 992px) {
+                margin: 0;
                 width: 90%;
             }
 
