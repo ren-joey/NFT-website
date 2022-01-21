@@ -28,6 +28,8 @@ const Header = () => (
                 <div className="lang-nav">EN</div>
             </div>
         </div>
+
+        <div className="blur-glass"></div>
     </div>
 )
 

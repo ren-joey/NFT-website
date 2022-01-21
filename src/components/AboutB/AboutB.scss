@@ -1,5 +1,11 @@
 .about-b {
-    margin-top: 168px;
+    position: relative;
+    margin-top: 26px;
+    z-index: 1;
+
+    @media (min-width: 992px) {
+        margin-top: 168px;
+    }
 
     .lang-hgl {
         color: #00e4ff;
@@ -10,7 +16,12 @@
         width: 100%;
 
         .guide-line {
+            display: none;
             width: 280px;
+
+            @media (min-width: 992px) {
+                display: block;
+            }
 
             .line {
                 position: relative;
@@ -26,10 +37,10 @@
                     left: 1px;
                     padding-bottom: calc(120px / 100 * 66);
                     width: 120px;
-                    transform: translateX(-50%);
+                    background-image: url("/assets/images/skull_icon.svg");
                     background-repeat: no-repeat;
                     background-size: 100% 100%;
-                    background-image: url("/assets/images/skull_icon.svg");
+                    transform: translateX(-50%);
                 }
 
                 .star {
@@ -38,41 +49,89 @@
                     left: 1px;
                     width: 37px;
                     height: 37px;
-                    transform: translateX(-50%);
+                    background-image: url("/assets/images/star_icon.svg");
                     background-repeat: no-repeat;
                     background-size: 100% 100%;
-                    background-image: url("/assets/images/star_icon.svg");
+                    transform: translateX(-50%);
                 }
             }
         }
 
         .content {
+            width: 100%;
+            text-align: center;
+
+            @media (min-width: 992px) {
+                flex: 1;
+                width: auto;
+                text-align: left;
+            }
+
             .title-img {
-                width: 327px;
-                height: 69px;
+                margin: 0 auto;
+                width: 327px * 0.5;
+                height: 69px * 0.5;
+                background-image: url("/assets/images/about_b.png");
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
-                background-image: url("/assets/images/about_b.png");
+
+                @media (min-width: 992px) {
+                    margin: 0;
+                    width: 327px;
+                    height: 69px;
+                }
             }
 
             .desc {
-                margin-top: 2rem;
-                font-size: 1.3rem;
-                line-height: 2.1rem;
+                margin-top: 0.6rem;
+                font-size: 1rem;
+                line-height: 1.6rem;
                 color: #fff;
+
+                @media (min-width: 992px) {
+                    margin-top: 2rem;
+                    font-size: 1.2rem;
+                    line-height: 2.2rem;
+                }
             }
         }
     }
 
     .feature-card-area {
         position: relative;
+        display: none;
         margin-top: -80px;
         z-index: 1;
+
+        &.phone {
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            display: block;
+
+            &.phone {
+                display: none;
+            }
+        }
 
         .feature-card-row {
             display: flex;
             justify-content: center;
             width: 100%;
+
+            .space-left {
+                margin-top: 100px;
+            }
+
+            .space-right {
+                margin-top: 210px;
+            }
+
+            .feature-card-col {
+                flex: 0 0 auto;
+                width: 50%;
+            }
 
             .aside {
                 position: relative;

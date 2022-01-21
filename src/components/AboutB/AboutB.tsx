@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import 'src/components/AboutB/AboutB.scss'
-import { langContext } from 'src/Context/LangContext';
+import { LangContext } from 'src/Context/LangContext';
 import BAlienSlider from './BAlienSlider';
 import FeatureCard from './FeatureCard';
 
 const AboutB = () => {
-    const lang = useContext(langContext);
+    const lang = useContext(LangContext);
+
     return (
         <div className="about-b">
             <div className="desc-area">
@@ -17,7 +18,8 @@ const AboutB = () => {
                 </div>
                 <div className="content">
                     <div className="title-img"></div>
-                    <div className="desc" dangerouslySetInnerHTML={{__html: lang.ABOUT_B_DESC}}></div>
+                    <div className="desc pc" dangerouslySetInnerHTML={{__html: lang.ABOUT_B_DESC_PC}}></div>
+                    <div className="desc phone" dangerouslySetInnerHTML={{__html: lang.ABOUT_B_DESC}}></div>
                 </div>
             </div>
 
@@ -41,6 +43,22 @@ const AboutB = () => {
                         {/* <div className="line-right-bottom"></div> */}
                     </div>
                 </div>
+            </div>
+
+            <div className="feature-card-area phone">
+                <div className="feature-card-row">
+                    <div className="feature-card-col space-left">
+                        <FeatureCard idx={1} />
+                        <FeatureCard idx={3} />
+                        <FeatureCard idx={5} />
+                    </div>
+                    <div className="feature-card-col space-right">
+                        <FeatureCard idx={2} />
+                        <FeatureCard idx={4} />
+                    </div>
+                </div>
+
+                <BAlienSlider />
             </div>
         </div>
     );

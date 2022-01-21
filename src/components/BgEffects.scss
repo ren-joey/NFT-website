@@ -9,29 +9,45 @@
 
     .perspective-lines {
         position: relative;
-        margin-left: calc(50% - 944.5px);
-        width: 1889px;
-        height: 884px;
+        margin-top: -20px;
+        margin-left: -50%;
+        padding-bottom: calc(200% / 1889 * 884);
+        width: 200%;
         background-image: url("/assets/images/perspective_lines.png");
         background-size: 100% 100%;
         z-index: 2;
+
+        @media (min-width: 992px) {
+            margin-top: 0;
+            margin-left: calc(50% - 944.5px);
+            padding-bottom: 0;
+            width: 1889px;
+            height: 884px;
+        }
     }
 
     .speed-lines {
         position: absolute;
-        top: -2100px;
-        left: calc(50% - 2500px);
-        width: 5000px;
-        height: 5000px;
+        top: -1100px;
+        left: calc(50% - 1250px);
+        width: 2500px;
+        height: 2500px;
+        background-image: url("/assets/images/speed_lines.png");
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 0% 0%;
-        background-image: url("/assets/images/speed_lines.png");
 
         @for $i from 0 through 5 {
             &.idx-#{$i + 1} {
                 animation: speed-lines-scale 6s ease-in #{$i}s infinite;
             }
+        }
+
+        @media (min-width: 992px) {
+            top: -2100px;
+            left: calc(50% - 2500px);
+            width: 5000px;
+            height: 5000px;
         }
     }
 
@@ -47,14 +63,21 @@
 
     .black-hole {
         position: absolute;
-        top: 0;
-        left: calc(50% - 822.5px);
-        width: 1645px;
-        height: 1244px;
+        top: -50px;
+        left: calc(50% - 400px);
+        width: 800px;
+        height: 607px;
         background-image: url("/assets/images/black_hole.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         z-index: 1;
+
+        @media (min-width: 992px) {
+            top: 0;
+            left: calc(50% - 822.5px);
+            width: 1645px;
+            height: 1244px;
+        }
     }
 
     .stars {
@@ -63,9 +86,9 @@
         left: calc(50% - 960px);
         width: 1920px;
         height: 2206px;
+        background-image: url("/assets/images/stars.png");
         background-repeat: repeat;
         background-size: 30% auto;
-        background-image: url("/assets/images/stars.png");
         z-index: 1;
     }
 }

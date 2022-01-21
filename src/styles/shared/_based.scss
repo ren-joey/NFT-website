@@ -20,6 +20,22 @@ body,
     }
 }
 
+@media (max-width: 991.98px) {
+    .pc {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .phone {
+        display: none !important;
+    }
+}
+
+.d-none {
+    display: none !important;
+}
+
 .mr-auto {
     margin-right: auto !important;
 }

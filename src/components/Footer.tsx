@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import 'src/components/Footer.scss'
-import { langContext } from 'src/Context/LangContext';
+import { LangContext } from 'src/Context/LangContext';
 
 const Footer = () => {
-    const lang = useContext(langContext);
+    const lang = useContext(LangContext);
     return (
         <div className="footer">
             <div className="gradient"></div>

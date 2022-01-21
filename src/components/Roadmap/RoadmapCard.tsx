@@ -1,5 +1,5 @@
 import React from "react";
-import { langContext } from "src/Context/LangContext";
+import { LangContext } from "src/Context/LangContext";
 import 'src/components/Roadmap/RoadmapCard.scss'
 
 interface Props {
@@ -7,7 +7,8 @@ interface Props {
 }
 
 const RoadmapCard = ({ idx }: Props) => {
-    const lang = React.useContext(langContext);
+    const lang = React.useContext(LangContext);
+
     return (
         <div className="roadmap-card-row">
             <div className="roadmap-time">
@@ -29,6 +30,7 @@ const RoadmapCard = ({ idx }: Props) => {
                     <div className="card-bottom">
                         <div className="remark" dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_REMARK`]}}></div>
                     </div>
+                    <div className="backdrop"></div>
                 </div>
             </div>
         </div>

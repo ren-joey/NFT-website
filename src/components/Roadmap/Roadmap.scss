@@ -1,10 +1,18 @@
 .roadmap {
-    margin-top: 310px;
+    margin-top: 40px;
+
+    @media (min-width: 992px) {
+        margin-top: 310px;
+    }
 
     .desc-area {
         display: flex;
-        margin-bottom: 100px;
+        margin-bottom: 0;
         width: 100%;
+
+        @media (min-width: 992px) {
+            margin-bottom: 100px;
+        }
 
         .guide-line {
             width: 198px;
@@ -20,11 +28,24 @@
         }
 
         .title-img {
-            width: 412px;
-            height: 64px;
+            margin-left: 5%;
+            padding-bottom: calc(45% / 412 * 64);
+            width: 45%;
             background-image: url("/assets/images/roadmap.png");
             background-repeat: no-repeat;
             background-size: 100% 100%;
+
+            @media (min-width: 992px) {
+                margin-left: 0;
+                padding-bottom: 0;
+                width: 412px;
+                height: 64px;
+            }
         }
+    }
+
+    .link-area {
+        margin-left: 2.5%;
+        width: 95%;
     }
 }
