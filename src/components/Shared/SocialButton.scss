@@ -1,0 +1,50 @@
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.3rem;
+    padding: 0.3rem;
+    width: 100%;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    box-shadow: 0 0.3rem 0 #fff;
+    cursor: pointer;
+
+    & > .icon {
+        margin-right: 0.5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        &.opensea {
+            background-image: url("/assets/images/opensea_icon.svg");
+        }
+
+        &.discord {
+            background-image: url("/assets/images/discord_icon.svg");
+        }
+
+        &.twitter {
+            background-image: url("/assets/images/twitter_icon.svg");
+        }
+    }
+
+    & > .text {
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+
+    &.twitter {
+        background-color: #1accff;
+    }
+
+    &.discord {
+        background-color: #5165f6;
+    }
+
+    &.opensea {
+        background-color: #1167bb;
+    }
+}

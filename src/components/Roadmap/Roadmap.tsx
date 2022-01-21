@@ -1,5 +1,6 @@
 import RoadmapCard from './RoadmapCard';
 import 'src/components/Roadmap/Roadmap.scss'
+import SocialButton from '../Shared/SocialButton';
 
 const Roadmap = () => (
     <div className="roadmap">
@@ -13,6 +14,12 @@ const Roadmap = () => (
         </div>
 
         <RoadmapCard idx={1} />
+
+        <div className="link-area">
+            <SocialButton className='twitter' name='Twitter' />
+            <SocialButton className='discord' name='Discord' />
+        </div>
+
         <RoadmapCard idx={2} />
         <RoadmapCard idx={3} />
         <RoadmapCard idx={4} />

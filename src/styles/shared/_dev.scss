@@ -8,11 +8,11 @@
 // * * * * * * * * { background-color: rgba(0, 255, 0, 0.2); }
 // * * * * * * * * * { background-color: rgba(0, 0, 255, 0.2); }
 
-.preview {
+.fp-preview {
     position: absolute;
     top: 0;
     left: 0;
-    padding-bottom: calc(100% / 1920 * 5244);
+    padding-bottom: calc(100% / 960 * 7500);
     width: 100%;
 
     // background-image: url("/assets/images/bg.jpg");
@@ -23,6 +23,7 @@
     z-index: 0;
 
     @media (min-width: 992px) {
+        padding-bottom: calc(100% / 1920 * 5244);
         background-image: url("/assets/dev/preview_pc.jpg");
         background-position: top center;
         background-size: 1920px auto;

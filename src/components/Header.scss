@@ -7,12 +7,27 @@
     padding-top: $header-flexible-size-sm;
     width: 100%;
     z-index: 10;
+    transition:
+        padding-top 0.5s,
+        box-shadow 0.5s,
+        background-color 0.5s;
 
     @media (min-width: 992px) {
         padding-top: $header-flexible-size;
     }
 
+    .blur-glass {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(0);
+        z-index: -1;
+    }
+
     .header-container {
+        position: relative;
         display: flex;
         margin: 0 auto;
         width: calc(100% - 20px);
@@ -35,6 +50,7 @@
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 80% 80%;
+            transition: transform 0.3s;
 
             @media (min-width: 992px) {
                 width: $header-size * 344 / 158 * 0.8;
@@ -97,6 +113,7 @@
                     font-family: coco;
                     color: #fff;
                     flex: 1;
+                    transition: font-size 0.3s, text-shadow 0.3s;
 
                     @media (min-width: 1440px) {
                         font-size: 1.6rem;
@@ -126,6 +143,7 @@
                 font-size: 1.2rem;
                 font-weight: bolder;
                 color: #fff;
+                transition: font-size 0.3s;
                 cursor: pointer;
 
                 @media (min-width: 1440px) {
@@ -138,6 +156,30 @@
                     border-radius: 2rem
                 }
             }
+        }
+    }
+
+    &-scrolled {
+        padding-top: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid #fff;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8) inset;
+
+        .logo {
+            transform: scale(0.8);
+        }
+
+        .blur-glass {
+            backdrop-filter: blur(6px);
+        }
+
+        .nav-text {
+            font-size: 1.2rem !important;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .lang-nav {
+            font-size: 1.2rem !important;
         }
     }
 }

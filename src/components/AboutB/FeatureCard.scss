@@ -1,12 +1,27 @@
 .feature-card {
+    position: relative;
     flex: 0 0 auto;
-    width: 33.3333%;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        width: 33.3333%;
+    }
+
+    .backdrop {
+        position: absolute;
+        top: 36%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        backdrop-filter: blur(2px);
+    }
 
     .feature-card-icon {
         position: relative;
         margin: 0 auto;
-        padding-bottom: 100%;
-        width: 100%;
+        padding-bottom: 80%;
+        width: 80%;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         z-index: 2;
@@ -16,12 +31,17 @@
                 background-image: url("/assets/images/feature_icon_#{$i}.png");
             }
         }
+
+        @media (min-width: 992px) {
+            padding-bottom: 100%;
+            width: 100%;
+        }
     }
 
     .card-body {
         position: relative;
         margin: -50% 15px 0;
-        padding: 36% 1.6rem 70px;
+        padding: 40% 10px 30px;
         width: calc(100% - 30px);
         font-weight: bolder;
         text-align: center;
@@ -29,20 +49,50 @@
         background-color: rgba(255, 255, 255, 0.3);
 
         // border: 3px solid linear-gradient(to bottom, #fff 0%, #f03 50%, #8916f5 100%);
-        border: 3px solid #ff89a1;
-        border-radius: 2.4rem;
+        border: 2px solid #fff;
+        border-radius: 1.4rem;
         z-index: 1;
-        box-shadow: 0 0 50px #fff inset, 0 5px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 30px #fff inset, 0 5px 30px rgba(0, 0, 0, 0.3);
 
         & > .title {
-            font-size: 2.2rem;
-            white-space: nowrap;
+            font-size: 1.6rem;
+            font-weight: bolder;
         }
 
         & > .desc {
-            margin-top: 1.6rem;
-            font-size: 1.3rem;
-            line-height: 2.1rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+            line-height: 1.4rem;
+        }
+
+        @media (min-width: 992px) {
+            padding: 36% 1rem 70px;
+            border: 3px solid #ff89a1;
+            border-radius: 2.4rem;
+            box-shadow: 0 0 50px #fff inset, 0 5px 30px rgba(0, 0, 0, 0.3);
+
+            & > .title {
+                font-size: 1.8rem;
+                white-space: nowrap;
+            }
+
+            & > .desc {
+                margin-top: 1.6rem;
+                font-size: 1.1rem;
+                line-height: 2.1rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding: 36% 1.6rem 70px;
+
+            & > .title {
+                font-size: 2.2rem;
+            }
+
+            & > .desc {
+                font-size: 1.3rem;
+            }
         }
     }
 }
