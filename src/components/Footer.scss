@@ -1,3 +1,5 @@
+@import "src/styles/shared/variables";
+
 .footer {
     position: relative;
     overflow: hidden;
@@ -5,9 +7,38 @@
     margin-left: 0;
     padding-top: 70px;
     height: 500px;
+    z-index: 2;
 
     @media (min-width: 992px) {
         height: 650px;
+    }
+
+    .phone-line {
+        position: absolute;
+        top: 0;
+        left: calc(50% - #{$line-width / 2});
+        width: $line-width;
+        height: 50%;
+        background-color: #fff;
+
+        @media (min-width: 992px) {
+            display: none;
+        }
+    }
+
+    .line-turning-skew {
+        position: absolute;
+        top: 25px;
+        left: calc(50% - 386px);
+        background-image: url("/assets/images/line_turning_skew.png");
+        background-repeat: no-repeat;
+
+        @include line-rwd(442px, 337px);
+
+        @media (min-width: 1440px) {
+            top: 0;
+            left: calc(50% - 426px);
+        }
     }
 
     .to-be-continue {

@@ -7,6 +7,17 @@
         margin-top: 310px;
     }
 
+    .phone-line {
+        margin: 0 auto;
+        width: $line-width;
+        height: 25px;
+        background-color: #fff;
+
+        @media (min-width: 992px) {
+            display: none;
+        }
+    }
+
     .desc-area {
         display: flex;
         margin-bottom: 0;
@@ -22,14 +33,21 @@
 
             .line {
                 position: absolute;
-                top: -8px;
-                left: 100px;
+                top: -200px;
+                right: $line-width + 1;
                 width: $line-width;
-                height: 2000px;
+                height: 250px;
                 background-color: #fff;
+
+                @media (min-width: 992px) {
+                    top: -8px;
+                    left: 100px;
+                    height: 2000px;
+                }
 
                 @media (min-width: 1440px) {
                     left: 114px;
+                    height: 1900px;
                 }
             }
         }
@@ -56,13 +74,20 @@
 
             .star {
                 position: absolute;
-                top: -20px;
-                left: -148px;
-                width: 100px;
-                height: 100px;
+                top: -6px;
+                left: -43px;
+                width: 38px;
+                height: 38px;
                 background-image: url("/assets/images/glowing_star.png");
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
+
+                @media (min-width: 992px) {
+                    top: -20px;
+                    left: -148px;
+                    width: 100px;
+                    height: 100px;
+                }
             }
         }
     }

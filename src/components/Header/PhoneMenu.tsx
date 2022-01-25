@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { scrollToRoadmap } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/PhoneMenu.scss';
 import PhoneLangBtn from './PhoneLangBtn';
 
@@ -6,7 +7,7 @@ interface IPhoneMenu {
     menuStatus: boolean,
     selectedLang: string,
     setSelectedLang: (lang: string) => void,
-    toggleMenuStatus: () => void
+    toggleMenuStatus: () => void,
 }
 
 const PhoneMenu = ({
@@ -54,7 +55,13 @@ const PhoneMenu = ({
                 <div className="icon twitter"></div>
                 <div className="text">TWITTER</div>
             </div>
-            <div className="menu-btn">
+            <div
+                className="menu-btn"
+                onClick={() => {
+                    scrollToRoadmap();
+                    toggleMenuStatus();
+                }}
+            >
                 <div className="icon roadmap-icon"></div>
                 <div className="text">ROADMAP</div>
             </div>

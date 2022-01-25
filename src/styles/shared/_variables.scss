@@ -3,3 +3,17 @@ $header-size-sm: 50px;
 $header-flexible-size: 68px;
 $header-flexible-size-sm: 30px;
 $line-width: 3px;
+$line-pc-scale-percentage: 0.963;
+$line-phone-scale-percentage: 0.892;
+
+@mixin line-rwd($width, $height) {
+    width: $width * $line-phone-scale-percentage;
+    height: $height * $line-phone-scale-percentage;
+    background-size: $width * $line-phone-scale-percentage auto;
+
+    @media (min-width: 1440px) {
+        width: $width * $line-pc-scale-percentage;
+        height: $height * $line-pc-scale-percentage;
+        background-size: $width * $line-pc-scale-percentage auto;
+    }
+}

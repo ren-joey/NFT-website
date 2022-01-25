@@ -7,8 +7,9 @@
         margin: 0 auto;
         width: 360px;
         height: 360px / 655 * 739;
-        background-image: url("/assets/images/b_alien_1.png");
         background-size: 100% 100%;
+        animation: bouncy 2s linear 0s infinite;
+        transform-origin: center bottom;
 
         @media (min-width: 992px) {
             position: absolute;
@@ -16,5 +17,81 @@
             left: -43%;
             margin: 0;
         }
+
+        @for $i from 1 through 6 {
+            &.idx-#{$i} {
+                background-image: url("/assets/images/b_alien_#{$i}.png");
+            }
+        }
+    }
+
+    & > .star-container {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+
+        &.idx-1 {
+            top: 25%;
+            left: 0;
+            animation: floating 5s linear 0s infinite;
+        }
+
+        &.idx-2 {
+            top: 40%;
+            right: -100px;
+            animation: floating 5s linear 2s infinite;
+        }
+
+        &.idx-3 {
+            bottom: -15%;
+            left: 5%;
+            animation: floating 5s linear 1s infinite;
+            width: 50px;
+            height: 50px;
+        }
+
+        &.idx-4 {
+            bottom: -20%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            animation: floating 5s linear 3s infinite;
+        }
+
+        &.idx-5 {
+            right: -120px;
+            bottom: 0;
+            width: 20px;
+            height: 20px;
+            animation: floating 5s linear 4s infinite;
+        }
+    }
+}
+
+@keyframes bouncy {
+    0% {
+        transform: scaleY(0.98);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+
+    100% {
+        transform: scaleY(0.98);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
