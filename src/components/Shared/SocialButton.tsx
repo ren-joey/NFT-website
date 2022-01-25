@@ -1,4 +1,4 @@
-import 'src/components/Shared/SocialButton.scss'
+import 'src/components/Shared/SocialButton.scss';
 
 interface Props {
     className: string,

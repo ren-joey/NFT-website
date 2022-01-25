@@ -1,23 +1,35 @@
 import { LangContext } from 'src/Context/LangContext';
-import 'src/components/FirstArea/FirstArea.scss';
 import { useContext } from 'react';
 import Counter from 'src/components/FirstArea/Counter';
-import SocialButton from '../Shared/SocialButton';
+import { config } from 'src/config';
+import SocialButton from 'src/components/Shared/SocialButton';
+import 'src/components/FirstArea/FirstArea.scss';
 
 const FirstArea = () => {
     const lang = useContext(LangContext);
+    const { now, getEnd } = config;
+    const end = getEnd();
+    const diff = end.diff(now);
+
     return (
         <div className="first-area">
             <div className="front-container">
                 <div className="b-alien-area">
                     <div className="spotlight"></div>
                     <div className="spotlight reverse"></div>
+                    <div className="ground"></div>
+                    <div className="b-alien-wave"></div>
+                    <div className="b-alien-line"></div>
                 </div>
 
                 <div className="reveal-time-area">
-                    <div className="reveal-time">
-                        March 1 2022 13:00:00 UTC+8
-                    </div>
+                    {
+                        diff > 0
+                            ? <div className="reveal-time">
+                                { end.format('MMMM D YYYY HH:mm:ss UTCZ') }
+                            </div>
+                            : ''
+                    }
                 </div>
 
                 <Counter />
@@ -47,6 +59,6 @@ const FirstArea = () => {
             </div>
         </div>
     );
-}
+};
 
 export default FirstArea;

@@ -1,6 +1,6 @@
 import React from "react";
 import { LangContext } from "src/Context/LangContext";
-import 'src/components/Roadmap/RoadmapCard.scss'
+import 'src/components/Roadmap/RoadmapCard.scss';
 
 interface Props {
     idx: number

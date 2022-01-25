@@ -11,6 +11,10 @@
     box-shadow: 0 0.3rem 0 #fff;
     cursor: pointer;
 
+    &.mt-0 {
+        margin-top: 0;
+    }
+
     & > .icon {
         margin-right: 0.5rem;
         width: 1.6rem;

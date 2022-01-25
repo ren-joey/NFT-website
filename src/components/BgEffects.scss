@@ -91,4 +91,166 @@
         background-size: 30% auto;
         z-index: 1;
     }
+
+    .bubble-area {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+
+        .bubble {
+            position: absolute;
+            top: 50%;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+            &.idx-1 {
+                left: -150px;
+                width: 200px;
+                height: 200px;
+
+                // animation: bubble-animation-2 15s linear 0s infinite;
+                background-image: url("/assets/images/green_ball_1.png");
+
+                @media (min-width: 992px) {
+                    left: -100px;
+                }
+            }
+
+            &.idx-2 {
+                top: 50%;
+                right: 10px;
+                width: 60px;
+                height: 60px;
+
+                // animation: bubble-animation-2 8s linear 2s infinite;
+                background-image: url("/assets/images/orange_ball_1.png");
+
+                @media (min-width: 992px) {
+                    right: 100px;
+                }
+            }
+
+            &.idx-3 {
+                top: 60%;
+                left: -200px;
+                width: 500px;
+                height: 500px;
+                background-image: url("/assets/images/orange_ball_2.png");
+            }
+
+            &.idx-4 {
+                top: 80%;
+                left: 200px;
+                width: 60px;
+                height: 60px;
+                background-image: url("/assets/images/green_ball_2.png");
+            }
+
+            &.idx-5 {
+                top: 20%;
+                right: 300px;
+                width: 40px;
+                height: 40px;
+                background-image: url("/assets/images/green_ball_2.png");
+            }
+
+            &.idx-6 {
+                top: 80%;
+                right: -10%;
+                width: 300px;
+                height: 300px;
+                background-image: url("/assets/images/purple_ball_2.png");
+            }
+
+            &.idx-7 {
+                top: 20%;
+                right: -70px;
+                width: 100px;
+                height: 100px;
+
+                // animation: bubble-animation-1 10s linear 0s infinite;
+                background-image: url("/assets/images/purple_ball_1.png");
+
+                @media (min-width: 992px) {
+                    right: 0%;
+                }
+            }
+
+            &.idx-8 {
+                top: 100vh;
+                left: -100px;
+                width: 180px;
+                height: 180px;
+
+                // animation: bubble-animation-2 15s linear 0s infinite;
+                background-image: url("/assets/images/orange_ball_1.png");
+
+                @media (min-width: 992px) {
+                    left: 20px;
+                }
+            }
+
+            &.idx-9 {
+                top: 100vh;
+                right: -80px;
+                width: 130px;
+                height: 130px;
+
+                // animation: bubble-animation-2 15s linear 0s infinite;
+                background-image: url("/assets/images/green_ball_1.png");
+
+                @media (min-width: 992px) {
+                    right: 10%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes bubble-animation-1 {
+    0% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    25% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+
+    50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+
+    75% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%
+    }
+
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+}
+
+@keyframes bubble-animation-2 {
+    0% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+
+    25% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%
+    }
+
+    50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+
+    75% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    100% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
 }

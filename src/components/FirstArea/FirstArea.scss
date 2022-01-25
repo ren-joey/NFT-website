@@ -19,14 +19,48 @@
         margin: 50px auto 0;
         padding-bottom: calc(100% / 296 * 362); // 296 x 362
         width: 100%;
-        background-image: url("/assets/images/b_alien_pc.png");
-        background-repeat: no-repeat;
-        background-size: 100% auto;
+
+        // background-image: url("/assets/images/b_alien_pc.png");
+        // background-repeat: no-repeat;
+        // background-size: 100% auto;
 
         @media (min-width: 992px) {
             display: block;
             padding-bottom: calc(300px / 296 * 362);
             width: 300px;
+        }
+
+        .b-alien-wave {
+            position: absolute;
+            top: 20px;
+            left: -7px;
+            width: 314px;
+            height: 314px;
+            background-image: url("/assets/images/b_alien_wave.gif");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .b-alien-line {
+            position: absolute;
+            top: 20px;
+            left: 55px;
+            width: 190px;
+            height: 190px / 424 * 729;
+            background-image: url("/assets/images/b_alien.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 296px;
+            height: 129px;
+            background-image: url("/assets/images/b_alien_ground.png");
+            background-position: center bottom;
+            background-size: 100% auto;
         }
 
         .spotlight {
@@ -39,11 +73,13 @@
             background-repeat: no-repeat;
             background-size: 100% auto;
             transform: translate(-60%, -50%);
+            animation: y-move 10s ease-in-out 0s infinite;
 
             &.reverse {
                 right: 0;
                 left: auto;
                 transform: translate(60%, -50%) scaleX(-1);
+                animation: y-move-2 10s cubic-bezier(0.435, -0.305, 0.55, 1.37) 0s infinite;
             }
         }
     }
@@ -177,5 +213,49 @@
 .link-area {
     @media (min-width: 992px) {
         display: none;
+    }
+}
+
+@keyframes y-move {
+    0% {
+        top: 50%;
+    }
+
+    10% {
+        top: 80%;
+    }
+
+    30% {
+        top: 20%
+    }
+
+    40% {
+        top: 50%;
+    }
+
+    100% {
+        top: 50%;
+    }
+}
+
+@keyframes y-move-2 {
+    0% {
+        top: 50%;
+    }
+
+    10% {
+        top: 80%;
+    }
+
+    30% {
+        top: 20%
+    }
+
+    40% {
+        top: 50%;
+    }
+
+    100% {
+        top: 50%;
     }
 }

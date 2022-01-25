@@ -51,6 +51,7 @@
             background-repeat: no-repeat;
             background-size: 80% 80%;
             transition: transform 0.3s;
+            cursor: pointer;
 
             @media (min-width: 992px) {
                 width: $header-size * 344 / 158 * 0.8;

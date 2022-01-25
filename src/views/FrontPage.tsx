@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
 import { scrollTriggerInit } from "src/animation/scrollTrigger";
 import AboutB from "src/components/AboutB/AboutB";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import BgEffects from "src/components/BgEffects";
 import FirstArea from "src/components/FirstArea/FirstArea";
 import Footer from "src/components/Footer";
@@ -15,7 +16,7 @@ import ZH_CN from "src/lang/ZH_CN";
 import ZH_TW from "src/lang/ZH_TW";
 import 'src/views/FrontPage.scss';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const FrontPage = () => {
     const [device, setDevice] = useState(window.innerWidth >= 992 ? 'desktop' : 'phone');
@@ -23,19 +24,21 @@ const FrontPage = () => {
     const zhCN = ZH_CN;
     const [lang, setLang] = useState({...zhTW});
     const [selectedLang, setSelectedLang] = useState('ZH_TW');
+    const previousDevice = device;
 
     useEffect(() => {
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 992) {
+                if (previousDevice === 'phone') window.location.reload();
                 setDevice('desktop');
             } else {
+                if (previousDevice === 'desktop') window.location.reload();
                 setDevice('phone');
             }
         });
 
-        // initialize the gsap scroll trigger
         scrollTriggerInit();
-    });
+    }, []);
 
     useEffect(() => {
         if (selectedLang === 'ZH_TW') {
@@ -43,9 +46,9 @@ const FrontPage = () => {
         } else if  (selectedLang === 'ZH_CN') {
             setLang({...zhCN});
         } else if (selectedLang === 'EN') {
-            setLang({...EN})
+            setLang({...EN});
         } else {
-            setLang({...zhTW})
+            setLang({...zhTW});
         }
     }, [selectedLang]);
 
@@ -75,6 +78,6 @@ const FrontPage = () => {
             </RwdContext.Provider>
         </LangContext.Provider>
     );
-}
+};
 
 export default FrontPage;

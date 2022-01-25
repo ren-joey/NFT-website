@@ -1,4 +1,6 @@
+
 import { useState } from 'react';
+import { scrollToRoadmap, scrollToTop } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/Header.scss';
 import LangBtn from 'src/components/Header/LangBtn';
 import MenuBtn from './MenuBtn';
@@ -18,7 +20,7 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
     return (
         <div className="header">
             <div className="header-container">
-                <div className="logo"></div>
+                <div className="logo" onClick={() => scrollToTop()}></div>
                 <div className="nav-area">
                     <div className="nav">
                         <div className="icon opensea"></div>
@@ -32,7 +34,10 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                         <div className="icon twitter"></div>
                         <div className="nav-text">TWITTER</div>
                     </div>
-                    <div className="nav">
+                    <div
+                        className="nav"
+                        onClick={() => scrollToRoadmap()}
+                    >
                         <div className="icon roadmap-icon"></div>
                         <div className="nav-text">ROADMAP</div>
                     </div>
@@ -59,7 +64,10 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                     />
                 </div>
 
-                <div className="roadmap-btn phone">
+                <div
+                    className="roadmap-btn phone"
+                    onClick={() => scrollToRoadmap()}
+                >
                     <div className="text">ROADMAP</div>
                 </div>
 
