@@ -1,3 +1,6 @@
+$card-padding: 0.8rem;
+$card-padding-pc: 1.8rem;
+
 .roadmap-card-row {
     display: flex;
     align-items: center;
@@ -32,7 +35,7 @@
             background-color: #fff;
             border: 2px solid #8525bb;
             border-radius: 1.4rem;
-            outline: 2px solid #fff;
+            box-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
             letter-spacing: 1px;
             -webkit-text-stroke-width: 2px;
 
@@ -80,12 +83,12 @@
 
             .card-top {
                 position: relative;
-                padding: 2.4rem 1.2rem 1.2rem 3.6rem;
+                padding: #{$card-padding * 2} $card-padding $card-padding #{$card-padding * 4};
                 color: #fff;
                 background-color: rgba(255, 255, 255, 0.3);
 
                 @media (min-width: 992px) {
-                    padding: 2.4rem 2.4rem 2.4rem 4.8rem;
+                    padding: $card-padding-pc $card-padding-pc $card-padding-pc #{$card-padding-pc * 2.5};
                 }
 
                 & > .title {
@@ -124,8 +127,8 @@
 
                 & > .star {
                     position: absolute;
-                    top: 2.4rem;
-                    left: 1.2rem;
+                    top: 1.6rem;
+                    left: $card-padding;
                     width: 1.8rem;
                     height: 1.8rem;
                     background-image: url("/assets/images/star_icon.svg");
@@ -133,7 +136,8 @@
                     background-size: 100% 100%;
 
                     @media (min-width: 992px) {
-                        left: 2rem;
+                        top: 2rem;
+                        left: $card-padding-pc;
                         width: 2rem;
                         height: 2rem;
                     }
@@ -141,12 +145,12 @@
             }
 
             .card-bottom {
-                padding: 1rem 1.2rem;
+                padding: #{$card-padding - 0.2rem} $card-padding $card-padding;
                 color: #00e4ff;
                 background-color: rgba(85, 0, 141, 0.3);
 
                 @media (min-width: 992px) {
-                    padding: 2rem;
+                    padding: #{$card-padding-pc - 0.3rem};
                 }
 
                 & > .remark {
@@ -155,7 +159,7 @@
                     line-height: 1.8rem;
 
                     @media (min-width: 992px) {
-                        font-size: 1.6rem;
+                        font-size: 1.4rem;
                         line-height: 2.4rem;
                     }
                 }

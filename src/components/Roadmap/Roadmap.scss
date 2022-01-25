@@ -5,6 +5,10 @@
 
     @media (min-width: 992px) {
         margin-top: 310px;
+
+        &.en {
+            margin-top: 200px;
+        }
     }
 
     .phone-line {
@@ -12,6 +16,7 @@
         width: $line-width;
         height: 25px;
         background-color: #fff;
+        transform-origin: center top;
 
         @media (min-width: 992px) {
             display: none;
@@ -20,10 +25,11 @@
 
     .desc-area {
         display: flex;
-        margin-bottom: 0;
+        margin-bottom: 20px;
         width: 100%;
 
         @media (min-width: 992px) {
+            margin-top: 0;
             margin-bottom: 100px;
         }
 
@@ -38,16 +44,17 @@
                 width: $line-width;
                 height: 250px;
                 background-color: #fff;
+                transform-origin: top center;
 
                 @media (min-width: 992px) {
                     top: -8px;
                     left: 100px;
-                    height: 2000px;
+                    height: 1820px;
                 }
 
                 @media (min-width: 1440px) {
                     left: 114px;
-                    height: 1900px;
+                    height: 1770px;
                 }
             }
         }

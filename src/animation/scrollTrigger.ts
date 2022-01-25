@@ -1,7 +1,7 @@
 import gsap, { Back } from "gsap";
 
 const scrollTriggerInit = () => {
-    const tl = gsap.timeline({
+    gsap.set('.header', {
         scrollTrigger: {
             start: 'top -50',
             end: 99999,
@@ -12,24 +12,17 @@ const scrollTriggerInit = () => {
         }
     });
 
-    tl.to('.speed-lines', {
+    gsap.to('#canvasArea', {
         opacity: 0,
-        ease: 'none',
         scrollTrigger: {
+            trigger: '#canvasArea',
             start: 'top top',
-            end: 'bottom 30%',
+            end: '+=1000',
             scrub: true
         }
-    }).set('.speed-lines', {
-        scrollTrigger: {
-            start: 'bottom top',
-            toggleClass: {
-                targets: '.speed-lines',
-                className: 'd-none'
-            },
-            scrub: true
-        }
-    }).from('#aboutBContent', {
+    });
+
+    gsap.from('#aboutBContent', {
         y: -100,
         opacity: 0,
         scrollTrigger: {
@@ -38,7 +31,9 @@ const scrollTriggerInit = () => {
             end: 'bottom center',
             scrub: true
         }
-    }).from('#aboutBLine', {
+    });
+
+    gsap.from('#aboutBLine', {
         height: 0,
         scrollTrigger: {
             trigger: '#aboutBLine',
@@ -46,65 +41,14 @@ const scrollTriggerInit = () => {
             end: '+=280',
             scrub: true
         }
-    }).from('#aboutBPhoneLine', {
-        height: 0,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '#aboutBPhoneLine',
-            start: 'top 70%',
-            end: '+=1000',
-            scrub: true
-        }
-    }).from('#featureCardRow1 .feature-card', {
-        y: -100,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '#featureCardRow1',
-            start: 'top 80%',
-            end: 'bottom center',
-            scrub: true
-        },
-        stagger: 0.1
-    }).from('#lineTurningAround', {
-        height: 0,
-        scrollTrigger: {
-            trigger: '#lineTurningAround',
-            start: 'top 70%',
-            end: '+=330',
-            scrub: true
-        }
-    }).from('#featureCardRow2 .feature-card', {
-        y: -100,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '#featureCardRow2',
-            start: 'top 80%',
-            end: 'bottom center',
-            scrub: true
-        },
-        stagger: 0.1
-    }).from('#lineTurningLeft', {
-        height: 0,
-        scrollTrigger: {
-            trigger: '#lineTurningLeft',
-            start: 'top 70%',
-            end: '+=330',
-            scrub: true
-        }
-    }).from('#roadmapLine', {
-        height: 0,
+    });
+
+    gsap.from('#roadmapLine', {
+        scaleY: 0,
         scrollTrigger: {
             trigger: '#roadmapLine',
             start: 'top center',
             end: () => window.innerWidth >= 992 ? '+=2100' : '+=300',
-            scrub: true
-        }
-    }).from('#lineTurningSkew', {
-        height: 0,
-        scrollTrigger: {
-            trigger: '#lineTurningSkew',
-            start: 'top center',
-            end: '+=100',
             scrub: true
         }
     });
@@ -113,58 +57,149 @@ const scrollTriggerInit = () => {
         const featureCard = document.getElementById(`featureCard${i}`);
         if (featureCard) {
             gsap.from(featureCard, {
-                y: -100,
+                y: -50,
                 opacity: 0,
                 scrollTrigger: {
                     trigger: featureCard,
-                    start: 'top 80%',
+                    start: 'top 90%',
+                    end: '+=100',
                     scrub: true
                 }
             });
         }
     }
 
-    const phoneLines = document.querySelectorAll('.phone-line');
-    phoneLines.forEach((line) => {
-        gsap.from(line, {
-            scaleY: 0,
-            duration: 0.5,
-            scrollTrigger: {
-                trigger: line,
-                start: 'top 70%',
-                toggleActions: 'play none reverse none'
-            }
-        });
-    });
-
-    const cards = document.querySelectorAll('.roadmap-card');
-    cards.forEach((card) => {
-        tl.from(card, {
+    const featureCardsRow1 = document.getElementById('featureCardRow1');
+    if (featureCardsRow1) {
+        const cards = document.querySelectorAll('#featureCardRow1 .feature-card');
+        gsap.from(cards, {
             y: -100,
             opacity: 0,
             scrollTrigger: {
-                trigger: card,
+                trigger: featureCardsRow1,
                 start: 'top 80%',
                 end: 'bottom center',
                 scrub: true
+            },
+            stagger: 0.1
+        });
+    }
+
+    const lineTurningAround = document.getElementById('lineTurningAround');
+    if (lineTurningAround) {
+        gsap.from(lineTurningAround, {
+            height: 0,
+            scrollTrigger: {
+                trigger: lineTurningAround,
+                start: 'top 70%',
+                end: '+=330',
+                scrub: true
             }
         });
-    });
+    }
+
+    const featureCardsRow2 = document.getElementById('featureCardRow2');
+    if (featureCardsRow2) {
+        const cards = document.querySelectorAll('#featureCardRow2 .feature-card');
+        gsap.from(cards, {
+            y: -100,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: featureCardsRow2,
+                start: 'top 80%',
+                end: 'bottom center',
+                scrub: true
+            },
+            stagger: 0.1
+        });
+    }
+
+    const lineTurningLeft = document.getElementById('lineTurningLeft');
+    if (lineTurningLeft) {
+        gsap.from(lineTurningLeft, {
+            height: 0,
+            scrollTrigger: {
+                trigger: lineTurningLeft,
+                start: 'top 70%',
+                end: '+=330',
+                scrub: true
+            }
+        });
+    }
+
+    const phoneLineById = document.getElementById('aboutBPhoneLine');
+    if (phoneLineById) {
+        gsap.from(phoneLineById, {
+            height: 0,
+            scrollTrigger: {
+                trigger: '.feature-card-row',
+                start: 'top 70%',
+                end: '+=1500',
+                scrub: true
+            }
+        });
+    }
+
+    const phoneLines = document.querySelectorAll('.phone-line');
+    if(phoneLines.length) {
+        phoneLines.forEach((line) => {
+            gsap.from(line, {
+                scaleY: 0,
+                duration: 0.5,
+                scrollTrigger: {
+                    trigger: line,
+                    start: 'top 70%',
+                    toggleActions: 'play none reverse none'
+                }
+            });
+        });
+    }
+
+    const cards = document.querySelectorAll('.roadmap-card');
+    if (cards.length) {
+        cards.forEach((card) => {
+            gsap.from(card, {
+                y: -100,
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    end: 'bottom center',
+                    scrub: true
+                }
+            });
+        });
+    }
 
     const timeLabels = document.querySelectorAll('.roadmap-time');
-    timeLabels.forEach((label) => {
-        gsap.fromTo(label, {scale: 0},{
-            scale: 1,
-            duration: 0.5,
-            ease: Back.easeOut,
+    if (timeLabels.length) {
+        timeLabels.forEach((label) => {
+            gsap.fromTo(label, {scale: 0},{
+                scale: 1,
+                duration: 0.5,
+                ease: Back.easeOut,
+                scrollTrigger: {
+                    trigger: label,
+                    start: 'top 80%',
+                    end: '+=200'
+                    // toggleActions: 'play none reverse none'
+                }
+            });
+        });
+    }
+
+    const lineTurningSkew = document.getElementById('lineTurningSkew');
+    if (lineTurningSkew) {
+        gsap.from(lineTurningSkew, {
+            height: 0,
             scrollTrigger: {
-                trigger: label,
-                start: 'top 80%',
-                end: '+=200'
-                // toggleActions: 'play none reverse none'
+                trigger: lineTurningSkew,
+                start: 'top center',
+                end: '+=100',
+                scrub: true
             }
         });
-    });
+    }
 
     gsap.to('#bubble1', {
         top: '-500px',

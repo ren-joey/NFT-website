@@ -20,6 +20,7 @@
         width: $line-width;
         height: 50%;
         background-color: #fff;
+        transform-origin: center top;
 
         @media (min-width: 992px) {
             display: none;

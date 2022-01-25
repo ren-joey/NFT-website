@@ -30,7 +30,7 @@ const RoadmapCard = ({ idx }: Props) => {
                     <div className="card-bottom">
                         <div className="remark" dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_REMARK`]}}></div>
                     </div>
-                    <div className="backdrop"></div>
+                    {/* <div className="backdrop"></div> */}
                 </div>
             </div>
         </div>

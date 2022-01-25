@@ -2,12 +2,14 @@ import React, { useMemo } from "react";
 import { LangContext } from "src/Context/LangContext";
 import 'src/components/AboutB/FeatureCard.scss';
 import { RwdContext } from "src/Context/RwdContext";
+import { LangString } from "src/lang";
 interface Props {
     idx: number,
-    line?: boolean
+    line?: boolean,
+    selectedLang: LangString
 }
 
-const FeatureCard = ({ idx, line = true }: Props) => {
+const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
     const lang = React.useContext(LangContext);
     const { device } = React.useContext(RwdContext);
 
@@ -28,13 +30,13 @@ const FeatureCard = ({ idx, line = true }: Props) => {
         <div className="feature-card">
             <div className={`feature-card-icon idx-${idx}`}></div>
             <div className="card-body">
-                <div className="title" dangerouslySetInnerHTML={{__html: title}}></div>
+                <div className={`title ${selectedLang === 'EN' ? 'force-wrap' : ''}`} dangerouslySetInnerHTML={{__html: title}}></div>
                 <div className="desc" dangerouslySetInnerHTML={{__html: desc}}></div>
             </div>
 
             { line && device === 'desktop' ? <div className="right-line"></div> : ''}
 
-            <div className="backdrop"></div>
+            {/* <div className="backdrop"></div> */}
         </div>
     );
 };

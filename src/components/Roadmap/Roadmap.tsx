@@ -1,9 +1,14 @@
 import RoadmapCard from './RoadmapCard';
 import 'src/components/Roadmap/Roadmap.scss';
 import SocialButton from '../Shared/SocialButton';
+import { LangString } from 'src/lang';
 
-const Roadmap = () => (
-    <div className="roadmap">
+interface IRoadmap {
+    selectedLang: LangString
+}
+
+const Roadmap = ({ selectedLang }: IRoadmap) => (
+    <div className={`roadmap ${selectedLang === 'EN' ? 'en' : ''}`}>
         <div className="desc-area">
             <div className="guide-line">
                 <div id="roadmapLine" className="line"></div>
@@ -12,8 +17,6 @@ const Roadmap = () => (
                 <div className="star"></div>
             </div>
         </div>
-
-        <div className="phone-line"></div>
 
         <RoadmapCard idx={1} />
 

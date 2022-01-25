@@ -15,6 +15,8 @@ import EN from "src/lang/EN";
 import ZH_CN from "src/lang/ZH_CN";
 import ZH_TW from "src/lang/ZH_TW";
 import 'src/views/FrontPage.scss';
+import { getParameterByName } from "src/utils/url/getParameterByName";
+import { LangString } from "src/lang";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -22,30 +24,35 @@ const FrontPage = () => {
     const [device, setDevice] = useState(window.innerWidth >= 992 ? 'desktop' : 'phone');
     const zhTW = ZH_TW;
     const zhCN = ZH_CN;
-    const [lang, setLang] = useState({...zhTW});
-    const [selectedLang, setSelectedLang] = useState('ZH_TW');
+    const prevLang = localStorage.getItem('lang') as LangString || 'ZH_TW';
+    const prevLangObj = prevLang === 'EN' ? {...EN} : prevLang === 'ZH_TW' ? {...ZH_TW} : {...ZH_CN};
+    const [lang, setLang] = useState(prevLangObj);
+    const [selectedLang, setSelectedLang] = useState<LangString>(prevLang);
     const previousDevice = device;
 
     useEffect(() => {
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 992) {
-                if (previousDevice === 'phone') window.location.reload();
+                if (previousDevice === 'phone') ScrollTrigger.refresh();
                 setDevice('desktop');
             } else {
-                if (previousDevice === 'desktop') window.location.reload();
+                if (previousDevice === 'desktop') ScrollTrigger.refresh();
                 setDevice('phone');
             }
         });
 
-        scrollTriggerInit();
+        if (!getParameterByName('scroll-trigger')) scrollTriggerInit();
     }, []);
 
     useEffect(() => {
         if (selectedLang === 'ZH_TW') {
+            localStorage.setItem('lang', selectedLang);
             setLang({...zhTW});
         } else if  (selectedLang === 'ZH_CN') {
+            localStorage.setItem('lang', selectedLang);
             setLang({...zhCN});
         } else if (selectedLang === 'EN') {
+            localStorage.setItem('lang', selectedLang);
             setLang({...EN});
         } else {
             setLang({...zhTW});
@@ -64,9 +71,9 @@ const FrontPage = () => {
                     <div className="fp-container">
                         <FirstArea />
 
-                        <AboutB />
+                        <AboutB selectedLang={selectedLang} />
 
-                        <Roadmap />
+                        <Roadmap selectedLang={selectedLang} />
                     </div>
 
                     <Footer />

@@ -7,16 +7,20 @@ interface IConfig {
     readonly getEnd: () => moment.Moment
 }
 
-const zone = '+0800';
+const timeFormat = 'YYYY/MM/DD HH:mm:ss Z';
+const timeOffset = '+08:00';
+
+const timeParser = (time: string) => `${time} ${timeOffset}`;
+const getMoment = (time: string) => moment(timeParser(time), timeFormat);
 
 export const config: IConfig  = {
     counterTimes: [
-        moment('2022/3/22 15:00').zone(zone),
-        moment('2022/3/23 15:00').zone(zone),
-        moment('2022/4/6 15:00').zone(zone),
-        moment('2022/6/1 15:00').zone(zone)
+        getMoment('2022/3/22 15:00'),
+        getMoment('2022/3/23 15:00'),
+        getMoment('2022/4/6 15:00'),
+        getMoment('2022/6/1 15:00')
     ],
-    now: moment().zone(zone),
+    now: moment(),
     end: undefined,
     getEnd: () => {
         if (config.end !== undefined) return config.end;

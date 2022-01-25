@@ -2,11 +2,16 @@ import { useContext } from 'react';
 import 'src/components/AboutB/AboutB.scss';
 import { LangContext } from 'src/Context/LangContext';
 import { RwdContext } from 'src/Context/RwdContext';
+import { LangString } from 'src/lang';
 import Star from '../Shared/Star';
 import BAlienSlider from './BAlienSlider';
 import FeatureCard from './FeatureCard';
 
-const AboutB = () => {
+interface IAboutB {
+    selectedLang: LangString
+}
+
+const AboutB = ({ selectedLang }: IAboutB) => {
     const { device } = useContext(RwdContext);
     const lang = useContext(LangContext);
 
@@ -31,7 +36,7 @@ const AboutB = () => {
             {
                 device === 'phone' ? (
                     <div className="phone-skull">
-                        <div id="aboutBPhoneLine" className="phone-line"></div>
+                        <div id="aboutBPhoneLine" className={`phone-line ${selectedLang === 'EN' ? 'en' : ''}`}></div>
                     </div>
                 ) : ''
             }
@@ -41,9 +46,9 @@ const AboutB = () => {
                     <div className="feature-card-area">
                         <div id="featureCardRow1" className="feature-card-row">
 
-                            <FeatureCard idx={1} />
-                            <FeatureCard idx={2} />
-                            <FeatureCard idx={3} line={false}/>
+                            <FeatureCard idx={1} selectedLang={selectedLang} />
+                            <FeatureCard idx={2} selectedLang={selectedLang} />
+                            <FeatureCard idx={3} line={false} selectedLang={selectedLang}/>
 
                             <div id="lineTurningAround" className="line-turning-around">
                                 <div className="star-container">
@@ -56,8 +61,8 @@ const AboutB = () => {
                                 <BAlienSlider />
                             </div>
 
-                            <FeatureCard idx={4} line={false} />
-                            <FeatureCard idx={5} />
+                            <FeatureCard idx={4} line={false} selectedLang={selectedLang} />
+                            <FeatureCard idx={5} selectedLang={selectedLang} />
 
                             <div className="aside"></div>
                             <div id="lineTurningLeft" className="line-turning-left">
@@ -72,21 +77,21 @@ const AboutB = () => {
                         <div className="feature-card-row">
                             <div className="feature-card-col space-left">
                                 <div id="featureCard1">
-                                    <FeatureCard idx={1} />
+                                    <FeatureCard idx={1} selectedLang={selectedLang} />
                                 </div>
                                 <div id="featureCard3">
-                                    <FeatureCard idx={3} />
+                                    <FeatureCard idx={3} selectedLang={selectedLang} />
                                 </div>
                                 <div id="featureCard5">
-                                    <FeatureCard idx={5} />
+                                    <FeatureCard idx={5} selectedLang={selectedLang} />
                                 </div>
                             </div>
                             <div className="feature-card-col space-right">
                                 <div id="featureCard2">
-                                    <FeatureCard idx={2} />
+                                    <FeatureCard idx={2} selectedLang={selectedLang} />
                                 </div>
                                 <div id="featureCard4">
-                                    <FeatureCard idx={4} />
+                                    <FeatureCard idx={4} selectedLang={selectedLang} />
                                 </div>
                             </div>
                         </div>
