@@ -3,12 +3,13 @@ import { useState } from 'react';
 import { scrollToRoadmap, scrollToTop } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/Header.scss';
 import LangBtn from 'src/components/Header/LangBtn';
+import { LangString } from 'src/lang';
 import MenuBtn from './MenuBtn';
 import PhoneMenu from './PhoneMenu';
 
 interface IHeader {
-    selectedLang: string,
-    setSelectedLang: (selectedLang: string) => void
+    selectedLang: LangString,
+    setSelectedLang: (selectedLang: LangString) => void
 }
 
 const Header = ({ selectedLang, setSelectedLang }: IHeader) => {

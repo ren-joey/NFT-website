@@ -26,40 +26,52 @@
         }
     }
 
-    .speed-lines {
+    .canvas-area {
         position: absolute;
-        top: -1100px;
-        left: calc(50% - 1250px);
-        width: 2500px;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 2500px;
-        background-image: url("/assets/images/speed_lines.png");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 0% 0%;
-
-        @for $i from 0 through 5 {
-            &.idx-#{$i + 1} {
-                animation: speed-lines-scale 6s ease-in #{$i}s infinite;
-            }
-        }
 
         @media (min-width: 992px) {
-            top: -2100px;
-            left: calc(50% - 2500px);
-            width: 5000px;
             height: 5000px;
         }
     }
 
-    @keyframes speed-lines-scale {
-        0% {
-            background-size: 0% 0%;
-        }
+    // .speed-lines {
+    //     position: absolute;
+    //     top: -1100px;
+    //     left: calc(50% - 1250px);
+    //     width: 2500px;
+    //     height: 2500px;
+    //     background-image: url("/assets/images/speed_lines.png");
+    //     background-position: center center;
+    //     background-repeat: no-repeat;
+    //     background-size: 0% 0%;
 
-        100% {
-            background-size: 1000% 1000%;
-        }
-    }
+    //     @for $i from 0 through 5 {
+    //         &.idx-#{$i + 1} {
+    //             animation: speed-lines-scale 6s ease-in #{$i}s infinite;
+    //         }
+    //     }
+
+    //     @media (min-width: 992px) {
+    //         top: -2100px;
+    //         left: calc(50% - 2500px);
+    //         width: 5000px;
+    //         height: 5000px;
+    //     }
+    // }
+
+    // @keyframes speed-lines-scale {
+    //     0% {
+    //         background-size: 0% 0%;
+    //     }
+
+    //     100% {
+    //         background-size: 1000% 1000%;
+    //     }
+    // }
 
     .black-hole {
         position: absolute;

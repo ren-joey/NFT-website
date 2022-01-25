@@ -1,14 +1,3 @@
-/* eslint-disable */
-
-/**
- * [AJAX]
- * 伺服器溝通
- */
-export { ajax } from './ajax/ajax';
-export { eventBucket } from './ajax/eventBucket';
-export { ajaxEventBucket } from './ajax/ajaxEventBucket';
-export { gtmEventLog } from './ajax/gtmEventLog';
-
 /**
  * [ANIMATION]
  * 動畫
@@ -95,10 +84,3 @@ export { clearAllParameter } from './url/clearAllParameter';
 export { getParameterByName } from './url/getParameterByName';
 export { removeParameterByName } from './url/removeParameterByName';
 
-/**
- * [GA]
- * Google Analytics 操作
- */
-export { gaInit } from './ga/gaInit';
-export { gaSender } from './ga/gaSender';
-export { gtmSender } from './ga/gtmSender';

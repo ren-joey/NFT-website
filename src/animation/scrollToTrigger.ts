@@ -1,10 +1,10 @@
 import gsap, { Power3 } from 'gsap';
 
-const scrollToElement = (target: string) => {
+const scrollToElement = (target: string, offsetY = 200) => {
     gsap.to(window, {
         duration: 1, scrollTo: {
             y: target,
-            offsetY: 200
+            offsetY
         },
         ease: Power3.easeOut
     });
@@ -19,7 +19,7 @@ const scrollToOffset = (offset: number) => {
 
 
 const scrollToRoadmap = () => {
-    scrollToElement('.roadmap');
+    scrollToElement('.roadmap', 60);
 };
 
 const scrollToTop = () => {

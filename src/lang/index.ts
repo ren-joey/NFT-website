@@ -1,5 +1,4 @@
-import ZH_TW from "src/lang/ZH_TW";
-
+export type LangString = 'ZH_TW'|'ZH_CN'|'EN';
 export interface Lang {
     readonly FIRST_AREA_TITLE: string;
     readonly FIRST_AREA_DESC: string;
@@ -37,7 +36,3 @@ export interface Lang {
     readonly COPYRIGHT: string;
     readonly [index: string]: string;
 }
-
-const lang = (): Lang => ZH_TW;
-
-export default lang;

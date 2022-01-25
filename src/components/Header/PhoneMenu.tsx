@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { scrollToRoadmap } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/PhoneMenu.scss';
+import { LangString } from 'src/lang';
 import PhoneLangBtn from './PhoneLangBtn';
 
 interface IPhoneMenu {
     menuStatus: boolean,
-    selectedLang: string,
-    setSelectedLang: (lang: string) => void,
+    selectedLang: LangString,
+    setSelectedLang: (lang: LangString) => void,
     toggleMenuStatus: () => void,
 }
 
@@ -36,7 +37,7 @@ const PhoneMenu = ({
         return '';
     };
 
-    const selectLang = (lang: string) => {
+    const selectLang = (lang: LangString) => {
         setSelectedLang(lang);
         toggleMenuStatus();
     };

@@ -79,6 +79,7 @@
             .desc {
                 margin-top: 0.6rem;
                 font-size: 1rem;
+                font-weight: bolder;
                 line-height: 1.6rem;
                 color: #fff;
 
@@ -191,12 +192,17 @@
 
         .phone-line {
             position: absolute;
-            top: 100%;
+            top: 33px;
             left: calc(50% - #{$line-width / 2});
             width: $line-width;
             height: 1000px;
             background-color: #fff;
             z-index: -1;
+            transform-origin: center top;
+
+            &.en {
+                height: 1300px;
+            }
         }
     }
 }

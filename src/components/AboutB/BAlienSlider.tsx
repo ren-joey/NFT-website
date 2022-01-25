@@ -14,7 +14,7 @@ const BAlienSlider = () => {
             }
 
             setAlienIndex(idx);
-        }, 2000);
+        }, 600);
     }, [alienIdx]);
 
     return(

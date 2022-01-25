@@ -8,12 +8,13 @@
         width: 360px;
         height: 360px / 655 * 739;
         background-size: 100% 100%;
-        animation: bouncy 2s linear 0s infinite;
+
+        // animation: bouncy 2s linear 0s infinite;
         transform-origin: center bottom;
 
         @media (min-width: 992px) {
             position: absolute;
-            bottom: -8%;
+            bottom: -6%;
             left: -43%;
             margin: 0;
         }
@@ -31,39 +32,64 @@
         height: 30px;
 
         &.idx-1 {
-            top: 25%;
-            left: 0;
+            top: 5%;
+            left: 15%;
             animation: floating 5s linear 0s infinite;
+
+            @media (min-width: 992px) {
+                top: 25%;
+                left: 0;
+            }
         }
 
         &.idx-2 {
-            top: 40%;
-            right: -100px;
+            top: 20%;
+            right: 10%;
             animation: floating 5s linear 2s infinite;
+
+            @media (min-width: 992px) {
+                top: 40%;
+                right: -100px;
+            }
         }
 
         &.idx-3 {
-            bottom: -15%;
-            left: 5%;
-            animation: floating 5s linear 1s infinite;
+            bottom: -10%;
+            left: 25%;
             width: 50px;
             height: 50px;
+            animation: floating 5s linear 1s infinite;
+
+            @media (min-width: 992px) {
+                bottom: -15%;
+                left: 5%;
+            }
         }
 
         &.idx-4 {
-            bottom: -20%;
-            left: 50%;
+            bottom: 50%;
+            left: 5%;
             width: 20px;
             height: 20px;
             animation: floating 5s linear 3s infinite;
+
+            @media (min-width: 992px) {
+                bottom: -20%;
+                left: 50%;
+            }
         }
 
         &.idx-5 {
-            right: -120px;
-            bottom: 0;
+            right: 10%;
+            bottom: 10%;
             width: 20px;
             height: 20px;
             animation: floating 5s linear 4s infinite;
+
+            @media (min-width: 992px) {
+                right: -120px;
+                bottom: 0;
+            }
         }
     }
 }

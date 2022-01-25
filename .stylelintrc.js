@@ -101,6 +101,8 @@ module.exports = {
             "text-shadow",
             "resize",
             "transition",
+            "transform",
+            "animation",
             "cursor",
         ],
     }

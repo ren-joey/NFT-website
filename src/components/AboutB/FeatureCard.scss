@@ -58,13 +58,16 @@
         font-weight: bolder;
         text-align: center;
         color: #fff;
-        background-color: rgba(255, 255, 255, 0.3);
+
+        // background-color: rgba(0, 0, 0, 0.1);
+        background-image: url("/assets/images/bg.jpg");
+        background-size: 100% 100%;
 
         // border: 3px solid linear-gradient(to bottom, #fff 0%, #f03 50%, #8916f5 100%);
         border: 2px solid #fff;
         border-radius: 1.4rem;
         z-index: 1;
-        box-shadow: 0 0 30px #fff inset, 0 5px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) inset, 0 5px 30px rgba(0, 0, 0, 0.3);
 
         & > .title {
             font-size: 1.6rem;
@@ -85,7 +88,10 @@
 
             & > .title {
                 font-size: 1.8rem;
-                white-space: nowrap;
+
+                &:not(.force-wrap) {
+                    white-space: nowrap;
+                }
             }
 
             & > .desc {
