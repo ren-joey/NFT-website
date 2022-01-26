@@ -19,6 +19,7 @@ import { getParameterByName } from "src/utils/url/getParameterByName";
 import { LangString } from "src/lang";
 import ScrollDownIcon from "src/components/Shared/ScrollDownIcon";
 import BackToTop from "src/components/Shared/BackToTopIcon";
+import { bubbleScrollTrigger } from "src/animation/bubbleScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -57,10 +58,12 @@ const FrontPage = () => {
 
         window.addEventListener('resize', rootEventLister);
 
-        if (!getParameterByName('scroll-trigger')) scrollTriggerInit();
-
         window.onload = () => {
             document.body.style.overflow = '';
+            if (!getParameterByName('scroll-trigger')) {
+                scrollTriggerInit();
+                bubbleScrollTrigger();
+            }
         };
 
         return () => {
@@ -108,7 +111,7 @@ const FrontPage = () => {
 
                     <ScrollDownIcon />
 
-                    { device === 'phone' ? <BackToTop /> : '' }
+                    <BackToTop />
 
                     {/* <div className="fp-preview"></div> */}
                 </div>

@@ -1,7 +1,9 @@
 import gsap from "gsap";
 
 const bubbleScrollTrigger = () => {
-    gsap.to('#bubble1', {
+    const tl = gsap.timeline();
+
+    tl.to('#bubble1', {
         top: '-500px',
         ease: 'none',
         scrollTrigger: {
@@ -11,7 +13,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble2', {
+    tl.to('#bubble2', {
         top: '-500px',
         ease: 'none',
         scrollTrigger: {
@@ -21,7 +23,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble3', {
+    tl.to('#bubble3', {
         top: '-500px',
         ease: 'none',
         scrollTrigger: {
@@ -31,7 +33,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble4', {
+    tl.to('#bubble4', {
         top: '-=200px',
         ease: 'none',
         scrollTrigger: {
@@ -41,7 +43,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble5', {
+    tl.to('#bubble5', {
         top: '-=300px',
         ease: 'none',
         scrollTrigger: {
@@ -52,7 +54,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble6', {
+    tl.to('#bubble6', {
         top: '-=300px',
         ease: 'none',
         scrollTrigger: {
@@ -63,7 +65,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble7', {
+    tl.to('#bubble7', {
         top: '-=300px',
         ease: 'none',
         scrollTrigger: {
@@ -74,7 +76,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble8', {
+    tl.to('#bubble8', {
         top: '-300px',
         ease: 'none',
         scrollTrigger: {
@@ -85,7 +87,7 @@ const bubbleScrollTrigger = () => {
         }
     });
 
-    gsap.to('#bubble9', {
+    tl.to('#bubble9', {
         top: '-300px',
         ease: 'none',
         scrollTrigger: {
@@ -95,6 +97,8 @@ const bubbleScrollTrigger = () => {
             scrub: true
         }
     });
+
+    return tl;
 };
 
 export { bubbleScrollTrigger };

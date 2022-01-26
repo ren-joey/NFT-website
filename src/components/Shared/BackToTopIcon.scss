@@ -5,6 +5,12 @@
     opacity: 0;
     z-index: 3;
 
+    @media (min-width: 992px) {
+        right: 2rem;
+        bottom: 2rem;
+        cursor: pointer;
+    }
+
     .back-to-top-icon {
         margin-bottom: 93px * 0.16;
         width: 45px * 0.8;
@@ -13,6 +19,12 @@
         background-repeat: no-repeat;
         background-size: 100% auto;
         animation: rotate-y 2s linear 0s infinite;
+
+        @media (min-width: 992px) {
+            margin-bottom: 93px * 0.2;
+            width: 45px;
+            height: 93px * 0.8;
+        }
     }
 
     .fire-icon {
@@ -27,6 +39,13 @@
         background-size: #{45px * 0.8} auto;
         transform-origin: top center;
         animation: fire 0.2s linear 0s infinite;
+
+        @media (min-width: 992px) {
+            left: calc(50% - 6.25px);
+            width: 12.5px;
+            height: 18.75px;
+            background-size: 45px auto;
+        }
     }
 }
 

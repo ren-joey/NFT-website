@@ -13,6 +13,7 @@ const PhoneLangBtn = ({ selectedLang, setSelectedLang, lang, title }: ILangBtn) 
         className={`lang-btn ${selectedLang === lang ? 'active' : ''}`}
         onClick={() => setSelectedLang(lang)}
     >
+        <div className="skull-outline-icon"></div>
         <div className="text">
             {title}
         </div>
