@@ -1,8 +1,10 @@
 
-import { useState } from 'react';
+import gsap from 'gsap';
+import { useContext, useEffect, useState } from 'react';
 import { scrollToRoadmap, scrollToTop } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/Header.scss';
 import LangBtn from 'src/components/Header/LangBtn';
+import { RwdContext } from 'src/Context/RwdContext';
 import { LangString } from 'src/lang';
 import MenuBtn from './MenuBtn';
 import PhoneMenu from './PhoneMenu';
@@ -13,13 +15,27 @@ interface IHeader {
 }
 
 const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
+    const { device } = useContext(RwdContext);
     const [menuStatus, setMenuStatus] = useState(false);
     const toggleMenuStatus = () => {
         setMenuStatus(!menuStatus);
     };
 
+    useEffect(() => {
+        gsap.set('#header', {
+            scrollTrigger: {
+                start: 'top -50',
+                end: 99999,
+                toggleClass: {
+                    targets: '#header',
+                    className: 'header-scrolled'
+                }
+            }
+        });
+    }, []);
+
     return (
-        <div className="header">
+        <div id="header" className="header">
             <div className="header-container">
                 <div className="logo" onClick={() => scrollToTop()}></div>
                 <div className="nav-area">
@@ -72,17 +88,23 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                     <div className="text">ROADMAP</div>
                 </div>
 
-                <MenuBtn
-                    active={menuStatus}
-                    onClick={toggleMenuStatus}
-                />
+                {
+                    device === 'phone' ?
+                        <MenuBtn
+                            active={menuStatus}
+                            onClick={toggleMenuStatus}
+                        /> : ''
+                }
 
-                <PhoneMenu
-                    menuStatus={menuStatus}
-                    selectedLang={selectedLang}
-                    setSelectedLang={setSelectedLang}
-                    toggleMenuStatus={toggleMenuStatus}
-                />
+                {
+                    device === 'phone' ?
+                        <PhoneMenu
+                            menuStatus={menuStatus}
+                            selectedLang={selectedLang}
+                            setSelectedLang={setSelectedLang}
+                            toggleMenuStatus={toggleMenuStatus}
+                        /> : ''
+                }
             </div>
 
             <div className="blur-glass"></div>

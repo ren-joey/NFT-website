@@ -38,6 +38,16 @@ const speedLineAnimate = (sprite: PIXI.Sprite, delay = 0) => {
 const getHeightRate = () => window.innerWidth >= 992 ? 0.3 : 0.2;
 
 const bgEffectInit = () => {
+    gsap.fromTo('#canvasArea', {opacity: 1}, {
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '#canvasArea',
+            start: 'top top',
+            end: '+=1000',
+            scrub: true
+        }
+    });
+
     pixiLoader().then((resources) => {
         const app = new PIXI.Application({
             view: document.getElementById('canvas') as HTMLCanvasElement,

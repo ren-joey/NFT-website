@@ -1,155 +1,200 @@
 import gsap, { Back } from "gsap";
 
+const clearStyles = (dom: null|Element) => {
+    if (dom) dom.removeAttribute('style');
+};
+
+const getDomByQueryAndClearStyles = (query: string) => {
+    const dom = document.querySelector(query) as (HTMLElement|null);
+    clearStyles(dom);
+    return dom;
+};
+
+const getDomByIdAndClearStyles = (id: string) => {
+    const dom = document.getElementById(id);
+    clearStyles(dom);
+    return dom;
+};
+
+const ifDomExistDo = (query: string, callback: (dom: HTMLElement) => void) => {
+    let dom: null|HTMLElement = null;
+    if (query[0] === '#') dom = getDomByIdAndClearStyles(query.slice(0 - query.length + 1));
+    else dom = getDomByQueryAndClearStyles(query);
+    if (dom !== null) {
+        callback(dom as HTMLElement);
+    }
+};
+
+let initialized = false;
+
 const scrollTriggerInit = () => {
-    gsap.set('.header', {
-        scrollTrigger: {
-            start: 'top -50',
-            end: 99999,
-            toggleClass: {
-                targets: '.header',
-                className: 'header-scrolled'
+    if (window.scrollY !== 0) return;
+    if (initialized) return;
+    initialized = true;
+
+    const scrubAndSelfKill = {
+        scrub: true,
+        onLeave: (self: any) => {
+            self.kill(false, true);
+        }
+    };
+
+
+    /* linear scroll trigger */
+    const tl = gsap.timeline();
+
+    ifDomExistDo('#aboutBContent', (dom) => {
+        tl.fromTo(dom, {
+            y: -100,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            scrollTrigger: {
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
+                start: 'top 80%',
+                end: 'bottom center'
             }
-        }
+        });
     });
 
-    gsap.to('#canvasArea', {
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '#canvasArea',
-            start: 'top top',
-            end: '+=1000',
-            scrub: true
-        }
-    });
-
-    gsap.from('#aboutBContent', {
-        y: -100,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '#aboutBContent',
-            start: 'top 80%',
-            end: 'bottom center',
-            scrub: true
-        }
-    });
-
-    gsap.from('#aboutBLine', {
-        height: 0,
-        scrollTrigger: {
-            trigger: '#aboutBLine',
-            start: 'top 70%',
-            end: '+=280',
-            scrub: true
-        }
-    });
-
-    gsap.from('#roadmapLine', {
-        scaleY: 0,
-        scrollTrigger: {
-            trigger: '#roadmapLine',
-            start: 'top center',
-            end: () => window.innerWidth >= 992 ? '+=2100' : '+=300',
-            scrub: true
-        }
+    ifDomExistDo('#aboutBLine', (dom) => {
+        tl.fromTo(dom, { scaleY: 0 },{
+            scaleY: 1,
+            scrollTrigger: {
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
+                start: 'top 70%',
+                end: `+=280`
+            }
+        });
     });
 
     for (let i = 1; i <= 5; i += 1) {
-        const featureCard = document.getElementById(`featureCard${i}`);
-        if (featureCard) {
-            gsap.from(featureCard, {
+        ifDomExistDo(`#featureCard${i}`, (dom) => {
+            const rate = window.innerWidth >= 992 ? '90' : '70';
+            tl.fromTo(dom, {
                 y: -50,
-                opacity: 0,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
                 scrollTrigger: {
-                    trigger: featureCard,
-                    start: 'top 90%',
-                    end: '+=100',
-                    scrub: true
+                    ...scrubAndSelfKill,
+                    id: dom.id,
+                    trigger: dom,
+                    start: `top ${rate}%`,
+                    end: '+=100'
                 }
             });
-        }
+        });
     }
 
-    const featureCardsRow1 = document.getElementById('featureCardRow1');
-    if (featureCardsRow1) {
+    ifDomExistDo('#featureCardRow1', (dom) => {
         const cards = document.querySelectorAll('#featureCardRow1 .feature-card');
-        gsap.from(cards, {
+        tl.fromTo(cards, {
             y: -100,
-            opacity: 0,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
             scrollTrigger: {
-                trigger: featureCardsRow1,
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
                 start: 'top 80%',
-                end: 'bottom center',
-                scrub: true
+                end: 'top 10%'
             },
-            stagger: 0.1
+            stagger: 0.15
         });
-    }
+    });
 
-    const lineTurningAround = document.getElementById('lineTurningAround');
-    if (lineTurningAround) {
-        gsap.from(lineTurningAround, {
-            height: 0,
+    ifDomExistDo('#lineTurningAround', (dom) => {
+        tl.fromTo(dom, { height: 0 }, {
+            height: 537,
             scrollTrigger: {
-                trigger: lineTurningAround,
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
                 start: 'top 70%',
-                end: '+=330',
-                scrub: true
+                end: '+=537'
             }
         });
-    }
+    });
 
-    const featureCardsRow2 = document.getElementById('featureCardRow2');
-    if (featureCardsRow2) {
+    ifDomExistDo('#featureCardRow2', (dom) => {
         const cards = document.querySelectorAll('#featureCardRow2 .feature-card');
-        gsap.from(cards, {
+        tl.fromTo(cards, {
             y: -100,
-            opacity: 0,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
             scrollTrigger: {
-                trigger: featureCardsRow2,
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
                 start: 'top 80%',
-                end: 'bottom center',
-                scrub: true
+                end: 'top 10%'
             },
-            stagger: 0.1
+            stagger: 0.15
         });
-    }
+    });
 
-    const lineTurningLeft = document.getElementById('lineTurningLeft');
-    if (lineTurningLeft) {
-        gsap.from(lineTurningLeft, {
-            height: 0,
+    ifDomExistDo('#lineTurningLeft', (dom) => {
+        tl.fromTo(dom, {height: 0},  {
+            height: 537,
             scrollTrigger: {
-                trigger: lineTurningLeft,
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
                 start: 'top 70%',
-                end: '+=330',
-                scrub: true
+                end: '+=537'
             }
         });
-    }
+    });
 
-    const phoneLineById = document.getElementById('aboutBPhoneLine');
-    if (phoneLineById) {
-        gsap.from(phoneLineById, {
-            height: 0,
+    ifDomExistDo('#roadmapLine', (dom) => {
+        tl.fromTo(dom, { scaleY: 0 }, {
+            scaleY: 1,
             scrollTrigger: {
-                trigger: '.feature-card-row',
-                start: 'top 70%',
-                end: '+=1500',
-                scrub: true
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
+                start: 'top center',
+                end: () => window.innerWidth >= 992 ? '+=1530' : '+=300'
             }
         });
-    }
+    });
+
+    ifDomExistDo('#aboutBPhoneLine', (dom) => {
+        tl.fromTo(dom, {scaleY: 0}, {
+            scaleY: 1,
+            scrollTrigger: {
+                ...scrubAndSelfKill,
+                id: dom.id,
+                trigger: dom,
+                start: 'top 70%',
+                end: `+=1300`
+            }
+        });
+    });
 
     const phoneLines = document.querySelectorAll('.phone-line');
     if(phoneLines.length) {
-        phoneLines.forEach((line) => {
-            gsap.from(line, {
+        phoneLines.forEach((line, idx) => {
+            tl.fromTo(line,{
                 scaleY: 0,
-                duration: 0.5,
+                duration: 0.5
+            } ,  {
+                scaleY: 1,
                 scrollTrigger: {
+                    id: `phoneLine${idx}`,
                     trigger: line,
-                    start: 'top 70%',
-                    toggleActions: 'play none reverse none'
+                    start: 'top 70%'
                 }
             });
         });
@@ -157,15 +202,19 @@ const scrollTriggerInit = () => {
 
     const cards = document.querySelectorAll('.roadmap-card');
     if (cards.length) {
-        cards.forEach((card) => {
-            gsap.from(card, {
+        cards.forEach((card, idx) => {
+            tl.fromTo(card, {
                 y: -100,
-                opacity: 0,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
                 scrollTrigger: {
+                    ...scrubAndSelfKill,
+                    id: `roadmapCard${idx}`,
                     trigger: card,
                     start: 'top 80%',
-                    end: 'bottom center',
-                    scrub: true
+                    end: 'bottom center'
                 }
             });
         });
@@ -173,128 +222,36 @@ const scrollTriggerInit = () => {
 
     const timeLabels = document.querySelectorAll('.roadmap-time');
     if (timeLabels.length) {
-        timeLabels.forEach((label) => {
-            gsap.fromTo(label, {scale: 0},{
+        timeLabels.forEach((label, idx) => {
+            tl.fromTo(label, {scale: 0},{
                 scale: 1,
                 duration: 0.5,
                 ease: Back.easeOut,
                 scrollTrigger: {
+                    ...scrubAndSelfKill,
+                    id: `roadmapTime${idx}`,
                     trigger: label,
                     start: 'top 80%',
                     end: '+=200'
-                    // toggleActions: 'play none reverse none'
                 }
             });
         });
     }
 
-    const lineTurningSkew = document.getElementById('lineTurningSkew');
-    if (lineTurningSkew) {
-        gsap.from(lineTurningSkew, {
-            height: 0,
+    ifDomExistDo('lineTurningSkew', (dom) => {
+        tl.fromTo(dom, { height: 0 }, {
+            height: 337,
             scrollTrigger: {
-                trigger: lineTurningSkew,
+                ...scrubAndSelfKill,
+                id: 'lineTurningSkew',
+                trigger: dom,
                 start: 'top center',
-                end: '+=100',
-                scrub: true
+                end: '+=100'
             }
         });
-    }
-
-    gsap.to('#bubble1', {
-        top: '-500px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=4000',
-            scrub: true
-        }
     });
 
-    gsap.to('#bubble2', {
-        top: '-500px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=5000',
-            scrub: true
-        }
-    });
-
-    gsap.to('#bubble3', {
-        top: '-500px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=5000',
-            scrub: true
-        }
-    });
-
-    gsap.to('#bubble4', {
-        top: '-=200px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=10000',
-            scrub: true
-        }
-    });
-
-    gsap.to('#bubble5', {
-        top: '-=300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top top',
-            end: '+=10000',
-            scrub: true
-        }
-    });
-
-    gsap.to('#bubble6', {
-        top: '-=300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top top',
-            end: '+=8000',
-            scrub: true
-        }
-    });
-
-    gsap.to('#bubble7', {
-        top: '-=300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top top',
-            end: '+=5000',
-            scrub: true
-        }
-    });
-
-    gsap.to('#bubble8', {
-        top: '-300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top -1000',
-            end: '+=3000',
-            scrub: true
-        }
-    });
-
-    gsap.to('#bubble9', {
-        top: '-300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top -1500',
-            end: '+=6000',
-            scrub: true
-        }
-    });
+    return tl;
 };
 
 export { scrollTriggerInit };

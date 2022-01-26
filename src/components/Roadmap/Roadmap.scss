@@ -17,10 +17,6 @@
         height: 25px;
         background-color: #fff;
         transform-origin: center top;
-
-        @media (min-width: 992px) {
-            display: none;
-        }
     }
 
     .desc-area {
@@ -35,12 +31,16 @@
 
         .guide-line {
             position: relative;
-            width: 198px;
+            width: 50%;
+
+            @media (min-width: 992px) {
+                width: 198px;
+            }
 
             .line {
                 position: absolute;
                 top: -200px;
-                right: $line-width + 1;
+                right: -#{$line-width / 2};
                 width: $line-width;
                 height: 250px;
                 background-color: #fff;
@@ -49,12 +49,11 @@
                 @media (min-width: 992px) {
                     top: -8px;
                     left: 100px;
-                    height: 1820px;
+                    height: 1460px;
                 }
 
                 @media (min-width: 1440px) {
                     left: 114px;
-                    height: 1770px;
                 }
             }
         }

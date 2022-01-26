@@ -2,8 +2,10 @@
 
 import React from "react";
 
+export type DeviceString = 'desktop'|'phone';
+
 interface IRwdContext {
-    device: string
+    device: DeviceString
 }
 
 const device = window.innerWidth >= 992 ? 'desktop' : 'phone';

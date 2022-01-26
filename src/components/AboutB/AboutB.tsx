@@ -19,11 +19,10 @@ const AboutB = ({ selectedLang }: IAboutB) => {
         <div className="about-b">
             <div className="desc-area">
                 <div className="guide-line pc">
-                    <div id="aboutBLine" className="line">
-                        <div className="skull"></div>
-                        <div className="star-container">
-                            <Star />
-                        </div>
+                    <div id="aboutBLine" className="line"></div>
+                    <div className="skull"></div>
+                    <div className="star-container">
+                        <Star />
                     </div>
                 </div>
                 <div id="aboutBContent" className="content">

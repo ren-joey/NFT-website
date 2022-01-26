@@ -9,6 +9,7 @@ $line-phone-scale-percentage: 0.892;
 @mixin line-rwd($width, $height) {
     width: $width * $line-phone-scale-percentage;
     height: $height * $line-phone-scale-percentage;
+    background-repeat: no-repeat;
     background-size: $width * $line-phone-scale-percentage auto;
 
     @media (min-width: 1440px) {
