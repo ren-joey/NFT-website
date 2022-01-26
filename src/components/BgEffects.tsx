@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import bgEffectInit from 'src/animation/bgEffect';
 import 'src/components/BgEffects.scss';
+import { getParameterByName } from 'src/utils';
 
 const BgEffects = () => {
     useEffect(() => {
-        bgEffectInit();
+        if (!getParameterByName('bg-effect')) {
+            bgEffectInit();
+        }
     }, []);
 
     return (

@@ -36,7 +36,9 @@ const FrontPage = () => {
     const [device, setDevice] = useState<DeviceString>(window.innerWidth >= 992 ? 'desktop' : 'phone');
     const zhTW = ZH_TW;
     const zhCN = ZH_CN;
-    const prevLang = localStorage.getItem('lang') as LangString || 'ZH_TW';
+    const prevLang = getParameterByName('lang') as LangString
+        || localStorage.getItem('lang') as LangString
+        || 'ZH_TW';
     const prevLangObj = prevLang === 'EN' ? {...EN} : prevLang === 'ZH_TW' ? {...ZH_TW} : {...ZH_CN};
     const [lang, setLang] = useState(prevLangObj);
     const [selectedLang, setSelectedLang] = useState<LangString>(prevLang);

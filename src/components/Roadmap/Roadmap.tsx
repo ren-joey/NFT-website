@@ -30,6 +30,8 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
 
             { getLine() }
 
+            <RoadmapCard idx={1} />
+
             <div className="link-area">
                 <SocialButton className='twitter mt-0' name='Twitter' />
 

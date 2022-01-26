@@ -18,8 +18,11 @@ const ScrollDownIcon = () => {
 
     return (
         <div id="scrollDownArea" className="scroll-down-area">
-            <div className="scroll-down-icon"></div>
-            {/* <div className="text"></div> */}
+            {
+                Array.from({ length: 3 }, (_, i) => (
+                    <div className={`arrow idx-${i + 1}`} key={i}/>
+                ))
+            }
         </div>
     );
 };

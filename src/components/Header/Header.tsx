@@ -39,10 +39,10 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
             <div className="header-container">
                 <div className="logo" onClick={() => scrollToTop()}></div>
                 <div className="nav-area">
-                    <div className="nav">
+                    {/* <div className="nav">
                         <div className="icon opensea"></div>
                         <div className="nav-text">OPENSEA</div>
-                    </div>
+                    </div> */}
                     <div className="nav">
                         <div className="icon discord"></div>
                         <div className="nav-text">DISCORD</div>

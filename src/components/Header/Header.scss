@@ -70,7 +70,9 @@
             @media (min-width: 992px) {
                 display: flex;
                 justify-content: space-around;
-                max-width: 850px;
+
+                // max-width: 850px;
+                max-width: 650px;
                 height: $header-size;
                 flex: 1;
             }

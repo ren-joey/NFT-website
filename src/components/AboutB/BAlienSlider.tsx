@@ -17,7 +17,7 @@ const BAlienSlider = () => {
 
             setAlienIndex(idx);
             prevIdx = idx;
-        }, 600);
+        }, 200);
 
         return () => {
             clearInterval(interval);
