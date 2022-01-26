@@ -1,0 +1,14 @@
+.scroll-down-area {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%);
+
+    .scroll-down-icon {
+        width: 75px * 0.8;
+        height: 74px * 0.8;
+        background-image: url("/assets/images/scroll_down.gif");
+        background-size: 100% 100%;
+    }
+}

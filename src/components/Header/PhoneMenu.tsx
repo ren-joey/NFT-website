@@ -8,7 +8,7 @@ interface IPhoneMenu {
     menuStatus: boolean,
     selectedLang: LangString,
     setSelectedLang: (lang: LangString) => void,
-    toggleMenuStatus: () => void,
+    toggleMenuStatus: () => void
 }
 
 const PhoneMenu = ({

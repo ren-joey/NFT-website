@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import bgEffectInit from 'src/animation/bgEffect';
+import { bubbleScrollTrigger } from 'src/animation/bubbleScrollTrigger';
 import 'src/components/BgEffects.scss';
 
 const BgEffects = () => {
     useEffect(() => {
         bgEffectInit();
+        bubbleScrollTrigger();
     }, []);
 
     return (

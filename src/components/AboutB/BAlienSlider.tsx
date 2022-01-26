@@ -7,15 +7,22 @@ const BAlienSlider = () => {
     const [alienIdx, setAlienIndex] = useState(1);
 
     useEffect(() => {
-        setTimeout(() => {
+        let prevIdx = 1;
+
+        const interval = setInterval(() => {
             let idx = getRandomNumber(1, 6);
-            if (idx === alienIdx) {
-                idx = ((alienIdx + 1) % 6) || 1;
+            if (idx === prevIdx) {
+                idx = ((prevIdx + 1) % 6) || 1;
             }
 
             setAlienIndex(idx);
+            prevIdx = idx;
         }, 600);
-    }, [alienIdx]);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
     return(
         <div className="b-alien-slider">

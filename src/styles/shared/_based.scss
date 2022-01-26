@@ -14,10 +14,10 @@ body,
     &::-webkit-scrollbar {
         display: none;
     }
+}
 
-    .rule-body * {
-        user-select: text;
-    }
+.en {
+    font-size: 14px;
 }
 
 @media (max-width: 991.98px) {
@@ -34,6 +34,10 @@ body,
 
 .d-none {
     display: none !important;
+}
+
+.pointer-events-none {
+    pointer-events: none !important;
 }
 
 .mr-auto {

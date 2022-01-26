@@ -58,9 +58,10 @@ module.exports = {
 
         /* typescript */
         '@typescript-eslint/no-explicit-any': 'off',
-        'react-hooks/exhaustive-deps': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
 
         /* react */
+        'react-hooks/exhaustive-deps': 'off',
         'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
         'react/react-in-jsx-scope': 'off',
         'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],

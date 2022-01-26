@@ -22,7 +22,7 @@ const EN: Lang = {
     ROADMAP_CARD_2_DATE: '03/22',
     ROADMAP_CARD_2_TITLE: 'Betamon RNFT supply is limited to 880 for public sale',
     ROADMAP_CARD_2_SUBTITLE: 'Retain 80 NFTs  allocated towards future events, 200 NFTs for whitelist priority access',
-    ROADMAP_CARD_2_REMARK: 'Guarantee early Summoner with MAX benefit',
+    ROADMAP_CARD_2_REMARK: '＊Guarantee early Summoner with MAX benefit',
     ROADMAP_CARD_3_DATE: '04/06',
     ROADMAP_CARD_3_TITLE: 'OPEN RNFT blind boxes',
     ROADMAP_CARD_3_SUBTITLE: '',
