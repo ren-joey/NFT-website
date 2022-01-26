@@ -39,7 +39,6 @@ const scrollTriggerInit = () => {
         }
     };
 
-
     /* linear scroll trigger */
     const tl = gsap.timeline();
 
@@ -238,7 +237,7 @@ const scrollTriggerInit = () => {
         });
     }
 
-    ifDomExistDo('lineTurningSkew', (dom) => {
+    ifDomExistDo('#lineTurningSkew', (dom) => {
         tl.fromTo(dom, { height: 0 }, {
             height: 337,
             scrollTrigger: {
