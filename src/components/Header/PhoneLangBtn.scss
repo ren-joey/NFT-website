@@ -1,9 +1,23 @@
 .lang-area-phone {
     & > .lang-btn {
+        position: relative;
         margin-top: 0.6rem;
         font-size: 1.2rem;
         font-weight: bolder;
         text-align: center;
+
+        & > .skull-outline-icon {
+            position: absolute;
+            top: calc(50% - 1.2rem);
+            left: -2.4rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            background-image: url("/assets/images/skull_icon_outline.svg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            opacity: 0;
+        }
 
         & > .text {
             display: inline-block;
@@ -17,6 +31,10 @@
         &.active {
             & > .text {
                 border: 1px solid rgba(255, 255, 255, 1);
+            }
+
+            & > .skull-outline-icon {
+                opacity: 1;
             }
         }
     }

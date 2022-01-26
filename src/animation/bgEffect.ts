@@ -35,7 +35,7 @@ const speedLineAnimate = (sprite: PIXI.Sprite, delay = 0) => {
     }, 'Start+=3');
 };
 
-const getHeightRate = () => window.innerWidth >= 992 ? 0.3 : 0.2;
+const getHeightRate = () => window.innerWidth >= 992 ? 0.4 : 0.2;
 
 const bgEffectInit = () => {
     gsap.fromTo('#canvasArea', {opacity: 1}, {
