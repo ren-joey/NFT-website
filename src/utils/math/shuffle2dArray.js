@@ -10,7 +10,9 @@ const shuffle2DArray = (arr) => {
             let randomRow = getRandomNumber(0, maxArr.length - 1);
 
             if (!newArr[randomRow]) newArr[randomRow] = [];
-            while (newArr[randomRow].filter(cols => cols !== undefined).length >= maxArr[randomRow]) {
+            while (
+                newArr[randomRow].filter(cols => cols !== undefined).length >= maxArr[randomRow]
+            ) {
                 randomRow = (randomRow + 1) % maxArr.length;
                 if (!newArr[randomRow]) newArr[randomRow] = [];
             }
@@ -42,7 +44,9 @@ const shuffle2DArrayWithPos = (arr, selectedRowPos, selectedColPos, matchRowPos,
             let randomRow = getRandomNumber(0, maxArr.length - 1);
 
             if (!newArr[randomRow]) newArr[randomRow] = [];
-            while (newArr[randomRow].filter(cols => cols !== undefined).length >= maxArr[randomRow]) {
+            while (
+                newArr[randomRow].filter(cols => cols !== undefined).length >= maxArr[randomRow]
+            ) {
                 randomRow = (randomRow + 1) % maxArr.length;
                 if (!newArr[randomRow]) newArr[randomRow] = [];
             }

@@ -44,10 +44,10 @@ const PhoneMenu = ({
 
     return (
         <div className={`menu-phone ${menuStatus ? 'active' : ''}`}>
-            <div className="menu-btn">
+            {/* <div className="menu-btn">
                 <div className="icon opensea"></div>
                 <div className="text">OPENSEA</div>
-            </div>
+            </div> */}
             <div className="menu-btn">
                 <div className="icon discord"></div>
                 <div className="text">DISCORD</div>

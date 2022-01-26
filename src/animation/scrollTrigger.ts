@@ -164,7 +164,7 @@ const scrollTriggerInit = () => {
                 id: dom.id,
                 trigger: dom,
                 start: 'top center',
-                end: () => window.innerWidth >= 992 ? '+=1530' : '+=300'
+                end: () => window.innerWidth >= 992 ? '+=1760' : '+=300'
             }
         });
     });
