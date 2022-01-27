@@ -9,7 +9,11 @@ const Footer = () => {
 
     return (
         <div className="footer">
-            { device === 'desktop' ? <div id="lineTurningSkew" className="line-turning-skew"></div> : '' }
+            {
+                device === 'desktop'
+                    ? <div id="lineTurningSkew" className="line-turning-skew"></div>
+                    : ''
+            }
 
             { device === 'phone' ? <div className="phone-line"></div> : ''}
             <div className="gradient"></div>

@@ -30,11 +30,21 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
         <div className="feature-card">
             <div className={`feature-card-icon idx-${idx}`}></div>
             <div className="card-body">
-                <div className={`title ${selectedLang === 'EN' ? 'force-wrap' : ''}`} dangerouslySetInnerHTML={{__html: title}}></div>
-                <div className="desc" dangerouslySetInnerHTML={{__html: desc}}></div>
+                <div
+                    className={`title ${selectedLang === 'EN' ? 'force-wrap' : ''}`}
+                    dangerouslySetInnerHTML={{__html: title}}
+                ></div>
+                <div
+                    className="desc"
+                    dangerouslySetInnerHTML={{__html: desc}}
+                ></div>
             </div>
 
-            { line && device === 'desktop' ? <div className="right-line"></div> : ''}
+            {
+                line && device === 'desktop'
+                    ? <div className="right-line"></div>
+                    : ''
+            }
 
             {/* <div className="backdrop"></div> */}
         </div>
