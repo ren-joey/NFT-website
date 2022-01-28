@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import loadingAnimation from "src/animation/loadingAnimation";
 import BAlienSvg from "src/components/Shared/BAlienSvg";
 import loader from "src/functions/loader";
+import { getParameterByName } from "src/utils";
 import 'src/views/LoadingPage.scss';
 
 interface IProps {
@@ -73,7 +74,10 @@ const LoadingPage = ({ setLoadingStatus, setLoadingPageStatus }: IProps) => {
         }, 'Staged+=6');
 
         loader().then(() => {
-            // const tl = gsap.timeline();
+            if (getParameterByName('preview')) {
+                setLoadingStatus(true);
+                setLoadingPageStatus(false);
+            }
         });
     }, []);
 
