@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import gsap, { Circ } from 'gsap';
 import * as PIXI from 'pixi.js';
 
 import preview_triangle_2 from 'src/assets/images/preview_triangle_2.png';
@@ -49,11 +49,42 @@ const loadingAnimation = () => {
             const bg = getBgSpirit(app, resources.preview_bg.texture);
             bgContainer.addChild(blue, bg);
 
-            gsap.fromTo([bg, blue], {alpha: 0}, {
+            gsap.fromTo([bg, blue, beatContainer], {alpha: 0}, {
                 alpha: 1,
                 duration: 1
             });
         }
+
+        const tl = gsap.timeline({
+            delay: 0.1,
+            repeat: -1,
+            repeatDelay: 0.05
+        });
+        tl.fromTo(floatingElementContainer, {y: 0}, {
+            duration: 0.2,
+            y: -5,
+            ease: Circ.easeOut
+        }).to(floatingElementContainer, {
+            y: 0,
+            duration: 0.25,
+            ease: Circ.easeIn
+        });
+
+        // const bAlienHead = document.getElementById('bAlienHead');
+        // const tl2 = gsap.timeline({
+        //     delay: 0.76,
+        //     repeat: 3,
+        //     repeatDelay: 0.05
+        // });
+        // tl2.fromTo(bAlienHead, {opacity: 1}, {
+        //     duration: 0.2,
+        //     opacity: 0.3,
+        //     ease: Circ.easeOut
+        // }).to(bAlienHead, {
+        //     opacity: 1,
+        //     duration: 0.25,
+        //     ease: Circ.easeIn
+        // });
     }, 2200);
 
     setTimeout(() => {

@@ -46,7 +46,7 @@ const FirstArea = () => {
                 <div className="link-area">
                     <SocialButton className='twitter' name='Twitter' />
                     <SocialButton className='discord' name='Discord' />
-                    <SocialButton className='opensea' name='OpenSea' />
+                    {/* <SocialButton className='opensea' name='OpenSea' /> */}
                 </div>
 
                 <div className="b-alien-area-sm">
