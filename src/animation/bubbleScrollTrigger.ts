@@ -1,102 +1,100 @@
+import * as PIXI from 'pixi.js';
 import gsap from "gsap";
 
-const bubbleScrollTrigger = () => {
+const bubbleScrollTrigger = (sprites: PIXI.Sprite[]) => {
+    const trigger = document.getElementById('root');
+    const sharedSetting: gsap.DOMTarget | ScrollTrigger.Vars = {
+        trigger,
+        start: 'top top',
+        scrub: true
+    };
+    const bubbleScrollTriggerSettings: gsap.TweenVars[] = [
+        {
+            y: -500,
+            ease: 'none',
+            scrollTrigger: {
+                ...sharedSetting,
+                end: '+=4000'
+            }
+        },
+        {
+            y: -500,
+            ease: 'none',
+            scrollTrigger: {
+                ...sharedSetting,
+                end: '+=5000'
+            }
+        },
+        {
+            y: -500,
+            ease: 'none',
+            scrollTrigger: {
+                ...sharedSetting,
+                end: '+=5000'
+            }
+        },
+        {
+            y: -200,
+            ease: 'none',
+            scrollTrigger: {
+                ...sharedSetting,
+                end: '+=10000'
+            }
+        },
+        {
+            y: -300,
+            ease: 'none',
+            scrollTrigger: {
+                ...sharedSetting,
+                end: '+=10000'
+            }
+        },
+        {
+            y: -300,
+            ease: 'none',
+            scrollTrigger: {
+                ...sharedSetting,
+                end: '+=8000'
+            }
+        },
+        {
+            y: -300,
+            ease: 'none',
+            scrollTrigger: {
+                ...sharedSetting,
+                end: '+=5000'
+            }
+        },
+        {
+            y: -300,
+            ease: 'none',
+            scrollTrigger: {
+                trigger,
+                start: 'top -1000',
+                end: '+=3000',
+                scrub: true
+            }
+        },
+        {
+            y: -300,
+            ease: 'none',
+            scrollTrigger: {
+                trigger,
+                start: 'top -1500',
+                end: '+=6000',
+                scrub: true
+            }
+        }
+    ];
+
     const tl = gsap.timeline();
 
-    tl.to('#bubble1', {
-        top: '-500px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=4000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble2', {
-        top: '-500px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=5000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble3', {
-        top: '-500px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=5000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble4', {
-        top: '-=200px',
-        ease: 'none',
-        scrollTrigger: {
-            start: 'top top',
-            end: '+=10000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble5', {
-        top: '-=300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top top',
-            end: '+=10000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble6', {
-        top: '-=300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top top',
-            end: '+=8000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble7', {
-        top: '-=300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top top',
-            end: '+=5000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble8', {
-        top: '-300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top -1000',
-            end: '+=3000',
-            scrub: true
-        }
-    });
-
-    tl.to('#bubble9', {
-        top: '-300px',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: document.body,
-            start: 'top -1500',
-            end: '+=6000',
-            scrub: true
-        }
-    });
+    for (let i = 0; i < bubbleScrollTriggerSettings.length; i++) {
+        tl.to(
+            sprites[i],
+            bubbleScrollTriggerSettings[i]
+        );
+    }
 
     return tl;
 };

@@ -32,13 +32,13 @@ import { shuffle } from 'lodash';
 //         ? getYellowRandom()
 //         : getTintRandom();
 
-const rateMap = [0.7, 0, 0.9, 0.21];
-const fontMap = [30, 46, 40, 22];
+const rateMap = [0.7, 0.21, 0.9, 0];
+const fontMap = [30, 22, 40, 46];
 const colorMap = shuffle([
     0x00fffc,
-    0xff00dd,
+    0xff6000,
     0x6dff00,
-    0xff6000
+    0xff00dd
 ]);
 
 const pixiTextGenerator = (idx: number) => {

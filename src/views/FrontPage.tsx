@@ -19,7 +19,7 @@ import { getParameterByName } from "src/utils/url/getParameterByName";
 import { LangString } from "src/lang";
 import ScrollDownIcon from "src/components/Shared/ScrollDownIcon";
 import BackToTop from "src/components/Shared/BackToTopIcon";
-import { bubbleScrollTrigger } from "src/animation/bubbleScrollTrigger";
+import ResizeListener from "src/functions/ResizeListener";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -62,16 +62,16 @@ const FrontPage = () => {
             }
         };
         // RwdContext 監聽事件
-        window.addEventListener('resize', rootEventLister);
+        ResizeListener.add(rootEventLister);
 
         if (!getParameterByName('scroll-trigger')) {
             scrollTriggerInit();
-            bubbleScrollTrigger();
+            // bubbleScrollTrigger();
         }
 
 
         return () => {
-            window.removeEventListener('resize', rootEventLister);
+            ResizeListener.erase();
             scrollTriggerKillAll();
             window.onload = () => {};
         };
