@@ -8,6 +8,7 @@ import 'src/styles/index.scss';
 
 const App = () => {
     const [loadingStatus, setLoadingStatus] = useState(false);
+    const [loadingPageStatus, setLoadingPageStatus] = useState(true);
 
     return (
         <div className="App">
@@ -15,7 +16,14 @@ const App = () => {
                 loadingStatus ? <FrontPage /> : ''
             }
 
-            <LoadingPage setLoadingStatus={setLoadingStatus} />
+            {
+                loadingPageStatus ?
+                    <LoadingPage
+                        setLoadingStatus={setLoadingStatus}
+                        setLoadingPageStatus={setLoadingPageStatus}
+                    />
+                    : ''
+            }
 
             {/* <Web3Component /> */}
         </div>

@@ -1,6 +1,6 @@
 import gsap, { Power0, Power4 } from "gsap";
 import { RoughEase } from "gsap/all";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import loadingAnimation from "src/animation/loadingAnimation";
 import BAlienSvg from "src/components/Shared/BAlienSvg";
 import loader from "src/functions/loader";
@@ -8,9 +8,10 @@ import 'src/views/LoadingPage.scss';
 
 interface IProps {
     setLoadingStatus: (param: boolean) => void
+    setLoadingPageStatus: (param: boolean) => void
 }
 
-const LoadingPage = ({ setLoadingStatus }: IProps) => {
+const LoadingPage = ({ setLoadingStatus, setLoadingPageStatus }: IProps) => {
     useEffect(() => {
         loadingAnimation();
 
@@ -62,9 +63,13 @@ const LoadingPage = ({ setLoadingStatus }: IProps) => {
             ease: Power4.easeIn
         }, 'Staged+=4');
 
-        tl.to('.loading-page', {
+        const loadingPage = document.getElementById('loadingPage');
+        tl.to(loadingPage, {
             duration: 2,
-            opacity: 0
+            opacity: 0,
+            onComplete: () => {
+                setLoadingPageStatus(false);
+            }
         }, 'Staged+=6');
 
         loader().then(() => {
@@ -73,7 +78,7 @@ const LoadingPage = ({ setLoadingStatus }: IProps) => {
     }, []);
 
     return (
-        <div className="loading-page">
+        <div id="loadingPage" className="loading-page">
             <div id="bAlienArea" className="b-alien-area">
                 <BAlienSvg />
                 <div id="bAlienHead" className="review-head"></div>
