@@ -8,11 +8,13 @@ import orange_ball_2 from 'src/assets/images/orange_ball_2.png';
 import green_ball_2 from 'src/assets/images/green_ball_2.png';
 import purple_ball_2 from 'src/assets/images/purple_ball_2.png';
 import stars from 'src/assets/images/stars.png';
+import bg from 'src/assets/images/bg.jpg';
 
 import getSpeedLineContainer from './spirits/getSpeedLineContainer';
 import getBubbleContainer from './spirits/getBubbleContainer';
 import getStarContainer from './spirits/getStarContainer';
 import ResizeListener from 'src/functions/ResizeListener';
+import getFrontEndBgSprite from './spirits/getFrontPageBgSprite';
 
 const pixiLoader = () => new Promise<any>((res) => {
     PIXI.Loader.shared
@@ -24,6 +26,7 @@ const pixiLoader = () => new Promise<any>((res) => {
         .add('green_ball_2', green_ball_2)
         .add('purple_ball_2', purple_ball_2)
         .add('stars', stars)
+        .add('bg', bg)
         .load((loader, resources) => {
             res(resources);
         });
@@ -34,9 +37,12 @@ const bgEffectInit = () => {
         const app = new PIXI.Application({
             view: document.getElementById('canvas') as HTMLCanvasElement,
             width: window.innerWidth,
-            height: 2500,
-            backgroundAlpha: 0
+            height: 2500
+            // backgroundAlpha: 0
         });
+
+        const bgContainer = getFrontEndBgSprite(resources.bg.texture);
+
         const speedLineContainer = getSpeedLineContainer(
             resources.speed_lines.texture
         );
@@ -45,6 +51,7 @@ const bgEffectInit = () => {
 
         const bubbleContainer = getBubbleContainer(resources);
         app.stage.addChild(
+            bgContainer,
             starContainer,
             speedLineContainer,
             bubbleContainer
