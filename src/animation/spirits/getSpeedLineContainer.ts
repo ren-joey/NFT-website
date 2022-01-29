@@ -1,6 +1,5 @@
 import gsap, { Power1 } from 'gsap';
 import * as PIXI from 'pixi.js';
-import { debounce } from 'lodash';
 import { getRandomNumber } from 'src/utils';
 import ResizeListener from 'src/functions/ResizeListener';
 
