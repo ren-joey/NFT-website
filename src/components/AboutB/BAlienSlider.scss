@@ -8,8 +8,6 @@
         width: 360px;
         height: 360px / 655 * 739;
         background-size: 100% 100%;
-
-        // animation: bouncy 2s linear 0s infinite;
         transform-origin: center bottom;
 
         @media (min-width: 992px) {
@@ -17,12 +15,6 @@
             bottom: -6%;
             left: -43%;
             margin: 0;
-        }
-
-        @for $i from 1 through 7 {
-            &.idx-#{$i} {
-                background-image: url("/assets/images/b_alien_#{$i}.png");
-            }
         }
     }
 

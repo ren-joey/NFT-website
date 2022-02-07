@@ -3,6 +3,7 @@ import { LangContext } from "src/Context/LangContext";
 import 'src/components/AboutB/FeatureCard.scss';
 import { RwdContext } from "src/Context/RwdContext";
 import { LangString } from "src/lang";
+import { getResources } from "src/functions/loader";
 interface Props {
     idx: number,
     line?: boolean,
@@ -12,6 +13,7 @@ interface Props {
 const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
     const lang = React.useContext(LangContext);
     const { device } = React.useContext(RwdContext);
+    const iconUrl = getResources(`feature_icon_${idx}`);
 
     const [title, desc] = useMemo(() => {
         let title, desc;
@@ -28,8 +30,12 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
 
     return (
         <div className="feature-card">
-            <div className={`feature-card-icon idx-${idx}`}></div>
-            <div className="card-body">
+            <div className="feature-card-icon" style={
+                { backgroundImage: `url(${iconUrl})` }
+            }></div>
+            <div className="card-body" style={
+                { backgroundImage: `url(${getResources('bg')})` }
+            }>
                 <div
                     className={`title ${selectedLang === 'EN' ? 'force-wrap' : ''}`}
                     dangerouslySetInnerHTML={{__html: title}}

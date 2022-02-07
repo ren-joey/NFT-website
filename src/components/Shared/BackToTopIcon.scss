@@ -15,7 +15,6 @@
         margin-bottom: 93px * 0.16;
         width: 45px * 0.8;
         height: 93px * 0.64;
-        background-image: url("/assets/images/rocket.svg");
         background-repeat: no-repeat;
         background-size: 100% auto;
         animation: rotate-y 2s linear 0s infinite;
@@ -33,7 +32,6 @@
         left: calc(50% - 5px);
         width: 10px;
         height: 15px;
-        background-image: url("/assets/images/rocket.svg");
         background-position: bottom center;
         background-repeat: no-repeat;
         background-size: #{45px * 0.8} auto;

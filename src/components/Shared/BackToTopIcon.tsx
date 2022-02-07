@@ -1,11 +1,13 @@
 import gsap from 'gsap';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { scrollToTop } from 'src/animation/scrollToTrigger';
 import 'src/components/Shared/BackToTopIcon.scss';
+import { getResources } from 'src/functions/loader';
 
 const BackToTop = () => {
     const [display, setDisplay] = useState(false);
     const mounted = useRef(true);
+    const rocketStyle: React.CSSProperties = { backgroundImage: `url(${getResources('rocket')})` };
 
     useEffect(() => {
         const backToTopIcon = document.getElementById('backToTopIcon');
@@ -41,8 +43,8 @@ const BackToTop = () => {
             className={`back-to-top-area ${display ? '' : 'pointer-events-none'}`}
             onClick={() => { scrollToTop(); }}
         >
-            <div className="back-to-top-icon"></div>
-            <div className="fire-icon"></div>
+            <div className="back-to-top-icon" style={rocketStyle}></div>
+            <div className="fire-icon" style={rocketStyle}></div>
         </div>
     );
 };

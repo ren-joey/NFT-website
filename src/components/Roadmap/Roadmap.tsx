@@ -4,6 +4,7 @@ import SocialButton from '../Shared/SocialButton';
 import { LangString } from 'src/lang';
 import { useContext } from 'react';
 import { RwdContext } from 'src/Context/RwdContext';
+import { getResources } from 'src/functions/loader';
 
 interface IRoadmap {
     selectedLang: LangString
@@ -23,8 +24,12 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
                 <div className="guide-line">
                     <div id="roadmapLine" className="line"></div>
                 </div>
-                <div className="title-img">
-                    <div className="star"></div>
+                <div className="title-img" style={
+                    { backgroundImage: `url(${getResources('roadmap')})` }
+                }>
+                    <div className="star" style={
+                        { backgroundImage: `url(${getResources('glowing_star')})` }
+                    }></div>
                 </div>
             </div>
 
@@ -32,12 +37,22 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
 
             <RoadmapCard idx={1} />
 
+            { getLine() }
+
             <div className="link-area">
-                <SocialButton className='twitter mt-0' name='Twitter' />
+                <SocialButton
+                    className='twitter mt-0'
+                    name='Twitter'
+                    iconName='twitter'
+                />
 
                 <div className="phone-line"></div>
 
-                <SocialButton className='discord mt-0' name='Discord' />
+                <SocialButton
+                    className='discord mt-0'
+                    name='Discord'
+                    iconName='twitter'
+                />
             </div>
 
             { getLine() }

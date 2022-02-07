@@ -1,65 +1,40 @@
 import * as PIXI from 'pixi.js';
-
-import speed_lines from 'src/assets/images/speed_lines.png';
-import purple_ball_1 from 'src/assets/images/purple_ball_1.png';
-import orange_ball_1 from 'src/assets/images/orange_ball_1.png';
-import green_ball_1 from 'src/assets/images/green_ball_1.png';
-import orange_ball_2 from 'src/assets/images/orange_ball_2.png';
-import green_ball_2 from 'src/assets/images/green_ball_2.png';
-import purple_ball_2 from 'src/assets/images/purple_ball_2.png';
-import stars from 'src/assets/images/stars.png';
-import bg from 'src/assets/images/bg.jpg';
-
 import getSpeedLineContainer from './spirits/getSpeedLineContainer';
 import getBubbleContainer from './spirits/getBubbleContainer';
 import getStarContainer from './spirits/getStarContainer';
 import ResizeListener from 'src/functions/ResizeListener';
 import getFrontEndBgSprite from './spirits/getFrontPageBgSprite';
 
-const pixiLoader = () => new Promise<any>((res) => {
-    PIXI.Loader.shared
-        .add('speed_lines', speed_lines)
-        .add('purple_ball_1', purple_ball_1)
-        .add('orange_ball_1', orange_ball_1)
-        .add('green_ball_1', green_ball_1)
-        .add('orange_ball_2', orange_ball_2)
-        .add('green_ball_2', green_ball_2)
-        .add('purple_ball_2', purple_ball_2)
-        .add('stars', stars)
-        .add('bg', bg)
-        .load((loader, resources) => {
-            res(resources);
-        });
-});
-
 const bgEffectInit = () => {
-    pixiLoader().then((resources) => {
-        const app = new PIXI.Application({
-            view: document.getElementById('canvas') as HTMLCanvasElement,
-            width: window.innerWidth,
-            height: 2500
-            // backgroundAlpha: 0
-        });
+    const { resources } = PIXI.Loader.shared;
 
+    const app = new PIXI.Application({
+        view: document.getElementById('canvas') as HTMLCanvasElement,
+        width: window.innerWidth,
+        height: 2500
+        // backgroundAlpha: 0
+    });
+
+    if (resources.bg?.texture) {
         const bgContainer = getFrontEndBgSprite(resources.bg.texture);
+        app.stage.addChild(bgContainer);
+    }
 
-        const speedLineContainer = getSpeedLineContainer(
-            resources.speed_lines.texture
-        );
-
+    if (resources.stars?.texture) {
         const starContainer = getStarContainer(resources.stars.texture);
+        app.stage.addChild(starContainer);
+    }
 
-        const bubbleContainer = getBubbleContainer(resources);
-        app.stage.addChild(
-            bgContainer,
-            starContainer,
-            speedLineContainer,
-            bubbleContainer
-        );
+    if (resources.speed_lines?.texture) {
+        const speedLineContainer = getSpeedLineContainer(resources.speed_lines.texture);
+        app.stage.addChild(speedLineContainer);
+    }
 
-        ResizeListener.add(() => {
-            app.renderer.resize(window.innerWidth, 2500);
-        });
+    const bubbleContainer = getBubbleContainer(resources);
+    app.stage.addChild(bubbleContainer);
+
+    ResizeListener.add(() => {
+        app.renderer.resize(window.innerWidth, 2500);
     });
 };
 

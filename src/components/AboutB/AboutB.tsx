@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import 'src/components/AboutB/AboutB.scss';
 import { LangContext } from 'src/Context/LangContext';
 import { RwdContext } from 'src/Context/RwdContext';
+import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
 import Star from '../Shared/Star';
 import BAlienSlider from './BAlienSlider';
@@ -14,19 +15,22 @@ interface IAboutB {
 const AboutB = ({ selectedLang }: IAboutB) => {
     const { device } = useContext(RwdContext);
     const lang = useContext(LangContext);
+    const skullIcon: React.CSSProperties = { backgroundImage: `url(${getResources('skull_icon')})` };
 
     return (
         <div className="about-b">
             <div className="desc-area">
                 <div className="guide-line pc">
                     <div id="aboutBLine" className="line"></div>
-                    <div className="skull"></div>
+                    <div className="skull" style={skullIcon}></div>
                     <div className="star-container">
                         <Star />
                     </div>
                 </div>
                 <div id="aboutBContent" className="content">
-                    <div className="title-img"></div>
+                    <div className="title-img" style={
+                        {backgroundImage: `url(${getResources('about_b')})`}
+                    }></div>
                     <div className="desc pc" dangerouslySetInnerHTML={{__html: lang.ABOUT_B_DESC_PC}}></div>
                     <div className="desc phone" dangerouslySetInnerHTML={{__html: lang.ABOUT_B_DESC}}></div>
                 </div>
@@ -34,7 +38,7 @@ const AboutB = ({ selectedLang }: IAboutB) => {
 
             {
                 device === 'phone' ? (
-                    <div className="phone-skull">
+                    <div className="phone-skull" style={skullIcon}>
                         <div id="aboutBPhoneLine" className={`phone-line ${selectedLang === 'EN' ? 'en' : ''}`}></div>
                     </div>
                 ) : ''
@@ -49,7 +53,12 @@ const AboutB = ({ selectedLang }: IAboutB) => {
                             <FeatureCard idx={2} selectedLang={selectedLang} />
                             <FeatureCard idx={3} line={false} selectedLang={selectedLang}/>
 
-                            <div id="lineTurningAround" className="line-turning-around">
+                            <div
+                                id="lineTurningAround" className="line-turning-around"
+                                style={
+                                    { backgroundImage: `url(${getResources('line_turning_around')})` }
+                                }
+                            >
                                 <div className="star-container">
                                     <Star />
                                 </div>
@@ -64,7 +73,13 @@ const AboutB = ({ selectedLang }: IAboutB) => {
                             <FeatureCard idx={5} selectedLang={selectedLang} />
 
                             <div className="aside"></div>
-                            <div id="lineTurningLeft" className="line-turning-left">
+                            <div
+                                id="lineTurningLeft"
+                                className="line-turning-left"
+                                style={
+                                    { backgroundImage: `url(${getResources('line_turning_left')})` }
+                                }
+                            >
                                 <div className="star-container">
                                     <Star />
                                 </div>

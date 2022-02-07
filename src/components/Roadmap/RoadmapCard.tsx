@@ -1,6 +1,7 @@
 import React from "react";
 import { LangContext } from "src/Context/LangContext";
 import 'src/components/Roadmap/RoadmapCard.scss';
+import { getResources } from "src/functions/loader";
 
 interface Props {
     idx: number
@@ -25,7 +26,9 @@ const RoadmapCard = ({ idx }: Props) => {
                                 {__html: lang[`ROADMAP_CARD_${idx}_SUBTITLE`]}
                             }
                         ></div>
-                        <div className="star"></div>
+                        <div className="star" style={
+                            { backgroundImage: `url(${getResources('star_icon')})` }
+                        }></div>
                     </div>
                     <div className="card-bottom">
                         <div className="remark" dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_REMARK`]}}></div>

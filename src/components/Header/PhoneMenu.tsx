@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { scrollToRoadmap } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/PhoneMenu.scss';
+import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
+import socialList from './config';
 import PhoneLangBtn from './PhoneLangBtn';
 
 interface IPhoneMenu {
@@ -42,20 +44,23 @@ const PhoneMenu = ({
         toggleMenuStatus();
     };
 
+    const getIcon = (socialName: string): React.CSSProperties => {
+        const iconKey = `${socialName}_icon`;
+        return {backgroundImage: `url(${getResources(iconKey)})`};
+    };
+
     return (
         <div className={`menu-phone ${menuStatus ? 'active' : ''}`}>
-            {/* <div className="menu-btn">
-                <div className="icon opensea"></div>
-                <div className="text">OPENSEA</div>
-            </div> */}
-            <div className="menu-btn">
-                <div className="icon discord"></div>
-                <div className="text">DISCORD</div>
-            </div>
-            <div className="menu-btn">
-                <div className="icon twitter"></div>
-                <div className="text">TWITTER</div>
-            </div>
+            {
+                socialList.map((social, idx) => social.visible
+                    ? <div className="menu-btn" key={idx}>
+                        <div className="icon" style={getIcon(social.iconName)}></div>
+                        <div className="text">
+                            {social.title}
+                        </div>
+                    </div>
+                    : '')
+            }
             <div
                 className="menu-btn"
                 onClick={() => {
@@ -63,7 +68,7 @@ const PhoneMenu = ({
                     toggleMenuStatus();
                 }}
             >
-                <div className="icon roadmap-icon"></div>
+                <div className="icon" style={getIcon('skull')}></div>
                 <div className="text">ROADMAP</div>
             </div>
 

@@ -8,11 +8,11 @@ const screenDebug = (...html) => {
         div = document.createElement('div');
         div.id = 'screenDebug';
         div.setAttribute('style', `
-    position: fixed;
-    left: 0;
-    top: 40%;
-    z-index: 100;
-    `);
+        position: fixed;
+        left: 0;
+        top: 40%;
+        z-index: 100;
+        `);
         document.body.appendChild(div);
     }
     div.innerHTML = html.join(', ');
