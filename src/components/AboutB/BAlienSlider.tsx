@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Star from 'src/components/Shared/Star';
 import 'src/components/AboutB/BAlienSlider.scss';
+import { getResources } from 'src/functions/loader';
 
 const BAlienSlider = () => {
     const [alienIdx, setAlienIndex] = useState(1);
@@ -24,7 +25,9 @@ const BAlienSlider = () => {
 
     return(
         <div className="b-alien-slider">
-            <div className={`b-alien idx-${alienIdx}`}></div>
+            <div className="b-alien" style={
+                {backgroundImage: `url(${getResources(`b_alien_${alienIdx}`)})`}
+            }></div>
             {
                 Array.from({ length: 5 }, (_, i) => (
                     <div

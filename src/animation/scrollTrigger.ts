@@ -1,18 +1,18 @@
 import gsap, { Back } from "gsap";
 
-const clearStyles = (dom: null|Element) => {
-    if (dom) dom.removeAttribute('style');
-};
+// const clearStyles = (dom: null|Element) => {
+//     if (dom) dom.removeAttribute('style');
+// };
 
 const getDomByQueryAndClearStyles = (query: string) => {
     const dom = document.querySelector(query) as (HTMLElement|null);
-    clearStyles(dom);
+    // clearStyles(dom);
     return dom;
 };
 
 const getDomByIdAndClearStyles = (id: string) => {
     const dom = document.getElementById(id);
-    clearStyles(dom);
+    // clearStyles(dom);
     return dom;
 };
 

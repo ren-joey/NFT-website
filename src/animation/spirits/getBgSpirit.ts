@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import ResizeListener from 'src/functions/ResizeListener';
 
 const getBgSpirit = (app: PIXI.Application, texture: PIXI.Texture) => {
     const width = app.renderer.width;
@@ -8,6 +9,12 @@ const getBgSpirit = (app: PIXI.Application, texture: PIXI.Texture) => {
     bg.width = width;
     bg.height = height;
     bg.zIndex = 1;
+
+    ResizeListener.add(() => {
+        bg.width = app.renderer.width;
+        bg.height = app.renderer.height;
+    });
+
     return bg;
 };
 

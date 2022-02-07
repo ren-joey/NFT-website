@@ -4,22 +4,30 @@ import Counter from 'src/components/FirstArea/Counter';
 import { config } from 'src/config';
 import SocialButton from 'src/components/Shared/SocialButton';
 import 'src/components/FirstArea/FirstArea.scss';
+import { getResources } from 'src/functions/loader';
 
 const FirstArea = () => {
     const lang = useContext(LangContext);
     const { now, getEnd } = config;
     const end = getEnd();
     const diff = end.diff(now);
+    const spotlightLeft: React.CSSProperties = { backgroundImage: `url(${getResources('spotlight_left')})` };
 
     return (
         <div className="first-area">
             <div className="front-container">
                 <div className="b-alien-area">
-                    <div className="spotlight"></div>
-                    <div className="spotlight reverse"></div>
-                    <div className="ground"></div>
-                    <div className="b-alien-wave"></div>
-                    <div className="b-alien-line"></div>
+                    <div className="spotlight" style={spotlightLeft}></div>
+                    <div className="spotlight reverse" style={spotlightLeft}></div>
+                    <div className="ground" style={
+                        {backgroundImage: `url(${getResources('ground')})`}
+                    }></div>
+                    <div className="b-alien-wave" style={
+                        { backgroundImage: `url(${getResources('b_alien_wave_gif')})` }
+                    }></div>
+                    <div className="b-alien-line" style={
+                        { backgroundImage: `url(${getResources('b_alien')})` }
+                    }></div>
                 </div>
 
                 <div className="reveal-time-area">
@@ -44,16 +52,28 @@ const FirstArea = () => {
                 </div>
 
                 <div className="link-area">
-                    <SocialButton className='twitter' name='Twitter' />
-                    <SocialButton className='discord' name='Discord' />
+                    <SocialButton
+                        className='twitter'
+                        name='Twitter'
+                        iconName='twitter'
+                    />
+                    <SocialButton
+                        className='discord'
+                        name='Discord'
+                        iconName='discord'
+                    />
                     {/* <SocialButton className='opensea' name='OpenSea' /> */}
                 </div>
 
                 <div className="b-alien-area-sm">
-                    <div className="b-alien-wave">
-                        <div className="b-alien-stroke"></div>
-                        <div className="spotlight"></div>
-                        <div className="spotlight reverse"></div>
+                    <div className="b-alien-wave" style={
+                        { backgroundImage: `url(${getResources('b_alien_wave_gif')})` }
+                    }>
+                        <div className="b-alien-stroke" style={
+                            { backgroundImage: `url(${getResources('b_alien')})` }
+                        }></div>
+                        <div className="spotlight" style={spotlightLeft}></div>
+                        <div className="spotlight reverse" style={spotlightLeft}></div>
                     </div>
                 </div>
             </div>

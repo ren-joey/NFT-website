@@ -38,12 +38,6 @@
         background-size: 100% 100%;
         z-index: 2;
 
-        @for $i from 1 through 5 {
-            &.idx-#{$i} {
-                background-image: url("/assets/images/feature_icon_#{$i}.png");
-            }
-        }
-
         @media (min-width: 992px) {
             padding-bottom: 100%;
             width: 100%;
@@ -58,12 +52,7 @@
         font-weight: bolder;
         text-align: center;
         color: #fff;
-
-        // background-color: rgba(0, 0, 0, 0.1);
-        background-image: url("/assets/images/bg.jpg");
         background-size: 100% 100%;
-
-        // border: 3px solid linear-gradient(to bottom, #fff 0%, #f03 50%, #8916f5 100%);
         border: 2px solid #fff;
         border-radius: 1.4rem;
         z-index: 1;

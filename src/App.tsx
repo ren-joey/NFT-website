@@ -1,25 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FrontPage from 'src/views/FrontPage';
 // import Web3Component from './views/Web3Component';
 import LoadingPage from './views/LoadingPage';
+import loader from "src/functions/loader";
 
 // import 'src/styles/reset.css';
 import 'src/styles/index.scss';
 
 const App = () => {
-    const [loadingStatus, setLoadingStatus] = useState(false);
+    const [frontPageStatus, setFrontPageStatus] = useState(false);
     const [loadingPageStatus, setLoadingPageStatus] = useState(true);
 
     return (
         <div className="App">
             {
-                loadingStatus ? <FrontPage /> : ''
+                frontPageStatus ? <FrontPage /> : ''
             }
 
             {
                 loadingPageStatus ?
                     <LoadingPage
-                        setLoadingStatus={setLoadingStatus}
+                        setFrontPageStatus={setFrontPageStatus}
                         setLoadingPageStatus={setLoadingPageStatus}
                     />
                     : ''

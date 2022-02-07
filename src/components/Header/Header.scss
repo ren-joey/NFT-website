@@ -46,7 +46,6 @@
             margin-right: auto;
             width: $header-size-sm * 344 / 158;
             height: $header-size-sm;
-            background-image: url("/assets/images/vbc_logo.svg");
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 80% 80%;
@@ -92,22 +91,6 @@
                     @media (min-width: 1440px) {
                         width: 1.8rem;
                         height: 1.8rem;
-                    }
-
-                    &.opensea {
-                        background-image: url("/assets/images/opensea_icon.svg");
-                    }
-
-                    &.discord {
-                        background-image: url("/assets/images/discord_icon.svg");
-                    }
-
-                    &.twitter {
-                        background-image: url("/assets/images/twitter_icon.svg");
-                    }
-
-                    &.roadmap-icon {
-                        background-image: url("/assets/images/skull_icon.svg");
                     }
                 }
 

@@ -13,7 +13,6 @@
         margin-left: -50%;
         padding-bottom: calc(200% / 1889 * 884);
         width: 200%;
-        background-image: url("/assets/images/perspective_lines.png");
         background-size: 100% 100%;
         z-index: 2;
 
@@ -34,48 +33,12 @@
         height: 100%;
     }
 
-    // .speed-lines {
-    //     position: absolute;
-    //     top: -1100px;
-    //     left: calc(50% - 1250px);
-    //     width: 2500px;
-    //     height: 2500px;
-    //     background-image: url("/assets/images/speed_lines.png");
-    //     background-position: center center;
-    //     background-repeat: no-repeat;
-    //     background-size: 0% 0%;
-
-    //     @for $i from 0 through 5 {
-    //         &.idx-#{$i + 1} {
-    //             animation: speed-lines-scale 6s ease-in #{$i}s infinite;
-    //         }
-    //     }
-
-    //     @media (min-width: 992px) {
-    //         top: -2100px;
-    //         left: calc(50% - 2500px);
-    //         width: 5000px;
-    //         height: 5000px;
-    //     }
-    // }
-
-    // @keyframes speed-lines-scale {
-    //     0% {
-    //         background-size: 0% 0%;
-    //     }
-
-    //     100% {
-    //         background-size: 1000% 1000%;
-    //     }
-    // }
-
     .black-hole {
         position: absolute;
         top: -50px;
         left: calc(50% - 400px);
         width: 800px;
         height: 607px;
-        background-image: url("/assets/images/black_hole.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         z-index: 1;
@@ -86,179 +49,5 @@
             width: 1645px;
             height: 1244px;
         }
-    }
-
-    .stars {
-        position: fixed;
-        top: 0;
-        left: calc(50% - 960px);
-        width: 1920px;
-        height: 2206px;
-        background-image: url("/assets/images/stars.png");
-        background-repeat: repeat;
-        background-size: 30% auto;
-        z-index: 1;
-    }
-
-    .bubble-area {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 0;
-
-        .bubble {
-            position: absolute;
-            top: 50%;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-
-            &.idx-1 {
-                left: -150px;
-                width: 200px;
-                height: 200px;
-
-                // animation: bubble-animation-2 15s linear 0s infinite;
-                background-image: url("/assets/images/green_ball_1.png");
-
-                @media (min-width: 992px) {
-                    left: -100px;
-                }
-            }
-
-            &.idx-2 {
-                top: 50%;
-                right: 10px;
-                width: 60px;
-                height: 60px;
-
-                // animation: bubble-animation-2 8s linear 2s infinite;
-                background-image: url("/assets/images/orange_ball_1.png");
-
-                @media (min-width: 992px) {
-                    right: 100px;
-                }
-            }
-
-            &.idx-3 {
-                top: 60%;
-                left: -200px;
-                width: 500px;
-                height: 500px;
-                background-image: url("/assets/images/orange_ball_2.png");
-            }
-
-            &.idx-4 {
-                top: 80%;
-                left: 200px;
-                width: 60px;
-                height: 60px;
-                background-image: url("/assets/images/green_ball_2.png");
-            }
-
-            &.idx-5 {
-                top: 20%;
-                right: 300px;
-                width: 40px;
-                height: 40px;
-                background-image: url("/assets/images/green_ball_2.png");
-            }
-
-            &.idx-6 {
-                top: 80%;
-                right: -10%;
-                width: 300px;
-                height: 300px;
-                background-image: url("/assets/images/purple_ball_2.png");
-            }
-
-            &.idx-7 {
-                top: 20%;
-                right: -70px;
-                width: 100px;
-                height: 100px;
-
-                // animation: bubble-animation-1 10s linear 0s infinite;
-                background-image: url("/assets/images/purple_ball_1.png");
-
-                @media (min-width: 992px) {
-                    right: 0%;
-                }
-            }
-
-            &.idx-8 {
-                top: 100vh;
-                left: -100px;
-                width: 180px;
-                height: 180px;
-
-                // animation: bubble-animation-2 15s linear 0s infinite;
-                background-image: url("/assets/images/orange_ball_1.png");
-
-                @media (min-width: 992px) {
-                    left: 20px;
-                }
-            }
-
-            &.idx-9 {
-                top: 100vh;
-                right: -80px;
-                width: 130px;
-                height: 130px;
-
-                // animation: bubble-animation-2 15s linear 0s infinite;
-                background-image: url("/assets/images/green_ball_1.png");
-
-                @media (min-width: 992px) {
-                    right: 10%;
-                }
-            }
-        }
-    }
-}
-
-@keyframes bubble-animation-1 {
-    0% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    }
-
-    25% {
-        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-    }
-
-    50% {
-        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-    }
-
-    75% {
-        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%
-    }
-
-    100% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    }
-}
-
-@keyframes bubble-animation-2 {
-    0% {
-        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-    }
-
-    25% {
-        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%
-    }
-
-    50% {
-        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-    }
-
-    75% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    }
-
-    100% {
-        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
     }
 }

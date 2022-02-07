@@ -32,22 +32,6 @@ $text-delay: 0.1s;
             height: 1.8rem;
             background-repeat: no-repeat;
             background-size: 100% 100%;
-
-            &.opensea {
-                background-image: url("/assets/images/opensea_icon.svg");
-            }
-
-            &.discord {
-                background-image: url("/assets/images/discord_icon.svg");
-            }
-
-            &.twitter {
-                background-image: url("/assets/images/twitter_icon.svg");
-            }
-
-            &.roadmap-icon {
-                background-image: url("/assets/images/skull_icon.svg");
-            }
         }
 
         & > .text {
