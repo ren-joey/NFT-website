@@ -37,11 +37,10 @@ const AboutB = ({ selectedLang }: IAboutB) => {
             </div>
 
             {
-                device === 'phone' ? (
+                device === 'phone' &&
                     <div className="phone-skull" style={skullIcon}>
-                        <div id="aboutBPhoneLine" className={`phone-line ${selectedLang === 'EN' ? 'en' : ''}`}></div>
+                        <div id="aboutBPhoneLine" className={`phone-line ${selectedLang === 'EN' && 'en'}`}></div>
                     </div>
-                ) : ''
             }
 
             {

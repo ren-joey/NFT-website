@@ -11,7 +11,7 @@ import b_alien_6 from 'src/assets/images/b_alien_6.png';
 import b_alien_7 from 'src/assets/images/b_alien_7.png';
 import b_alien_ground from 'src/assets/images/b_alien_ground.png';
 // import b_alien_pc from 'src/assets/images/b_alien_pc.png';
-import b_alien_wave_gif from 'src/assets/images/b_alien_wave.gif';
+// import b_alien_wave_gif from 'src/assets/images/b_alien_wave.gif';
 // import b_alien_wave_png from 'src/assets/images/b_alien_wave.png';
 import b_alien from 'src/assets/images/b_alien.png';
 import black_hole from 'src/assets/images/black_hole.png';
@@ -105,7 +105,7 @@ const loader = () => new Promise<void>((res) => {
         .add('b_alien_7', b_alien_7)
         .add('b_alien_ground', b_alien_ground)
         // .add('b_alien_pc', b_alien_pc)
-        .add('b_alien_wave_gif', b_alien_wave_gif)
+        // .add('b_alien_wave_gif', b_alien_wave_gif)
         // .add('b_alien_wave_png', b_alien_wave_png)
         .add('b_alien', b_alien)
         .add('black_hole', black_hole)
