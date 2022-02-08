@@ -1,7 +1,10 @@
+/* stylelint-disable */
+/* cSpell:disable */
+
 // Utilities
 
 $utilities: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
+
 $utilities: map-merge(
     (
         'align': (
@@ -79,7 +82,7 @@ $utilities: map-merge(
             class: border,
             values: map-merge($theme-colors, ('white': $white))
         ),
-    
+
         'width': (
             property: width,
             class: w,
@@ -132,7 +135,7 @@ $utilities: map-merge(
             class: min-vh,
             values: (100: 100vh)
         ),
-    
+
         'flex': (
             responsive: true,
             property: flex,
@@ -228,7 +231,7 @@ $utilities: map-merge(
                 last: 6,
             ),
         ),
-    
+
         'margin': (
             responsive: true,
             property: margin,
@@ -271,7 +274,7 @@ $utilities: map-merge(
             class: ml,
             values: map-merge($spacers, (auto: auto))
         ),
-    
+
         'negative-margin': (
             responsive: true,
             property: margin,
@@ -314,7 +317,7 @@ $utilities: map-merge(
             class: ml,
             values: $negative-spacers
         ),
-    
+
         'padding': (
             responsive: true,
             property: padding,
@@ -357,7 +360,7 @@ $utilities: map-merge(
             class: pl,
             values: $spacers
         ),
-    
+
         'font-weight': (
             property: font-weight,
             values: (
