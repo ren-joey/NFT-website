@@ -47,9 +47,7 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
             </div>
 
             {
-                line && device === 'desktop'
-                    ? <div className="right-line"></div>
-                    : ''
+                (line && device === 'desktop') && <div className="right-line"></div>
             }
 
             {/* <div className="backdrop"></div> */}

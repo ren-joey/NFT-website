@@ -1,4 +1,12 @@
-const socialList = [
+export type socialIconName = 'twitter'|'opensea'|'discord';
+
+export interface ISocialList {
+    iconName: socialIconName,
+    title: string,
+    visible: boolean
+}
+
+export const socialList: ISocialList[] = [
     {
         iconName: 'opensea',
         title: 'OPENSEA',
@@ -15,5 +23,3 @@ const socialList = [
         visible: true
     }
 ];
-
-export default socialList;

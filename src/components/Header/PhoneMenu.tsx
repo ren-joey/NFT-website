@@ -3,7 +3,7 @@ import { scrollToRoadmap } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/PhoneMenu.scss';
 import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
-import socialList from './config';
+import { socialList } from 'src/socialMediaConfig';
 import PhoneLangBtn from './PhoneLangBtn';
 
 interface IPhoneMenu {
@@ -52,14 +52,14 @@ const PhoneMenu = ({
     return (
         <div className={`menu-phone ${menuStatus ? 'active' : ''}`}>
             {
-                socialList.map((social, idx) => social.visible
-                    ? <div className="menu-btn" key={idx}>
+                socialList.map((social, idx) => social.visible &&
+                    <div className="menu-btn" key={idx}>
                         <div className="icon" style={getIcon(social.iconName)}></div>
                         <div className="text">
                             {social.title}
                         </div>
                     </div>
-                    : '')
+                )
             }
             <div
                 className="menu-btn"

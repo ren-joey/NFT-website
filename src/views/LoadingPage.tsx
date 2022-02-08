@@ -108,26 +108,28 @@ const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
         <div className="loading-wrapper">
             {
                 trailerEnded && !loaderIsReady.current
-                    ? (<div className="loading-icon">
-                        <BAlienSvg />
-                        <br />
-                        LOADING
-                    </div>)
-                    : (<div id="skipTrailerBtn" className="skip-trailer-btn" onClick={() => skipTrailer()}>
-                        SKIP
-                    </div>)
+                    ? (
+                        <div className="loading-icon">
+                            <BAlienSvg />
+                            <br />
+                            LOADING
+                        </div>
+                    ) : (
+                        <div id="skipTrailerBtn" className="skip-trailer-btn" onClick={() => skipTrailer()}>
+                            SKIP
+                        </div>
+                    )
             }
 
             <div id="loadingPage" className="loading-page">
                 <div id="bAlienArea" className="b-alien-area">
-                    { !trailerEnded ? <BAlienSvg /> : '' }
+                    { !trailerEnded && <BAlienSvg /> }
                     <div
                         id="bAlienHead"
                         className="review-head"
                     ></div>
                 </div>
                 <canvas id="loadingCanvas" />
-                {/* <div className="preview-bg"></div> */}
             </div>
         </div>
     );

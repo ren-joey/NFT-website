@@ -27,16 +27,15 @@ const App = () => {
     return (
         <div className="App">
             {
-                frontPageStatus ? <FrontPage /> : ''
+                frontPageStatus && <FrontPage />
             }
 
             {
-                loadingPageStatus ?
+                loadingPageStatus &&
                     <LoadingPage
                         setFrontPageStatus={setFrontPageStatus}
                         setLoadingPageStatus={setLoadingPageStatus}
                     />
-                    : ''
             }
         </div>
     );
