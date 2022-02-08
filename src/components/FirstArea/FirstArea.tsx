@@ -22,9 +22,7 @@ const FirstArea = () => {
                     <div className="ground" style={
                         {backgroundImage: `url(${getResources('ground')})`}
                     }></div>
-                    <div className="b-alien-wave" style={
-                        { backgroundImage: `url(${getResources('b_alien_wave_gif')})` }
-                    }></div>
+                    <div className="b-alien-wave"></div>
                     <div className="b-alien-line" style={
                         { backgroundImage: `url(${getResources('b_alien')})` }
                     }></div>
@@ -66,9 +64,7 @@ const FirstArea = () => {
                 </div>
 
                 <div className="b-alien-area-sm">
-                    <div className="b-alien-wave" style={
-                        { backgroundImage: `url(${getResources('b_alien_wave_gif')})` }
-                    }>
+                    <div className="b-alien-wave">
                         <div className="b-alien-stroke" style={
                             { backgroundImage: `url(${getResources('b_alien')})` }
                         }></div>
