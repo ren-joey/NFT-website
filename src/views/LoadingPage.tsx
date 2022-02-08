@@ -3,7 +3,7 @@ import { RoughEase } from "gsap/all";
 import { useEffect, useRef, useState } from "react";
 import loadingAnimation from "src/animation/loadingAnimation";
 import BAlienSvg from "src/components/Shared/BAlienSvg";
-import loader, { getResources } from "src/functions/loader";
+import loader from "src/functions/loader";
 import { getParameterByName } from "src/utils";
 import 'src/views/LoadingPage.scss';
 
@@ -84,7 +84,7 @@ const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
                 opacity: 0,
                 onComplete: () => {
                     if (loaderIsReady.current) hideLoadingPageAndShowFrontPage();
-                    // trailerEnd();
+                    else trailerEnd();
                 }
             }, 'Staged+=6');
         }
