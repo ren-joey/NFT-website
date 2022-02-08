@@ -7,7 +7,7 @@ import LangBtn from 'src/components/Header/LangBtn';
 import { RwdContext } from 'src/Context/RwdContext';
 import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
-import socialList from './config';
+import { socialList } from '../../socialMediaConfig';
 import MenuBtn from './MenuBtn';
 import PhoneMenu from './PhoneMenu';
 
@@ -53,14 +53,14 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                 ></div>
                 <div className="nav-area">
                     {
-                        socialList.map((social, idx) => social.visible
-                            ? <div className="nav" key={idx}>
+                        socialList.map((social, idx) => (social.visible) &&
+                            <div className="nav" key={idx}>
                                 <div className="icon" style={getIcon(social.iconName)}></div>
                                 <div className="nav-text">
                                     {social.title}
                                 </div>
                             </div>
-                            : '')
+                        )
                     }
                     <div
                         className="nav"
@@ -100,21 +100,21 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                 </div>
 
                 {
-                    device === 'phone' ?
+                    device === 'phone' &&
                         <MenuBtn
                             active={menuStatus}
                             onClick={toggleMenuStatus}
-                        /> : ''
+                        />
                 }
 
                 {
-                    device === 'phone' ?
+                    device === 'phone' &&
                         <PhoneMenu
                             menuStatus={menuStatus}
                             selectedLang={selectedLang}
                             setSelectedLang={setSelectedLang}
                             toggleMenuStatus={toggleMenuStatus}
-                        /> : ''
+                        />
                 }
             </div>
 

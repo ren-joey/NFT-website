@@ -5,6 +5,7 @@ import { config } from 'src/config';
 import SocialButton from 'src/components/Shared/SocialButton';
 import 'src/components/FirstArea/FirstArea.scss';
 import { getResources } from 'src/functions/loader';
+import { socialList } from 'src/socialMediaConfig';
 
 const FirstArea = () => {
     const lang = useContext(LangContext);
@@ -30,11 +31,10 @@ const FirstArea = () => {
 
                 <div className="reveal-time-area">
                     {
-                        diff > 0
-                            ? <div className="reveal-time">
+                        diff > 0 &&
+                            <div className="reveal-time">
                                 { end.format('MMMM D YYYY HH:mm:ss UTCZ') }
                             </div>
-                            : ''
                     }
                 </div>
 
@@ -50,17 +50,17 @@ const FirstArea = () => {
                 </div>
 
                 <div className="link-area">
-                    <SocialButton
-                        className='twitter'
-                        name='Twitter'
-                        iconName='twitter'
-                    />
-                    <SocialButton
-                        className='discord'
-                        name='Discord'
-                        iconName='discord'
-                    />
-                    {/* <SocialButton className='opensea' name='OpenSea' /> */}
+                    {
+                        socialList.map((social, idx) => (
+                            social.visible &&
+                                <SocialButton
+                                    className={social.iconName}
+                                    name={social.title}
+                                    iconName={social.iconName}
+                                    key={idx}
+                                />
+                        ))
+                    }
                 </div>
 
                 <div className="b-alien-area-sm">

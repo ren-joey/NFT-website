@@ -1,11 +1,12 @@
 import React from 'react';
 import 'src/components/Shared/SocialButton.scss';
 import { getResources } from 'src/functions/loader';
+import { socialIconName } from 'src/socialMediaConfig';
 
 interface Props {
     className: string,
     name: string,
-    iconName: 'twitter'|'opensea'|'discord'
+    iconName: socialIconName
 }
 
 const SocialButton = ({ className, name, iconName }: Props) => {

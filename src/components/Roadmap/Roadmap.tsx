@@ -5,6 +5,7 @@ import { LangString } from 'src/lang';
 import { useContext } from 'react';
 import { RwdContext } from 'src/Context/RwdContext';
 import { getResources } from 'src/functions/loader';
+import { socialList } from 'src/socialMediaConfig';
 
 interface IRoadmap {
     selectedLang: LangString
@@ -40,22 +41,20 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
             { getLine() }
 
             <div className="link-area">
-                <SocialButton
-                    className='twitter mt-0'
-                    name='Twitter'
-                    iconName='twitter'
-                />
-
-                <div className="phone-line"></div>
-
-                <SocialButton
-                    className='discord mt-0'
-                    name='Discord'
-                    iconName='twitter'
-                />
+                {
+                    socialList.map((social, idx) => (
+                        social.visible &&
+                            <div key={idx}>
+                                <SocialButton
+                                    className={`${social.iconName} mt-0`}
+                                    name={social.title}
+                                    iconName={social.iconName}
+                                />
+                                { getLine() }
+                            </div>
+                    ))
+                }
             </div>
-
-            { getLine() }
 
             <RoadmapCard idx={2} />
 

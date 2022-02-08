@@ -11,14 +11,17 @@ const Footer = () => {
     return (
         <div className="footer">
             {
-                device === 'desktop'
-                    ? <div id="lineTurningSkew" className="line-turning-skew" style={
-                        { backgroundImage: `url(${getResources('line_turning_skew')})` }
-                    }></div>
-                    : ''
+                device === 'desktop' &&
+                    <div
+                        id="lineTurningSkew"
+                        className="line-turning-skew"
+                        style={
+                            { backgroundImage: `url(${getResources('line_turning_skew')})` }
+                        }
+                    ></div>
             }
 
-            { device === 'phone' ? <div className="phone-line"></div> : ''}
+            { device === 'phone' && <div className="phone-line"></div> }
             <div className="gradient"></div>
             <div className="star" style={
                 { backgroundImage: `url(${getResources('glowing_star')})` }
