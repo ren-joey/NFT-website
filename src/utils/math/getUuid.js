@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* cSpell:disable */
 
 /**
  * @return {string} 36 bytes length UUID string

@@ -1,3 +1,5 @@
+/* cSpell:disable */
+
 const textWeeeee = `
 weeeee weeeee
 weeeee weeeee

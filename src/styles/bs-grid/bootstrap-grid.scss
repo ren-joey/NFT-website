@@ -1,3 +1,6 @@
+/* stylelint-disable */
+/* cSpell:disable */
+
 /*!
  * Bootstrap Grid v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -26,8 +29,8 @@ $include-column-box-sizing: true !default;
 @import 'helpers';
 
 @import 'utilities';
+
 // Only use the utilities we need
-// stylelint-disable-next-line scss/dollar-variable-default
 $utilities: map-get-multiple($utilities,
 (
     'display',
