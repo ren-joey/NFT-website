@@ -1,25 +1,10 @@
-import React, { useState } from 'react';
-// import { Transition } from 'react-transition-group';
+import { useState } from 'react';
 import FrontPage from 'src/views/FrontPage';
 // import Web3Component from './views/Web3Component';
 import LoadingPage from './views/LoadingPage';
 
 // import 'src/styles/reset.css';
 import 'src/styles/index.scss';
-
-// const duration = 500;
-
-// const defaultStyle: React.CSSProperties = {
-//     transition: `opacity ${duration}ms`,
-//     opacity: 0
-// };
-
-// const transitionStyles = {
-//     entering: { opacity: 0.5 },
-//     entered: { opacity: 1 },
-//     exiting: { opacity: 0.5 },
-//     exited: { opacity: 0 }
-// };
 
 const App = () => {
     const [frontPageStatus, setFrontPageStatus] = useState(false);
