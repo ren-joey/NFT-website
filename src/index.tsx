@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import App from 'src/App';
 import reportWebVitals from 'src/reportWebVitals';
 import gaParser from './functions/gaParser';
+import gaRedirect from './functions/gaRedirect';
 import { clearAllParameter, getParameterByName } from './utils';
 
 const origin = getParameterByName('origin');
 const redirect = getParameterByName('redirect');
-window.history.replaceState({}, document.title, clearAllParameter());
 gaParser(origin, redirect);
+window.history.replaceState({}, document.title, clearAllParameter());
+
+setTimeout(() => {
+    gaRedirect(redirect);
+}, 0);
 
 ReactDOM.render(
     <React.StrictMode>

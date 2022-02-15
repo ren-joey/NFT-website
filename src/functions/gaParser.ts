@@ -1,5 +1,3 @@
-import { socialList } from "src/socialMediaConfig";
-
 const gaParser = (origin: string, redirect: string) => {
     const { gtag }: any = window;
 
@@ -11,9 +9,6 @@ const gaParser = (origin: string, redirect: string) => {
 
     if (redirect) {
         gtag('event', redirect, { event_category: 'redirect' });
-
-        const href = socialList.find(social => social.iconName === redirect)?.href;
-        if (href) window.location.href = href;
     }
 };
 
