@@ -49,6 +49,7 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
                                     className={`${social.iconName} mt-0`}
                                     name={social.title}
                                     iconName={social.iconName}
+                                    href={social.href}
                                 />
                                 { getLine() }
                             </div>

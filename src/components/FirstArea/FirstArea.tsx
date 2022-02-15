@@ -1,3 +1,5 @@
+/* cSpell:words UTCZ */
+
 import { LangContext } from 'src/Context/LangContext';
 import { useContext } from 'react';
 import Counter from 'src/components/FirstArea/Counter';
@@ -57,6 +59,7 @@ const FirstArea = () => {
                                     className={social.iconName}
                                     name={social.title}
                                     iconName={social.iconName}
+                                    href={social.href}
                                     key={idx}
                                 />
                         ))

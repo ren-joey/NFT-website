@@ -1,6 +1,9 @@
+/* cSpell:words Betamon βsummoner βplan */
+
 import { Lang } from 'src/lang/index';
 
 const EN: Lang = {
+    WEB_TITLE: 'Betamon LAUNCH IN',
     FIRST_AREA_TITLE: 'Betamon LAUNCH IN / Descend IN',
     FIRST_AREA_DESC: 'Will your naughty blood can successfully summon<span class="lang-hgl-bg">1％</span>of UR Betamon？',
     ABOUT_B_DESC: '<span class="lang-hgl">β planet</span> emerged in the Multiverse singularity found by VBC labs<br />Serendipity from the Aether energy can summon Betamon with superpowers<br />In case too many aliens are summoned to occupy the earth, we must control the numbers<br />They dress up as worldwide celebrities and <span class="lang-hgl">transform into physical merchandise</span> through the vision of earthlings<br />Every Betamon has unique planet code and properties, you will be the βsummoner once you owned it',
@@ -8,7 +11,7 @@ const EN: Lang = {
     ABOUT_B_CARD_1_TITLE: '<span class="lang-hgl">Ethereum</span> blockchain',
     ABOUT_B_CARD_1_DESC: '<span class="lang-hgl">10,000</span> uniquely NFT generated on the Ethereum blockchain',
     ABOUT_B_CARD_2_TITLE: '0.1 ETH',
-    ABOUT_B_CARD_2_DESC: 'The NFT originally minted at <span class="lang-hgl">0.1 ETH</span>, our team will keep incresing it benefits',
+    ABOUT_B_CARD_2_DESC: 'The NFT originally minted at <span class="lang-hgl">0.1 ETH</span>, our team will keep increasing it benefits',
     ABOUT_B_CARD_3_TITLE: 'Social Media',
     ABOUT_B_CARD_3_DESC: 'Trick or Treat club will <span class="lang-hgl">keep posted</span> the newest updates and unexpected prizes',
     ABOUT_B_CARD_4_TITLE: 'FIVE levels of random blind boxes',
