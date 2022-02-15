@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'src/App';
 import reportWebVitals from 'src/reportWebVitals';
+import gaParser from './functions/gaParser';
+import { clearAllParameter, getParameterByName } from './utils';
+
+const origin = getParameterByName('origin');
+const redirect = getParameterByName('redirect');
+window.history.replaceState({}, document.title, clearAllParameter());
+gaParser(origin, redirect);
 
 ReactDOM.render(
     <React.StrictMode>
