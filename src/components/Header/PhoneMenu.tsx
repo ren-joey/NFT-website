@@ -53,12 +53,18 @@ const PhoneMenu = ({
         <div className={`menu-phone ${menuStatus ? 'active' : ''}`}>
             {
                 socialList.map((social, idx) => social.visible &&
-                    <div className="menu-btn" key={idx}>
+                    <a
+                        className="menu-btn"
+                        key={idx}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <div className="icon" style={getIcon(social.iconName)}></div>
                         <div className="text">
                             {social.title}
                         </div>
-                    </div>
+                    </a>
                 )
             }
             <div

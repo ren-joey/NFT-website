@@ -1,5 +1,6 @@
 export type LangString = 'ZH_TW'|'ZH_CN'|'EN';
 export interface Lang {
+    readonly WEB_TITLE: string;
     readonly FIRST_AREA_TITLE: string;
     readonly FIRST_AREA_DESC: string;
     readonly ABOUT_B_DESC: string;

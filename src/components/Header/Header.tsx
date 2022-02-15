@@ -54,12 +54,18 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                 <div className="nav-area">
                     {
                         socialList.map((social, idx) => (social.visible) &&
-                            <div className="nav" key={idx}>
+                            <a
+                                className="nav"
+                                key={idx}
+                                href={social.href}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <div className="icon" style={getIcon(social.iconName)}></div>
                                 <div className="nav-text">
                                     {social.title}
                                 </div>
-                            </div>
+                            </a>
                         )
                     }
                     <div

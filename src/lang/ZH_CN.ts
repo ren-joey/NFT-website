@@ -1,6 +1,7 @@
 import { Lang } from 'src/lang/index';
 
 const ZH_CN: Lang = {
+    WEB_TITLE: 'β星人降临地球',
     FIRST_AREA_TITLE: 'β星人降临地球捣乱倒数',
     FIRST_AREA_DESC: '您的捣蛋血液可成功召唤机率<span class="lang-hgl-bg">1％</span>的β星人吗？ <br />首波 880 个<span class="lang-hgl-bg">RNFT</span>可兑换全球限量实体公仔',
     ABOUT_B_DESC: 'VBC labs 在多元宇宙的奇异点发现了<span class="lang-hgl">β星球</span><br />并发现可以藉由以太能量来召唤具有超能力的β星人<br />为了避免一次召唤过多β星人以致地球被占领<br />我们一开始必须先控制召唤数量<br />他们调皮的装扮成世界知名人物<br />藉由地球人致敬的目光展现「<span class="lang-hgl">实体具象</span>」的超能力<br />每种β星人具有独特的星球编码<br />与属性，拥有NFT的地球人即拥有β召唤师的称号',
