@@ -23,7 +23,7 @@ export const socialList: ISocialList[] = [
     {
         iconName: 'twitter',
         title: 'TWITTER',
-        href: 'https://twitter.com/marketing_vbc',
+        href: 'https://twitter.com/VBC_labs',
         visible: true
     }
 ];

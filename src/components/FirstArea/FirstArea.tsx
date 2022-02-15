@@ -23,7 +23,7 @@ const FirstArea = () => {
                     <div className="spotlight" style={spotlightLeft}></div>
                     <div className="spotlight reverse" style={spotlightLeft}></div>
                     <div className="ground" style={
-                        {backgroundImage: `url(${getResources('ground')})`}
+                        {backgroundImage: `url(${getResources('b_alien_ground')})`}
                     }></div>
                     <div className="b-alien-wave"></div>
                     <div className="b-alien-line" style={
