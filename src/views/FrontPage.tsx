@@ -9,17 +9,21 @@ import FirstArea from "src/components/FirstArea/FirstArea";
 import Footer from "src/components/Footer";
 import Header from "src/components/Header/Header";
 import Roadmap from "src/components/Roadmap/Roadmap";
-import { LangContext } from "src/Context/LangContext";
 import { DeviceString, RwdContext } from "src/Context/RwdContext";
-import EN from "src/lang/EN";
-import ZH_CN from "src/lang/ZH_CN";
-import ZH_TW from "src/lang/ZH_TW";
-import 'src/views/FrontPage.scss';
 import { getParameterByName } from "src/utils/url/getParameterByName";
-import { LangString } from "src/lang";
 import ScrollDownIcon from "src/components/Shared/ScrollDownIcon";
 import BackToTop from "src/components/Shared/BackToTopIcon";
 import ResizeListener from "src/functions/ResizeListener";
+
+// 語系相關
+import { LangString } from "src/lang";
+import { LangContext } from "src/Context/LangContext";
+import EN from "src/lang/EN";
+import ZH_CN from "src/lang/ZH_CN";
+import ZH_TW from "src/lang/ZH_TW";
+
+// style 相關
+import 'src/views/FrontPage.scss';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -81,14 +85,18 @@ const FrontPage = () => {
         if (selectedLang === 'ZH_TW') {
             localStorage.setItem('lang', selectedLang);
             setLang({...zhTW});
+            document.title = zhTW.WEB_TITLE;
         } else if  (selectedLang === 'ZH_CN') {
             localStorage.setItem('lang', selectedLang);
             setLang({...zhCN});
+            document.title = zhCN.WEB_TITLE;
         } else if (selectedLang === 'EN') {
             localStorage.setItem('lang', selectedLang);
             setLang({...EN});
+            document.title = EN.WEB_TITLE;
         } else {
             setLang({...zhTW});
+            document.title = zhTW.WEB_TITLE;
         }
     }, [selectedLang]);
 
