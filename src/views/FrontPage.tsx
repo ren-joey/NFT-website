@@ -73,7 +73,6 @@ const FrontPage = () => {
             // bubbleScrollTrigger();
         }
 
-
         return () => {
             ResizeListener.erase();
             scrollTriggerKillAll();

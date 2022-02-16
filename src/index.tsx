@@ -2,26 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'src/App';
 import reportWebVitals from 'src/reportWebVitals';
-import gaParser from './functions/gaParser';
-import gaRedirect from './functions/gaRedirect';
-import { clearAllParameter, getParameterByName } from './utils';
+import urlPreprocessing from './functions/urlPreprocessing';
 import './index.css';
 
-const origin = getParameterByName('origin');
-const redirect = getParameterByName('redirect');
-gaParser(origin, redirect);
-window.history.replaceState({}, document.title, clearAllParameter());
-
-setTimeout(() => {
-    gaRedirect(redirect);
-}, 0);
-
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+// url 前處理： ga 初始化, 事件寄送, url 清除及轉導
+urlPreprocessing().then(() => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
