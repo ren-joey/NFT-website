@@ -1,49 +1,56 @@
-import { useEffect } from "react";
+import Moralis from "moralis/types";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import * as abi from "./contractAbi";
-import moralisConfig from "./moralisConfig";
+import { getWeb3ExecuteFunctionOption } from "./contractAbi";
+import { ContractContext } from "./ContractService/ContractContext";
+import MintPrice from "./ContractService/MintPrice";
+import SetMintPrice from "./ContractService/SetMintPrice";
+import TotalSupply from "./ContractService/TotalSupply";
+import { nullable } from "./interfaces";
 
 const Web3ContractService = () => {
-    const totalSupplyOptions = {
-        contractAddress: moralisConfig.contractAddress,
-        functionName: abi.getTotalSupply.name,
-        abi: abi.getTotalSupply
-    };
-
     const {
         enableWeb3,
-        isWeb3Enabled
+        isWeb3Enabled,
+        isAuthenticated
     } = useMoralis();
-    const {
-        data,
-        error,
-        fetch,
-        isFetching,
-        isLoading
-    } = useWeb3ExecuteFunction(totalSupplyOptions);
 
     useEffect(() => {
-        console.log(error);
-    }, [error]);
+        if (isAuthenticated) {
+            try {
+                enableWeb3();
+            } catch (e) {
+                console.log('Web3ContractService error:'); // [DEV]
+                console.log(e);
+            }
+        }
+    }, [isAuthenticated]);
 
-    useEffect(() => {
-        console.log(isWeb3Enabled);
-    }, [isWeb3Enabled]);
-
-    useEffect(() => {
-        enableWeb3();
-    }, []);
+    const [totalSupply, setTotalSupply] = useState<nullable>(null);
+    const [mintPrice, setMintPrice] = useState<nullable>(null);
 
     return (
         <div>
             {
                 isWeb3Enabled && (
-                    <div>
-                        <button
-                            onClick={() => fetch()}
-                            disabled={ isFetching }
-                        >Fetch data</button>
-                    </div>
+                    <ContractContext.Provider value={{
+                        totalSupply,
+                        setTotalSupply,
+                        mintPrice,
+                        setMintPrice
+                    }}>
+                        <div>
+                            <TotalSupply />
+
+                            <MintPrice />
+
+                            <SetMintPrice />
+
+                            <div className="each-item">
+                                <button></button>
+                            </div>
+                        </div>
+                    </ContractContext.Provider>
                 )
             }
         </div>
