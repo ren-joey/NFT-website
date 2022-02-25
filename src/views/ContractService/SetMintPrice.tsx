@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { cyanBtn, whiteCard, whiteInput } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";

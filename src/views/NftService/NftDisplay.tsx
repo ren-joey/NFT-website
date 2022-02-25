@@ -1,18 +1,16 @@
-import axios from "axios";
-import Moralis from "moralis/types";
 import { useContext, useEffect } from "react";
 import { useMoralis, useNFTBalances } from "react-moralis";
 import { blackDescription, blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
 import { ContractContext } from "../ContractService/ContractContext";
 import { INft } from "../interfaces";
 import moralisConfig from "../moralisConfig";
+import { refreshNft } from "./functions";
 
 const NftDisplay = () => {
     const { isAuthenticated } = useMoralis();
 
     const {
-        data,
-        getNFTBalances
+        data
     } = useNFTBalances();
 
     const {
@@ -20,48 +18,13 @@ const NftDisplay = () => {
         setNfts
     } = useContext(ContractContext);
 
-    const fetchMetadata = async (_nfts: any[]) => {
-        const nfts: INft[] = [];
-        for (let i = 0; i < _nfts.length; i++) {
-            const nft = _nfts[i];
-            console.log(nft);
-            if (nft.token_uri) {
-                const res = await axios({
-                    method: 'POST',
-                    url: `${moralisConfig.serverUrl}/functions/json`,
-                    data: {
-                        url: nft.token_uri
-                    }
-                });
 
-                nfts.push({
-                    ...nft,
-                    metadata: res.data.result.data
-                });
-            }
-        }
-
-        setNfts(nfts);
-    };
-
-    const refreshNft = async ({
-        token_address,
-        token_id
-    }: INft) => {
-        // { address: "0xd...07", token_id: "1", flag: "metadata" };
-        const nft = await Moralis.Web3API.token.reSyncMetadata({
-            address: token_address,
-            token_id: token_id,
-            flag: 'metadata'
-        });
-
-        console.log(nft);
-    };
 
     useEffect(() => {
         const address = moralisConfig.contractAddress;
         const _nfts = data?.result?.filter(nft => nft.token_address === address) || [];
-        fetchMetadata(_nfts);
+
+        setNfts(_nfts as INft[]);
     }, [data]);
 
     return (
@@ -78,12 +41,14 @@ const NftDisplay = () => {
                                 <div className={blackDescription}>
                                     {nft.metadata.description}
                                 </div>
-                                <button
-                                    className={cyanBtn}
-                                    onClick={() => refreshNft(nft)}
-                                >
-                                    Refresh Metadata
-                                </button>
+                                <div className="mt-2">
+                                    <button
+                                        className={cyanBtn}
+                                        onClick={() => refreshNft(nft)}
+                                    >
+                                        Refresh Metadata
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))

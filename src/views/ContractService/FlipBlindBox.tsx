@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useWeb3ExecuteFunction } from "react-moralis";
 import { blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
@@ -38,7 +38,7 @@ const FlipBlindBox = () => {
             <div>
                 { isBlindBoxOpened !== undefined && (
                     <p className={`${blackTitle} uppercase`}>
-                        BLIND BOX STATUS: {isBlindBoxOpened.toString()}
+                        IS BLIND BOX OPENED: {isBlindBoxOpened.toString()}
                     </p>
                 )}
 

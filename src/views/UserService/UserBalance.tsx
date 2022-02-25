@@ -1,10 +1,5 @@
-import axios from 'axios';
-import Moralis from 'moralis';
-import { useContext, useEffect, useMemo, useState } from "react";
-import { useMoralis, useNFTBalances } from "react-moralis";
-import { blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
-import { ContractContext } from '../ContractService/ContractContext';
-import moralisConfig from "../moralisConfig";
+import { useMoralis } from "react-moralis";
+import { blackTitle, whiteCard } from "src/components/ui/uiClassName";
 import LoginService from "./LoginService";
 
 const UserBalance = () => {
