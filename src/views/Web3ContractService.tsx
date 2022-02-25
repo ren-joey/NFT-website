@@ -1,12 +1,9 @@
-import Moralis from "moralis/types";
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import { getWeb3ExecuteFunctionOption } from "./contractAbi";
-import { ContractContext } from "./ContractService/ContractContext";
+import { useEffect } from "react";
+import { useMoralis } from "react-moralis";
+import FlipBlindBox from "./ContractService/FlipBlindBox";
 import MintPrice from "./ContractService/MintPrice";
 import SetMintPrice from "./ContractService/SetMintPrice";
 import TotalSupply from "./ContractService/TotalSupply";
-import { nullable } from "./interfaces";
 
 const Web3ContractService = () => {
     const {
@@ -26,31 +23,21 @@ const Web3ContractService = () => {
         }
     }, [isAuthenticated]);
 
-    const [totalSupply, setTotalSupply] = useState<nullable>(null);
-    const [mintPrice, setMintPrice] = useState<nullable>(null);
+
 
     return (
         <div>
             {
                 isWeb3Enabled && (
-                    <ContractContext.Provider value={{
-                        totalSupply,
-                        setTotalSupply,
-                        mintPrice,
-                        setMintPrice
-                    }}>
-                        <div>
-                            <TotalSupply />
+                    <div>
+                        <TotalSupply />
 
-                            <MintPrice />
+                        <MintPrice />
 
-                            <SetMintPrice />
+                        <SetMintPrice />
 
-                            <div className="each-item">
-                                <button></button>
-                            </div>
-                        </div>
-                    </ContractContext.Provider>
+                        <FlipBlindBox />
+                    </div>
                 )
             }
         </div>

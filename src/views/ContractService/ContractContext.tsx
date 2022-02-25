@@ -5,7 +5,11 @@ const contractData: IContractData = {
     totalSupply: null,
     setTotalSupply: () => {},
     mintPrice: null,
-    setMintPrice: () => {}
+    setMintPrice: () => {},
+    isBlindBoxOpened: undefined,
+    setIsBlindBoxOpened: () => {},
+    nfts: [],
+    setNfts: () => {}
 };
 
 const ContractContext = React.createContext({...contractData});

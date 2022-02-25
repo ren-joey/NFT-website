@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
-import moralisConfig from "./moralisConfig";
+import moralisConfig from "../moralisConfig";
 
 const className = 'bg-cyan-700 rounded text-white px-2 py-1 ml-auto uppercase font-bold';
 
-const Web3LoginService = () => {
+const LoginService = () => {
     const {
         authenticate,
         isAuthenticated,
@@ -38,4 +38,4 @@ const Web3LoginService = () => {
     );
 };
 
-export default Web3LoginService;
+export default LoginService;

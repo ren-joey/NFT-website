@@ -1,5 +1,6 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useWeb3ExecuteFunction } from 'react-moralis';
+import { cyanBtn, whiteCard, whiteInput } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { nullable } from "../interfaces";
 import { ContractContext } from "./ContractContext";
@@ -27,19 +28,21 @@ const SetMintPrice = () => {
     };
 
     return (
-        <div className="my-2 p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex justify-center">
+        <div className={whiteCard}>
             <div className="flex">
                 <input
-                    className="bg-gray-100 text-gray-800 px-2 py-1 rounded-bl"
+                    className={whiteInput}
                     value={inputMintPrice || 0}
                     type="number"
                     onChange={handleMintChange}
                 ></input>
                 <button
-                    className="bg-cyan-700 rounded text-white px-2 py-1 ml-auto uppercase font-bold"
+                    className={cyanBtn}
                     onClick={() => sendSetMintPrice()}
-                    disabled={ isFetching }
-                >set mint price</button>
+                    disabled={isFetching}
+                >
+                    set mint price
+                </button>
             </div>
         </div>
     );

@@ -1,27 +1,25 @@
-import { useEffect } from "react";
-import { useMoralis } from "react-moralis";
-import WhiteCard from "src/components/ui/WhiteCard";
-import Web3LoginService from "../Web3LoginService";
+import axios from 'axios';
+import Moralis from 'moralis';
+import { useContext, useEffect, useMemo, useState } from "react";
+import { useMoralis, useNFTBalances } from "react-moralis";
+import { blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
+import { ContractContext } from '../ContractService/ContractContext';
+import moralisConfig from "../moralisConfig";
+import LoginService from "./LoginService";
 
 const UserBalance = () => {
     const { user } = useMoralis();
 
-    useEffect(() => {
-        console.log(user);
-    }, [user]);
-
-    const body = (
-        <div>
-            <div className="text-gray-800 text-sm mb-2">
-                {user && `YOUR ADDRESS: ${user.id}`}
-            </div>
-
-            <Web3LoginService />
-        </div>
-    );
-
     return (
-        <WhiteCard body={body} />
+        <div className={whiteCard}>
+            <div>
+                <div className={blackTitle}>
+                    {user && `YOUR ADDRESS: ${user.id}`}
+                </div>
+
+                <LoginService />
+            </div>
+        </div>
     );
 };
 
