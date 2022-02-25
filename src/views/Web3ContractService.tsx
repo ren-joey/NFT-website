@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import FlipBlindBox from "./ContractService/FlipBlindBox";
+import MintBetamon from "./ContractService/MintBetamon";
 import MintPrice from "./ContractService/MintPrice";
 import SetMintPrice from "./ContractService/SetMintPrice";
 import TotalSupply from "./ContractService/TotalSupply";
@@ -37,6 +38,8 @@ const Web3ContractService = () => {
                         <SetMintPrice />
 
                         <FlipBlindBox />
+
+                        <MintBetamon />
                     </div>
                 )
             }

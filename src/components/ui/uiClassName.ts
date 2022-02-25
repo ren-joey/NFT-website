@@ -8,10 +8,13 @@ const blackDescription = /* @TW */ 'text-sm font-medium text-gray-600';
 
 const whiteInput = /* @TW */ 'bg-gray-100 text-gray-800 px-2 py-1 rounded-bl';
 
+const flexCenter = /* @TW */ 'flex justify-center items-center';
+
 export {
     whiteCard,
     cyanBtn,
     blackTitle,
     whiteInput,
-    blackDescription
+    blackDescription,
+    flexCenter
 };

@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useWeb3ExecuteFunction } from 'react-moralis';
+import { EventBus } from 'src/bus';
 import { blackTitle, cyanBtn, whiteCard } from 'src/components/ui/uiClassName';
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { ContractContext } from './ContractContext';
@@ -14,6 +15,16 @@ const MintPrice = () => {
     }: any = useWeb3ExecuteFunction();
 
     const { mintPrice, setMintPrice } = useContext(ContractContext);
+
+    const fetchMintPrice = async () => await fetch({ params: option });
+
+    EventBus.$on(
+        'fetchMintPrice',
+        () => new Promise<void>(async (res) => {
+            const price = await fetchMintPrice();
+            res(price);
+        })
+    );
 
     useEffect(() => {
         if (data) {
@@ -31,7 +42,7 @@ const MintPrice = () => {
                 ) }
                 <button
                     className={cyanBtn}
-                    onClick={() => fetch({ params: option })}
+                    onClick={() => fetchMintPrice()}
                     disabled={ isFetching }
                 >
                     get mint price

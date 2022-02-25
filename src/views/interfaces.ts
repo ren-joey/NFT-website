@@ -1,4 +1,4 @@
-export type nullable = null|number;
+export type nullable = (null|number);
 
 export interface IMetadata {
     description: string;

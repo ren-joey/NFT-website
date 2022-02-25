@@ -2,7 +2,7 @@ import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { useWeb3ExecuteFunction } from "react-moralis";
 import { blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
 
-const TotalSupply = ({ fetchContract }: any) => {
+const TotalSupply = () => {
     const totalSupplyOptions = getWeb3ExecuteFunctionOption('getTotalSupply');
 
     const {
