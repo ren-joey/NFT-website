@@ -4,12 +4,16 @@ import socialMediaRedirect from "./socialMediaRedirect";
 
 const urlPreprocessing = () => (
     new Promise<void>((res) => {
-        const origin = getParameterByName('origin');
-        const redirect = getParameterByName('redirect');
-        gaParser(origin, redirect);
+        const origin = getParameterByName('o');
+        const redirect = getParameterByName('r');
+        const category = getParameterByName('c');
+        if (!origin && !redirect && !category) res();
 
-        let href = removeParameterByName('origin', window.location.href);
-        href = removeParameterByName('redirect', href);
+        gaParser(origin, redirect, category);
+
+        let href = removeParameterByName('o', window.location.href);
+        href = removeParameterByName('r', href);
+        href = removeParameterByName('c', href);
         window.history.replaceState({}, document.title, href);
 
         if (!socialMediaRedirect(redirect)) res();

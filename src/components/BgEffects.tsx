@@ -8,7 +8,6 @@ import { getResources } from 'src/functions/loader';
 
 const BgEffects = () => {
 
-
     useEffect(() => {
         if (!getParameterByName('bg-effect')) {
             bgEffectInit();

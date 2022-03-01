@@ -3,6 +3,7 @@ import { RoughEase } from "gsap/all";
 import { useEffect, useRef, useState } from "react";
 import loadingAnimation from "src/animation/loadingAnimation";
 import BAlienSvg from "src/components/Shared/BAlienSvg";
+import gaParser from "src/functions/gaParser";
 import loader from "src/functions/loader";
 import { getParameterByName } from "src/utils";
 import 'src/views/LoadingPage.scss';
@@ -97,6 +98,8 @@ const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
     }, []);
 
     const skipTrailer = () => {
+        gaParser('主站', 'SKIP', '0303版網站');
+
         localStorage.setItem('skip-trailer', 'true');
         tl.progress(1, true);
 

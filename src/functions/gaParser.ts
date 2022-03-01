@@ -1,15 +1,10 @@
-const gaParser = (origin: string, redirect: string) => {
+const gaParser = (
+    event_category: string,
+    action: string,
+    event_label: string
+) => {
     const { gtag }: any = window;
-
-    gtag('event', 'initialized', { event_category: 'page_view' });
-
-    if (origin) {
-        gtag('event', origin, { event_category: 'origin' });
-    }
-
-    if (redirect) {
-        gtag('event', redirect, { event_category: 'redirect' });
-    }
+    gtag('event', action, { event_category, event_label });
 };
 
 export default gaParser;

@@ -1,5 +1,6 @@
 import React from 'react';
 import 'src/components/Shared/SocialButton.scss';
+import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
 import { socialIconName } from 'src/socialMediaConfig';
 
@@ -15,17 +16,15 @@ const SocialButton = ({ className, name, iconName, href }: Props) => {
     const iconStyle: React.CSSProperties = {backgroundImage: `url(${iconUrl})`};
 
     return (
-        <a
+        <div
             className={`link-btn ${className}`}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
+            onClick={() => hrefTo({iconName, href})}
         >
             <div className="icon" style={iconStyle}></div>
             <div className="text">
                 {name}
             </div>
-        </a>
+        </div>
     );
 };
 

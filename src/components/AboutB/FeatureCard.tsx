@@ -4,6 +4,7 @@ import 'src/components/AboutB/FeatureCard.scss';
 import { RwdContext } from "src/Context/RwdContext";
 import { LangString } from "src/lang";
 import { getResources } from "src/functions/loader";
+import gaParser from "src/functions/gaParser";
 interface Props {
     idx: number,
     line?: boolean,
@@ -33,9 +34,15 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
         if (!btn) return;
 
         const href = lang[`ABOUT_B_CARD_${idx}_HREF`];
-        const action = href
-            ? () => window.location.href = href
-            : () => alert(lang.RECENTLY_ANNOUNCED);
+        const action = () => {
+            gaParser('主站', '質押錢包', '0303版網站');
+
+            if (href) {
+                window.location.href = href;
+            } else {
+                alert(lang.RECENTLY_ANNOUNCED);
+            }
+        };
         return (
             <div className="feature-btn" onClick={action}>
                 {btn}

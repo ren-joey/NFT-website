@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { scrollToRoadmap } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/PhoneMenu.scss';
+import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
 import { socialList } from 'src/socialMediaConfig';
@@ -53,18 +54,16 @@ const PhoneMenu = ({
         <div className={`menu-phone ${menuStatus ? 'active' : ''}`}>
             {
                 socialList.map((social, idx) => social.visible &&
-                    <a
+                    <div
                         className="menu-btn"
+                        onClick={() => hrefTo(social)}
                         key={idx}
-                        href={social.href}
-                        target="_blank"
-                        rel="noreferrer"
                     >
                         <div className="icon" style={getIcon(social.iconName)}></div>
                         <div className="text">
                             {social.title}
                         </div>
-                    </a>
+                    </div>
                 )
             }
             <div
