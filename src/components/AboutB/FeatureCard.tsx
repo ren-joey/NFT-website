@@ -36,7 +36,7 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
         const action = href
             ? () => window.location.href = href
             : () => alert(lang.RECENTLY_ANNOUNCED);
-        return btn && (
+        return (
             <div className="feature-btn" onClick={action}>
                 {btn}
             </div>
