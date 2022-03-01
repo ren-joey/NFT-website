@@ -71,6 +71,10 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
 
             <RoadmapCard idx={5} />
 
+            { getLine() }
+
+            <RoadmapCard idx={6} />
+
         </div>
     );
 };

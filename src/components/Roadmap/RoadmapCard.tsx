@@ -10,6 +10,35 @@ interface Props {
 const RoadmapCard = ({ idx }: Props) => {
     const lang = React.useContext(LangContext);
 
+    const btn = () => {
+        const btn = lang[`ROADMAP_CARD_${idx}_BTN`];
+        if (!btn) return;
+
+        const label = lang[`ROADMAP_CARD_${idx}_BTN_LABEL`];
+        const href = lang[`ROADMAP_CARD_${idx}_HREF`];
+        const action = href
+            ? () => window.location.href = href
+            : () => alert(lang.RECENTLY_ANNOUNCED);
+        return btn && (
+            <div
+                className="roadmap-btn-wrap"
+                style={
+                    { backgroundImage: `url(${getResources('card_btn_bg')})` }
+                }
+                onClick={action}
+            >
+                <div className="roadmap-btn">
+                    <div className="label">
+                        {label}
+                    </div>
+                    <div className="title">
+                        {btn}
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
     return (
         <div className="roadmap-card-row">
             <div className="roadmap-time">
@@ -33,7 +62,8 @@ const RoadmapCard = ({ idx }: Props) => {
                     <div className="card-bottom">
                         <div className="remark" dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_REMARK`]}}></div>
                     </div>
-                    {/* <div className="backdrop"></div> */}
+
+                    { btn() }
                 </div>
             </div>
         </div>

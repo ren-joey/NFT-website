@@ -28,6 +28,21 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
         return [title, desc];
     }, [device, lang, idx]);
 
+    const btn = () => {
+        const btn = lang[`ABOUT_B_CARD_${idx}_BTN`];
+        if (!btn) return;
+
+        const href = lang[`ABOUT_B_CARD_${idx}_HREF`];
+        const action = href
+            ? () => window.location.href = href
+            : () => alert(lang.RECENTLY_ANNOUNCED);
+        return btn && (
+            <div className="feature-btn" onClick={action}>
+                {btn}
+            </div>
+        );
+    };
+
     return (
         <div className="feature-card">
             <div className="feature-card-icon" style={
@@ -44,6 +59,7 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
                     className="desc"
                     dangerouslySetInnerHTML={{__html: desc}}
                 ></div>
+                { btn() }
             </div>
 
             {

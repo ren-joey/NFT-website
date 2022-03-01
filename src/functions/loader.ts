@@ -45,6 +45,7 @@ import to_be_continue from 'src/assets/images/to_be_continue.png';
 import twitter_icon_gradient from 'src/assets/images/twitter_icon_gradient.png';
 import twitter_icon from 'src/assets/images/twitter_icon.svg';
 import vbc_logo from 'src/assets/images/vbc_logo.svg';
+import card_btn_bg from 'src/assets/images/card_btn_bg.png';
 // import wave from 'src/assets/images/wave.gif';
 // import font_a4 from 'src/assets/fonts/A4SPEED-Bold-DAFONT TTF.ttf';
 // import font_coco from 'src/assets/fonts/Coco-Sharp-Heavy-trial.ttf';
@@ -135,6 +136,7 @@ const loader = () => new Promise<void>((res) => {
         .add('to_be_continue', to_be_continue)
         .add('twitter_icon_gradient', twitter_icon_gradient)
         .add('twitter_icon', twitter_icon)
+        .add('card_btn_bg', card_btn_bg)
         .add('vbc_logo', vbc_logo);
     // .add('wave', wave)
 

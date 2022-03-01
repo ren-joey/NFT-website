@@ -92,12 +92,12 @@ const PhoneMenu = ({
                     lang='ZH_TW'
                     title='繁體中文'
                 />
-                <PhoneLangBtn
+                {/* <PhoneLangBtn
                     selectedLang={selectedLang}
                     setSelectedLang={selectLang}
                     lang='EN'
                     title='English'
-                />
+                /> */}
             </div>
 
             { animateMask(1) }
