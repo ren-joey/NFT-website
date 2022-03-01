@@ -69,6 +69,29 @@
             line-height: 1.4rem;
         }
 
+        & > .feature-btn {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            padding: 0.6rem 1rem;
+            font-size: 1rem;
+            font-weight: bolder;
+            white-space: nowrap;
+            color: #fff;
+            background-color: #7b8eb4;
+            border: 1px solid #fff;
+            border-radius: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transform: translate(-50%, 50%);
+            cursor: pointer;
+
+            @media (min-width: 992px) {
+                padding: 0.8rem 1.4rem;
+                font-size: 1.2rem;
+                transform: translate(-50%, -30%);
+            }
+        }
+
         @media (min-width: 992px) {
             padding: 36% 1rem 70px;
             border: 3px solid #ff89a1;
