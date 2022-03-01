@@ -29,9 +29,11 @@ export interface INft {
 
 export interface IContractData {
     totalSupply: nullable;
-    setTotalSupply: (num: nullable) => void;
+    setTotalSupply: (num: number) => void;
     mintPrice: nullable;
-    setMintPrice: (num: nullable) => void;
+    setMintPrice: (num: number) => void;
+    maxBalance: nullable;
+    setMaxBalance: (num: number) => void
     nfts: INft[];
     setNfts: (nfts: INft[]) => void;
     isBlindBoxOpened: (undefined|boolean);

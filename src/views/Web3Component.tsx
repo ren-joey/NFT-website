@@ -12,6 +12,7 @@ const web3Style: React.CSSProperties = {color: '#fff'};
 const Web3Component = () => {
     const [totalSupply, setTotalSupply] = useState<nullable>(null);
     const [mintPrice, setMintPrice] = useState<nullable>(null);
+    const [maxBalance, setMaxBalance] = useState<nullable>(null);
     const [nfts, setNfts] = useState<INft[]>([]);
     const [isBlindBoxOpened, setIsBlindBoxOpened] = useState<(undefined|boolean)>(undefined);
 
@@ -25,6 +26,8 @@ const Web3Component = () => {
                 setTotalSupply,
                 mintPrice,
                 setMintPrice,
+                maxBalance,
+                setMaxBalance,
                 nfts,
                 setNfts,
                 isBlindBoxOpened,

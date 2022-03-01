@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import FlipBlindBox from "./ContractService/FlipBlindBox";
+import MaxBalance from "./ContractService/MaxBalance";
 import MintBetamon from "./ContractService/MintBetamon";
 import MintPrice from "./ContractService/MintPrice";
+import SetMaxBalance from "./ContractService/SetMaxBalance";
 import SetMintPrice from "./ContractService/SetMintPrice";
 import TotalSupply from "./ContractService/TotalSupply";
 
@@ -34,8 +36,10 @@ const Web3ContractService = () => {
                         <TotalSupply />
 
                         <MintPrice />
-
                         <SetMintPrice />
+
+                        <MaxBalance />
+                        <SetMaxBalance />
 
                         <FlipBlindBox />
 

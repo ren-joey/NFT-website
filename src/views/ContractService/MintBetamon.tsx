@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import { cyanBtn, flexCenter, whiteCard } from "src/components/ui/uiClassName";
@@ -12,7 +12,8 @@ const MintBetamon = () => {
     } = useMoralis();
     const {
         fetch,
-        isFetching
+        isFetching,
+        error
     } = useWeb3ExecuteFunction();
     const {
         mintPrice
@@ -42,6 +43,17 @@ const MintBetamon = () => {
             doFetch();
         }
     };
+
+    useEffect(() => {
+        if (error) {
+            const regex = /(?<=error=)([^;]*)(?=, method=)/gm;
+            const arr = error.message.match(regex);
+            if (arr) {
+                const errorObj = JSON.parse(arr[0]);
+                alert(errorObj.message);
+            }
+        }
+    }, [error]);
 
     const boxStyle_sm = /* @TW */ 'w-6 h-6 mx-1 rounded text-white cursor-pointer';
     const boxStyle_lg = /* @TW */ 'w-10 h-10 mx-1 rounded text-white font-bold text-lg cursor-pointer';
