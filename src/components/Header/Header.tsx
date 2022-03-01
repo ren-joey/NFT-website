@@ -5,9 +5,11 @@ import { scrollToRoadmap, scrollToTop } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/Header.scss';
 import LangBtn from 'src/components/Header/LangBtn';
 import { RwdContext } from 'src/Context/RwdContext';
+import gaParser from 'src/functions/gaParser';
+import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
-import { socialList } from '../../socialMediaConfig';
+import { socialList, ISocialList } from '../../socialMediaConfig';
 import MenuBtn from './MenuBtn';
 import PhoneMenu from './PhoneMenu';
 
@@ -54,18 +56,16 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                 <div className="nav-area">
                     {
                         socialList.map((social, idx) => (social.visible) &&
-                            <a
+                            <div
                                 className="nav"
                                 key={idx}
-                                href={social.href}
-                                target="_blank"
-                                rel="noreferrer"
+                                onClick={() => hrefTo(social)}
                             >
                                 <div className="icon" style={getIcon(social.iconName)}></div>
                                 <div className="nav-text">
                                     {social.title}
                                 </div>
-                            </a>
+                            </div>
                         )
                     }
                     <div

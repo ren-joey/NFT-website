@@ -1,4 +1,5 @@
 import gsap, { Power3 } from 'gsap';
+import gaParser from 'src/functions/gaParser';
 
 const scrollToElement = (target: string, offsetY = 200) => {
     gsap.to(window, {
@@ -19,6 +20,7 @@ const scrollToOffset = (offset: number) => {
 
 
 const scrollToRoadmap = () => {
+    gaParser('主站', 'ROADMAP', '0303版網站');
     scrollToElement('.roadmap', 60);
 };
 
