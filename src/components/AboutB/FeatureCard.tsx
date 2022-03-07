@@ -37,11 +37,8 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
         const action = () => {
             gaParser('主站', '質押錢包', '0303版網站');
 
-            if (href) {
-                window.location.href = href;
-            } else {
-                alert(lang.RECENTLY_ANNOUNCED);
-            }
+            if (href) window.open(href, '_blank');
+            else alert(lang.RECENTLY_ANNOUNCED);
         };
         return (
             <div className="feature-btn" onClick={action}>

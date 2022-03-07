@@ -17,7 +17,7 @@ const RoadmapCard = ({ idx }: Props) => {
         const label = lang[`ROADMAP_CARD_${idx}_BTN_LABEL`];
         const href = lang[`ROADMAP_CARD_${idx}_HREF`];
         const action = href
-            ? () => window.location.href = href
+            ? () => window.open(href, '_blank')
             : () => alert(lang.RECENTLY_ANNOUNCED);
         return btn && (
             <div
