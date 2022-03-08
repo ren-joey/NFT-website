@@ -1,50 +1,28 @@
-import { useEffect, useState } from 'react';
-import moment from 'moment';
-import { config } from 'src/config';
+import { useContext, useEffect, useState } from 'react';
 import 'src/components/FirstArea/Counter.scss';
+import { EventContext } from 'src/Context/EventContext';
+import CountingHandler from 'src/CountingHandler';
 
 const Counter = () => {
-    const { now, getEnd } = config;
-    const [counter, setCounter] = useState({
-        days: '00',
-        hours: '00',
-        minutes: '00',
-        seconds: '00'
-    });
-
-    const counterParser = (diff: number) => {
-        const momentDuration = moment.duration(diff, 'milliseconds');
-        const days = Math.floor(momentDuration.asDays());
-        const hours = momentDuration.hours();
-        const minutes = momentDuration.minutes();
-        const seconds = momentDuration.seconds();
-        setCounter({
-            days: `0${days}`.slice(-2),
-            hours: `0${hours}`.slice(-2),
-            minutes: `0${minutes}`.slice(-2),
-            seconds: `0${seconds}`.slice(-2)
-        });
-    };
+    const {
+        counter,
+        setCounter,
+        status,
+        setStatus,
+        setEnd
+    } = useContext(EventContext);
 
     useEffect(() => {
-        const end = getEnd();
-        let diff = end.diff(now, 'milliseconds');
-        counterParser(diff);
+        const timer = setTimeout(() => {
+            setCounter(CountingHandler.getDateTime());
+            if (CountingHandler.status !== status) {
+                setStatus(CountingHandler.status);
+                setEnd(CountingHandler.getEnd());
+            }
+        }, 1000);
 
-        let interval: undefined|NodeJS.Timer;
-        if (diff > 0) {
-            interval = setInterval(() => {
-                diff -= 1000;
-                counterParser(diff);
-
-                if (diff <= 0) clearInterval(interval as NodeJS.Timer);
-            }, 1000);
-        }
-
-        return () => {
-            clearInterval(interval as NodeJS.Timer);
-        };
-    }, []);
+        return () => clearTimeout(timer);
+    });
 
     return (
         <div className="counter-area">

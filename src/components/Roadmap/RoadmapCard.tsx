@@ -2,6 +2,7 @@ import React from "react";
 import { LangContext } from "src/Context/LangContext";
 import 'src/components/Roadmap/RoadmapCard.scss';
 import { getResources } from "src/functions/loader";
+import gaParser from "src/functions/gaParser";
 
 interface Props {
     idx: number
@@ -16,9 +17,12 @@ const RoadmapCard = ({ idx }: Props) => {
 
         const label = lang[`ROADMAP_CARD_${idx}_BTN_LABEL`];
         const href = lang[`ROADMAP_CARD_${idx}_HREF`];
-        const action = href
-            ? () => window.open(href, '_blank')
-            : () => alert(lang.RECENTLY_ANNOUNCED);
+        const action = () => {
+            gaParser('主站', '土地', '0303版網站');
+
+            if (href) window.open(href, '_blank');
+            else alert(lang.RECENTLY_ANNOUNCED);
+        };
         return btn && (
             <div
                 className="roadmap-btn-wrap"

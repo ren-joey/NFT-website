@@ -4,12 +4,11 @@ import { useContext, useEffect, useState } from 'react';
 import { scrollToRoadmap, scrollToTop } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/Header.scss';
 import LangBtn from 'src/components/Header/LangBtn';
-import { RwdContext } from 'src/Context/RwdContext';
-import gaParser from 'src/functions/gaParser';
+import { EventContext } from 'src/Context/EventContext';
 import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
-import { socialList, ISocialList } from '../../socialMediaConfig';
+import { socialList } from '../../socialMediaConfig';
 import MenuBtn from './MenuBtn';
 import PhoneMenu from './PhoneMenu';
 
@@ -19,7 +18,7 @@ interface IHeader {
 }
 
 const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
-    const { device } = useContext(RwdContext);
+    const { device } = useContext(EventContext);
     const [menuStatus, setMenuStatus] = useState(false);
     const toggleMenuStatus = () => {
         setMenuStatus(!menuStatus);

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { LangContext } from "src/Context/LangContext";
 import 'src/components/AboutB/FeatureCard.scss';
-import { RwdContext } from "src/Context/RwdContext";
+import { EventContext } from "src/Context/EventContext";
 import { LangString } from "src/lang";
 import { getResources } from "src/functions/loader";
 import gaParser from "src/functions/gaParser";
@@ -13,7 +13,7 @@ interface Props {
 
 const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
     const lang = React.useContext(LangContext);
-    const { device } = React.useContext(RwdContext);
+    const { device } = React.useContext(EventContext);
     const iconUrl = getResources(`feature_icon_${idx}`);
 
     const [title, desc] = useMemo(() => {

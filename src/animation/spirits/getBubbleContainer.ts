@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import { DeviceString } from 'src/Context/RwdContext';
+import { DeviceString } from 'src/Context/EventContext';
 import ResizeListener from 'src/functions/ResizeListener';
 import { bubbleScrollTrigger } from '../bubbleScrollTrigger';
 

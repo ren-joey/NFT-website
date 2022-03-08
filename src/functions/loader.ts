@@ -18,7 +18,7 @@ import black_hole from 'src/assets/images/black_hole.png';
 import blue_arrow from 'src/assets/images/blue_arrow.png';
 import center_dots from 'src/assets/images/center_dots.png';
 import discord_icon from 'src/assets/images/discord_icon.svg';
-// import discord_icon_gradient from 'src/assets/images/discord_icon_gradient.png';
+import discord_icon_gradient from 'src/assets/images/discord_icon_gradient.png';
 import earth from 'src/assets/images/earth.png';
 import feature_icon_1 from 'src/assets/images/feature_icon_1.png';
 import feature_icon_2 from 'src/assets/images/feature_icon_2.png';
@@ -94,7 +94,7 @@ const loader = () => new Promise<void>((res) => {
 
         // for front page
         .add('perspective_lines', perspective_lines)
-        // .add('discord_icon_gradient', discord_icon_gradient)
+        .add('discord_icon_gradient', discord_icon_gradient)
         .add('about_b', about_b)
         .add('arrow_down', arrow_down)
         .add('b_alien_1', b_alien_1)

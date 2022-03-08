@@ -1,6 +1,6 @@
 import gsap, { Power4 } from 'gsap';
 import * as PIXI from 'pixi.js';
-import { DeviceString } from 'src/Context/RwdContext';
+import { DeviceString } from 'src/Context/EventContext';
 
 const getDevice: () => DeviceString = () => window.innerWidth >= 992 ? 'desktop' : 'phone';
 

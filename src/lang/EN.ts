@@ -5,6 +5,7 @@ import { Lang } from 'src/lang/index';
 const EN: Lang = {
     WEB_TITLE: 'Betamon LAUNCH IN',
     FIRST_AREA_TITLE: 'Betamon LAUNCH IN / Descend IN',
+    FIRST_AREA_TITLE_ARRIVED: 'Betamon has arrived',
     FIRST_AREA_DESC: 'Will your naughty blood can successfully summon<span class="lang-hgl-bg">1％</span>of UR Betamon？',
     ABOUT_B_DESC: '<span class="lang-hgl">β planet</span> emerged in the Multiverse singularity found by VBC labs<br />Serendipity from the Aether energy can summon Betamon with superpowers<br />In case too many aliens are summoned to occupy the earth, we must control the numbers<br />They dress up as worldwide celebrities and <span class="lang-hgl">transform into physical merchandise</span> through the vision of earthlings<br />Every Betamon has unique planet code and properties, you will be the βsummoner once you owned it',
     ABOUT_B_DESC_PC: '<span class="lang-hgl">β planet</span> emerged in the Multiverse singularity found by VBC labs<br />Serendipity from the Aether energy can summon Betamon with superpowers<br />In case too many aliens are summoned to occupy the earth, we must control the numbers<br />They dress up as worldwide celebrities and <span class="lang-hgl">transform into physical merchandise</span> through the vision of earthlings<br />Every Betamon has unique planet code and properties, you will be the βsummoner once you owned it',

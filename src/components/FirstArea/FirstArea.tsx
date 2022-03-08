@@ -3,17 +3,20 @@
 import { LangContext } from 'src/Context/LangContext';
 import { useContext } from 'react';
 import Counter from 'src/components/FirstArea/Counter';
-import { config } from 'src/config';
+import CountingHandler from 'src/CountingHandler';
 import SocialButton from 'src/components/Shared/SocialButton';
 import 'src/components/FirstArea/FirstArea.scss';
 import { getResources } from 'src/functions/loader';
 import { socialList } from 'src/socialMediaConfig';
+import { EventContext } from 'src/Context/EventContext';
 
 const FirstArea = () => {
     const lang = useContext(LangContext);
-    const { now, getEnd } = config;
-    const end = getEnd();
-    const diff = end.diff(now);
+    const {
+        end,
+        status
+    } = useContext(EventContext);
+    const diff = end.diff(CountingHandler.now);
     const spotlightLeft: React.CSSProperties = { backgroundImage: `url(${getResources('spotlight_left')})` };
 
     return (
@@ -44,7 +47,11 @@ const FirstArea = () => {
 
                 <div className="title-area">
                     <div className="title"
-                        dangerouslySetInnerHTML={{__html: lang.FIRST_AREA_TITLE}}
+                        dangerouslySetInnerHTML={{
+                            __html: status > -1
+                                ? lang.FIRST_AREA_TITLE_ARRIVED
+                                : lang.FIRST_AREA_TITLE
+                        }}
                     ></div>
                     <div className="desc"
                         dangerouslySetInnerHTML={{__html: lang.FIRST_AREA_DESC}}
