@@ -4,6 +4,15 @@ import gsap, { Back } from "gsap";
 //     if (dom) dom.removeAttribute('style');
 // };
 
+const scrollTriggerKillAll = () => {
+    ScrollTrigger.getAll().forEach((scrollTrigger) => {
+        if (scrollTrigger.vars.id) {
+            scrollTrigger.endAnimation();
+            scrollTrigger.kill();
+        }
+    });
+};
+
 const getDomByQueryAndClearStyles = (query: string) => {
     const dom = document.querySelector(query) as (HTMLElement|null);
     // clearStyles(dom);
@@ -253,4 +262,7 @@ const scrollTriggerInit = () => {
     return tl;
 };
 
-export { scrollTriggerInit };
+export {
+    scrollTriggerInit,
+    scrollTriggerKillAll
+};

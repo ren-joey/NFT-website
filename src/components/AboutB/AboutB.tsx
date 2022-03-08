@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import 'src/components/AboutB/AboutB.scss';
 import { LangContext } from 'src/Context/LangContext';
-import { RwdContext } from 'src/Context/RwdContext';
+import { EventContext } from 'src/Context/EventContext';
 import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/lang';
 import Star from '../Shared/Star';
@@ -13,7 +13,7 @@ interface IAboutB {
 }
 
 const AboutB = ({ selectedLang }: IAboutB) => {
-    const { device } = useContext(RwdContext);
+    const { device } = useContext(EventContext);
     const lang = useContext(LangContext);
     const skullIcon: React.CSSProperties = { backgroundImage: `url(${getResources('skull_icon')})` };
 

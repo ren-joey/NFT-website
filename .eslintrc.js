@@ -43,7 +43,7 @@ module.exports = {
             ignoreComments: true,
             ignoreStrings: true
         }],
-        'object-curly-newline': ['error', { multiline: true }],
+        'object-curly-newline': ['error', { consistent: true }],
         'no-underscore-dangle': 'off',
         camelcase: 'off',
         'no-continue': 'off',

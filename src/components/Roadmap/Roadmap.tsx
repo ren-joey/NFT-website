@@ -3,16 +3,17 @@ import 'src/components/Roadmap/Roadmap.scss';
 import SocialButton from '../Shared/SocialButton';
 import { LangString } from 'src/lang';
 import { useContext } from 'react';
-import { RwdContext } from 'src/Context/RwdContext';
+import { EventContext } from 'src/Context/EventContext';
 import { getResources } from 'src/functions/loader';
 import { socialList } from 'src/socialMediaConfig';
+import RoadmapSocialCard from './RoadmapSocialCard';
 
 interface IRoadmap {
     selectedLang: LangString
 }
 
 const Roadmap = ({ selectedLang }: IRoadmap) => {
-    const { device } = useContext(RwdContext);
+    const { device } = useContext(EventContext);
 
     const getLine = () => {
         if (device === 'phone') return <div className="phone-line"></div>;
@@ -36,7 +37,7 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
 
             { getLine() }
 
-            <RoadmapCard idx={1} />
+            <RoadmapSocialCard idx={1} />
 
             { getLine() }
 

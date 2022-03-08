@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import 'src/components/Footer.scss';
 import { LangContext } from 'src/Context/LangContext';
-import { RwdContext } from 'src/Context/RwdContext';
+import { EventContext } from 'src/Context/EventContext';
 import { getResources } from 'src/functions/loader';
 
 const Footer = () => {
-    const {device} = useContext(RwdContext);
+    const {device} = useContext(EventContext);
     const lang = useContext(LangContext);
 
     return (
