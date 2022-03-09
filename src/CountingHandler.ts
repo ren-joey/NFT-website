@@ -7,10 +7,13 @@ const timeOffset = '+08:00';
 const timeParser = (time: string) => `${time} ${timeOffset}`;
 const getMoment = (time: string) => moment(timeParser(time), timeFormat);
 
-const regex = new RegExp(/(?<![1-9]+)0/g);
-const date1 = ZH_CN.ROADMAP_CARD_2_DATE.replace(regex, '');
-const date2 = ZH_CN.ROADMAP_CARD_3_DATE.replace(regex, '');
-const date3 = ZH_CN.ROADMAP_CARD_4_DATE.replace(regex, '');
+// const regex = new RegExp(/(?<![1-9]+)0/g);
+// const date1 = ZH_CN.ROADMAP_CARD_2_DATE.replace(regex, '');
+// const date2 = ZH_CN.ROADMAP_CARD_3_DATE.replace(regex, '');
+// const date3 = ZH_CN.ROADMAP_CARD_4_DATE.replace(regex, '');
+const date1 = ZH_CN.ROADMAP_CARD_2_DATE;
+const date2 = ZH_CN.ROADMAP_CARD_3_DATE;
+const date3 = ZH_CN.ROADMAP_CARD_4_DATE;
 
 class CountingHandler {
     now: undefined|moment.Moment;
