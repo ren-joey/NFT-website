@@ -5,12 +5,8 @@ import { cyanBtn, flexCenter, whiteCard } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { ContractContext } from "./ContractContext";
 
-type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
-interface IMintMethodName {
-    mintMethodName?: MintMethodName
-}
-
-const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mintBetamon' }) => {
+const WhiteListMintBetamon = () => {
+    const mintBetamonOptions = getWeb3ExecuteFunctionOption('whiteListMintBetamon');
     const {
         isAuthenticated
     } = useMoralis();
@@ -28,10 +24,6 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
 
     const fetchMintBetamon = () => {
         const doFetch = (price = mintPrice) => {
-            const mintBetamonOptions = getWeb3ExecuteFunctionOption(mintMethodName);
-
-            // TODO:
-
             fetch({
                 params: {
                     ...mintBetamonOptions,
@@ -44,7 +36,7 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
         };
 
         if (!mintPrice) {
-            EventBus.$emit(`fetchMintPrice`).then((price: number) => {
+            EventBus.$emit('fetchMintPrice').then((price: number) => {
                 doFetch(price);
             });
         } else {
@@ -94,7 +86,7 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
                                 onClick={() => fetchMintBetamon()}
                                 disabled={isFetching}
                             >
-                                MINT NOW!
+                                WHITE LIST MINT BETAMON
                             </button>
                         </div>
                     </div>
@@ -104,4 +96,4 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
     );
 };
 
-export default MintBetamon;
+export default WhiteListMintBetamon;

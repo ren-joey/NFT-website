@@ -1,27 +1,30 @@
 import { useContext, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import { blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
+import { blackDescription, blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
+import MintBetamon from "./ContractService/MintBetamon";
+import MintPrice from "./ContractService/MintPrice";
+import VipWhiteListMintBetamon from "./ContractService/VipWhiteListMintBetamon";
+import WhiteListMintBetamon from "./ContractService/WhiteListMintBetamon";
 import NftDisplay from "./NftService/NftDisplay";
 import UserBalance from "./UserService/UserBalance";
 import Web3ContractService from "./Web3ContractService";
-
-type SaleStatusStr = 'isSaleActive'|'isWhiteListSaleActive'|'isVipWhiteListSaleActive'
 
 const PermissionCertification = () => {
     const {
         isAuthenticated,
         isWeb3Enabled,
-        enableWeb3
+        enableWeb3,
+        account
     } = useMoralis();
 
     const {
         isVipWhiteList,
         setIsVipWhiteList,
-        isWhiteList,
-        setIsWhiteList,
-        isSaleActive,
+        isWhiteList, // 沒用到，找時間刪除
+        setIsWhiteList, // 沒用到，找時間刪除
+        isSaleActive, // 沒用到，找時間刪除
         setIsSaleActive,
         isVipWhiteListSaleActive,
         setIsVipWhiteListSaleActive,
@@ -30,28 +33,43 @@ const PermissionCertification = () => {
     } = useContext(ContractContext);
 
     const {
-        fetch,
-        isFetching
+        fetch
     } = useWeb3ExecuteFunction();
 
-    const fetchSaleStatus = (paramName: SaleStatusStr) => new Promise<boolean>((resolve) => {
-        const option = getWeb3ExecuteFunctionOption(`_${paramName}`);
+    const fetchContractVariable = (
+        paramName: string,
+        params: any = undefined
+    ) => new Promise<boolean>((resolve) => {
+        let option = getWeb3ExecuteFunctionOption(paramName);
+        if (params) option = { ...option, params };
         fetch({ params: option }).then((result) => {
             resolve(result as boolean);
         });
     });
 
+    const fetchWhiteListAuthentication = () => {
+        let paramName = '';
+        if (isVipWhiteListSaleActive) paramName = 'vipWhiteList';
+        else if (isWhiteListSaleActive) paramName = 'whiteList';
+
+        fetchContractVariable(paramName).then((res) => {
+            console.log(res);
+            if (isVipWhiteListSaleActive) setIsVipWhiteList(res);
+            else if (isWhiteListSaleActive) setIsWhiteList(res);
+        });
+    };
+
     useEffect(() => {
         if (isWeb3Enabled === true) {
-            fetchSaleStatus('isVipWhiteListSaleActive').then((res) => {
+            fetchContractVariable('_isVipWhiteListSaleActive').then((res) => {
                 setIsVipWhiteListSaleActive(res);
             });
 
-            fetchSaleStatus('isWhiteListSaleActive').then((res) => {
+            fetchContractVariable('_isWhiteListSaleActive').then((res) => {
                 setIsWhiteListSaleActive(res);
             });
 
-            fetchSaleStatus('isSaleActive').then((res) => {
+            fetchContractVariable('_isSaleActive').then((res) => {
                 setIsSaleActive(res);
             });
         }
@@ -71,22 +89,36 @@ const PermissionCertification = () => {
     const advertisingContent = () => {
         let content = 'VBC Betamon 尚未開賣';
         if (isSaleActive) content = 'NFT 已經開賣囉！\n趕快搶購！';
-        else if (isWhiteListSaleActive) content = '白名單早鳥階段已經開跑！\n請驗證身份後進行搶購。';
-        else if (isVipWhiteListSaleActive) content = 'VIP白名單早鳥階段已經開跑！\n請驗證身份後進行搶購。';
-
-        // TODO: 身份驗證開發
+        else if (isWhiteListSaleActive) content = '白名單早鳥階段已經開始！';
+        else if (isVipWhiteListSaleActive) content = 'VIP白名單早鳥階段已經開始！';
 
         return (
             <div className={blackTitle}>
                 { content }
-                <br />
-                { (isWhiteListSaleActive || isVipWhiteListSaleActive) && (
-                    <button className={cyanBtn}>
-                        立即驗證身份
-                    </button>
-                ) }
+                {/* <br />
+                { ((isWhiteListSaleActive && isWhiteList === undefined)
+                    || (isVipWhiteListSaleActive && isVipWhiteList === undefined)) ? (
+                        <button
+                            className={cyanBtn}
+                            onClick={() => fetchWhiteListAuthentication()}
+                        >
+                            立即驗證身份
+                        </button>
+                    ) : (
+                        <div className={blackDescription}>
+                            很抱歉，您不符合早鳥資格
+                        </div>
+                    ) } */}
             </div>
         );
+    };
+
+    const mintCard = () => {
+        if (!isWeb3Enabled) return false;
+        else if (isSaleActive) return <MintBetamon />;
+        else if (isWhiteListSaleActive) return <WhiteListMintBetamon />;
+        else if (isVipWhiteListSaleActive) return <VipWhiteListMintBetamon />;
+        return false;
     };
 
     return (
@@ -94,12 +126,18 @@ const PermissionCertification = () => {
             <UserBalance />
             {
                 isAuthenticated && (
-                    <div className={whiteCard}>
-                        { advertisingContent() }
+                    <>
+                        <div className={whiteCard}>
+                            { advertisingContent() }
 
-                        {/* <Web3ContractService />
-                        <NftDisplay /> */}
-                    </div>
+                            {/* <Web3ContractService /> */}
+                            <NftDisplay />
+                        </div>
+
+                        <MintPrice />
+
+                        { mintCard() }
+                    </>
                 )
             }
         </div>

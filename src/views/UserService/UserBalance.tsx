@@ -1,15 +1,20 @@
 import { useMoralis } from "react-moralis";
-import { blackTitle, whiteCard } from "src/components/ui/uiClassName";
+import { blackDescription, whiteCard } from "src/components/ui/uiClassName";
 import LoginService from "./LoginService";
 
 const UserBalance = () => {
-    const { user } = useMoralis();
+    const {
+        user,
+        account
+    } = useMoralis();
 
     return (
         <div className={whiteCard}>
             <div>
-                <div className={blackTitle}>
-                    {user && `YOUR ADDRESS: ${user.id}`}
+                <div className={blackDescription}>
+                    {user && `YOUR ID: ${user.id}`}
+                    <br />
+                    {account && `YOUR ADDRESS: ${account}`}
                 </div>
 
                 <LoginService />

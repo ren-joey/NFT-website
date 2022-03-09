@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { EventBus } from 'src/bus';
 import { blackTitle, cyanBtn, whiteCard } from 'src/components/ui/uiClassName';
@@ -15,6 +15,11 @@ const MintPrice = () => {
     }: any = useWeb3ExecuteFunction();
 
     const { mintPrice, setMintPrice } = useContext(ContractContext);
+    const mintPriceEth = useMemo(() => {
+        if (!mintPrice) return null;
+        const eth = mintPrice / (10 ** 18);
+        return eth;
+    }, [mintPrice]);
 
     const fetchMintPrice = async () => await fetch({ params: option });
 
@@ -37,7 +42,7 @@ const MintPrice = () => {
             <div>
                 { mintPrice && (
                     <p className={blackTitle}>
-                        {`MINT PRICE: ${mintPrice}`}
+                        {`MINT 現價: ${mintPriceEth}`}
                     </p>
                 ) }
                 <button
