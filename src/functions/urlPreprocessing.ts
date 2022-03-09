@@ -7,7 +7,7 @@ const urlPreprocessing = () => (
         const origin = getParameterByName('o');
         const redirect = getParameterByName('r');
         const category = getParameterByName('c');
-        if (!origin && !redirect && !category) res();
+        if (!origin && !redirect && !category) res(undefined);
 
         gaParser(origin, redirect, category);
 
