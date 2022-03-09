@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import 'src/components/FirstArea/Counter.scss';
 import { EventContext } from 'src/Context/EventContext';
 import CountingHandler from 'src/CountingHandler';
