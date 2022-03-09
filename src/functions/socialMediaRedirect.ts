@@ -5,7 +5,7 @@ const socialMediaRedirect = (redirect: string) => {
     if (href) {
         setTimeout(() => {
             window.location.href = href;
-        }, 0);
+        }, 250);
     }
 
     return Boolean(href);
