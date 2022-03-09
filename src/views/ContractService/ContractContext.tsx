@@ -10,6 +10,16 @@ const contractData: IContractData = {
     setMaxBalance: () => {},
     isBlindBoxOpened: undefined,
     setIsBlindBoxOpened: () => {},
+    isVipWhiteList: undefined,
+    setIsVipWhiteList: () => {},
+    isWhiteList: undefined,
+    setIsWhiteList: () => {},
+    isSaleActive: false,
+    setIsSaleActive: () => {},
+    isWhiteListSaleActive: false,
+    setIsWhiteListSaleActive: () =>{},
+    isVipWhiteListSaleActive: false,
+    setIsVipWhiteListSaleActive: () => {},
     nfts: [],
     setNfts: () => {}
 };

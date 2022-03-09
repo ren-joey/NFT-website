@@ -1,11 +1,9 @@
 import moralisConfig from "./moralisConfig";
 import { MoralisProvider } from "react-moralis";
-import Web3ContractService from "./Web3ContractService";
-import UserBalance from "./UserService/UserBalance";
 import { ContractContext } from "./ContractService/ContractContext";
 import { useState } from "react";
 import { INft, nullable } from "./interfaces";
-import NftDisplay from "./NftService/NftDisplay";
+import PermissionCertification from "./PermissionCertification";
 
 const web3Style: React.CSSProperties = {color: '#fff'};
 
@@ -15,6 +13,11 @@ const Web3Component = () => {
     const [maxBalance, setMaxBalance] = useState<nullable>(null);
     const [nfts, setNfts] = useState<INft[]>([]);
     const [isBlindBoxOpened, setIsBlindBoxOpened] = useState<(undefined|boolean)>(undefined);
+    const [isVipWhiteList, setIsVipWhiteList] = useState<(undefined|boolean)>(undefined);
+    const [isWhiteList, setIsWhiteList] = useState<undefined|boolean>(undefined);
+    const [isSaleActive, setIsSaleActive] = useState(false);
+    const [isWhiteListSaleActive, setIsWhiteListSaleActive] = useState(false);
+    const [isVipWhiteListSaleActive, setIsVipWhiteListSaleActive] = useState(false);
 
     return (
         <MoralisProvider
@@ -31,14 +34,20 @@ const Web3Component = () => {
                 nfts,
                 setNfts,
                 isBlindBoxOpened,
-                setIsBlindBoxOpened
+                setIsBlindBoxOpened,
+                isVipWhiteList,
+                setIsVipWhiteList,
+                isWhiteList,
+                setIsWhiteList,
+                isSaleActive,
+                setIsSaleActive,
+                isWhiteListSaleActive,
+                setIsWhiteListSaleActive,
+                isVipWhiteListSaleActive,
+                setIsVipWhiteListSaleActive
             }}>
                 <div style={web3Style}>
-                    <UserBalance />
-
-                    <Web3ContractService />
-
-                    <NftDisplay />
+                    <PermissionCertification />
                 </div>
             </ContractContext.Provider>
         </MoralisProvider>

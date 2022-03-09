@@ -38,4 +38,14 @@ export interface IContractData {
     setNfts: (nfts: INft[]) => void;
     isBlindBoxOpened: (undefined|boolean);
     setIsBlindBoxOpened: (bool: boolean) => void;
+    isVipWhiteList: (undefined|boolean);
+    setIsVipWhiteList: (bool: boolean) => void;
+    isWhiteList: (undefined|boolean);
+    setIsWhiteList: (bool: boolean) => void;
+    isSaleActive: boolean;
+    setIsSaleActive: (bool: boolean) => void;
+    isWhiteListSaleActive: boolean;
+    setIsWhiteListSaleActive: (bool: boolean) => void;
+    isVipWhiteListSaleActive: boolean;
+    setIsVipWhiteListSaleActive: (bool: boolean) => void;
 }

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import FlipBlindBox from "./ContractService/FlipBlindBox";
 import MaxBalance from "./ContractService/MaxBalance";
@@ -10,23 +9,8 @@ import TotalSupply from "./ContractService/TotalSupply";
 
 const Web3ContractService = () => {
     const {
-        enableWeb3,
-        isWeb3Enabled,
-        isAuthenticated
+        isWeb3Enabled
     } = useMoralis();
-
-    useEffect(() => {
-        if (isAuthenticated) {
-            try {
-                enableWeb3();
-            } catch (e) {
-                console.log('Web3ContractService error:'); // [DEV]
-                console.log(e);
-            }
-        }
-    }, [isAuthenticated]);
-
-
 
     return (
         <div>
