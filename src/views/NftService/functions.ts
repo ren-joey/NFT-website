@@ -3,6 +3,8 @@ import Moralis from "moralis";
 import { INft } from "../interfaces";
 import moralisConfig from "../moralisConfig";
 
+let refreshNftSemaphore = false;
+
 const fetchMetadata = async (_nfts: any[]) => {
     const nfts: INft[] = [];
     for (let i = 0; i < _nfts.length; i++) {
@@ -31,6 +33,9 @@ const refreshNft = async ({
     token_id
 }: INft) => {
     // { address: "0xd...07", token_id: "1", flag: "metadata" };
+    if (refreshNftSemaphore) return;
+    refreshNftSemaphore = true;
+
     const option: any = {
         address: token_address,
         token_id: token_id,
@@ -38,9 +43,11 @@ const refreshNft = async ({
         flag: 'uri'
     };
     await Moralis.Web3API.token.reSyncMetadata(option);
+    refreshNftSemaphore = false;
 };
 
 export {
     fetchMetadata,
-    refreshNft
+    refreshNft,
+    refreshNftSemaphore
 };
