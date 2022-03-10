@@ -1,5 +1,6 @@
-import { blackDescription, blackTitle, whiteCard } from "src/components/ui/uiClassName";
+import { blackDescription, blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
 import { INft } from "../interfaces";
+import { refreshNft } from "./functions";
 
 interface IProp {
     nft: INft
@@ -16,9 +17,14 @@ const NftWithoutMetadata = ({ nft }: IProp) => (
         <p className={blackDescription}>
             請放心，您的 NFT 已 mint 成功
         </p>
-        <p className="text-xs text-gray-400">
-            ID: {nft.token_id}
-        </p>
+        <div className="mt-2">
+            <button
+                className={cyanBtn}
+                onClick={() => refreshNft(nft)}
+            >
+                Refresh Metadata
+            </button>
+        </div>
     </div>
 );
 
