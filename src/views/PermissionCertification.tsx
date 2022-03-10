@@ -129,7 +129,7 @@ const PermissionCertification = () => {
             }
 
             <div className="video-container" style={videoContainerStyle}>
-                <iframe src="https://www.youtube.com/embed/IWVJq-4zW24?controls=0&autoplay=1&mute=1" title="YouTube video player" width="100%" height="100%" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <iframe src="https://www.youtube.com/embed/IWVJq-4zW24?controls=0&autoplay=1&mute=1&loop=1" title="YouTube video player" width="100%" height="100%" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </div>
     );
