@@ -1,0 +1,18 @@
+.faq-container {
+    position: relative;
+    margin: 0 5%;
+    padding: 2rem;
+    width: 90%;
+    background-color: rgba(85, 0, 141, 0.5);
+    border: 1px solid #fff;
+    border-radius: 2rem;
+    z-index: 2;
+
+    .faq-title {
+        margin: 0 auto;
+        width: 163px;
+        height: 69px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+}

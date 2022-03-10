@@ -49,6 +49,8 @@ const ZH_CN: Lang = {
     ROADMAP_CARD_6_BTN: '前往元宇宙验证地主 >',
     ROADMAP_CARD_6_HREF: 'https://www.sandbox.game/tc/lands/0409b33a-d742-4bd4-8da7-65f5ca3eb891/',
     RECENTLY_ANNOUNCED: '近期公布位置',
+    FAQ_1_TITLE: '',
+    FAQ_1_CONTENT: '',
     COPYRIGHT: '©2022 Vision Beyond Cosmos 保留所有权利'
 };
 

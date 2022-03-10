@@ -51,6 +51,9 @@ import card_btn_bg from 'src/assets/images/card_btn_bg.png';
 // import font_coco from 'src/assets/fonts/Coco-Sharp-Heavy-trial.ttf';
 // import font_toppan from 'src/assets/fonts/ToppanBunkyuMidashiGothicStdN-ExtraBold.otf';
 
+// 開賣期
+import faq from 'src/assets/images/faq.png';
+
 // for pixi.js
 import preview_triangle_2 from 'src/assets/images/preview_triangle_2.png';
 import preview_bg from 'src/assets/images/preview_bg.jpg';
@@ -137,8 +140,11 @@ const loader = () => new Promise<void>((res) => {
         .add('twitter_icon_gradient', twitter_icon_gradient)
         .add('twitter_icon', twitter_icon)
         .add('card_btn_bg', card_btn_bg)
-        .add('vbc_logo', vbc_logo);
-    // .add('wave', wave)
+        .add('vbc_logo', vbc_logo)
+        // .add('wave', wave)
+
+        // for 開賣期
+        .add('faq', faq);
 
     loader.load(() => {
         if (pass) res();
