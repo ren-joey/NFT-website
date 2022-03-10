@@ -1,7 +1,6 @@
-import { useContext, useEffect, useMemo } from 'react';
+import { useContext, useEffect } from 'react';
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { EventBus } from 'src/bus';
-// import { blackTitle, cyanBtn, whiteCard } from 'src/components/ui/uiClassName';
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { ContractContext } from './ContractContext';
 
@@ -33,22 +32,6 @@ const MintPrice = () => {
 
     return (
         null
-        // <div className={whiteCard}>
-        //     <div>
-        //         { mintPrice && (
-        //             <p className={blackTitle}>
-        //                 {`MINT 現價: ${mintPriceEth} ETH`}
-        //             </p>
-        //         ) }
-        //         <button
-        //             className={cyanBtn}
-        //             onClick={() => fetchMintPrice()}
-        //             disabled={ isFetching }
-        //         >
-        //             get mint price
-        //         </button>
-        //     </div>
-        // </div>
     );
 };
 

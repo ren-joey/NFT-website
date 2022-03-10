@@ -7,7 +7,6 @@ const fetchMetadata = async (_nfts: any[]) => {
     const nfts: INft[] = [];
     for (let i = 0; i < _nfts.length; i++) {
         const nft = _nfts[i];
-        console.log(nft);
         if (nft.token_uri) {
             const res = await axios({
                 method: 'POST',

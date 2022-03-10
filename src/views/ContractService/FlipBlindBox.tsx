@@ -22,8 +22,6 @@ const FlipBlindBox = () => {
             params: isBlindBoxOpenedOptions
         });
 
-        console.log(typeof res);
-
         if (typeof res === 'boolean') setIsBlindBoxOpened(res);
     };
 

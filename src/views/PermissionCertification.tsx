@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
-import { blackDescription, blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
+import { blackTitle, whiteCard } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
 import MaxBalance from "./ContractService/MaxBalance";
@@ -9,7 +9,6 @@ import MintBetamon from "./ContractService/MintBetamon";
 import MintPrice from "./ContractService/MintPrice";
 import NftDisplay from "./NftService/NftDisplay";
 import UserBalance from "./UserService/UserBalance";
-import Web3ContractService from "./Web3ContractService";
 
 const videoContainerStyle: React.CSSProperties = {
     position: 'fixed',
@@ -26,16 +25,11 @@ const PermissionCertification = () => {
     const {
         isAuthenticated,
         isWeb3Enabled,
-        enableWeb3,
-        account
+        enableWeb3
     } = useMoralis();
 
     const {
-        isVipWhiteList,
-        setIsVipWhiteList,
-        isWhiteList, // 沒用到，找時間刪除
-        setIsWhiteList, // 沒用到，找時間刪除
-        isSaleActive, // 沒用到，找時間刪除
+        isSaleActive,
         setIsSaleActive,
         isVipWhiteListSaleActive,
         setIsVipWhiteListSaleActive,
@@ -58,18 +52,6 @@ const PermissionCertification = () => {
         });
     });
 
-    const fetchWhiteListAuthentication = () => {
-        let paramName = '';
-        if (isVipWhiteListSaleActive) paramName = 'vipWhiteList';
-        else if (isWhiteListSaleActive) paramName = 'whiteList';
-
-        fetchContractVariable(paramName).then((res) => {
-            console.log(res);
-            if (isVipWhiteListSaleActive) setIsVipWhiteList(res);
-            else if (isWhiteListSaleActive) setIsWhiteList(res);
-        });
-    };
-
     useEffect(() => {
         if (isWeb3Enabled === true) {
             EventBus.$emit('fetchMintPrice');
@@ -78,11 +60,9 @@ const PermissionCertification = () => {
             fetchContractVariable('_isVipWhiteListSaleActive').then((res) => {
                 setIsVipWhiteListSaleActive(res);
             });
-
             fetchContractVariable('_isWhiteListSaleActive').then((res) => {
                 setIsWhiteListSaleActive(res);
             });
-
             fetchContractVariable('_isSaleActive').then((res) => {
                 setIsSaleActive(res);
             });
@@ -90,14 +70,7 @@ const PermissionCertification = () => {
     }, [isWeb3Enabled]);
 
     useEffect(() => {
-        if (isAuthenticated) {
-            try {
-                enableWeb3();
-            } catch (e) {
-                console.log('Web3ContractService error:'); // [DEV]
-                console.log(e);
-            }
-        }
+        if (isAuthenticated) enableWeb3();
     }, [isAuthenticated]);
 
     const advertisingContent = () => {
@@ -109,20 +82,6 @@ const PermissionCertification = () => {
         return (
             <div className={blackTitle}>
                 { content }
-                {/* <br />
-                { ((isWhiteListSaleActive && isWhiteList === undefined)
-                    || (isVipWhiteListSaleActive && isVipWhiteList === undefined)) ? (
-                        <button
-                            className={cyanBtn}
-                            onClick={() => fetchWhiteListAuthentication()}
-                        >
-                            立即驗證身份
-                        </button>
-                    ) : (
-                        <div className={blackDescription}>
-                            很抱歉，您不符合早鳥資格
-                        </div>
-                    ) } */}
             </div>
         );
     };

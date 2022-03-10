@@ -11,15 +11,10 @@ const LoginService = () => {
     } = useMoralis();
 
     const fetchAuthenticate = () => {
-        try {
-            authenticate({
-                chainId: moralisConfig.chainId,
-                signingMessage: moralisConfig.signingMessage
-            });
-        } catch (e) {
-            console.log('Web3LoginService error:'); // [DEV]
-            console.log(e);
-        }
+        authenticate({
+            chainId: moralisConfig.chainId,
+            signingMessage: moralisConfig.signingMessage
+        });
     };
 
     return (
