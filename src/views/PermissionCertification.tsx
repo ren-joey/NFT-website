@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import { blackTitle, whiteCard } from "src/components/ui/uiClassName";
@@ -40,6 +40,12 @@ const PermissionCertification = () => {
     const {
         fetch
     } = useWeb3ExecuteFunction();
+
+    const anyActive = useMemo(() => (
+        isSaleActive
+        || isWhiteListSaleActive
+        || isVipWhiteListSaleActive
+    ), [ isSaleActive, isWhiteListSaleActive, isVipWhiteListSaleActive ]);
 
     const fetchContractVariable = (
         paramName: string,
@@ -110,7 +116,7 @@ const PermissionCertification = () => {
 
                             { mintCard() }
 
-                            <NftDisplay />
+                            { anyActive && <NftDisplay />}
                         </>
                     ) : (
                         <div className={whiteCard}>
