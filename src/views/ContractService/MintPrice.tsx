@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo } from 'react';
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { EventBus } from 'src/bus';
-import { blackTitle, cyanBtn, whiteCard } from 'src/components/ui/uiClassName';
+// import { blackTitle, cyanBtn, whiteCard } from 'src/components/ui/uiClassName';
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { ContractContext } from './ContractContext';
 
@@ -10,16 +10,10 @@ const MintPrice = () => {
 
     const {
         data,
-        fetch,
-        isFetching
+        fetch
     }: any = useWeb3ExecuteFunction();
 
-    const { mintPrice, setMintPrice } = useContext(ContractContext);
-    const mintPriceEth = useMemo(() => {
-        if (!mintPrice) return null;
-        const eth = mintPrice / (10 ** 18);
-        return eth;
-    }, [mintPrice]);
+    const { setMintPrice } = useContext(ContractContext);
 
     const fetchMintPrice = async () => await fetch({ params: option });
 
@@ -38,22 +32,23 @@ const MintPrice = () => {
     }, [data]);
 
     return (
-        <div className={whiteCard}>
-            <div>
-                { mintPrice && (
-                    <p className={blackTitle}>
-                        {`MINT 現價: ${mintPriceEth}`}
-                    </p>
-                ) }
-                <button
-                    className={cyanBtn}
-                    onClick={() => fetchMintPrice()}
-                    disabled={ isFetching }
-                >
-                    get mint price
-                </button>
-            </div>
-        </div>
+        null
+        // <div className={whiteCard}>
+        //     <div>
+        //         { mintPrice && (
+        //             <p className={blackTitle}>
+        //                 {`MINT 現價: ${mintPriceEth} ETH`}
+        //             </p>
+        //         ) }
+        //         <button
+        //             className={cyanBtn}
+        //             onClick={() => fetchMintPrice()}
+        //             disabled={ isFetching }
+        //         >
+        //             get mint price
+        //         </button>
+        //     </div>
+        // </div>
     );
 };
 

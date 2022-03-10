@@ -6,6 +6,7 @@ const contractData: IContractData = {
     setTotalSupply: () => {},
     mintPrice: null,
     setMintPrice: () => {},
+    mintPriceEth: null,
     maxBalance: null,
     setMaxBalance: () => {},
     isBlindBoxOpened: undefined,

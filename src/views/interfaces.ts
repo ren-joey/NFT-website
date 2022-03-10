@@ -31,6 +31,7 @@ export interface IContractData {
     totalSupply: nullable;
     setTotalSupply: (num: number) => void;
     mintPrice: nullable;
+    mintPriceEth: nullable,
     setMintPrice: (num: number) => void;
     maxBalance: nullable;
     setMaxBalance: (num: number) => void

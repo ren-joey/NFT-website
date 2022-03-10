@@ -18,6 +18,14 @@ const MaxBalance = () => {
 
     const fetchMaxBalance = async () => await fetch({ params: option });
 
+    EventBus.$on(
+        'fetchMaxBalance',
+        () => new Promise<void>(async (res) => {
+            const price = await fetchMaxBalance();
+            res(price);
+        })
+    );
+
     useEffect(() => {
         if (data) {
             setMaxBalance(data.toNumber());
@@ -25,22 +33,23 @@ const MaxBalance = () => {
     }, [data]);
 
     return (
-        <div className={whiteCard}>
-            <div>
-                { maxBalance && (
-                    <p className={blackTitle}>
-                        {`MAX BALANCE: ${maxBalance}`}
-                    </p>
-                ) }
-                <button
-                    className={cyanBtn}
-                    onClick={() => fetchMaxBalance()}
-                    disabled={ isFetching }
-                >
-                    get max balance
-                </button>
-            </div>
-        </div>
+        null
+        // <div className={whiteCard}>
+        //     <div>
+        //         { maxBalance && (
+        //             <p className={blackTitle}>
+        //                 {`MAX BALANCE: ${maxBalance}`}
+        //             </p>
+        //         ) }
+        //         <button
+        //             className={cyanBtn}
+        //             onClick={() => fetchMaxBalance()}
+        //             disabled={ isFetching }
+        //         >
+        //             get max balance
+        //         </button>
+        //     </div>
+        // </div>
     );
 };
 

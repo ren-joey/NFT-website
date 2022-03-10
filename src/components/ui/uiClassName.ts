@@ -2,6 +2,8 @@ const whiteCard = /* @TW */ 'my-2 p-6 max-w-sm mx-auto bg-white rounded-xl shado
 
 const cyanBtn = /* @TW */ 'bg-cyan-700 rounded text-white px-2 py-1 ml-auto uppercase font-bold';
 
+const cyanBtnDisabled = /* @TW */ 'bg-cyan-700 rounded opacity-20 text-white px-2 py-1 ml-auto uppercase font-bold';
+
 const blackTitle = /* @TW */ 'text-lg font-medium text-gray-800';
 
 const blackDescription = /* @TW */ 'text-sm font-medium text-gray-600';
@@ -13,6 +15,7 @@ const flexCenter = /* @TW */ 'flex justify-center items-center';
 export {
     whiteCard,
     cyanBtn,
+    cyanBtnDisabled,
     blackTitle,
     whiteInput,
     blackDescription,

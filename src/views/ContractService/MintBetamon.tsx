@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
-import { cyanBtn, flexCenter, whiteCard } from "src/components/ui/uiClassName";
+import { blackDescription, blackTitle, cyanBtn, cyanBtnDisabled, flexCenter, whiteCard } from "src/components/ui/uiClassName";
+import mintErrorHandler from "src/functions/mintErrorHandler";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { ContractContext } from "./ContractContext";
 
@@ -10,7 +11,7 @@ interface IMintMethodName {
     mintMethodName?: MintMethodName
 }
 
-const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mintBetamon' }) => {
+const MintBetamon = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
     const {
         isAuthenticated
     } = useMoralis();
@@ -20,17 +21,17 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
         error
     } = useWeb3ExecuteFunction();
     const {
-        mintPrice
+        mintPrice,
+        mintPriceEth,
+        maxBalance
     } = useContext(ContractContext);
     const [amount, setAmount] = useState(1);
-    const increasingAmount = () => setAmount((amount + 1) % 11 || 1);
+    const increasingAmount = () => setAmount((amount + 1) % 4 || 1);
     const decreasingAmount = () => setAmount(amount - 1 || 1);
 
     const fetchMintBetamon = () => {
         const doFetch = (price = mintPrice) => {
             const mintBetamonOptions = getWeb3ExecuteFunctionOption(mintMethodName);
-
-            // TODO:
 
             fetch({
                 params: {
@@ -54,11 +55,11 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
 
     useEffect(() => {
         if (error) {
-            const regex = /(?<=error=)([^;]*)(?=, method=)/gm;
+            const regex = /error=([^;]*)(?=, method=)/g;
             const arr = error.message.match(regex);
             if (arr) {
-                const errorObj = JSON.parse(arr[0]);
-                alert(errorObj.message);
+                const errorObj = JSON.parse(arr[0].replace('error=', ''));
+                mintErrorHandler(errorObj);
             }
         }
     }, [error]);
@@ -71,6 +72,18 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
             {
                 isAuthenticated && (
                     <div className={`flex-col ${whiteCard}`}>
+                        <div className={blackDescription}>
+                            {`每人持有上限：${maxBalance} ETH`}
+                        </div>
+
+                        <div className={blackDescription}>
+                            {`目前 MINT 價格：${mintPriceEth} ETH`}
+                        </div>
+
+                        <div className={blackTitle}>
+                            {`總價： ${Number(mintPriceEth) * amount} ETH`}
+                        </div>
+
                         <div className="flex items-center justify-center mb-2">
                             <div
                                 className={`${boxStyle_sm} ${flexCenter} bg-red-500`}
@@ -90,7 +103,7 @@ const MintBetamon = ({ mintMethodName }: IMintMethodName = { mintMethodName: 'mi
                         </div>
                         <div>
                             <button
-                                className={cyanBtn}
+                                className={isFetching ? cyanBtnDisabled : cyanBtn}
                                 onClick={() => fetchMintBetamon()}
                                 disabled={isFetching}
                             >

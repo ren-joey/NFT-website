@@ -1,15 +1,26 @@
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import { EventBus } from "src/bus";
 import { blackDescription, blackTitle, cyanBtn, whiteCard } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
+import MaxBalance from "./ContractService/MaxBalance";
 import MintBetamon from "./ContractService/MintBetamon";
 import MintPrice from "./ContractService/MintPrice";
-import VipWhiteListMintBetamon from "./ContractService/VipWhiteListMintBetamon";
-import WhiteListMintBetamon from "./ContractService/WhiteListMintBetamon";
 import NftDisplay from "./NftService/NftDisplay";
 import UserBalance from "./UserService/UserBalance";
 import Web3ContractService from "./Web3ContractService";
+
+const videoContainerStyle: React.CSSProperties = {
+    position: 'fixed',
+    top: '-10%',
+    left: '-10%',
+    width: '120%',
+    height: '120%',
+    pointerEvents: 'none',
+    opacity: 0.65,
+    zIndex: '-1'
+};
 
 const PermissionCertification = () => {
     const {
@@ -61,6 +72,9 @@ const PermissionCertification = () => {
 
     useEffect(() => {
         if (isWeb3Enabled === true) {
+            EventBus.$emit('fetchMintPrice');
+            EventBus.$emit('fetchMaxBalance');
+
             fetchContractVariable('_isVipWhiteListSaleActive').then((res) => {
                 setIsVipWhiteListSaleActive(res);
             });
@@ -116,30 +130,42 @@ const PermissionCertification = () => {
     const mintCard = () => {
         if (!isWeb3Enabled) return false;
         else if (isSaleActive) return <MintBetamon />;
-        else if (isWhiteListSaleActive) return <WhiteListMintBetamon />;
-        else if (isVipWhiteListSaleActive) return <VipWhiteListMintBetamon />;
+        else if (isWhiteListSaleActive) return <MintBetamon mintMethodName={'whiteListMintBetamon'} />;
+        else if (isVipWhiteListSaleActive) return <MintBetamon mintMethodName={'vipWhiteListMintBetamon'} />;
         return false;
     };
 
     return (
-        <div className="permission-certification">
+        <div className="permission-certification min-h-screen flex flex-col items-center justify-center">
             <UserBalance />
+            <MintPrice />
+            <MaxBalance />
             {
                 isAuthenticated && (
-                    <>
-                        <div className={whiteCard}>
-                            { advertisingContent() }
+                    isWeb3Enabled ? (
+                        <>
+                            <div className={whiteCard}>
+                                { advertisingContent() }
+                                {/* <Web3ContractService /> */}
+                            </div>
 
-                            {/* <Web3ContractService /> */}
+                            { mintCard() }
+
                             <NftDisplay />
+                        </>
+                    ) : (
+                        <div className={whiteCard}>
+                            <div className={blackTitle}>
+                                請確認您的 Metamask 錢包連線狀態
+                            </div>
                         </div>
-
-                        <MintPrice />
-
-                        { mintCard() }
-                    </>
+                    )
                 )
             }
+
+            <div className="video-container" style={videoContainerStyle}>
+                <iframe src="https://www.youtube.com/embed/IWVJq-4zW24?controls=0&autoplay=1&mute=1" title="YouTube video player" width="100%" height="100%" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
         </div>
     );
 };
