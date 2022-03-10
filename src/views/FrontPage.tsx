@@ -24,6 +24,8 @@ import ZH_TW from "src/lang/ZH_TW";
 // style 相關
 import 'src/views/FrontPage.scss';
 import CountingHandler from "src/CountingHandler";
+import ToBeAnnounced from "src/components/ToBeAnnounced";
+import FAQ from "src/components/FAQ/FAQ";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -108,7 +110,13 @@ const FrontPage = () => {
                         <Roadmap selectedLang={selectedLang} />
                     </div>
 
+                    <ToBeAnnounced />
+
+                    {/* 開賣期 */}
+                    <FAQ />
+
                     <Footer />
+
                     <BgEffects />
                     <ScrollDownIcon />
                     <BackToTop />
