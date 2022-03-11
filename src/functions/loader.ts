@@ -53,6 +53,8 @@ import card_btn_bg from 'src/assets/images/card_btn_bg.png';
 
 // 開賣期
 import faq from 'src/assets/images/faq.png';
+import wallet_icon from 'src/assets/images/wallet_icon.svg';
+import eth_icon from 'src/assets/images/eth_icon.svg';
 
 // for pixi.js
 import preview_triangle_2 from 'src/assets/images/preview_triangle_2.png';
@@ -144,7 +146,9 @@ const loader = () => new Promise<void>((res) => {
         // .add('wave', wave)
 
         // for 開賣期
-        .add('faq', faq);
+        .add('faq', faq)
+        .add('wallet_icon', wallet_icon)
+        .add('eth_icon', eth_icon);
 
     loader.load(() => {
         if (pass) res();

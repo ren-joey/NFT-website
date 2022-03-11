@@ -1,4 +1,5 @@
 import { Lang } from 'src/lang/index';
+import { socialList } from 'src/socialMediaConfig';
 
 const ZH_CN: Lang = {
     WEB_TITLE: 'β星人降临地球',
@@ -49,8 +50,24 @@ const ZH_CN: Lang = {
     ROADMAP_CARD_6_BTN: '前往元宇宙验证地主 >',
     ROADMAP_CARD_6_HREF: 'https://www.sandbox.game/tc/lands/0409b33a-d742-4bd4-8da7-65f5ca3eb891/',
     RECENTLY_ANNOUNCED: '近期公布位置',
-    FAQ_1_TITLE: '',
-    FAQ_1_CONTENT: '',
+    FAQ_1_TITLE: '● 如何购买β星人NFT？ ',
+    FAQ_1_CONTENT: '1.您需要先注册<span class="lang-hgl">Metamask</span>钱包<br />2.<span class="lang-hgl">于 3/31 (白名单限定) 或 4/1 15:00</span>(全面开放)至 β星人官网 进行Mint<br />3.购买成功您虚拟钱包将获得<span class="lang-hgl">盲盒版本的β星人RNFT</span><br />4.解盲时间<span class="lang-hgl">4/18 15:00</span>一到全面β星人RNFT将自动解盲，您专属的β星人将现身',
+    FAQ_2_TITLE: '● 如何获得β星人NFT白名单资格？ ',
+    FAQ_2_CONTENT: 'β星人白名单分成「<span class="lang-hgl">尊荣白名单</span>」与「<span class="lang-hgl">贵宾白名单</span>」2种<br />尊荣白名单极限量只会发出<span class="lang-hgl">20组</span>，可于<span class="lang-hgl">3/31 15:00</span>优先 Mint 总量<span class="lang-hgl">50个</span>β星人<br />贵宾白名单将发出<span class="lang-hgl">300组</span>，可于<span class="lang-hgl">3/31 16:00</span>优先 Mint 总量<span class="lang-hgl">250个</span>+尊荣白名单剩余的 β星人<br />2者获得方式皆与社群相关，请至β星人 DISCORD 了解详情',
+    FAQ_2_BTN: 'DISCORD连结按钮',
+    FAQ_2_HREF: socialList[1].href,
+    FAQ_3_TITLE: '● 每次β星人NFT的 Mint 数量有上限吗?',
+    FAQ_3_CONTENT: '首批来到地球的 880 个β星人能被召唤Mint的上限为 3 个<br />也就是如果你在白名单阶段已购入3个 β星人，那公开召唤Mint阶段无法使用同一钱包召唤Mint<br />如果你在白名单阶段只购入2个 β星人，那公开召唤Mint阶段同一钱包可再召唤Mint 1个 β星人',
+    FAQ_4_TITLE: '● β星人总铸造数量预计是多少？ ',
+    FAQ_4_CONTENT: '第一波只有<span class="lang-hgl">限量880个</span>β星人会登陆地球<br />整个β星球大约有<span class="lang-hgl">1万个</span>β星人，将依目标达成状况陆续登陆地球',
+    FAQ_5_TITLE: '● β星人NFT的稀缺性等级与盲盒机率、数量？ ',
+    FAQ_5_CONTENT: '每波到来的β星人数量皆不同，但稀缺性的机率是固定的<br />以下举第一版本共 880名 β星人为例，<span class="lang-hgl">抽中UR等级的机率是 0.1%</span>',
+    FAQ_5_CONTENT_2: '第一波有80名β星人将配合 VBC labs 进行空投、合作，不公开供地球人召唤<br />有缘的人类将会获得他们',
+    FAQ_6_TITLE: '● 如何触发β星人的实体具象超能力<br />将RNFT兑换为限量的实体公仔?',
+    FAQ_6_CONTENT: '只要您拥有第一波的β星人RNFT，即可以将位于多元宇宙奇异点的β星人真实召唤到你的身边！ <br />如果兑换期限内不进行兑换，更可额外获得PLUS版本<span class="lang-hgl">隐藏的NFT</span>，于后续的β计画增加更多回馈',
+    FAQ_6_CONTENT_2: '详细内容VBC labs将于<span class="lang-hgl">Q2公布说明</span>与开放兑换系统，敬请关注',
+    FAQ_7_TITLE: '● Roadmap提到的β币、奖励任务、元宇宙是什么？ ',
+    FAQ_7_CONTENT: '这些是VBC labs 与 β星人将持续合作带给各位召唤师的<span class="lang-hgl">奖励回馈机制</span>，相关内容将于<span class="lang-hgl">Q2公布说明</span>',
     COPYRIGHT: '©2022 Vision Beyond Cosmos 保留所有权利'
 };
 

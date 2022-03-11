@@ -11,9 +11,11 @@ const getMoment = (time: string) => moment(timeParser(time), timeFormat);
 // const date1 = ZH_CN.ROADMAP_CARD_2_DATE.replace(regex, '');
 // const date2 = ZH_CN.ROADMAP_CARD_3_DATE.replace(regex, '');
 // const date3 = ZH_CN.ROADMAP_CARD_4_DATE.replace(regex, '');
-const date1 = ZH_CN.ROADMAP_CARD_2_DATE;
-const date2 = ZH_CN.ROADMAP_CARD_3_DATE;
-const date3 = ZH_CN.ROADMAP_CARD_4_DATE;
+
+// [DEV]
+// const date1 = ZH_CN.ROADMAP_CARD_2_DATE;
+// const date2 = ZH_CN.ROADMAP_CARD_3_DATE;
+// const date3 = ZH_CN.ROADMAP_CARD_4_DATE;
 
 class CountingHandler {
     now: undefined|moment.Moment;
@@ -23,9 +25,12 @@ class CountingHandler {
 
     constructor() {
         this.counterTimes = [
-            getMoment(`2022/${date1} 15:00`),
-            getMoment(`2022/${date2} 15:00`),
-            getMoment(`2022/${date3} 15:00`)
+            // getMoment(`2022/${date1} 15:00`),
+            // getMoment(`2022/${date2} 15:00`),
+            // getMoment(`2022/${date3} 15:00`)
+            getMoment(`2022/03/11 09:00`),
+            getMoment(`2022/03/14 12:00`),
+            getMoment(`2022/03/14 14:00`)
         ];
         this.status = -1;
         this.diff = -1;
