@@ -1,14 +1,36 @@
-import { useContext } from "react";
-import { EventContext } from "src/Context/EventContext";
 import 'src/components/FirstArea/MintBlock.scss';
 import { getResources } from "src/functions/loader";
-import EthIcon from "../Shared/EthIcon";
-import MintButton from "../Shared/MintButton";
-import LinkingAnimation from "./LinkingAnimation";
 import { scrollToFaq } from "src/animation/scrollToTrigger";
+import MintBody, { MintMethodName } from "./MintBody";
+import { useContext, useMemo } from 'react';
+import { EventContext } from 'src/Context/EventContext';
 
 const MintBlock = () => {
     const { status } = useContext(EventContext);
+    const methodName = useMemo<MintMethodName>(() => {
+        switch (status) {
+            case 0:
+                return 'vipWhiteListMintBetamon';
+            case 1:
+                return 'whiteListMintBetamon';
+            default:
+                return 'mintBetamon';
+        }
+    }, [status]);
+    const noteText = useMemo(() => {
+        switch (status) {
+            case 0:
+                return '目前為VIP白名單優先Mint召喚時間';
+            case 1:
+                return '目前為搗蛋白名單優先Mint召喚時間';
+            case 2:
+                return '注意：首波降臨的β星人每個錢包只能擁有最多 3個 ，超過會召喚失敗';
+            case 3:
+                return '首波  β星人 已全面解盲，以下是兌換公仔 & 後續階段資訊公佈時間，敬請期待！';
+            default:
+                return ' β 星人降臨地球搗亂倒數';
+        }
+    }, [status]);
 
     return (
         <div className="mint-block">
@@ -21,17 +43,11 @@ const MintBlock = () => {
                 </div>
             </div>
 
-            <div className="mint-body">
-                <div className="mint-title">
-                    支付 <EthIcon size="1.4rem" /> 0.1 ETH 即可招喚 B 星人
-                </div>
-
-                <MintButton text="連結錢包" style={{ margin: '2rem 0 1rem' }} />
-
-                <LinkingAnimation />
-            </div>
+            <MintBody mintMethodName={methodName} />
 
             <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>
+
+            <div className="note">{ noteText }</div>
 
             <div className="angle left top"></div>
             <div className="angle left bottom"></div>

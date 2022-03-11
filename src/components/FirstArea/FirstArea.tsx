@@ -8,50 +8,26 @@ import RevealTime from './RevealTime';
 import TitleArea from './TitleArea';
 import LinkArea from './LinkArea';
 import MintBlock from './MintBlock';
+import Web3Provider from './Web3Provider/Web3Provider';
 
-const FirstArea = () => {
-    const { status } = useContext(EventContext);
+const FirstArea = () => (
+    <div className="first-area">
+        <div className="front-container">
 
-    const mintArea = () => {
-        switch(status) {
-            case -1:
-                return (
-                    <BetamonStage />
-                );
-            case 0:
-            case 1:
-                return (
-                    <MintBlock />
-                );
-            case 2:
-                return (
-                    <div>解盲了</div>
-                );
-            default:
-                return false;
-        }
-    };
+            <Web3Provider />
 
-    return (
-        <div className="first-area">
-            <div className="front-container">
+            {/* 時間及倒數區塊 */}
+            <RevealTime />
+            <Counter />
 
-                {/* mint 區塊 */}
-                { mintArea() }
+            {/* 主標題、介紹及連結 */}
+            <TitleArea />
+            <LinkArea />
 
-                {/* 時間及倒數區塊 */}
-                <RevealTime />
-                <Counter />
-
-                {/* 主標題、介紹及連結 */}
-                <TitleArea />
-                <LinkArea />
-
-                {/* phone 版 betamon 區域 */}
-                <BetamonStagePhone />
-            </div>
+            {/* phone 版 betamon 區域 */}
+            <BetamonStagePhone />
         </div>
-    );
-};
+    </div>
+);
 
 export default FirstArea;

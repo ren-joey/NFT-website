@@ -1,7 +1,6 @@
 import { useMoralis } from "react-moralis";
+import { EventBus } from "src/bus";
 import moralisConfig from "../moralisConfig";
-
-const className = 'bg-cyan-700 rounded text-white px-2 py-1 ml-auto uppercase font-bold';
 
 const LoginService = () => {
     const {
@@ -10,25 +9,33 @@ const LoginService = () => {
         logout
     } = useMoralis();
 
-    const fetchAuthenticate = () => {
-        authenticate({
+    const fetchAuthenticate = async () => {
+        await authenticate({
             chainId: moralisConfig.chainId,
             signingMessage: moralisConfig.signingMessage
         });
     };
 
+    EventBus.$on(
+        'fetchLogin',
+        () => new Promise<void>(async (res) => {
+            if (isAuthenticated) res();
+            await fetchAuthenticate();
+            res();
+        })
+    );
+
+    EventBus.$on(
+        'fetchLogout',
+        () => new Promise<void>(async (res) => {
+            if (!isAuthenticated) res();
+            await logout();
+            res();
+        })
+    );
+
     return (
-        <div>
-            {
-                !isAuthenticated ? (
-                    <button className={className} onClick={() => fetchAuthenticate()}>
-                        login
-                    </button>
-                ) : (
-                    <button className={className} onClick={() => logout()}>logout</button>
-                )
-            }
-        </div>
+        null
     );
 };
 

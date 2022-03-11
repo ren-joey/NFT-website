@@ -1,13 +1,11 @@
-import moralisConfig from "./moralisConfig";
-import { MoralisProvider } from "react-moralis";
-import { ContractContext } from "./ContractService/ContractContext";
 import { useMemo, useState } from "react";
-import { INft, nullable } from "./interfaces";
-import PermissionCertification from "./PermissionCertification";
+import { MoralisProvider } from "react-moralis";
+import { ContractContext } from "src/views/ContractService/ContractContext";
+import { INft, nullable } from "src/views/interfaces";
+import moralisConfig from "src/views/moralisConfig";
+import PermissionCertification from "src/views/PermissionCertification";
 
-const web3Style: React.CSSProperties = {color: '#fff'};
-
-const Web3Component = () => {
+const Web3Provider = () => {
     const [totalSupply, setTotalSupply] = useState<nullable>(null);
     const [mintPrice, setMintPrice] = useState<nullable>(null);
     const mintPriceEth = useMemo<nullable>(() => {
@@ -23,6 +21,8 @@ const Web3Component = () => {
     const [isSaleActive, setIsSaleActive] = useState(false);
     const [isWhiteListSaleActive, setIsWhiteListSaleActive] = useState(false);
     const [isVipWhiteListSaleActive, setIsVipWhiteListSaleActive] = useState(false);
+
+
 
     return (
         <MoralisProvider
@@ -52,12 +52,11 @@ const Web3Component = () => {
                 isVipWhiteListSaleActive,
                 setIsVipWhiteListSaleActive
             }}>
-                <div style={web3Style}>
-                    {/* <PermissionCertification /> */}
-                </div>
+                {/* mint 區塊 */}
+                <PermissionCertification />
             </ContractContext.Provider>
         </MoralisProvider>
     );
 };
 
-export default Web3Component;
+export default Web3Provider;

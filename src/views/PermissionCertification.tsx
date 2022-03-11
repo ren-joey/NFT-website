@@ -1,25 +1,18 @@
 import React, { useContext, useEffect, useMemo } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
+import BetamonStage from "src/components/FirstArea/BetamonStage";
+import MintBlock from "src/components/FirstArea/MintBlock";
 import { blackTitle, whiteCard } from "src/components/ui/uiClassName";
+import { EventContext } from "src/Context/EventContext";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
 import MaxBalance from "./ContractService/MaxBalance";
 import MintBetamon from "./ContractService/MintBetamon";
 import MintPrice from "./ContractService/MintPrice";
 import NftDisplay from "./NftService/NftDisplay";
+import LoginService from "./UserService/LoginService";
 import UserBalance from "./UserService/UserBalance";
-
-const videoContainerStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: '-10%',
-    left: '-10%',
-    width: '120%',
-    height: '120%',
-    pointerEvents: 'none',
-    opacity: 0.65,
-    zIndex: '-1'
-};
 
 const PermissionCertification = () => {
     const {
@@ -29,23 +22,14 @@ const PermissionCertification = () => {
     } = useMoralis();
 
     const {
-        isSaleActive,
         setIsSaleActive,
-        isVipWhiteListSaleActive,
         setIsVipWhiteListSaleActive,
-        isWhiteListSaleActive,
         setIsWhiteListSaleActive
     } = useContext(ContractContext);
 
     const {
         fetch
     } = useWeb3ExecuteFunction();
-
-    const anyActive = useMemo(() => (
-        isSaleActive
-        || isWhiteListSaleActive
-        || isVipWhiteListSaleActive
-    ), [ isSaleActive, isWhiteListSaleActive, isVipWhiteListSaleActive ]);
 
     const fetchContractVariable = (
         paramName: string,
@@ -79,59 +63,36 @@ const PermissionCertification = () => {
         if (isAuthenticated) enableWeb3();
     }, [isAuthenticated]);
 
-    const advertisingContent = () => {
-        let content = 'VBC Betamon 尚未開賣';
-        if (isSaleActive) content = 'NFT 已經開賣囉！\n趕快搶購！';
-        else if (isWhiteListSaleActive) content = '白名單早鳥階段已經開始！';
-        else if (isVipWhiteListSaleActive) content = 'VIP白名單早鳥階段已經開始！';
+    const { status } = useContext(EventContext);
 
-        return (
-            <div className={blackTitle}>
-                { content }
-            </div>
-        );
-    };
-
-    const mintCard = () => {
-        if (!isWeb3Enabled) return false;
-        else if (isSaleActive) return <MintBetamon />;
-        else if (isWhiteListSaleActive) return <MintBetamon mintMethodName={'whiteListMintBetamon'} />;
-        else if (isVipWhiteListSaleActive) return <MintBetamon mintMethodName={'vipWhiteListMintBetamon'} />;
-        return false;
+    const mintArea = () => {
+        switch(status) {
+            case -1:
+                return (
+                    <BetamonStage />
+                );
+            case 0:
+            case 1:
+                return (
+                    <MintBlock />
+                );
+            case 2:
+                return (
+                    <div>解盲了</div>
+                );
+            default:
+                return false;
+        }
     };
 
     return (
-        <div className="permission-certification min-h-screen flex flex-col items-center justify-center">
-            <UserBalance />
+        <>
+            {/* <UserBalance /> */}
+            <LoginService />
             <MintPrice />
             <MaxBalance />
-            {
-                isAuthenticated && (
-                    isWeb3Enabled ? (
-                        <>
-                            <div className={whiteCard}>
-                                { advertisingContent() }
-                                {/* <Web3ContractService /> */}
-                            </div>
-
-                            { mintCard() }
-
-                            { anyActive && <NftDisplay />}
-                        </>
-                    ) : (
-                        <div className={whiteCard}>
-                            <div className={blackTitle}>
-                                請確認您的 Metamask 錢包連線狀態
-                            </div>
-                        </div>
-                    )
-                )
-            }
-
-            <div className="video-container" style={videoContainerStyle}>
-                <iframe src="https://www.youtube.com/embed/IWVJq-4zW24?controls=0&autoplay=1&mute=1&loop=1" title="YouTube video player" width="100%" height="100%" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-            </div>
-        </div>
+            {mintArea()}
+        </>
     );
 };
 
