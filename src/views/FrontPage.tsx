@@ -113,7 +113,9 @@ const FrontPage = () => {
                     <ToBeAnnounced />
 
                     {/* 開賣期 */}
-                    <FAQ />
+                    <div className="fp-container">
+                        <FAQ />
+                    </div>
 
                     <Footer />
 

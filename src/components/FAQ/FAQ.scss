@@ -1,18 +1,58 @@
 .faq-container {
     position: relative;
-    margin: 0 5%;
     padding: 2rem;
-    width: 90%;
+    width: 100%;
     background-color: rgba(85, 0, 141, 0.5);
     border: 1px solid #fff;
     border-radius: 2rem;
     z-index: 2;
 
-    .faq-title {
-        margin: 0 auto;
+    @media (min-width: 1440px) {
+        padding: 2rem 120px;
+    }
+
+    .faq-headline {
+        margin: 0 auto 2rem;
         width: 163px;
         height: 69px;
         background-repeat: no-repeat;
         background-size: 100% 100%;
+    }
+
+    .faq-block {
+        display: flex;
+        margin-bottom: 2rem;
+        color: #fff;
+
+        .faq-skull-icon {
+            margin-right: 1rem;
+            width: 4rem;
+            background-position: 0 0.6rem;
+            background-repeat: no-repeat;
+        }
+
+        > .body {
+            flex: 1;
+
+            .faq-title {
+                font-size: 1.8rem;
+                font-weight: bolder;
+                line-height: 4rem;
+            }
+
+            .faq-content {
+                font-size: 1.1rem;
+                line-height: 2rem;
+
+                > .lang-hgl {
+                    display: inline-block;
+                    margin-right: 2px;
+                    margin-left: 2px;
+                    font-weight: bolder;
+                    color: #00e4ff;
+                    text-shadow: 1px 2px 0 #000;
+                }
+            }
+        }
     }
 }
