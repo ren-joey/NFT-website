@@ -34,6 +34,7 @@ const FrontPage = () => {
     const [status, setStatus] = useState(CountingHandler.status);
     const [counter, setCounter] = useState(CountingHandler.getDateTime());
     const [end, setEnd] = useState(CountingHandler.getEnd());
+    const [diff, setDiff] = useState(CountingHandler.diff);
     const prevLang = getParameterByName('lang') as LangString
         || localStorage.getItem('lang') as LangString
         || 'ZH_TW';
@@ -96,7 +97,9 @@ const FrontPage = () => {
                 counter,
                 setCounter,
                 end,
-                setEnd
+                setEnd,
+                diff,
+                setDiff
             }}>
                 <div className="fp-wrapper">
                     <Header

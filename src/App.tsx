@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FrontPage from 'src/views/FrontPage';
+// import Web3Component from './views/Web3Component';
 import LoadingPage from './views/LoadingPage';
 
 import 'src/styles/reset.css';
@@ -22,6 +23,8 @@ const App = () => {
                         setLoadingPageStatus={setLoadingPageStatus}
                     />
             }
+
+            {/* <Web3Component /> */}
         </div>
     );
 };

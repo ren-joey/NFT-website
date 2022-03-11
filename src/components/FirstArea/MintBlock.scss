@@ -25,15 +25,104 @@ $angle-width: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        flex: 1;
+        margin-left: -250px;
         color: #fff;
+        flex: 1;
+
+        &.single {
+            flex-direction: column;
+            margin-left: 0;
+        }
 
         .mint-title {
             margin-top: 1.4rem;
             font-size: 1.6rem;
             font-weight: bolder;
         }
+
+        > .body-left {
+            flex: 1;
+            padding: 2rem 2rem 2rem 220px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+        }
+
+        > .body-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            flex-direction: column;
+        }
+
+        .mint-amount {
+            display: flex;
+            color: #fff;
+
+            > .minus,
+            > .plus {
+                width: 2rem;
+                height: 2rem;
+                font-size: 2rem;
+                font-weight: bolder;
+                text-align: center;
+                line-height: 1.7rem;
+                color: rgb(117, 17, 169);
+                background-color: #fff;
+                border-radius: 0.5rem;
+                cursor: pointer;
+            }
+
+            > .amount {
+                margin-right: auto;
+                margin-left: auto;
+                font-size: 3rem;
+                font-family: "speed-a4";
+                font-weight: bolder;
+                line-height: 2rem;
+            }
+        }
+
+        .mint-remain {
+            margin-top: 2rem;
+        }
+
+        .mint-balance {
+            margin-top: 0.4rem;
+        }
+
+        .mint-remain,
+        .mint-balance {
+            font-size: 1.2rem;
+        }
+
+        .total-price {
+            display: flex;
+            align-items: center;
+            padding-left: 2rem;
+            color: #fff;
+
+            > .amount {
+                margin: 0 0.5rem;
+                font-size: 4rem;
+                font-weight: bolder;
+            }
+
+            >.unit {
+                font-size: 1.2rem;
+                font-weight: bolder;
+            }
+        }
+    }
+
+    .note {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        line-height: 2rem;
+        color: #fff;
     }
 
     .faq-button {

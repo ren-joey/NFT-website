@@ -28,7 +28,7 @@ class CountingHandler {
             // getMoment(`2022/${date1} 15:00`),
             // getMoment(`2022/${date2} 15:00`),
             // getMoment(`2022/${date3} 15:00`)
-            getMoment(`2022/03/11 09:00`),
+            getMoment(`2022/03/14 11:00`),
             getMoment(`2022/03/14 12:00`),
             getMoment(`2022/03/14 14:00`)
         ];
@@ -57,9 +57,10 @@ class CountingHandler {
     }
 
     count() {
-        if (this.diff < 0) this.initialize();
+        if (this.diff <= 0) this.initialize();
         else {
             this.diff -= 1000;
+            if (this.diff < 0) this.diff = 0;
         }
     }
 

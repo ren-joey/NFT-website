@@ -9,11 +9,13 @@ const Counter = () => {
         setCounter,
         status,
         setStatus,
-        setEnd
+        setEnd,
+        setDiff
     } = useContext(EventContext);
 
     useEffect(() => {
         const timer = setTimeout(() => {
+            setDiff(CountingHandler.diff);
             setCounter(CountingHandler.getDateTime());
             if (CountingHandler.status !== status) {
                 setStatus(CountingHandler.status);
