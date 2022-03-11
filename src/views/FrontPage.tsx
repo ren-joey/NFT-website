@@ -39,7 +39,11 @@ const FrontPage = () => {
     const prevLang = getParameterByName('lang') as LangString
         || localStorage.getItem('lang') as LangString
         || 'ZH_TW';
-    const prevLangObj = prevLang === 'EN' ? {...EN} : prevLang === 'ZH_TW' ? {...ZH_TW} : {...ZH_CN};
+    const prevLangObj = prevLang === 'EN'
+        ? {...EN}
+        : prevLang === 'ZH_TW'
+            ? {...ZH_TW}
+            : {...ZH_CN};
     const [lang, setLang] = useState(prevLangObj);
     const [selectedLang, setSelectedLang] = useState<LangString>(prevLang);
 
@@ -57,16 +61,14 @@ const FrontPage = () => {
                 previousDevice = 'phone';
             }
         };
-
+        // RwdContext 監聽事件
         window.addEventListener('resize', rootEventLister);
 
-        window.onload = () => {
-            document.body.style.overflow = '';
-            if (!getParameterByName('scroll-trigger')) {
-                scrollTriggerInit();
-                bubbleScrollTrigger();
-            }
-        };
+        if (!getParameterByName('scroll-trigger')) {
+            scrollTriggerInit();
+            bubbleScrollTrigger();
+        }
+
 
         return () => {
             window.removeEventListener('resize', rootEventLister);

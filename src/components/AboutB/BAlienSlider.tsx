@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getRandomNumber } from 'src/utils/math/getRandomNumber';
+import Star from 'src/components/Shared/Star';
 import 'src/components/AboutB/BAlienSlider.scss';
-import Star from '../Shared/Star';
 
 const BAlienSlider = () => {
     const [alienIdx, setAlienIndex] = useState(1);
@@ -10,13 +9,12 @@ const BAlienSlider = () => {
         let prevIdx = 1;
 
         const interval = setInterval(() => {
-            let idx = getRandomNumber(1, 6);
-            if (idx === prevIdx) {
-                idx = ((prevIdx + 1) % 6) || 1;
-            }
-
-            setAlienIndex(idx);
-            prevIdx = idx;
+            // let idx = getRandomNumber(1, 7);
+            // if (idx === prevIdx) {
+            //     idx = ((prevIdx + 1) % 7) || 1;
+            // }
+            prevIdx  = (prevIdx + 1) % 7 || 7;
+            setAlienIndex(prevIdx);
         }, 200);
 
         return () => {
