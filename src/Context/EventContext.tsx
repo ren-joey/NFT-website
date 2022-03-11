@@ -19,7 +19,9 @@ export interface IEventContext {
     counter: ICounter,
     setCounter: (key: ICounter) => void,
     end: moment.Moment,
-    setEnd: (key: moment.Moment) => void
+    setEnd: (key: moment.Moment) => void,
+    diff: number,
+    setDiff: (key: number) => void
 }
 
 export const defaultEventContext: IEventContext = {
@@ -34,7 +36,9 @@ export const defaultEventContext: IEventContext = {
     },
     setCounter: () => {},
     end: moment(),
-    setEnd: () => {}
+    setEnd: () => {},
+    diff: 0,
+    setDiff: () => {}
 };
 
 export const EventContext = React.createContext<IEventContext>(defaultEventContext);
