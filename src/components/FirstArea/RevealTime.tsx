@@ -11,10 +11,15 @@ const RevealTime = () => {
     return (
         <div className="reveal-time-area">
             {
-                diff > 0 &&
-                <div className="reveal-time">
-                    { end.format('MMMM D YYYY HH:mm:ss UTCZ') }
-                </div>
+                diff > 0 ? (
+                    <div className="reveal-time">
+                        { end.format('MMMM D YYYY HH:mm:ss UTCZ') }
+                    </div>
+                ) : (
+                    <div className="reveal-time">
+                        敬請期待
+                    </div>
+                )
             }
         </div>
     );

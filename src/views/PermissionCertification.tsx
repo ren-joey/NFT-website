@@ -1,18 +1,15 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import React, { useContext, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import BetamonStage from "src/components/FirstArea/BetamonStage";
 import MintBlock from "src/components/FirstArea/MintBlock";
-import { blackTitle, whiteCard } from "src/components/ui/uiClassName";
 import { EventContext } from "src/Context/EventContext";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
+import GetContractVariable from "./ContractService/GetContractVariable";
 import MaxBalance from "./ContractService/MaxBalance";
-import MintBetamon from "./ContractService/MintBetamon";
 import MintPrice from "./ContractService/MintPrice";
-import NftDisplay from "./NftService/NftDisplay";
 import LoginService from "./UserService/LoginService";
-import UserBalance from "./UserService/UserBalance";
 
 const PermissionCertification = () => {
     const {
@@ -44,6 +41,10 @@ const PermissionCertification = () => {
 
     useEffect(() => {
         if (isWeb3Enabled === true) {
+            EventBus.$emit('fetchMAX_SUPPLY');
+            EventBus.$emit('fetchMAX_VIP_WHITE_LIST_SUPPLY');
+            EventBus.$emit('fetchMAX_WHITE_LIST_SUPPLY');
+            EventBus.$emit('fetchTotalSupply');
             EventBus.$emit('fetchMintPrice');
             EventBus.$emit('fetchMaxBalance');
 
@@ -73,12 +74,10 @@ const PermissionCertification = () => {
                 );
             case 0:
             case 1:
+            case 2:
+            case 3:
                 return (
                     <MintBlock />
-                );
-            case 2:
-                return (
-                    <div>解盲了</div>
                 );
             default:
                 return false;
@@ -89,8 +88,13 @@ const PermissionCertification = () => {
         <>
             {/* <UserBalance /> */}
             <LoginService />
-            <MintPrice />
-            <MaxBalance />
+
+            <GetContractVariable methodName="mintPrice" />
+            <GetContractVariable methodName="maxBalance" />
+            <GetContractVariable methodName="totalSupply" />
+            <GetContractVariable methodName="MAX_SUPPLY" />
+            <GetContractVariable methodName="MAX_VIP_WHITE_LIST_SUPPLY" />
+            <GetContractVariable methodName="MAX_WHITE_LIST_SUPPLY" />
             {mintArea()}
         </>
     );

@@ -6,6 +6,9 @@ import moralisConfig from "src/views/moralisConfig";
 import PermissionCertification from "src/views/PermissionCertification";
 
 const Web3Provider = () => {
+    const [MAX_SUPPLY, setMAX_SUPPLY] = useState<nullable>(null);
+    const [MAX_VIP_WHITE_LIST_SUPPLY, setMAX_VIP_WHITE_LIST_SUPPLY] = useState<nullable>(null);
+    const [MAX_WHITE_LIST_SUPPLY, setMAX_WHITE_LIST_SUPPLY] = useState<nullable>(null);
     const [totalSupply, setTotalSupply] = useState<nullable>(null);
     const [mintPrice, setMintPrice] = useState<nullable>(null);
     const mintPriceEth = useMemo<nullable>(() => {
@@ -30,6 +33,12 @@ const Web3Provider = () => {
             serverUrl={moralisConfig.serverUrl}
         >
             <ContractContext.Provider value={{
+                MAX_SUPPLY,
+                setMAX_SUPPLY,
+                MAX_VIP_WHITE_LIST_SUPPLY,
+                setMAX_VIP_WHITE_LIST_SUPPLY,
+                MAX_WHITE_LIST_SUPPLY,
+                setMAX_WHITE_LIST_SUPPLY,
                 totalSupply,
                 setTotalSupply,
                 mintPrice,

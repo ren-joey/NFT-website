@@ -1,10 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
+import { EventContext } from "src/Context/EventContext";
 import mintErrorHandler from "src/functions/mintErrorHandler";
 import { getWeb3ExecuteFunctionOption } from "src/views/contractAbi";
 import { ContractContext } from "src/views/ContractService/ContractContext";
 import MintPrice from "src/views/ContractService/MintPrice";
+import { nullable } from "src/views/interfaces";
 import EthIcon from "../Shared/EthIcon";
 import MintButton from "../Shared/MintButton";
 import LinkingAnimation from "./LinkingAnimation";
@@ -27,14 +29,40 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
     } = useWeb3ExecuteFunction();
 
     const {
+        MAX_SUPPLY,
+        MAX_VIP_WHITE_LIST_SUPPLY,
+        MAX_WHITE_LIST_SUPPLY,
+        totalSupply,
         maxBalance,
         mintPrice,
         mintPriceEth
     } = useContext(ContractContext);
 
+    const {
+        status
+    } = useContext(EventContext);
+
     const [amount, setAmount] = useState(1);
     const increaseAmount = () => setAmount((amount + 1) % (Number(maxBalance ) + 1) || 3);
     const decreaseAmount = () => setAmount((amount - 1) || 1);
+    const remain = useMemo(() => {
+        switch (status) {
+            case 0:
+                return Number(MAX_VIP_WHITE_LIST_SUPPLY) - Number(totalSupply);
+            case 1:
+                return Number(MAX_WHITE_LIST_SUPPLY) - Number(totalSupply);
+            case 2:
+            case 3:
+                return Number(MAX_SUPPLY) - Number(totalSupply);
+            default:
+                return 0;
+        }
+    }, [
+        MAX_SUPPLY,
+        MAX_WHITE_LIST_SUPPLY,
+        MAX_VIP_WHITE_LIST_SUPPLY,
+        totalSupply
+    ]);
 
     const fetchMintBetamon = () => new Promise<void>((res) => {
         const doFetch = async (price = mintPrice) => {
@@ -90,11 +118,20 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
                     <LinkingAnimation />
                 </div>);
         } else if (isAuthenticated && !isWeb3Enabled) {
-            return (<div className="mint-body">
-                <div className="mint-title">
-                    請檢查您的錢包連線狀態
-                </div>
-            </div>);
+            return (
+                <div className="mint-body single">
+                    <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
+                        請檢查您的錢包連線狀態
+                    </div>
+                    <LinkingAnimation />
+                </div>);
+        } else if (status === 3) {
+            return (
+                <div className="mint-body single">
+                    <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
+                        β星人已全面解盲
+                    </div>
+                </div>);
         } else {
             return (
                 <div className="mint-body left-push">
@@ -104,7 +141,7 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
                             <div className="amount">{ amount }</div>
                             <div className="minus" onClick={() => increaseAmount()}>+</div>
                         </div>
-                        <div className="mint-remain">剩餘數量：{}</div>
+                        <div className="mint-remain">剩餘數量：{remain}</div>
                         <div className="mint-balance">限購數量：{maxBalance}</div>
                     </div>
                     <div className="body-right">

@@ -21,7 +21,8 @@ export interface IEventContext {
     end: moment.Moment,
     setEnd: (key: moment.Moment) => void,
     diff: number,
-    setDiff: (key: number) => void
+    setDiff: (key: number) => void,
+    [key: string]: any
 }
 
 export const defaultEventContext: IEventContext = {

@@ -28,6 +28,12 @@ export interface INft {
 }
 
 export interface IContractData {
+    MAX_SUPPLY: nullable;
+    setMAX_SUPPLY: (num: number) => void;
+    MAX_VIP_WHITE_LIST_SUPPLY: nullable;
+    setMAX_VIP_WHITE_LIST_SUPPLY: (num: number) => void;
+    MAX_WHITE_LIST_SUPPLY: nullable;
+    setMAX_WHITE_LIST_SUPPLY: (num: number) => void;
     totalSupply: nullable;
     setTotalSupply: (num: number) => void;
     mintPrice: nullable;
@@ -49,4 +55,5 @@ export interface IContractData {
     setIsWhiteListSaleActive: (bool: boolean) => void;
     isVipWhiteListSaleActive: boolean;
     setIsVipWhiteListSaleActive: (bool: boolean) => void;
+    [key: string]: any;
 }
