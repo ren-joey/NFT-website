@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { ReactNode, useContext, useEffect } from "react";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
 

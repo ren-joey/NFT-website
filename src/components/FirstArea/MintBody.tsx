@@ -35,7 +35,8 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
         totalSupply,
         maxBalance,
         mintPrice,
-        mintPriceEth
+        mintPriceEth,
+        nfts
     } = useContext(ContractContext);
 
     const {
@@ -68,7 +69,7 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
         const doFetch = async (price = mintPrice) => {
             const mintBetamonOptions = getWeb3ExecuteFunctionOption(mintMethodName);
 
-            await fetch({
+            const a = await fetch({
                 params: {
                     ...mintBetamonOptions,
                     msgValue: amount * (price || 0),
@@ -77,6 +78,7 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
                     }
                 }
             });
+            console.log(a);
 
             res();
         };
@@ -141,8 +143,8 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
                             <div className="amount">{ amount }</div>
                             <div className="minus" onClick={() => increaseAmount()}>+</div>
                         </div>
-                        <div className="mint-remain">剩餘數量：{remain}</div>
-                        <div className="mint-balance">限購數量：{maxBalance}</div>
+                        <div className="mint-remain">剩餘數量：{totalSupply === null ? '--' : remain}</div>
+                        <div className="mint-balance">限購數量：{maxBalance === null ? '--' : maxBalance}</div>
                     </div>
                     <div className="body-right">
                         <div className="total-price">

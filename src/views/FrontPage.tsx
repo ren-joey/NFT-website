@@ -26,6 +26,8 @@ import 'src/views/FrontPage.scss';
 import CountingHandler from "src/CountingHandler";
 import ToBeAnnounced from "src/components/ToBeAnnounced";
 import FAQ from "src/components/FAQ/FAQ";
+import KolSupport from "src/components/KolSupport/KolSupport";
+import MediaSupport from "src/components/MediaSupport/MediaSupport";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -107,11 +109,13 @@ const FrontPage = () => {
                         setSelectedLang={setSelectedLang}
                     />
 
-                    <div className="fp-container">
+                    {/* <div className="fp-container">
                         <FirstArea />
                         <AboutB selectedLang={selectedLang} />
+                        <KolSupport total={5} />
+                        <MediaSupport total={7} />
                         <Roadmap selectedLang={selectedLang} />
-                    </div>
+                    </div> */}
 
                     <ToBeAnnounced />
 

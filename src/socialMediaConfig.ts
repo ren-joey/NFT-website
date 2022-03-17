@@ -27,3 +27,19 @@ export const socialList: ISocialList[] = [
         visible: true
     }
 ];
+
+// export interface IKolList {
+//     titleLangKey: string,
+//     imageLangKey: string,
+//     hrefLangKey: string,
+//     buttonTextLangKey: string
+// };
+
+// export const kolList: IKolList[] = [
+//     {
+//         titleLangKey: 'KOL_1_TITLE',
+//         imageLangKey: 'KOL_1_IMAGE',
+//         hrefLangKey: 'KOL_1_HREF',
+//         buttonTextLangKey: 'KOL_1'
+//     }
+// ];
