@@ -1,14 +1,17 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import BetamonStage from "src/components/FirstArea/BetamonStage";
+import Counter from "src/components/FirstArea/Counter";
 import MintBlock from "src/components/FirstArea/MintBlock";
+import RevealTime from "src/components/FirstArea/RevealTime";
 import { EventContext } from "src/Context/EventContext";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
 import GetContractVariable from "./ContractService/GetContractVariable";
 import MaxBalance from "./ContractService/MaxBalance";
 import MintPrice from "./ContractService/MintPrice";
+import { nullable } from "./interfaces";
 import LoginService from "./UserService/LoginService";
 
 const PermissionCertification = () => {
@@ -19,14 +22,50 @@ const PermissionCertification = () => {
     } = useMoralis();
 
     const {
+        MAX_SUPPLY,
+        MAX_VIP_WHITE_LIST_SUPPLY,
+        MAX_WHITE_LIST_SUPPLY,
+        totalSupply,
         setIsSaleActive,
         setIsVipWhiteListSaleActive,
         setIsWhiteListSaleActive
     } = useContext(ContractContext);
 
+    const { status } = useContext(EventContext);
+
     const {
         fetch
     } = useWeb3ExecuteFunction();
+
+    const remain = useMemo<nullable>(() => {
+        if (totalSupply === null
+            || MAX_VIP_WHITE_LIST_SUPPLY === null
+            || MAX_WHITE_LIST_SUPPLY === null
+            || MAX_SUPPLY === null) return null;
+
+        let _remain = 0;
+        switch (status) {
+            case -1:
+            case 0:
+                _remain = MAX_VIP_WHITE_LIST_SUPPLY - totalSupply;
+                break;
+            case 1:
+                _remain = MAX_WHITE_LIST_SUPPLY - totalSupply;
+                break;
+            case 2:
+            case 3:
+                _remain = MAX_SUPPLY - totalSupply;
+                break;
+            default:
+                _remain = 0;
+        }
+        return _remain < 0 ? 0 : _remain;
+    }, [
+        MAX_SUPPLY,
+        MAX_WHITE_LIST_SUPPLY,
+        MAX_VIP_WHITE_LIST_SUPPLY,
+        totalSupply
+    ]);
 
     const fetchContractVariable = (
         paramName: string,
@@ -64,8 +103,6 @@ const PermissionCertification = () => {
         if (isAuthenticated) enableWeb3();
     }, [isAuthenticated]);
 
-    const { status } = useContext(EventContext);
-
     const mintArea = () => {
         switch(status) {
             case -1:
@@ -77,10 +114,34 @@ const PermissionCertification = () => {
             case 2:
             case 3:
                 return (
-                    <MintBlock />
+                    <MintBlock remain={remain} />
                 );
             default:
                 return false;
+        }
+    };
+
+    const timeArea = () => {
+        switch(status) {
+            case -1:
+            case 3:
+                return (
+                    <>
+                        <RevealTime />
+                        <Counter />
+                    </>
+                );
+            case 0:
+            case 1:
+            case 2:
+                return (remain === 0) && (
+                    <>
+                        <RevealTime />
+                        <Counter />
+                    </>
+                );
+            default:
+                return null;
         }
     };
 
@@ -95,7 +156,12 @@ const PermissionCertification = () => {
             <GetContractVariable methodName="MAX_SUPPLY" />
             <GetContractVariable methodName="MAX_VIP_WHITE_LIST_SUPPLY" />
             <GetContractVariable methodName="MAX_WHITE_LIST_SUPPLY" />
-            {mintArea()}
+
+            {/* mint 區塊 */}
+            { mintArea() }
+
+            {/* 時間及倒數區塊 */}
+            { timeArea() }
         </>
     );
 };

@@ -1,32 +1,53 @@
 import { useContext, useState } from "react";
-import 'src/components/VbcLabs/VbcLabs/scss';
+import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
+import { getResources } from "src/functions/loader";
+import 'src/components/VbcLabs/VbcLabs.scss';
+import VbcCharacter from "./VbcCharacter";
+import SlashesDivider from "./SlashesDivider";
 
 const VbcLabs = () => {
     const lang = useContext(LangContext);
+    const { device }  = useContext(EventContext);
 
     return (
         <div className="vbc-labs-wrapper">
             <div className="first-section">
                 <div className="info">
-                    <div className="title"></div>
-                    <div className="content"></div>
+                    <div className="title" style={
+                        { backgroundImage: `url(${getResources(device === 'desktop'
+                            ? 'about_vbc_labs'
+                            : 'about_vbc_labs_phone'
+                        )})` }
+                    }></div>
+                    <div className="content" dangerouslySetInnerHTML={{
+                        __html: lang.ABOUT_VBC_LABS
+                    }}></div>
                 </div>
 
                 <div className="ceo-area">
-
+                    <div className="w-50">
+                        <VbcCharacter idx={1} />
+                    </div>
+                    <div className="w-50">
+                        <VbcCharacter idx={2} />
+                    </div>
                 </div>
             </div>
 
-            <div className="slashes-divider">
-                <div className="content"></div>
+            <SlashesDivider content={lang.ABOUT_VBC_DIVIDER_1} />
+
+            <div className="second-section">
+                {
+                    Array(9).fill(0).map((val, idx) => (
+                        <div className="f-1" key={idx}>
+                            <VbcCharacter idx={11 - idx} />
+                        </div>
+                    ))
+                }
             </div>
 
-            <div className="second-section"></div>
-
-            <div className="slashes-divider">
-                <div className="content"></div>
-            </div>
+            <SlashesDivider content={lang.ABOUT_VBC_DIVIDER_2} />
         </div>
     );
 };

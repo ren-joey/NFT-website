@@ -1,0 +1,24 @@
+.slashes-divider-wrapper {
+    .slashes-divider {
+        // position: absolute;
+        // padding-bottom: calc(100% / 1212 * 22);
+        // width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+
+        > .content {
+            width: 26%;
+            font-size: 1rem;
+            font-weight: bolder;
+            text-align: center;
+            line-height: 1.6rem;
+            color: #fff;
+        }
+    }
+}

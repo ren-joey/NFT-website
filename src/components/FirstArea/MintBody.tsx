@@ -1,4 +1,5 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { rename } from "fs";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
@@ -14,10 +15,11 @@ import LinkingAnimation from "./LinkingAnimation";
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
 interface IMintMethodName {
-    mintMethodName?: MintMethodName
+    remain: nullable
+    mintMethodName?: MintMethodName,
 }
 
-const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
+const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) => {
     const {
         isAuthenticated,
         isWeb3Enabled
@@ -29,47 +31,26 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
     } = useWeb3ExecuteFunction();
 
     const {
-        MAX_SUPPLY,
-        MAX_VIP_WHITE_LIST_SUPPLY,
-        MAX_WHITE_LIST_SUPPLY,
         totalSupply,
         maxBalance,
         mintPrice,
-        mintPriceEth,
-        nfts
+        mintPriceEth
     } = useContext(ContractContext);
 
     const {
-        status
+        status,
+        device
     } = useContext(EventContext);
 
     const [amount, setAmount] = useState(1);
     const increaseAmount = () => setAmount((amount + 1) % (Number(maxBalance ) + 1) || 3);
     const decreaseAmount = () => setAmount((amount - 1) || 1);
-    const remain = useMemo(() => {
-        switch (status) {
-            case 0:
-                return Number(MAX_VIP_WHITE_LIST_SUPPLY) - Number(totalSupply);
-            case 1:
-                return Number(MAX_WHITE_LIST_SUPPLY) - Number(totalSupply);
-            case 2:
-            case 3:
-                return Number(MAX_SUPPLY) - Number(totalSupply);
-            default:
-                return 0;
-        }
-    }, [
-        MAX_SUPPLY,
-        MAX_WHITE_LIST_SUPPLY,
-        MAX_VIP_WHITE_LIST_SUPPLY,
-        totalSupply
-    ]);
 
     const fetchMintBetamon = () => new Promise<void>((res) => {
         const doFetch = async (price = mintPrice) => {
             const mintBetamonOptions = getWeb3ExecuteFunctionOption(mintMethodName);
 
-            const a = await fetch({
+            await fetch({
                 params: {
                     ...mintBetamonOptions,
                     msgValue: amount * (price || 0),
@@ -78,7 +59,6 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
                     }
                 }
             });
-            console.log(a);
 
             res();
         };
@@ -103,17 +83,29 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
         }
     }, [error]);
 
+    const buttonSize = useMemo<React.CSSProperties>(() => {
+        if (device === 'desktop') {
+            return { margin: '2rem 0 1rem', whiteSpace: 'nowrap' };
+        }
+        return {
+            margin: '1rem 0 0.6rem',
+            padding: '0.6rem 1.4rem',
+            fontSize: '1.4rem',
+            whiteSpace: 'nowrap'
+        };
+    }, [device]);
+
     const mintBody = () => {
         if (!isAuthenticated) {
             return (
                 <div className="mint-body single">
                     <div className="mint-title">
-                        支付 <EthIcon size="1.4rem" /> 0.1 ETH 即可招喚 B 星人
+                        支付 <EthIcon size={device === 'desktop' ? '1.4rem' : '0.8rem'} /> 0.1 ETH 即可招喚 B 星人
                     </div>
 
                     <MintButton
                         text="連結錢包"
-                        style={{ margin: '2rem 0 1rem' }}
+                        style={buttonSize}
                         onClick={() => EventBus.$emit('fetchLogin')}
                     />
 
@@ -148,7 +140,7 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
                     </div>
                     <div className="body-right">
                         <div className="total-price">
-                            <EthIcon size="2rem" />
+                            <EthIcon size={device === 'desktop' ? '2rem' : '1.4rem'} />
                             <div className="amount">{Number(mintPriceEth) * amount}</div>
                             <div className="unit">ETH</div>
                         </div>
@@ -156,7 +148,8 @@ const MintBody = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) => {
                         <MintButton
                             text="Mint Now"
                             onClick={() => fetchMintBetamon() }
-                            style={{ marginTop: '1rem' }}
+                            disable={remain === null || remain <= 0 ? true : undefined}
+                            style={buttonSize}
                         />
 
                         {/* <button onClick={() => EventBus.$emit('fetchLogout')}>登出</button> */}

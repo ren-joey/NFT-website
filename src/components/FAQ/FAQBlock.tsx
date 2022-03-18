@@ -3,10 +3,12 @@ import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
 
 interface IProps {
-    idx: number
+    idx: number,
+    slotRight?: JSX.Element,
+    slotContent?: JSX.Element
 }
 
-const FAQBlock = ({ idx }: IProps) => {
+const FAQBlock = ({ idx, slotContent }: IProps) => {
     const lang = useContext(LangContext);
     const title = lang[`FAQ_${idx}_TITLE`];
     const content = lang[`FAQ_${idx}_CONTENT`];
@@ -33,6 +35,10 @@ const FAQBlock = ({ idx }: IProps) => {
                         <div className="faq-content" dangerouslySetInnerHTML={{__html: content2}}></div>
                     )
                 }
+
+                <div className="faq-content">
+                    { slotContent }
+                </div>
 
                 {
                     content2 && (

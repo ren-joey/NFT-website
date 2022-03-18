@@ -1,0 +1,51 @@
+.vbc-labs-wrapper {
+    .first-section {
+        display: flex;
+
+        .info {
+            flex: 1;
+
+            > .title {
+                width: 362px;
+                height: 167px;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+
+            > .content {
+                margin-top: 2rem;
+                font-size: 1rem;
+                font-weight: bolder;
+                line-height: 1.6rem;
+                color: white;
+            }
+        }
+
+        .ceo-area {
+            display: flex;
+            flex: 1;
+
+            > .w-50 {
+                padding: 0 5%;
+                width: 50%;
+            }
+        }
+    }
+
+    .second-section {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+        z-index: 2;
+
+        > .f-1 {
+            flex: 1;
+
+            &:not(:last-child) {
+                margin-left: -6%;
+            }
+        }
+    }
+}

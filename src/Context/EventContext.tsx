@@ -2,6 +2,8 @@
 
 import moment from "moment";
 import React from "react";
+import { LangString } from "src/lang";
+import { getParameterByName } from "src/utils";
 
 export type DeviceString = 'desktop'|'phone';
 
@@ -13,6 +15,8 @@ export interface ICounter {
 }
 
 export interface IEventContext {
+    selectedLang: LangString,
+    setSelectedLang: (key: LangString) => void,
     device: DeviceString,
     status: number,
     setStatus: (key: number) => void,
@@ -26,6 +30,10 @@ export interface IEventContext {
 }
 
 export const defaultEventContext: IEventContext = {
+    selectedLang: getParameterByName('lang') as LangString
+    || localStorage.getItem('lang') as LangString
+    || 'ZH_TW',
+    setSelectedLang: () => {},
     device: 'desktop',
     status: -1,
     setStatus: () => {},

@@ -3,21 +3,92 @@ $angle-width: 4px;
 .mint-block {
     position: relative;
     display: flex;
-    margin: 150px auto 3.6rem;
-    padding: 2rem;
-    width: 90%;
+    flex-wrap: wrap;
+    margin: 0 auto 3.6rem;
+    padding: 0.5rem 1rem 1rem;
+    width: 100%;
     background-color: rgba(117, 17, 169, 0.9);
     border: 1px solid #fff;
     border-radius: 1rem;
     box-shadow: 0 0 20px #ff46bc, 0 0 20px #ff46bc, 0 0 20px #ff46bc;
 
     @media (min-width: 992px) {
+        margin: 150px auto 3.6rem;
+        padding: 2rem;
         width: 800px;
     }
 
-    > .b-alien-container-for-mint-block {
-        margin-top: -26%;
-        margin-left: -5%;
+    .b-alien-container-for-mint-block {
+        // margin-right: -10%;
+        margin-left: -10%;
+        width: 40%;
+
+        @media (min-width: 992px) {
+            margin-top: -26%;
+            margin-right: 0;
+            margin-left: -5%;
+            width: 300px;
+        }
+
+        > .b-alien-area {
+            position: relative;
+            padding-bottom: calc(100% / 296 * 362); // 296 x 362
+            width: 100%;
+
+            @media (min-width: 992px) {
+                margin: 50px auto 0;
+            }
+
+            .b-alien-wave {
+                position: absolute;
+                top: 6.3%;
+                left: -3%;
+                padding-bottom: 106%;
+                width: 106%;
+                background-image: url("/assets/images/b_alien_wave.gif");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .b-alien-line {
+                position: absolute;
+                top: 6.3%;
+                left: 18%;
+                padding-bottom: calc(64% / 424 * 729);
+                width: 64%;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .ground {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 296px;
+                height: 129px;
+                background-position: center bottom;
+                background-size: 100% auto;
+            }
+
+            .spotlight {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                padding-bottom: calc(80px / 156 * 328); // 156x328
+                width: 80px;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                transform: translate(-60%, -50%);
+                animation: y-move 10s ease-in-out 0s infinite;
+
+                &.reverse {
+                    right: 0;
+                    left: auto;
+                    transform: translate(60%, -50%) scaleX(-1);
+                    animation: y-move-2 10s cubic-bezier(0.435, -0.305, 0.55, 1.37) 0s infinite;
+                }
+            }
+        }
     }
 
     > .mint-body {
@@ -25,9 +96,21 @@ $angle-width: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: -250px;
+        margin-left: -100px;
+        width: 60%;
         color: #fff;
         flex: 1;
+
+        @media (min-width: 992px) {
+            margin-left: -250px;
+            width: auto;
+
+            .mint-title {
+                margin-top: 1.4rem;
+                font-size: 1.6rem;
+                font-weight: bolder;
+            }
+        }
 
         &.single {
             flex-direction: column;
@@ -35,24 +118,35 @@ $angle-width: 4px;
         }
 
         .mint-title {
-            margin-top: 1.4rem;
-            font-size: 1.6rem;
+            margin-top: 1rem;
+            font-size: 1rem;
             font-weight: bolder;
         }
 
         > .body-left {
-            flex: 1;
-            padding: 2rem 2rem 2rem 220px;
+            padding: 1.4rem 0.8rem 1.4rem 76px;
+            width: 55%;
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 1rem;
+
+            @media (min-width: 992px) {
+                padding: 2rem 2rem 2rem 220px;
+                width: auto;
+            }
         }
 
         > .body-right {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 300px;
+            padding-left: 1rem;
+            width: 45%;
             flex-direction: column;
+
+            @media (min-width: 992px) {
+                padding-left: 0;
+                width: 300px;
+            }
         }
 
         .mint-amount {
@@ -61,12 +155,12 @@ $angle-width: 4px;
 
             > .minus,
             > .plus {
-                width: 2rem;
-                height: 2rem;
-                font-size: 2rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                font-size: 1.5rem;
                 font-weight: bolder;
                 text-align: center;
-                line-height: 1.7rem;
+                line-height: 1.3rem;
                 color: rgb(117, 17, 169);
                 background-color: #fff;
                 border-radius: 0.5rem;
@@ -76,15 +170,30 @@ $angle-width: 4px;
             > .amount {
                 margin-right: auto;
                 margin-left: auto;
-                font-size: 3rem;
+                font-size: 2rem;
                 font-family: "speed-a4";
                 font-weight: bolder;
-                line-height: 2rem;
+                line-height: 1.6rem;
+            }
+
+            @media (min-width: 992px) {
+                > .minus,
+                > .plus {
+                    width: 2rem;
+                    height: 2rem;
+                    font-size: 2rem;
+                    line-height: 1.7rem;
+                }
+
+                > .amount {
+                    font-size: 3rem;
+                    line-height: 2rem;
+                }
             }
         }
 
         .mint-remain {
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .mint-balance {
@@ -93,36 +202,63 @@ $angle-width: 4px;
 
         .mint-remain,
         .mint-balance {
-            font-size: 1.2rem;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 992px) {
+            .mint-remain {
+                margin-top: 2rem;
+            }
+
+            .mint-remain,
+            .mint-balance {
+                font-size: 1.2rem;
+            }
         }
 
         .total-price {
             display: flex;
             align-items: center;
-            padding-left: 2rem;
             color: #fff;
 
             > .amount {
-                margin: 0 0.5rem;
-                font-size: 4rem;
+                margin: 0 0.5rem 0 0.2rem;
+                font-size: 2rem;
                 font-weight: bolder;
             }
 
             >.unit {
-                font-size: 1.2rem;
+                font-size: 1rem;
                 font-weight: bolder;
+            }
+
+            @media (min-width: 992px) {
+                padding-left: 2rem;
+
+                > .amount {
+                    margin: 0 0.5rem;
+                    font-size: 4rem;
+                }
+
+                >.unit {
+                    font-size: 1.2rem;
+                }
             }
         }
     }
 
     .note {
-        position: absolute;
-        bottom: 0.5rem;
-        left: 0;
         width: 100%;
+        font-size: 0.8rem;
         text-align: center;
-        line-height: 2rem;
+        line-height: 1.2rem;
         color: #fff;
+
+        @media (min-width: 992px) {
+            font-size: 1rem;
+            line-height: 2rem;
+        }
     }
 
     .faq-button {
@@ -137,8 +273,12 @@ $angle-width: 4px;
         border: 2px solid #fff;
         border-radius: 2rem;
         z-index: 2;
-        transform: translate(20%, -20%);
+        transform: translate(0, -20%);
         cursor: pointer;
+
+        @media (min-width: 992px) {
+            transform: translate(20%, -20%);
+        }
     }
 
     > .angle {

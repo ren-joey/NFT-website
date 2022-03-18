@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { MoralisProvider } from "react-moralis";
+import { EventContext } from "src/Context/EventContext";
 import { ContractContext } from "src/views/ContractService/ContractContext";
 import { INft, nullable } from "src/views/interfaces";
 import moralisConfig from "src/views/moralisConfig";
@@ -24,8 +25,6 @@ const Web3Provider = () => {
     const [isSaleActive, setIsSaleActive] = useState(false);
     const [isWhiteListSaleActive, setIsWhiteListSaleActive] = useState(false);
     const [isVipWhiteListSaleActive, setIsVipWhiteListSaleActive] = useState(false);
-
-
 
     return (
         <MoralisProvider

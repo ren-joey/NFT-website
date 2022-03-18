@@ -1,0 +1,96 @@
+.vbc-character-wrapper {
+    position: relative;
+
+    .vbc-character-container {
+        position: relative;
+        padding-bottom: calc(100% / 214 * 546);
+        width: 100%;
+
+        .vbc-text-bubble {
+            position: absolute;
+            top: 0;
+            left: -10%;
+            padding-bottom: calc(120% / 287 * 290);
+            width: 120%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            opacity: 0;
+            z-index: 3;
+            transform: translateY(-100%);
+            pointer-events: none;
+
+            > .text {
+                position: absolute;
+                top: 1.2rem;
+                right: 1.4rem;
+                bottom: 2.6rem;
+                left: 1.4rem;
+                display: flex;
+                align-items: center;
+                line-height: 1.6rem;
+                color: #fff;
+            }
+        }
+
+        .title-area {
+            position: absolute;
+            top: 70%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            z-index: 3;
+            pointer-events: none;
+
+            > .job-title {
+                font-weight: bolder;
+            }
+
+            > .nickname {
+                margin-top: 0.4rem;
+                font-size: 2.4rem;
+                font-family: coco;
+                font-weight: bolder;
+            }
+        }
+
+        .vbc-character-default,
+        .vbc-character-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .vbc-character-default {
+            z-index: 1;
+        }
+
+        .vbc-character-hover {
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .vbc-text-bubble,
+        .vbc-character-hover {
+            transition: 0.3s opacity;
+        }
+    }
+
+    &.hovered {
+        z-index: 2;
+
+        .vbc-character-container {
+            .vbc-text-bubble {
+                opacity: 1;
+            }
+
+            .vbc-character-hover {
+                opacity: 1;
+            }
+        }
+    }
+}

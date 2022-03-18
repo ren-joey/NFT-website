@@ -28,6 +28,7 @@ import ToBeAnnounced from "src/components/ToBeAnnounced";
 import FAQ from "src/components/FAQ/FAQ";
 import KolSupport from "src/components/KolSupport/KolSupport";
 import MediaSupport from "src/components/MediaSupport/MediaSupport";
+import VbcLabs from "src/components/VbcLabs/VbcLabs";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -93,6 +94,8 @@ const FrontPage = () => {
     return (
         <LangContext.Provider value={{ ...lang }}>
             <EventContext.Provider value={{
+                selectedLang,
+                setSelectedLang,
                 device,
                 status,
                 setStatus,
@@ -109,18 +112,19 @@ const FrontPage = () => {
                         setSelectedLang={setSelectedLang}
                     />
 
-                    {/* <div className="fp-container">
+                    <div className="fp-container">
                         <FirstArea />
                         <AboutB selectedLang={selectedLang} />
                         <KolSupport total={5} />
                         <MediaSupport total={7} />
                         <Roadmap selectedLang={selectedLang} />
-                    </div> */}
+                    </div>
 
                     <ToBeAnnounced />
 
                     {/* 開賣期 */}
                     <div className="fp-container">
+                        <VbcLabs />
                         <FAQ />
                     </div>
 

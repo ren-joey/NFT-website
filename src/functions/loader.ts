@@ -69,7 +69,7 @@ import ch_hover from 'src/assets/images/ch_hover.png';
 import ch from 'src/assets/images/ch.png';
 import hb_hover from 'src/assets/images/hb_hover.png';
 import hb from 'src/assets/images/hb.png';
-import ja_hover from 'src/assets/images/ja_hover.png';
+import js_hover from 'src/assets/images/js_hover.png';
 import jk_hover from 'src/assets/images/jk_hover.png';
 import jk from 'src/assets/images/jk.png';
 import jo_hover from 'src/assets/images/jo_hover.png';
@@ -195,7 +195,7 @@ const loader = () => new Promise<void>((res) => {
         .add('ch', ch)
         .add('hb_hover', hb_hover)
         .add('hb', hb)
-        .add('ja_hover', ja_hover)
+        .add('js_hover', js_hover)
         .add('jk_hover', jk_hover)
         .add('jk', jk)
         .add('jo_hover', jo_hover)
