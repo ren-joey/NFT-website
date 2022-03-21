@@ -6,7 +6,7 @@
     margin-right: 0;
     margin-left: 0;
     padding-top: 70px;
-    height: 500px;
+    height: 150px;
     z-index: 2;
 
     @media (min-width: 992px) {
@@ -106,7 +106,7 @@
 
     .copyright {
         position: absolute;
-        top: calc(50% + 166px);
+        top: calc(50%);
         left: 0;
         width: 100%;
         font-size: 1rem;

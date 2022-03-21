@@ -28,10 +28,10 @@ class CountingHandler {
             // getMoment(`2022/${date1} 15:00`),
             // getMoment(`2022/${date2} 15:00`),
             // getMoment(`2022/${date3} 15:00`)
-            getMoment(`2022/03/18 10:00`), // VIP
-            getMoment(`2022/03/18 10:00`), // 搗蛋
-            getMoment(`2022/03/18 18:00`), // 全面
-            getMoment(`2022/03/18 18:00`) // 解盲
+            getMoment(`2022/03/21 10:00`), // VIP
+            getMoment(`2022/03/21 10:00`), // 搗蛋
+            getMoment(`2022/03/21 10:00`), // 全面
+            getMoment(`2022/03/21 21:00`) // 解盲
         ];
         this.status = -1;
         this.diff = -1;

@@ -28,6 +28,8 @@ export interface INft {
 }
 
 export interface IContractData {
+    getBalance: nullable,
+    setGetBalance: (num: number) => void;
     MAX_SUPPLY: nullable;
     setMAX_SUPPLY: (num: number) => void;
     MAX_VIP_WHITE_LIST_SUPPLY: nullable;

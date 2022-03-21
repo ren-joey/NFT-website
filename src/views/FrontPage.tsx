@@ -29,6 +29,7 @@ import FAQ from "src/components/FAQ/FAQ";
 import KolSupport from "src/components/KolSupport/KolSupport";
 import MediaSupport from "src/components/MediaSupport/MediaSupport";
 import VbcLabs from "src/components/VbcLabs/VbcLabs";
+import Statement from "src/components/Statement";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -130,8 +131,16 @@ const FrontPage = () => {
 
                     <Footer />
 
+                    {/* 召喚聲明 */}
+                    <Statement />
+
+                    {/* fixed 背景特效區塊 */}
                     <BgEffects />
+
+                    {/* fixed 第一視覺往下滾動提示 */}
                     <ScrollDownIcon />
+
+                    {/* fixed 返回最頂端按鈕 */}
                     <BackToTop />
 
                 </div>

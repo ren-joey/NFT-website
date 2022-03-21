@@ -5,6 +5,9 @@ import MintBody, { MintMethodName } from "./MintBody";
 import { useContext, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { nullable } from 'src/views/interfaces';
+import SharedAlert from '../Shared/SharedAlert';
+import MaxBalance from 'src/views/ContractService/MaxBalance';
+import { ContractContext } from 'src/views/ContractService/ContractContext';
 
 interface IProps {
     remain: nullable
@@ -12,6 +15,7 @@ interface IProps {
 
 const MintBlock = ({ remain }: IProps) => {
     const { status } = useContext(EventContext);
+    const { maxBalance } = useContext(ContractContext);
     const methodName = useMemo<MintMethodName>(() => {
         switch (status) {
             case 0:
@@ -39,13 +43,14 @@ const MintBlock = ({ remain }: IProps) => {
                 if (remain === 0) {
                     return ['首波 800 個 β星人 RNFT 已全數召喚完畢，以下為 β星人 全面解盲時間'];
                 }
-                return ['注意：首波降臨的β星人每個錢包只能擁有最多 3個 ，超過會召喚失敗'];
+                if (maxBalance === null) return [''];
+                return [`注意：首波降臨的β星人每個錢包只能擁有最多${maxBalance}個 ，超過會召喚失敗`];
             case 3:
                 return ['首波  β星人 已全面解盲，以下是兌換公仔 & 後續階段資訊公佈時間，敬請期待！'];
             default:
                 return ['β 星人降臨地球搗亂倒數'];
         }
-    }, [status, remain]);
+    }, [status, remain, maxBalance]);
 
     return (
         <div className="mint-block">

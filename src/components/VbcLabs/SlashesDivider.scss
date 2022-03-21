@@ -1,9 +1,5 @@
 .slashes-divider-wrapper {
     .slashes-divider {
-        // position: absolute;
-        // padding-bottom: calc(100% / 1212 * 22);
-        // width: 100%;
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -13,12 +9,17 @@
         background-size: 100% auto;
 
         > .content {
-            width: 26%;
-            font-size: 1rem;
+            width: 80%;
+            font-size: 0.9rem;
             font-weight: bolder;
             text-align: center;
             line-height: 1.6rem;
             color: #fff;
+
+            @media (min-width: 992px) {
+                width: 26%;
+                font-size: 1rem;
+            }
         }
     }
 }

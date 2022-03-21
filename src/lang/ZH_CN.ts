@@ -152,7 +152,12 @@ const ZH_CN: Lang = {
     FAQ_6_CONTENT_2: '详细内容VBC labs将于<span class="lang-hgl">Q2公布说明</span>与开放兑换系统，敬请关注',
     FAQ_7_TITLE: '● Roadmap提到的β币、奖励任务、元宇宙是什么？ ',
     FAQ_7_CONTENT: '这些是VBC labs 与 β星人将持续合作带给各位召唤师的<span class="lang-hgl">奖励回馈机制</span>，相关内容将于<span class="lang-hgl">Q2公布说明</span>',
-    COPYRIGHT: '©2022 Vision Beyond Cosmos 保留所有权利'
+    COPYRIGHT: '©2022 Vision Beyond Cosmos 保留所有权利',
+    STATEMENT_TITLE: 'VBC labs β星人召唤声明',
+    STATEMENT_CONTENT_1: '1. 抢购除了售价 0.1ETH 外，还需要额外给矿工的交易手续费 ( GAS FEE 瓦斯费 )；不管有无成功买到都需支付这笔费用，因此没抢到需自行承担 GAS FEE 。 ',
+    STATEMENT_CONTENT_2: '2. GAS FEE 为浮动值，如您交易过程看到过高的费用可取消尝试重新交易。 ',
+    STATEMENT_CONTENT_3: '3. 如看到高达 4ETH 的 GAS FEE，一率为合约错误；请勿当成 GAS FEE ，也不要确认交易。 ',
+    STATEMENT_CONTENT_4: '4. 请使用官方网址「vbc-labs.com」进入网站进行 β星人召唤，千万不要自己搜寻或是点别人给的连结，避免仿冒的网站、合约、Opensea出现导致您的损失；如发生误买 VBC labs 恕不负责。 '
 };
 
 export default ZH_CN;

@@ -41,7 +41,11 @@ const VbcLabs = () => {
                 {
                     Array(9).fill(0).map((val, idx) => (
                         <div className="f-1" key={idx}>
-                            <VbcCharacter idx={11 - idx} />
+                            <VbcCharacter idx={
+                                device === 'desktop'
+                                    ? 11 - idx
+                                    : idx + 3
+                            } />
                         </div>
                     ))
                 }

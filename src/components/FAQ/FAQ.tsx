@@ -65,24 +65,42 @@ const FAQ = () => {
             <FAQBlock idx={3} />
             <FAQBlock idx={4} />
             <FAQBlock idx={5} slotContent={
-                <img style={{
-                    display: 'block',
-                    marginTop: '2rem',
-                    marginBottom: '2rem'
-                }} src={images.faq_5_table} width="90%" height="auto" alt="" />
+                <img
+                    style={{
+                        display: 'block',
+                        marginTop: '2rem',
+                        marginBottom: '2rem',
+                        width: device === 'desktop' ? '90%' : '100%',
+                        height: 'auto'
+                    }}
+                    src={images.faq_5_table}
+                    alt=""
+                />
             } />
             <FAQBlock idx={6} slotContent={
                 <>
-                    <img style={{
-                        display: 'block',
-                        marginTop: '2rem',
-                        marginBottom: '2rem'
-                    }} src={images.faq_6_image} width="90%" height="auto" alt="" />
-                    <img style={{
-                        display: 'block',
-                        marginTop: '3rem',
-                        marginBottom: '2rem'
-                    }} src={images.faq_6_table} width="90%" height="auto" alt="" />
+                    <img
+                        style={{
+                            display: 'block',
+                            marginTop: '2rem',
+                            marginBottom: '2rem',
+                            width: device === 'desktop' ? '90%' : '100%',
+                            height: 'auto'
+                        }}
+                        src={images.faq_6_image}
+                        alt=""
+                    />
+                    <img
+                        style={{
+                            display: 'block',
+                            marginTop: '2rem',
+                            marginBottom: '2rem',
+                            width: device === 'desktop' ? '90%' : '100%',
+                            height: 'auto'
+                        }}
+                        src={images.faq_6_table}
+                        alt=""
+                    />
                 </>
             } />
             <FAQBlock idx={7} />

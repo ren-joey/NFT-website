@@ -11,6 +11,10 @@ const VbcCharacter = ({ idx }: IProps) => {
     const lang = useContext(LangContext);
     const name = lang[`MEMBER_${idx}_NAME`];
     const [ hovered, setHovered ] = useState(false);
+    const className = () => {
+        if (idx <= 2) return 'vbc-text-bubble';
+        return `vbc-text-bubble remainder-${idx % 3}`;
+    };
 
     return (
         <div className={`vbc-character-wrapper ${hovered ? 'hovered' : ''}`}>
@@ -28,9 +32,11 @@ const VbcCharacter = ({ idx }: IProps) => {
                     </div>
                 </div>
 
-                <div className="vbc-text-bubble" style={
-                    { backgroundImage: `url(${getResources('purple_text_bubble')})` }
-                }>
+                <div
+                    className={className()}
+                    style={
+                        { backgroundImage: `url(${getResources('purple_text_bubble')})` }
+                    }>
                     <div className="text" dangerouslySetInnerHTML={{__html: lang[`MEMBER_${idx}_DESC`]}}></div>
                 </div>
 

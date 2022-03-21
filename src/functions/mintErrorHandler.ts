@@ -12,11 +12,11 @@ const mintErrorHandler = ({ message }: IErrorMsgObj) => {
         alert('VBC Betamon 已經 MINT 一空，感謝支持。');
     } else if (message.includes('Sale would exceed max balance')
         || message.includes('Sale would exceed max mint')) {
-        alert('每人最多持有 3 個 VBC Betamon，請重新確認您的 MINT 數量。');
+        alert('每個錢包持有 3 個NFT就無法再 召喚MINT β星人，請確認您持有的數量');
     } else if (message.includes('Not enough ether sent')) {
         alert('您的以太幣不足。');
     } else if (regex.test(message)) {
-        alert('很抱歉，您不符合白名單資格。');
+        alert('很抱歉，你並非這階段可召喚 MINT 的人類白名單');
     }
 };
 

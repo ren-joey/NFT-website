@@ -86,6 +86,7 @@ const PermissionCertification = () => {
             EventBus.$emit('fetchTotalSupply');
             EventBus.$emit('fetchMintPrice');
             EventBus.$emit('fetchMaxBalance');
+            EventBus.$emit('fetchGetBalance');
 
             fetchContractVariable('_isVipWhiteListSaleActive').then((res) => {
                 setIsVipWhiteListSaleActive(res);
@@ -153,6 +154,7 @@ const PermissionCertification = () => {
             <GetContractVariable methodName="mintPrice" />
             <GetContractVariable methodName="maxBalance" />
             <GetContractVariable methodName="totalSupply" />
+            <GetContractVariable methodName="getBalance" />
             <GetContractVariable methodName="MAX_SUPPLY" />
             <GetContractVariable methodName="MAX_VIP_WHITE_LIST_SUPPLY" />
             <GetContractVariable methodName="MAX_WHITE_LIST_SUPPLY" />

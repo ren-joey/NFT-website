@@ -8,6 +8,7 @@ import PermissionCertification from "./PermissionCertification";
 const web3Style: React.CSSProperties = {color: '#fff'};
 
 const Web3Component = () => {
+    const [getBalance, setGetBalance] = useState<nullable>(null);
     const [MAX_SUPPLY, setMAX_SUPPLY] = useState<nullable>(null);
     const [MAX_VIP_WHITE_LIST_SUPPLY, setMAX_VIP_WHITE_LIST_SUPPLY] = useState<nullable>(null);
     const [MAX_WHITE_LIST_SUPPLY, setMAX_WHITE_LIST_SUPPLY] = useState<nullable>(null);
@@ -33,6 +34,8 @@ const Web3Component = () => {
             serverUrl={moralisConfig.serverUrl}
         >
             <ContractContext.Provider value={{
+                getBalance,
+                setGetBalance,
                 MAX_SUPPLY,
                 setMAX_SUPPLY,
                 MAX_VIP_WHITE_LIST_SUPPLY,

@@ -1,4 +1,5 @@
 import { ReactNode, useContext, useEffect } from "react";
+import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
 
@@ -9,6 +10,7 @@ interface IProps {
 }
 
 const FAQBlock = ({ idx, slotContent }: IProps) => {
+    const { device } = useContext(EventContext);
     const lang = useContext(LangContext);
     const title = lang[`FAQ_${idx}_TITLE`];
     const content = lang[`FAQ_${idx}_CONTENT`];
@@ -23,11 +25,15 @@ const FAQBlock = ({ idx, slotContent }: IProps) => {
             <div className="body">
                 <div
                     className="faq-title"
-                    dangerouslySetInnerHTML={{__html: title}}
+                    dangerouslySetInnerHTML={{
+                        __html: device === 'desktop'
+                            ? title
+                            : title.replace(/● /g, '')
+                    }}
                 ></div>
                 <div
                     className="faq-content"
-                    dangerouslySetInnerHTML={{__html: content}}
+                    dangerouslySetInnerHTML={{ __html: content }}
                 ></div>
 
                 {

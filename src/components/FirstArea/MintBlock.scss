@@ -101,17 +101,6 @@ $angle-width: 4px;
         color: #fff;
         flex: 1;
 
-        @media (min-width: 992px) {
-            margin-left: -250px;
-            width: auto;
-
-            .mint-title {
-                margin-top: 1.4rem;
-                font-size: 1.6rem;
-                font-weight: bolder;
-            }
-        }
-
         &.single {
             flex-direction: column;
             margin-left: 0;
@@ -146,6 +135,17 @@ $angle-width: 4px;
             @media (min-width: 992px) {
                 padding-left: 0;
                 width: 300px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            margin-left: -250px;
+            width: auto;
+
+            .mint-title {
+                margin-top: 1.4rem;
+                font-size: 1.6rem;
+                font-weight: bolder;
             }
         }
 
@@ -192,28 +192,19 @@ $angle-width: 4px;
             }
         }
 
-        .mint-remain {
-            margin-top: 1rem;
-        }
-
-        .mint-balance {
+        .mint-status {
             margin-top: 0.4rem;
-        }
-
-        .mint-remain,
-        .mint-balance {
             font-size: 0.8rem;
             white-space: nowrap;
         }
 
         @media (min-width: 992px) {
-            .mint-remain {
-                margin-top: 2rem;
-            }
-
-            .mint-remain,
-            .mint-balance {
+            .mint-status {
                 font-size: 1.2rem;
+
+                &:nth-child(2) {
+                    margin-top: 2rem;
+                }
             }
         }
 
