@@ -163,7 +163,7 @@
                 top: 300px;
                 left: 100px;
 
-                @include line-rwd(83px, 537px);
+                @include line-rwd(83px, 240px);
 
                 @media (min-width: 1440px) {
                     left: 114px;
@@ -171,10 +171,12 @@
 
                 & > .star-container {
                     position: absolute;
-                    top: 30%;
-                    left: -20px;
-                    width: 40px;
-                    height: 40px;
+                    top: calc(100% - 50px);
+                    left: -49px;
+                    width: 100px;
+                    height: 100px;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
                 }
             }
         }

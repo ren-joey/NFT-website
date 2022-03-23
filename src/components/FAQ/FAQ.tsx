@@ -16,6 +16,9 @@ import faq_6_table_cn from 'src/assets/images/faq_6_table_cn.png';
 import faq_6_table_tw_m from 'src/assets/images/faq_6_table_tw_m.png';
 import faq_6_table_tw from 'src/assets/images/faq_6_table_tw.png';
 import { EventContext } from "src/Context/EventContext";
+import SocialButton from "../Shared/SocialButton";
+import { ISocialList, socialList } from "src/socialMediaConfig";
+import SocialIconButton from "../Shared/SocialIconButton";
 
 const FAQ = () => {
     const lang = useContext(LangContext);
@@ -61,7 +64,9 @@ const FAQ = () => {
             }></div>
 
             <FAQBlock idx={1} />
-            <FAQBlock idx={2} />
+            <FAQBlock idx={2} slotContent={
+                <SocialIconButton social={socialList[1]} />
+            } />
             <FAQBlock idx={3} />
             <FAQBlock idx={4} />
             <FAQBlock idx={5} slotContent={

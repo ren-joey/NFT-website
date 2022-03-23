@@ -5,6 +5,7 @@ import { getResources } from "src/functions/loader";
 import { EventContext } from "src/Context/EventContext";
 import { socialList } from "src/socialMediaConfig";
 import hrefTo from "src/functions/hrefTo";
+import SocialIconButton from "../Shared/SocialIconButton";
 
 interface Props {
     idx: number
@@ -51,16 +52,7 @@ const RoadmapSocialCard = ({ idx }: Props) => {
                 {
                     socialList.map((social, idx) => {
                         if (!social.visible) return false;
-                        const iconUrl = getResources(`${social.iconName}_icon_gradient`);
-                        return <div className="social-link-area" key={idx}>
-                            <div
-                                className="social-link-btn"
-                                onClick={() => hrefTo(social)}
-                                style={{backgroundImage: `url(${iconUrl})`}}></div>
-                            <div className={`social-text-bubble ${social.iconName}`}>
-                                {social.iconName}
-                            </div>
-                        </div>;
+                        return <SocialIconButton social={social} key={idx} />;
                     })
                 }
             </div>

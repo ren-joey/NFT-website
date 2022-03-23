@@ -1,5 +1,7 @@
-export type nullable = (null|number);
+import { BigNumber } from "ethers";
 
+export type nullable = (null|number);
+export type nullableBigNumber = (null|BigNumber);
 export interface IMetadata {
     description: string;
     external_url: string;
@@ -28,21 +30,21 @@ export interface INft {
 }
 
 export interface IContractData {
-    getBalance: nullable,
-    setGetBalance: (num: number) => void;
-    MAX_SUPPLY: nullable;
-    setMAX_SUPPLY: (num: number) => void;
-    MAX_VIP_WHITE_LIST_SUPPLY: nullable;
-    setMAX_VIP_WHITE_LIST_SUPPLY: (num: number) => void;
-    MAX_WHITE_LIST_SUPPLY: nullable;
-    setMAX_WHITE_LIST_SUPPLY: (num: number) => void;
-    totalSupply: nullable;
-    setTotalSupply: (num: number) => void;
-    mintPrice: nullable;
+    getBalance: nullableBigNumber,
+    setGetBalance: (num: BigNumber) => void;
+    MAX_SUPPLY: nullableBigNumber;
+    setMAX_SUPPLY: (num: BigNumber) => void;
+    MAX_VIP_WHITE_LIST_SUPPLY: nullableBigNumber;
+    setMAX_VIP_WHITE_LIST_SUPPLY: (num: BigNumber) => void;
+    MAX_WHITE_LIST_SUPPLY: nullableBigNumber;
+    setMAX_WHITE_LIST_SUPPLY: (num: BigNumber) => void;
+    totalSupply: nullableBigNumber;
+    setTotalSupply: (num: BigNumber) => void;
+    mintPrice: nullableBigNumber;
     mintPriceEth: nullable,
-    setMintPrice: (num: number) => void;
-    maxBalance: nullable;
-    setMaxBalance: (num: number) => void
+    setMintPrice: (num: BigNumber) => void;
+    maxBalance: nullableBigNumber;
+    setMaxBalance: (num: BigNumber) => void
     nfts: INft[];
     setNfts: (nfts: INft[]) => void;
     isBlindBoxOpened: (undefined|boolean);

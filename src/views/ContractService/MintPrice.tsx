@@ -1,3 +1,4 @@
+import { BigNumber } from 'ethers';
 import { useContext, useEffect } from 'react';
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { EventBus } from 'src/bus';

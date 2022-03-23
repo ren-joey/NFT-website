@@ -11,16 +11,17 @@ interface IProps {
 const MediaSupport = ({ total }: IProps) => {
     const [mediaIndex, setMediaIndex] = useState(0);
     const lang = useContext(LangContext);
-    const [type, href, title] = useMemo(() => {
+    const [type, imageHref, title, href] = useMemo(() => {
         const title = lang[`MEDIA_${mediaIndex + 1}_TITLE`];
         const imageHref = lang[`MEDIA_${mediaIndex + 1}_IMAGE`];
-        if (!imageHref) return ['', '', title];
+        const href = lang[`MEDIA_${mediaIndex + 1}_HREF`];
+        if (!imageHref) return ['', '', title, href];
 
         const regex = /\[iframe\].*/g;
         if (regex.test(imageHref)) {
-            return ['iframe', imageHref.replace('[iframe]', ''), title];
+            return ['iframe', imageHref.replace('[iframe]', ''), title, href];
         }
-        return ['image', imageHref.replace('[image]', ''), title];
+        return ['image', imageHref.replace('[image]', ''), title, href];
     }, [mediaIndex]);
 
     const nextMedia = () => setMediaIndex((mediaIndex + 1) % total);
@@ -37,25 +38,27 @@ const MediaSupport = ({ total }: IProps) => {
         switch(type) {
             case 'iframe':
                 return (
-                    <div className="iframe-image">
+                    <div className="iframe-image media">
                         <iframe
                             width="100%"
                             height="auto"
-                            src={href}
+                            src={imageHref}
                             title={title}
                         ></iframe>
                     </div>
                 );
             case 'image':
                 return (
-                    <div className="iframe-image" style={
-                        { backgroundImage: `url(${href})` }
+                    <div className="iframe-image media" style={
+                        { backgroundImage: `url(${imageHref})` }
                     } />
                 );
             default:
                 return (
-                    <div className="iframe-image">
-                        <div className="text">Loading...</div>
+                    <div className="iframe-image media">
+                        <div className="text">
+                            {lang.UNDER_CONSTRUCTION}
+                        </div>
                     </div>
                 );
         }

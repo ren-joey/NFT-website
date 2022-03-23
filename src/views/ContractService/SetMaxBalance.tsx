@@ -1,8 +1,9 @@
+import { BigNumber } from "ethers";
 import { ChangeEvent, useContext, useState } from "react";
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { cyanBtn, whiteCard, whiteInput } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
-import { nullable } from "../interfaces";
+import { nullable, nullableBigNumber } from "../interfaces";
 import { ContractContext } from "./ContractContext";
 
 const SetMaxBalance = () => {
@@ -12,10 +13,10 @@ const SetMaxBalance = () => {
         fetch,
         isFetching
     } = useWeb3ExecuteFunction();
-    const [inputMaxBalance, setInputMaxBalance] = useState<nullable>(maxBalance);
+    const [inputMaxBalance, setInputMaxBalance] = useState<nullableBigNumber>(maxBalance);
 
     const handleMintChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setInputMaxBalance(+e.target.value);
+        setInputMaxBalance(BigNumber.from(+e.target.value));
     };
 
     const sendSetMaxBalance = () => {
@@ -32,7 +33,7 @@ const SetMaxBalance = () => {
             <div className="flex">
                 <input
                     className={whiteInput}
-                    value={inputMaxBalance || 0}
+                    value={inputMaxBalance?.toString()}
                     type="number"
                     onChange={handleMintChange}
                 ></input>

@@ -1,23 +1,28 @@
+import { Lang } from "src/lang";
+
 interface IErrorMsgObj {
     message: string,
     [key: string]: any
 }
 
-const regex = /Not in( vip)? white list/g;
-
-const mintErrorHandler = ({ message }: IErrorMsgObj) => {
-    if (message.includes('Sale must be active to mint Betamon')) {
-        alert('MINT 尚未開放，敬請期待。');
-    } else if (message.includes('Sale would exceed max supply')) {
-        alert('VBC Betamon 已經 MINT 一空，感謝支持。');
-    } else if (message.includes('Sale would exceed max balance')
-        || message.includes('Sale would exceed max mint')) {
-        alert('每個錢包持有 3 個NFT就無法再 召喚MINT β星人，請確認您持有的數量');
-    } else if (message.includes('Not enough ether sent')) {
-        alert('您的以太幣不足。');
-    } else if (regex.test(message)) {
-        alert('很抱歉，你並非這階段可召喚 MINT 的人類白名單');
+const mintErrorHandler = (error: IErrorMsgObj, lang: Lang, maxBalance: string) => {
+    if (error.message.includes('Sale must be active to mint Betamon')) {
+        alert(lang.MINT_ALERT_NOT_ACTIVE);
+    } else if (error.message.includes('Sale would exceed max supply')) {
+        alert(lang.MINT_ALERT_EXCEED_MAX_SUPPLY);
+    } else if (error.message.includes('Sale would exceed max balance')
+        || error.message.includes('Sale would exceed max mint')) {
+        alert(lang.MINT_ALERT_EXCEED_MAX_BALANCE.replace('${}', maxBalance));
+    } else if (error.message.includes('Not enough ether sent')) {
+        alert(lang.NOT_ENOUGH_ETH);
+    } else if (
+        error.message.includes('Not in vip white list')
+        || error.message.includes('Not in white list')
+    ) {
+        alert(lang.NOT_IN_LIST);
     }
+
+    return null;
 };
 
 export default mintErrorHandler;

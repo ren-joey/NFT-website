@@ -79,9 +79,9 @@ const AboutB = ({ selectedLang }: IAboutB) => {
                                     { backgroundImage: `url(${getResources('line_turning_left')})` }
                                 }
                             >
-                                <div className="star-container">
-                                    <Star />
-                                </div>
+                                <div className="star-container" style={
+                                    { backgroundImage: `url(${getResources('glowing_star')})` }
+                                }></div>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,9 @@
+import { BigNumber } from "ethers";
 import { useContext, useEffect, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import { blackDescription, blackTitle, cyanBtn, cyanBtnDisabled, flexCenter, whiteCard } from "src/components/ui/uiClassName";
+import { LangContext } from "src/Context/LangContext";
 import mintErrorHandler from "src/functions/mintErrorHandler";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
 import { ContractContext } from "./ContractContext";
@@ -25,6 +27,7 @@ const MintBetamon = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) =
         mintPriceEth,
         maxBalance
     } = useContext(ContractContext);
+    const lang = useContext(LangContext);
     const [amount, setAmount] = useState(1);
     const increasingAmount = () => setAmount((amount + 1) % 4 || 1);
     const decreasingAmount = () => setAmount(amount - 1 || 1);
@@ -36,7 +39,7 @@ const MintBetamon = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) =
             fetch({
                 params: {
                     ...mintBetamonOptions,
-                    msgValue: amount * (price || 0),
+                    msgValue: price === null || price.isZero() ? 0 : price.mul(amount).toString(),
                     params: {
                         numBetamon: amount
                     }
@@ -45,7 +48,7 @@ const MintBetamon = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) =
         };
 
         if (!mintPrice) {
-            EventBus.$emit(`fetchMintPrice`).then((price: number) => {
+            EventBus.$emit(`fetchMintPrice`).then((price: BigNumber) => {
                 doFetch(price);
             });
         } else {
@@ -58,8 +61,9 @@ const MintBetamon = ({ mintMethodName = 'mintBetamon' }: IMintMethodName = {}) =
             const regex = /error=([^;]*)(?=, method=)/g;
             const arr = error.message.match(regex);
             if (arr) {
+                const balance = maxBalance === null ? '--' : maxBalance.toString();
                 const errorObj = JSON.parse(arr[0].replace('error=', ''));
-                mintErrorHandler(errorObj);
+                mintErrorHandler(errorObj, lang, balance);
             }
         }
     }, [error]);

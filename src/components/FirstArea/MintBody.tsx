@@ -1,13 +1,15 @@
+import { BigNumber } from "ethers";
 import { rename } from "fs";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
+import { LangContext } from "src/Context/LangContext";
 import mintErrorHandler from "src/functions/mintErrorHandler";
 import { getWeb3ExecuteFunctionOption } from "src/views/contractAbi";
 import { ContractContext } from "src/views/ContractService/ContractContext";
 import MintPrice from "src/views/ContractService/MintPrice";
-import { nullable } from "src/views/interfaces";
+import { nullable, nullableBigNumber } from "src/views/interfaces";
 import EthIcon from "../Shared/EthIcon";
 import MintButton from "../Shared/MintButton";
 import SharedAlert from "../Shared/SharedAlert";
@@ -16,7 +18,7 @@ import LinkingAnimation from "./LinkingAnimation";
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
 interface IMintMethodName {
-    remain: nullable
+    remain: nullableBigNumber
     mintMethodName?: MintMethodName,
 }
 
@@ -44,22 +46,25 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
         device
     } = useContext(EventContext);
 
+    const lang = useContext(LangContext);
+
     const [alertState, setAlertState] = useState(false);
     const [confirmState, setConfirmState] = useState(false);
     const [content, setContent] = useState('');
+    const [prevId, setPrevId] = useState('');
 
     const [amount, setAmount] = useState(1);
-    const increaseAmount = () => setAmount((amount + 1) % (Number(maxBalance ) + 1) || 3);
+    const increaseAmount = () => setAmount((amount + 1) % (Number(maxBalance) + 1) || 3);
     const decreaseAmount = () => setAmount((amount - 1) || 1);
 
     const fetchMintBetamon = () => new Promise<void>((res) => {
-        const doFetch = async (price = mintPrice) => {
+        const doFetch = async (price: nullableBigNumber = mintPrice) => {
             const mintBetamonOptions = getWeb3ExecuteFunctionOption(mintMethodName);
 
             const result: any = await fetch({
                 params: {
                     ...mintBetamonOptions,
-                    msgValue: amount * (price || 0),
+                    msgValue: price === null || price.isZero() ? 0 : price.mul(amount).toString(),
                     params: {
                         numBetamon: amount
                     }
@@ -67,10 +72,9 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             });
 
             if (result !== undefined) {
-                setContent(`【交易進行中】<br />
-                請複製您的交易 id<br />
-                ${result.hash}<br />
-                點選【確認】可至 Etherscan 確認召喚MINT(交易)是否成功`);
+                setPrevId(result.hash);
+
+                setContent(lang.MINTED_ALERT);
                 setAlertState(true);
             }
 
@@ -78,7 +82,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
         };
 
         if (!mintPrice) {
-            EventBus.$emit(`fetchMintPrice`).then((price: number) => {
+            EventBus.$emit(`fetchMintPrice`).then((price: BigNumber) => {
                 doFetch(price);
             });
         } else {
@@ -91,8 +95,9 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             const regex = /error=([^;]*)(?=, method=)/g;
             const arr = error.message.match(regex);
             if (arr) {
+                const balance = maxBalance === null ? '--' : maxBalance.toString();
                 const errorObj = JSON.parse(arr[0].replace('error=', ''));
-                mintErrorHandler(errorObj);
+                mintErrorHandler(errorObj, lang, balance);
             }
         }
     }, [error]);
@@ -114,11 +119,11 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             return (
                 <div className="mint-body single">
                     <div className="mint-title">
-                        支付 <EthIcon size={device === 'desktop' ? '1.4rem' : '0.8rem'} /> 0.1 ETH 即可招喚 B 星人
+                        {lang.MINT_BODY_TITLE_1} <EthIcon size={device === 'desktop' ? '1.4rem' : '0.8rem'} /> {lang.MINT_BODY_TITLE_2}
                     </div>
 
                     <MintButton
-                        text="連結錢包"
+                        text={lang.LINK_WALLET}
                         style={buttonSize}
                         onClick={() => EventBus.$emit('fetchLogin')}
                     />
@@ -129,7 +134,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             return (
                 <div className="mint-body single">
                     <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
-                        請檢查您的錢包連線狀態
+                        {lang.CHECK_YOUR_WALLET}
                     </div>
                     <LinkingAnimation />
                 </div>);
@@ -137,7 +142,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             return (
                 <div className="mint-body single">
                     <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
-                        β星人已全面解盲
+                        {lang.BLIND_BOX_OPENED}
                     </div>
                 </div>);
         } else {
@@ -151,11 +156,11 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                         </div>
 
                         <div className="mint-status">
-                            剩餘數量：{totalSupply === null ? '--' : remain}
+                            {lang.REMAIN}{totalSupply === null || remain === null ? '--' : remain.toString()}
                         </div>
-                        <div className="mint-status">限購數量：{maxBalance === null ? '--' : maxBalance}</div>
+                        <div className="mint-status">{lang.MAX_BALANCE}{maxBalance === null ? '--' : maxBalance.toString()}</div>
                         <div className="mint-status">
-                            持有數量：{getBalance === null ? '--' : getBalance}
+                            {lang.BALANCE}{getBalance === null ? '--' : getBalance.toString()}
                         </div>
                     </div>
                     <div className="body-right">
@@ -168,39 +173,45 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                         <MintButton
                             text="Mint Now"
                             onClick={() => {
-                                setConfirmState(true);
+                                if (status < 2) setConfirmState(true);
+                                else fetchMintBetamon();
                             }}
                             disable={
                                 remain === null
-                                || getBalance === maxBalance
+                                || status === -1
+                                || getBalance?.gte(maxBalance || 0)
                                 || confirmState === true
-                                || remain <= 0 ? true : undefined
+                                || remain.lte(0) ? true : undefined
                             }
                             style={buttonSize}
                         />
 
-                        <SharedAlert enable={confirmState} content={`請注意：白名單階段只有 一次召喚MINT 機會<br />
-你目前召喚MINT數量「${getBalance}」，確定要繼續嗎？<br />
-（完成後將移除白名單資格，每個錢包最多可擁有${maxBalance}個β星人）`} confirmText="確認" onConfirm={() => {
-                            fetchMintBetamon();
-                            setConfirmState(false);
-                        }} cancelText="取消" onCancel={() => {
-                            setConfirmState(false);
-                        }} />
+                        <SharedAlert
+                            enable={confirmState}
+                            content={lang.MINT_ALERT.replace('${}', Number(amount).toString()).replace('${}', Number(maxBalance).toString())}
+                            confirmText={lang.CONFIRM}
+                            onConfirm={() => {
+                                setConfirmState(false);
+                                fetchMintBetamon();
+                            }}
+                            cancelText={lang.CANCEL}
+                            onCancel={() => {
+                                setConfirmState(false);
+                            }} />
 
                         <SharedAlert enable={alertState} content={content}
-                            confirmText="確認"
+                            confirmText={lang.CONFIRM}
                             onConfirm={() => {
-                                window.open('https://rinkeby.etherscan.io/', '_blank');
                                 setAlertState(false);
+                                window.open(`https://rinkeby.etherscan.io/tx/${prevId}`, '_blank');
                             }}
-                            cancelText="取消"
+                            cancelText={lang.CANCEL}
                             onCancel={() => {
                                 setAlertState(false);
                             }}
                         />
 
-                        {/* <button onClick={() => EventBus.$emit('fetchLogout')}>登出</button> */}
+                        {/* <button onClick={() => EventBus.$emit('fetchLogout')}>lang.LOGOUT</button> */}
                     </div>
                 </div>
             );

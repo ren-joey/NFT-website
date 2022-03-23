@@ -4,18 +4,19 @@ import { scrollToFaq } from "src/animation/scrollToTrigger";
 import MintBody, { MintMethodName } from "./MintBody";
 import { useContext, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
-import { nullable } from 'src/views/interfaces';
-import SharedAlert from '../Shared/SharedAlert';
-import MaxBalance from 'src/views/ContractService/MaxBalance';
+import { nullableBigNumber } from 'src/views/interfaces';
 import { ContractContext } from 'src/views/ContractService/ContractContext';
+import { lang } from 'moment';
+import { LangContext } from 'src/Context/LangContext';
 
 interface IProps {
-    remain: nullable
+    remain: nullableBigNumber
 }
 
 const MintBlock = ({ remain }: IProps) => {
     const { status } = useContext(EventContext);
     const { maxBalance } = useContext(ContractContext);
+    const lang = useContext(LangContext);
     const methodName = useMemo<MintMethodName>(() => {
         switch (status) {
             case 0:
@@ -28,29 +29,30 @@ const MintBlock = ({ remain }: IProps) => {
     }, [status]);
     const noteText = useMemo(() => {
         switch (status) {
+            case -1:
+                return lang.MINT_BLOCK_NOTE_1;
             case 0:
-                if (remain === 0) {
-                    return ['VIP白名單已完銷，以下為搗蛋白名單開放Mint召喚時間'];
+                if (remain?.isZero()) {
+                    return lang.MINT_BLOCK_NOTE_2_SOLD_OUT;
                 }
-                return ['目前為VIP白名單優先Mint召喚時間'];
+                return lang.MINT_BLOCK_NOTE_2;
             case 1:
-                if (remain === 0) {
-                    return ['搗蛋白名單已完銷，以下為全面開放Mint召喚時間'];
+                if (remain?.isZero()) {
+                    return lang.MINT_BLOCK_NOTE_3_SOLD_OUT;
                 }
-                // return ['目前為搗蛋白名單優先Mint召喚時間', '未完售將於 3/23 15:00 開放購買'];
-                return ['目前為搗蛋白名單優先Mint召喚時間'];
+                return lang.MINT_BLOCK_NOTE_3;
             case 2:
-                if (remain === 0) {
-                    return ['首波 800 個 β星人 RNFT 已全數召喚完畢，以下為 β星人 全面解盲時間'];
+                if (remain?.isZero()) {
+                    return lang.MINT_BLOCK_NOTE_4_SOLD_OUT;
                 }
-                if (maxBalance === null) return [''];
-                return [`注意：首波降臨的β星人每個錢包只能擁有最多${maxBalance}個 ，超過會召喚失敗`];
+                if (maxBalance === null) return '';
+                return lang.MINT_BLOCK_NOTE_4.replace('${}', maxBalance.toString());
             case 3:
-                return ['首波  β星人 已全面解盲，以下是兌換公仔 & 後續階段資訊公佈時間，敬請期待！'];
+                return lang.MINT_BLOCK_NOTE_5;
             default:
-                return ['β 星人降臨地球搗亂倒數'];
+                return lang.MINT_BLOCK_NOTE_DEFAULT;
         }
-    }, [status, remain, maxBalance]);
+    }, [status, remain, maxBalance, lang]);
 
     return (
         <div className="mint-block">
@@ -68,9 +70,7 @@ const MintBlock = ({ remain }: IProps) => {
             <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>
 
             <div className="note">
-                {noteText.map((str, idx) => (
-                    <p key={idx}>{str}</p>
-                ))}
+                {noteText}
             </div>
 
             <div className="angle left top"></div>

@@ -11,17 +11,18 @@ interface IProps {
 const KolSupport = ({ total }: IProps) => {
     const [mediaIndex, setMediaIndex] = useState(0);
     const lang = useContext(LangContext);
-    const [type, href, title] = useMemo(() => {
+    const [type, imageHref, title, href] = useMemo(() => {
         const title = lang[`KOL_${mediaIndex + 1}_TITLE`];
         const imageHref = lang[`KOL_${mediaIndex + 1}_IMAGE`];
-        if (!imageHref) return ['', '', title];
+        const href = lang[`KOL_${mediaIndex + 1}_HREF`];
+        if (!imageHref) return ['', '', title, href];
 
         const regex = /\[iframe\].*/g;
         if (regex.test(imageHref)) {
-            return ['iframe', imageHref.replace('[iframe]', ''), title];
+            return ['iframe', imageHref.replace('[iframe]', ''), title, href];
         }
-        return ['image', imageHref.replace('[image]', ''), title];
-    }, [mediaIndex]);
+        return ['image', imageHref.replace('[image]', ''), title, href];
+    }, [mediaIndex, lang]);
 
     const nextMedia = () => setMediaIndex((mediaIndex + 1) % total);
     const prevMedia = () => setMediaIndex((mediaIndex + (total - 1)) % total);
@@ -35,25 +36,27 @@ const KolSupport = ({ total }: IProps) => {
         switch(type) {
             case 'iframe':
                 return (
-                    <div className="iframe-image">
+                    <div className="iframe-image kol">
                         <iframe
                             width="100%"
                             height="auto"
-                            src={href}
+                            src={imageHref}
                             title={title}
                         ></iframe>
                     </div>
                 );
             case 'image':
                 return (
-                    <div className="iframe-image" style={
-                        { backgroundImage: `url(${href})` }
+                    <div className="iframe-image kol" style={
+                        { backgroundImage: `url(${imageHref})` }
                     } />
                 );
             default:
                 return (
-                    <div className="iframe-image">
-                        <div className="text">Loading...</div>
+                    <div className="iframe-image kol">
+                        <div className="text">
+                            {lang.UNDER_CONSTRUCTION}
+                        </div>
                     </div>
                 );
         }
@@ -81,12 +84,12 @@ const KolSupport = ({ total }: IProps) => {
                         onClick={() => prevMedia()}
                     ></div>
 
-                    <div className="iframe-container">
+                    <div className="iframe-container" onClick={() => linkTo()}>
                         <div className="iframe-body">
                             { iframeBody() }
                         </div>
 
-                        <div className="iframe-footer" onClick={() => linkTo()}>
+                        <div className="iframe-footer">
                             <div className="chain-icon" style={
                                 { backgroundImage: `url(${getResources('chain_icon')})` }
                             }></div>

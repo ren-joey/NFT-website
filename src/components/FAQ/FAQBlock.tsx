@@ -25,11 +25,7 @@ const FAQBlock = ({ idx, slotContent }: IProps) => {
             <div className="body">
                 <div
                     className="faq-title"
-                    dangerouslySetInnerHTML={{
-                        __html: device === 'desktop'
-                            ? title
-                            : title.replace(/● /g, '')
-                    }}
+                    dangerouslySetInnerHTML={{ __html: title }}
                 ></div>
                 <div
                     className="faq-content"

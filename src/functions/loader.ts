@@ -87,6 +87,10 @@ import mk from 'src/assets/images/mk.png';
 import rock_betamon from 'src/assets/images/rock_betamon.png';
 import ry_hover from 'src/assets/images/ry_hover.png';
 import ry from 'src/assets/images/ry.png';
+import em_hover from 'src/assets/images/em_hover.png';
+import em from 'src/assets/images/em.png';
+import rt_hover from 'src/assets/images/rt_hover.png';
+import rt from 'src/assets/images/rt.png';
 import slashes_divider from 'src/assets/images/slashes_divider.png';
 
 // for pixi.js
@@ -214,7 +218,11 @@ const loader = () => new Promise<void>((res) => {
         .add('ry_hover', ry_hover)
         .add('ry', ry)
         .add('slashes_divider', slashes_divider)
-        .add('arrow_right', arrow_right);
+        .add('arrow_right', arrow_right)
+        .add('em_hover', em_hover)
+        .add('em', em)
+        .add('rt_hover', rt_hover)
+        .add('rt', rt);
 
     loader.load(() => {
         if (pass) res();

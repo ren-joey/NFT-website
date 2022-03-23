@@ -1,3 +1,4 @@
+import { BigNumber } from "ethers";
 import React, { useContext, useEffect, useMemo } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
@@ -11,7 +12,7 @@ import { ContractContext } from "./ContractService/ContractContext";
 import GetContractVariable from "./ContractService/GetContractVariable";
 import MaxBalance from "./ContractService/MaxBalance";
 import MintPrice from "./ContractService/MintPrice";
-import { nullable } from "./interfaces";
+import { nullable, nullableBigNumber } from "./interfaces";
 import LoginService from "./UserService/LoginService";
 
 const PermissionCertification = () => {
@@ -31,35 +32,38 @@ const PermissionCertification = () => {
         setIsWhiteListSaleActive
     } = useContext(ContractContext);
 
-    const { status } = useContext(EventContext);
+    const {
+        status,
+        diff
+    } = useContext(EventContext);
 
     const {
         fetch
     } = useWeb3ExecuteFunction();
 
-    const remain = useMemo<nullable>(() => {
+    const remain = useMemo<nullableBigNumber>(() => {
         if (totalSupply === null
             || MAX_VIP_WHITE_LIST_SUPPLY === null
             || MAX_WHITE_LIST_SUPPLY === null
             || MAX_SUPPLY === null) return null;
 
-        let _remain = 0;
+        let _remain = BigNumber.from(0);
         switch (status) {
             case -1:
             case 0:
-                _remain = MAX_VIP_WHITE_LIST_SUPPLY - totalSupply;
+                _remain = MAX_VIP_WHITE_LIST_SUPPLY.sub(totalSupply);
                 break;
             case 1:
-                _remain = MAX_WHITE_LIST_SUPPLY - totalSupply;
+                _remain = MAX_WHITE_LIST_SUPPLY.sub(totalSupply);
                 break;
             case 2:
             case 3:
-                _remain = MAX_SUPPLY - totalSupply;
+                _remain = MAX_SUPPLY.sub(totalSupply);
                 break;
             default:
-                _remain = 0;
+                _remain = BigNumber.from(0);
         }
-        return _remain < 0 ? 0 : _remain;
+        return _remain.lt(0) ? BigNumber.from(0) : _remain;
     }, [
         MAX_SUPPLY,
         MAX_WHITE_LIST_SUPPLY,
@@ -80,11 +84,11 @@ const PermissionCertification = () => {
 
     useEffect(() => {
         if (isWeb3Enabled === true) {
+            EventBus.$emit('fetchMintPrice');
             EventBus.$emit('fetchMAX_SUPPLY');
             EventBus.$emit('fetchMAX_VIP_WHITE_LIST_SUPPLY');
             EventBus.$emit('fetchMAX_WHITE_LIST_SUPPLY');
             EventBus.$emit('fetchTotalSupply');
-            EventBus.$emit('fetchMintPrice');
             EventBus.$emit('fetchMaxBalance');
             EventBus.$emit('fetchGetBalance');
 
@@ -107,8 +111,13 @@ const PermissionCertification = () => {
     const mintArea = () => {
         switch(status) {
             case -1:
+                if (diff > 259200000) {
+                    return (
+                        <BetamonStage />
+                    );
+                }
                 return (
-                    <BetamonStage />
+                    <MintBlock remain={remain} />
                 );
             case 0:
             case 1:
@@ -135,7 +144,7 @@ const PermissionCertification = () => {
             case 0:
             case 1:
             case 2:
-                return (remain === 0) && (
+                return (remain?.isZero()) && (
                     <>
                         <RevealTime />
                         <Counter />

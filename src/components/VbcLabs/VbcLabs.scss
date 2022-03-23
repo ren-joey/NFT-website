@@ -61,6 +61,7 @@
 
         @media (min-width: 992px) {
             flex-direction: row-reverse;
+            justify-content: center;
             flex-wrap: nowrap;
         }
 
@@ -68,11 +69,10 @@
             width: 33.3%;
 
             @media (min-width: 992px) {
-                flex: 1;
-                width: auto;
+                width: 16.2%;
 
                 &:not(:last-child) {
-                    margin-left: -6%;
+                    margin-left: -2%;
                 }
             }
         }

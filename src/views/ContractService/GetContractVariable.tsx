@@ -1,3 +1,4 @@
+import { BigNumber } from 'ethers';
 import { useContext, useEffect } from 'react';
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { EventBus } from 'src/bus';
@@ -33,7 +34,7 @@ const GetContractVariable = ({ methodName }: IProps) => {
 
     useEffect(() => {
         if (data) {
-            setVariable(data.toNumber());
+            setVariable(data);
         }
     }, [data]);
 

@@ -1,8 +1,9 @@
+import { BigNumber } from "ethers";
 import { ChangeEvent, useContext, useState } from "react";
 import { useWeb3ExecuteFunction } from 'react-moralis';
 import { cyanBtn, whiteCard, whiteInput } from "src/components/ui/uiClassName";
 import { getWeb3ExecuteFunctionOption } from "../contractAbi";
-import { nullable } from "../interfaces";
+import { nullable, nullableBigNumber } from "../interfaces";
 import { ContractContext } from "./ContractContext";
 
 const SetMintPrice = () => {
@@ -12,10 +13,10 @@ const SetMintPrice = () => {
         fetch,
         isFetching
     } = useWeb3ExecuteFunction();
-    const [inputMintPrice, setInputMintPrice] = useState<nullable>(mintPrice);
+    const [inputMintPrice, setInputMintPrice] = useState<nullableBigNumber>(mintPrice);
 
     const handleMintChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setInputMintPrice(+e.target.value);
+        setInputMintPrice(BigNumber.from(+e.target.value));
     };
 
     const sendSetMintPrice = () => {
@@ -32,7 +33,7 @@ const SetMintPrice = () => {
             <div className="flex">
                 <input
                     className={whiteInput}
-                    value={inputMintPrice || 0}
+                    value={inputMintPrice?.toString()}
                     type="number"
                     onChange={handleMintChange}
                 ></input>

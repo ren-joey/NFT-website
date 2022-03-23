@@ -117,7 +117,7 @@ const FrontPage = () => {
                         <FirstArea />
                         <AboutB selectedLang={selectedLang} />
                         <KolSupport total={5} />
-                        <MediaSupport total={7} />
+                        <MediaSupport total={6} />
                         <Roadmap selectedLang={selectedLang} />
                     </div>
 
