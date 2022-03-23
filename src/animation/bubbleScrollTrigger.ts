@@ -38,7 +38,7 @@ const bubbleScrollTrigger = (sprites: PIXI.Sprite[]) => {
             ease: 'none',
             scrollTrigger: {
                 ...sharedSetting,
-                end: '+=10000'
+                end: '+=30000'
             }
         },
         {
@@ -46,7 +46,7 @@ const bubbleScrollTrigger = (sprites: PIXI.Sprite[]) => {
             ease: 'none',
             scrollTrigger: {
                 ...sharedSetting,
-                end: '+=10000'
+                end: '+=30000'
             }
         },
         {
@@ -71,7 +71,7 @@ const bubbleScrollTrigger = (sprites: PIXI.Sprite[]) => {
             scrollTrigger: {
                 trigger,
                 start: 'top -1000',
-                end: '+=3000',
+                end: '+=20000',
                 scrub: true
             }
         },
@@ -81,7 +81,7 @@ const bubbleScrollTrigger = (sprites: PIXI.Sprite[]) => {
             scrollTrigger: {
                 trigger,
                 start: 'top -1500',
-                end: '+=6000',
+                end: '+=12000',
                 scrub: true
             }
         }

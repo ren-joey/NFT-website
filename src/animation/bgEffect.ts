@@ -30,8 +30,10 @@ const bgEffectInit = () => {
         app.stage.addChild(speedLineContainer);
     }
 
-    const bubbleContainer = getBubbleContainer(resources);
-    app.stage.addChild(bubbleContainer);
+    if (window.innerWidth >= 992) {
+        const bubbleContainer = getBubbleContainer(resources);
+        app.stage.addChild(bubbleContainer);
+    }
 
     ResizeListener.add(() => {
         app.renderer.resize(window.innerWidth, 2500);
