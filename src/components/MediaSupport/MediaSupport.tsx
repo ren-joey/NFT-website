@@ -86,12 +86,12 @@ const MediaSupport = ({ total }: IProps) => {
                         onClick={() => prevMedia()}
                     ></div>
 
-                    <div className="iframe-container">
+                    <div className="iframe-container" onClick={() => linkTo()}>
                         <div className="iframe-body">
                             { iframeBody() }
                         </div>
 
-                        <div className="iframe-footer" onClick={() => linkTo()}>
+                        <div className="iframe-footer">
                             <div className="chain-icon" style={
                                 { backgroundImage: `url(${getResources('chain_icon')})` }
                             }></div>
