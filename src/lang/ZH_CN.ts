@@ -145,7 +145,7 @@ const ZH_CN: Lang = {
     MEMBER_13_TITLE: '通讯士',
     MEMBER_13_NAME: 'RT',
     MEMBER_13_DESC: '专案执行企划专才,多媒体背景与跨领域数位行销领域6年经历。 ',
-    ABOUT_VBC_DIVIDER_1: '目前创意飞船β的成员有以下 11 位身怀各种绝技正打算大展身手',
+    ABOUT_VBC_DIVIDER_1: '目前创意飞船β的成员有以下多位身怀各种绝技正打算大展身手',
     ABOUT_VBC_DIVIDER_2: '注：将随着进程持续增加成员。 ',
     FAQ_1_TITLE: '如何购买β星人NFT？ ',
     FAQ_1_CONTENT: '1. 您需要先注册<span class="lang-hgl">Metamask</span>钱包<br />2. 于<span class="lang-hgl">可召唤Mint时间</span>至 β星人官网 进行Mint<br />3. 购买成功您虚拟钱包将获得<span class="lang-hgl">盲盒版本的β星人RNFT</span><br />4. 解盲时间一到全面β星人RNFT将自动解盲，您专属的β星人将现身<br />各阶段召唤时间与解盲时间请关注β星人官方DISCORD或Twitter、IG等资讯',
