@@ -23,9 +23,11 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
     return(
         <div className={`roadmap ${selectedLang === 'EN' ? 'en' : ''}`}>
             <div className="desc-area">
-                <div className="guide-line">
-                    <div id="roadmapLine" className="line"></div>
-                </div>
+                { device === 'desktop' && (
+                    <div className="guide-line">
+                        <div id="roadmapLine" className="line"></div>
+                    </div>
+                )}
                 <div className="title-img" style={
                     { backgroundImage: `url(${getResources('roadmap')})` }
                 }>
@@ -35,9 +37,9 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
                 </div>
             </div>
 
-            { getLine() }
+            {/* { getLine() } */}
 
-            <RoadmapSocialCard idx={1} />
+            <RoadmapSocialCard idx={1} className="text-stroke" />
 
             { getLine() }
 
@@ -58,7 +60,7 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
                 }
             </div>
 
-            <RoadmapCard idx={2} />
+            <RoadmapCard idx={2} className="text-stroke" />
 
             { getLine() }
 
@@ -70,11 +72,11 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
 
             { getLine() }
 
-            <RoadmapCard idx={5} />
+            <RoadmapCard idx={5} className="text-stroke" />
 
             { getLine() }
 
-            <RoadmapCard idx={6} />
+            <RoadmapCard idx={6} className="text-stroke" />
 
         </div>
     );

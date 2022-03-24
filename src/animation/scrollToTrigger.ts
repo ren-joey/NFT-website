@@ -24,8 +24,17 @@ const scrollToRoadmap = () => {
     scrollToElement('.roadmap', 60);
 };
 
+const scrollToFaq = () => {
+    gaParser('主站', 'FAQ', '0303版網站');
+    scrollToElement('#FAQ', 60);
+};
+
 const scrollToTop = () => {
     scrollToOffset(0);
 };
 
-export { scrollToRoadmap, scrollToTop };
+export {
+    scrollToRoadmap,
+    scrollToTop,
+    scrollToFaq
+};

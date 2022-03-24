@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from 'src/App';
 import reportWebVitals from 'src/reportWebVitals';
 import urlPreprocessing from './functions/urlPreprocessing';
+import './index.css';
 
 // url 前處理： ga 初始化, 事件寄送, url 清除及轉導
 urlPreprocessing().then(() => {

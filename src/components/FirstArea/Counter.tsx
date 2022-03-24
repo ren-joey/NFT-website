@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import 'src/components/FirstArea/Counter.scss';
-import { EventContext } from 'src/Context/EventContext';
+import { defaultEventContext, EventContext } from 'src/Context/EventContext';
 import CountingHandler from 'src/CountingHandler';
 
 const Counter = () => {
@@ -9,12 +9,19 @@ const Counter = () => {
         setCounter,
         status,
         setStatus,
-        setEnd
+        setEnd,
+        setDiff
     } = useContext(EventContext);
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setCounter(CountingHandler.getDateTime());
+            setDiff(CountingHandler.diff);
+            if (CountingHandler.diff <= 0) {
+                setCounter(defaultEventContext.counter);
+            } else {
+                setCounter(CountingHandler.getDateTime());
+            }
+
             if (CountingHandler.status !== status) {
                 setStatus(CountingHandler.status);
                 setEnd(CountingHandler.getEnd());

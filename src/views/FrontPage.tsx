@@ -24,6 +24,12 @@ import ZH_TW from "src/lang/ZH_TW";
 // style 相關
 import 'src/views/FrontPage.scss';
 import CountingHandler from "src/CountingHandler";
+import ToBeAnnounced from "src/components/ToBeAnnounced";
+import FAQ from "src/components/FAQ/FAQ";
+import KolSupport from "src/components/KolSupport/KolSupport";
+import MediaSupport from "src/components/MediaSupport/MediaSupport";
+import VbcLabs from "src/components/VbcLabs/VbcLabs";
+import Statement from "src/components/Statement";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -32,6 +38,7 @@ const FrontPage = () => {
     const [status, setStatus] = useState(CountingHandler.status);
     const [counter, setCounter] = useState(CountingHandler.getDateTime());
     const [end, setEnd] = useState(CountingHandler.getEnd());
+    const [diff, setDiff] = useState(CountingHandler.diff);
     const prevLang = getParameterByName('lang') as LangString
         || localStorage.getItem('lang') as LangString
         || 'ZH_TW';
@@ -88,13 +95,17 @@ const FrontPage = () => {
     return (
         <LangContext.Provider value={{ ...lang }}>
             <EventContext.Provider value={{
+                selectedLang,
+                setSelectedLang,
                 device,
                 status,
                 setStatus,
                 counter,
                 setCounter,
                 end,
-                setEnd
+                setEnd,
+                diff,
+                setDiff
             }}>
                 <div className="fp-wrapper">
                     <Header
@@ -105,12 +116,31 @@ const FrontPage = () => {
                     <div className="fp-container">
                         <FirstArea />
                         <AboutB selectedLang={selectedLang} />
+                        <KolSupport total={5} />
+                        <MediaSupport total={6} />
                         <Roadmap selectedLang={selectedLang} />
                     </div>
 
+                    <ToBeAnnounced />
+
+                    {/* 開賣期 */}
+                    <div className="fp-container">
+                        <VbcLabs />
+                        <FAQ />
+                    </div>
+
                     <Footer />
+
+                    {/* 召喚聲明 */}
+                    <Statement />
+
+                    {/* fixed 背景特效區塊 */}
                     <BgEffects />
+
+                    {/* fixed 第一視覺往下滾動提示 */}
                     <ScrollDownIcon />
+
+                    {/* fixed 返回最頂端按鈕 */}
                     <BackToTop />
 
                 </div>

@@ -1,5 +1,6 @@
 import moment from 'moment';
 import ZH_CN from './lang/ZH_CN';
+import { getParameterByName } from './utils';
 
 const timeFormat = 'YYYY/MM/DD HH:mm:ss Z';
 const timeOffset = '+08:00';
@@ -11,9 +12,11 @@ const getMoment = (time: string) => moment(timeParser(time), timeFormat);
 // const date1 = ZH_CN.ROADMAP_CARD_2_DATE.replace(regex, '');
 // const date2 = ZH_CN.ROADMAP_CARD_3_DATE.replace(regex, '');
 // const date3 = ZH_CN.ROADMAP_CARD_4_DATE.replace(regex, '');
-const date1 = ZH_CN.ROADMAP_CARD_2_DATE;
-const date2 = ZH_CN.ROADMAP_CARD_3_DATE;
-const date3 = ZH_CN.ROADMAP_CARD_4_DATE;
+
+// [DEV]
+// const date1 = ZH_CN.ROADMAP_CARD_2_DATE;
+// const date2 = ZH_CN.ROADMAP_CARD_3_DATE;
+// const date3 = ZH_CN.ROADMAP_CARD_4_DATE;
 
 class CountingHandler {
     now: undefined|moment.Moment;
@@ -23,10 +26,32 @@ class CountingHandler {
 
     constructor() {
         this.counterTimes = [
-            getMoment(`2022/${date1} 15:00`),
-            getMoment(`2022/${date2} 15:00`),
-            getMoment(`2022/${date3} 15:00`)
+            // getMoment(`2022/${date1} 15:00`),
+            // getMoment(`2022/${date2} 15:00`),
+            // getMoment(`2022/${date3} 15:00`)
+            getMoment(`2022/03/31 15:00`), // VIP
+            getMoment(`2022/03/31 16:00`), // 搗蛋
+            getMoment(`2022/04/01 15:00`), // 全面
+            getMoment(`2022/05/18 15:00`), // 解盲
+            getMoment(`2022/06/30 15:00`) // 下一波活動
         ];
+
+        /**
+         * 測試用的時間設定到陣列中
+         * 如 ?setTime=0&time=2022/06/01 15:00 +08:00
+         */
+        const setTime = getParameterByName('setTime');
+        if(setTime) {
+            const time = getParameterByName('time');
+            if (time) {
+                const dt = getMoment(time);
+                if (dt.isValid()) {
+                    for (let i = 0; i <= Number(setTime); i++) {
+                        this.counterTimes[i] = dt;
+                    }
+                }
+            }
+        }
         this.status = -1;
         this.diff = -1;
         this.initialize();
@@ -52,9 +77,10 @@ class CountingHandler {
     }
 
     count() {
-        if (this.diff < 0) this.initialize();
+        if (this.diff <= 0) this.initialize();
         else {
             this.diff -= 1000;
+            if (this.diff < 0) this.diff = 0;
         }
     }
 

@@ -51,6 +51,48 @@ import card_btn_bg from 'src/assets/images/card_btn_bg.png';
 // import font_coco from 'src/assets/fonts/Coco-Sharp-Heavy-trial.ttf';
 // import font_toppan from 'src/assets/fonts/ToppanBunkyuMidashiGothicStdN-ExtraBold.otf';
 
+// 開賣期
+import faq from 'src/assets/images/faq.png';
+import wallet_icon from 'src/assets/images/wallet_icon.svg';
+import eth_icon from 'src/assets/images/eth_icon.svg';
+import purple_text_bubble from 'src/assets/images/purple_text_bubble.png';
+import about_vbc_labs_phone from 'src/assets/images/about_vbc_labs_phone.png';
+import about_vbc_labs from 'src/assets/images/about_vbc_labs.png';
+import arrow_right_shadow from 'src/assets/images/arrow_right_shadow.png';
+import arrow_right from 'src/assets/images/arrow_right.svg';
+import chain_icon from 'src/assets/images/chain_icon.svg';
+import bl_hover from 'src/assets/images/bl_hover.png';
+import bl from 'src/assets/images/bl.png';
+import bn_hover from 'src/assets/images/bn_hover.png';
+import bn from 'src/assets/images/bn.png';
+import ch_hover from 'src/assets/images/ch_hover.png';
+import ch from 'src/assets/images/ch.png';
+import hb_hover from 'src/assets/images/hb_hover.png';
+import hb from 'src/assets/images/hb.png';
+import js_hover from 'src/assets/images/js_hover.png';
+import jk_hover from 'src/assets/images/jk_hover.png';
+import jk from 'src/assets/images/jk.png';
+import jo_hover from 'src/assets/images/jo_hover.png';
+import jo from 'src/assets/images/jo.png';
+import js from 'src/assets/images/js.png';
+import kn_hover from 'src/assets/images/kn_hover.png';
+import kn from 'src/assets/images/kn.png';
+import kol_support from 'src/assets/images/kol_support.png';
+import ktv_betamon from 'src/assets/images/ktv_betamon.png';
+import media_support from 'src/assets/images/media_support.png';
+import mi_hover from 'src/assets/images/mi_hover.png';
+import mi from 'src/assets/images/mi.png';
+import mk_hover from 'src/assets/images/mk_hover.png';
+import mk from 'src/assets/images/mk.png';
+import rock_betamon from 'src/assets/images/rock_betamon.png';
+import ry_hover from 'src/assets/images/ry_hover.png';
+import ry from 'src/assets/images/ry.png';
+import em_hover from 'src/assets/images/em_hover.png';
+import em from 'src/assets/images/em.png';
+import rt_hover from 'src/assets/images/rt_hover.png';
+import rt from 'src/assets/images/rt.png';
+import slashes_divider from 'src/assets/images/slashes_divider.png';
+
 // for pixi.js
 import preview_triangle_2 from 'src/assets/images/preview_triangle_2.png';
 import preview_bg from 'src/assets/images/preview_bg.jpg';
@@ -137,8 +179,50 @@ const loader = () => new Promise<void>((res) => {
         .add('twitter_icon_gradient', twitter_icon_gradient)
         .add('twitter_icon', twitter_icon)
         .add('card_btn_bg', card_btn_bg)
-        .add('vbc_logo', vbc_logo);
-    // .add('wave', wave)
+        .add('vbc_logo', vbc_logo)
+        // .add('wave', wave)
+
+        // for 開賣期
+        .add('faq', faq)
+        .add('wallet_icon', wallet_icon)
+        .add('eth_icon', eth_icon)
+        .add('purple_text_bubble', purple_text_bubble)
+        .add('about_vbc_labs_phone', about_vbc_labs_phone)
+        .add('about_vbc_labs', about_vbc_labs)
+        .add('arrow_right_shadow', arrow_right_shadow)
+        .add('chain_icon', chain_icon)
+        .add('bl_hover', bl_hover)
+        .add('bl', bl)
+        .add('bn_hover', bn_hover)
+        .add('bn', bn)
+        .add('ch_hover', ch_hover)
+        .add('ch', ch)
+        .add('hb_hover', hb_hover)
+        .add('hb', hb)
+        .add('js_hover', js_hover)
+        .add('jk_hover', jk_hover)
+        .add('jk', jk)
+        .add('jo_hover', jo_hover)
+        .add('jo', jo)
+        .add('js', js)
+        .add('kn_hover', kn_hover)
+        .add('kn', kn)
+        .add('kol_support', kol_support)
+        .add('ktv_betamon', ktv_betamon)
+        .add('media_support', media_support)
+        .add('mi_hover', mi_hover)
+        .add('mi', mi)
+        .add('mk_hover', mk_hover)
+        .add('mk', mk)
+        .add('rock_betamon', rock_betamon)
+        .add('ry_hover', ry_hover)
+        .add('ry', ry)
+        .add('slashes_divider', slashes_divider)
+        .add('arrow_right', arrow_right)
+        .add('em_hover', em_hover)
+        .add('em', em)
+        .add('rt_hover', rt_hover)
+        .add('rt', rt);
 
     loader.load(() => {
         if (pass) res();

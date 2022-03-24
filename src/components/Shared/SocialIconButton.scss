@@ -1,0 +1,56 @@
+$card-padding: 0.8rem;
+$card-padding-pc: 1.8rem;
+
+.social-link-area {
+    position: relative;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    width: $card-padding-pc * 2 + 1.4rem;
+    height: $card-padding-pc * 2 + 2rem;
+
+    @media (min-width: 1440px) {
+        margin-right: 2rem;
+        padding: 0.2rem;
+        width: $card-padding-pc * 2 + 1.4rem;
+        height: $card-padding-pc * 2 + 2rem;
+    }
+
+    .social-link-btn {
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        cursor: pointer;
+    }
+
+    .social-text-bubble {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        padding: 0.3rem 0.6rem;
+        font-size: 1rem;
+        font-weight: bolder;
+        white-space: nowrap;
+        line-height: 1rem;
+        background-color: #fff;
+        border-radius: 2rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+        transform: translate(-50%, 50%);
+        text-transform: capitalize;
+
+        &.twitter {
+            color: #4ccef8;
+        }
+
+        &.discord {
+            color: #5b88f0;
+        }
+
+        @media (min-width: 1440px) {
+            padding: 0.4rem 0.8rem;
+            font-size: 1.2rem;
+            transform: translate(-50%, 70%);
+        }
+    }
+}

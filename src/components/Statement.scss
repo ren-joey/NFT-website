@@ -1,0 +1,23 @@
+.statement-wrapper {
+    position: relative;
+    padding: 2rem 0.6rem;
+    background-color: #9d5beb;
+    z-index: 2;
+
+    .statement-title {
+        margin: 0.6rem 0;
+        font-size: 1.4rem;
+        font-weight: bolder;
+        color: #fff;
+    }
+
+    .statement-content {
+        font-size: 1rem;
+        color: #fff;
+
+        p {
+            margin: 1rem 0;
+            line-height: 1.6rem;
+        }
+    }
+}

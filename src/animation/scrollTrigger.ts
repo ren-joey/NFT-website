@@ -1,4 +1,5 @@
 import gsap, { Back } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // const clearStyles = (dom: null|Element) => {
 //     if (dom) dom.removeAttribute('style');
@@ -154,13 +155,13 @@ const scrollTriggerInit = () => {
 
     ifDomExistDo('#lineTurningLeft', (dom) => {
         tl.fromTo(dom, {height: 0},  {
-            height: 537,
+            height: 240,
             scrollTrigger: {
                 ...scrubAndSelfKill,
                 id: dom.id,
                 trigger: dom,
                 start: 'top 70%',
-                end: '+=537'
+                end: '+=240'
             }
         });
     });

@@ -17,7 +17,7 @@ export const socialList: ISocialList[] = [
     {
         iconName: 'discord',
         title: 'DISCORD',
-        href: 'https://discord.gg/5mp3Ve2k5F',
+        href: 'https://discord.gg/vbc-labs',
         visible: true
     },
     {
