@@ -92,6 +92,7 @@ import em from 'src/assets/images/em.png';
 import rt_hover from 'src/assets/images/rt_hover.png';
 import rt from 'src/assets/images/rt.png';
 import slashes_divider from 'src/assets/images/slashes_divider.png';
+import ig_icon from 'src/assets/images/ig_icon.svg';
 
 // for pixi.js
 import preview_triangle_2 from 'src/assets/images/preview_triangle_2.png';
@@ -222,7 +223,8 @@ const loader = () => new Promise<void>((res) => {
         .add('em_hover', em_hover)
         .add('em', em)
         .add('rt_hover', rt_hover)
-        .add('rt', rt);
+        .add('rt', rt)
+        .add('ig_icon', ig_icon);
 
     loader.load(() => {
         if (pass) res();

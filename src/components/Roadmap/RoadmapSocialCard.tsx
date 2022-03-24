@@ -50,12 +50,8 @@ const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
 
         return (
             <div className="social-links">
-                {
-                    socialList.map((social, idx) => {
-                        if (!social.visible) return false;
-                        return <SocialIconButton social={social} key={idx} />;
-                    })
-                }
+                <SocialIconButton social={socialList[1]} />
+                <SocialIconButton social={socialList[2]} />
             </div>
         );
     };
