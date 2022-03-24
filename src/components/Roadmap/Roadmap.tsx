@@ -39,7 +39,7 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
 
             {/* { getLine() } */}
 
-            <RoadmapSocialCard idx={1} />
+            <RoadmapSocialCard idx={1} className="text-stroke" />
 
             { getLine() }
 
@@ -60,7 +60,7 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
                 }
             </div>
 
-            <RoadmapCard idx={2} />
+            <RoadmapCard idx={2} className="text-stroke" />
 
             { getLine() }
 
@@ -72,11 +72,11 @@ const Roadmap = ({ selectedLang }: IRoadmap) => {
 
             { getLine() }
 
-            <RoadmapCard idx={5} />
+            <RoadmapCard idx={5} className="text-stroke" />
 
             { getLine() }
 
-            <RoadmapCard idx={6} />
+            <RoadmapCard idx={6} className="text-stroke" />
 
         </div>
     );

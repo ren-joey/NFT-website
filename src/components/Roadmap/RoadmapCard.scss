@@ -37,7 +37,10 @@ $card-padding-pc: 1.8rem;
             border-radius: 1.4rem;
             box-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
             letter-spacing: 1px;
-            -webkit-text-stroke-width: 2px;
+
+            &.text-stroke {
+                -webkit-text-stroke-width: 1px;
+            }
 
             @media (min-width: 992px) {
                 top: calc(50% - 2rem);
@@ -59,8 +62,6 @@ $card-padding-pc: 1.8rem;
 
         .roadmap-card {
             position: relative;
-
-            // overflow: hidden;
             margin: 0 auto;
             width: 95%;
             border: 2px solid #fff;

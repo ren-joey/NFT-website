@@ -44,11 +44,7 @@ const VbcLabs = () => {
                             {
                                 Array(4).fill(0).map((val, idx) => (
                                     <div className="f-1" key={idx}>
-                                        <VbcCharacter idx={
-                                            device === 'desktop'
-                                                ? 6 - idx
-                                                : idx + 3
-                                        } />
+                                        <VbcCharacter idx={6 - idx} />
                                     </div>
                                 ))
                             }
@@ -56,13 +52,9 @@ const VbcLabs = () => {
 
                         <div className="second-section">
                             {
-                                Array(7).fill(0).map((val, idx) => (
+                                Array(6).fill(0).map((val, idx) => (
                                     <div className="f-1" key={idx}>
-                                        <VbcCharacter idx={
-                                            device === 'desktop'
-                                                ? 13 - idx
-                                                : idx + 7
-                                        } />
+                                        <VbcCharacter idx={12 - idx} />
                                     </div>
                                 ))
                             }
@@ -71,7 +63,7 @@ const VbcLabs = () => {
                 ) : (
                     <div className="second-section">
                         {
-                            Array(11).fill(0).map((val, idx) => (
+                            Array(10).fill(0).map((val, idx) => (
                                 <div className="f-1" key={idx}>
                                     <VbcCharacter idx={idx + 3} />
                                 </div>

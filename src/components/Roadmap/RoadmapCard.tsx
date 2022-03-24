@@ -5,10 +5,11 @@ import { getResources } from "src/functions/loader";
 import gaParser from "src/functions/gaParser";
 
 interface Props {
-    idx: number
+    idx: number,
+    className?: string
 }
 
-const RoadmapCard = ({ idx }: Props) => {
+const RoadmapCard = ({ idx, className = '' }: Props) => {
     const lang = React.useContext(LangContext);
 
     const btn = () => {
@@ -46,7 +47,13 @@ const RoadmapCard = ({ idx }: Props) => {
     return (
         <div className="roadmap-card-row">
             <div className="roadmap-time">
-                <div className="time" dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_DATE`]}}></div>
+                <div
+                    className={`time ${className}`}
+                    dangerouslySetInnerHTML={{
+                        __html: lang[`ROADMAP_CARD_${idx}_DATE`]
+                    }}
+                >
+                </div>
             </div>
             <div className="roadmap-main">
                 <div className="roadmap-card">

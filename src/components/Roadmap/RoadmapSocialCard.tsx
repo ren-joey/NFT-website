@@ -8,10 +8,11 @@ import hrefTo from "src/functions/hrefTo";
 import SocialIconButton from "../Shared/SocialIconButton";
 
 interface Props {
-    idx: number
+    idx: number,
+    className?: string
 }
 
-const RoadmapSocialCard = ({ idx }: Props) => {
+const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
     const lang = React.useContext(LangContext);
     const { device } = useContext(EventContext);
 
@@ -63,9 +64,12 @@ const RoadmapSocialCard = ({ idx }: Props) => {
         <div className="roadmap-card-row">
             <div className="roadmap-time">
                 <div
-                    className="time"
-                    dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_DATE`]}}
-                ></div>
+                    className={`time ${className}`}
+                    dangerouslySetInnerHTML={{
+                        __html: lang[`ROADMAP_CARD_${idx}_DATE`]
+                    }}
+                >
+                </div>
             </div>
             <div className="roadmap-main">
                 <div className="roadmap-card">

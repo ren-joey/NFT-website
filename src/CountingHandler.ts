@@ -32,8 +32,8 @@ class CountingHandler {
             getMoment(`2022/03/31 15:00`), // VIP
             getMoment(`2022/03/31 16:00`), // 搗蛋
             getMoment(`2022/04/01 15:00`), // 全面
-            getMoment(`2022/04/18 15:00`), // 解盲
-            getMoment(`2022/06/01 15:00`) // 下一波活動
+            getMoment(`2022/05/18 15:00`), // 解盲
+            getMoment(`2022/06/30 15:00`) // 下一波活動
         ];
 
         /**

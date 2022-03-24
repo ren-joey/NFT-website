@@ -7,6 +7,7 @@ import Counter from "src/components/FirstArea/Counter";
 import MintBlock from "src/components/FirstArea/MintBlock";
 import RevealTime from "src/components/FirstArea/RevealTime";
 import { EventContext } from "src/Context/EventContext";
+import { getParameterByName } from "src/utils";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
 import GetContractVariable from "./ContractService/GetContractVariable";
@@ -41,7 +42,11 @@ const PermissionCertification = () => {
         fetch
     } = useWeb3ExecuteFunction();
 
+    const _totalSupply = getParameterByName('totalSupply'); // [DEV]
+
     const remain = useMemo<nullableBigNumber>(() => {
+        if (_totalSupply !== null) return BigNumber.from(_totalSupply);
+
         if (totalSupply === null
             || MAX_VIP_WHITE_LIST_SUPPLY === null
             || MAX_WHITE_LIST_SUPPLY === null
@@ -143,6 +148,7 @@ const PermissionCertification = () => {
                 );
             case 0:
             case 1:
+                return null;
             case 2:
                 return (remain?.isZero()) && (
                     <>
