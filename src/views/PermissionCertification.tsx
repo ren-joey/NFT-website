@@ -116,7 +116,7 @@ const PermissionCertification = () => {
     const mintArea = () => {
         switch(status) {
             case -1:
-                if (diff > 259200000) {
+                if (diff > 604800000) {
                     return (
                         <BetamonStage />
                     );

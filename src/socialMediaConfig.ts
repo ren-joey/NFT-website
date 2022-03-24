@@ -1,4 +1,4 @@
-export type socialIconName = 'twitter'|'opensea'|'discord'|'ig';
+export type socialIconName = 'twitter'|'opensea'|'discord'|'ig'|'promotion_1';
 
 export interface ISocialList {
     iconName: socialIconName,
@@ -31,5 +31,11 @@ export const socialList: ISocialList[] = [
         title: 'INSTAGRAM',
         href: 'https://www.instagram.com/p/CbPGrLUhDDQ/',
         visible: true
+    },
+    {
+        iconName: 'promotion_1',
+        title: 'promotion_1',
+        href: 'https://www.vbc-labs.com/promotion/1',
+        visible: false
     }
 ];

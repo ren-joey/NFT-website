@@ -8,6 +8,8 @@ import { nullableBigNumber } from 'src/views/interfaces';
 import { ContractContext } from 'src/views/ContractService/ContractContext';
 import { lang } from 'moment';
 import { LangContext } from 'src/Context/LangContext';
+import hrefTo from 'src/functions/hrefTo';
+import { socialList } from 'src/socialMediaConfig';
 
 interface IProps {
     remain: nullableBigNumber
@@ -77,6 +79,13 @@ const MintBlock = ({ remain }: IProps) => {
             <div className="angle left bottom"></div>
             {/* <div className="angle right top"></div> */}
             <div className="angle right bottom"></div>
+
+            <div className="subevent-btn" onClick={() => hrefTo(socialList[4])}>
+                <div className="label">{lang.PROMOTION_1_LABEL}</div>
+                <div className="hgl">{lang.PROMOTION_1_TITLE_BOLD}</div>
+                <div className="text">{lang.PROMOTION_1_TITLE}&emsp;</div>
+                <div className="hgl text-stroke">›</div>
+            </div>
         </div>
     );
 };

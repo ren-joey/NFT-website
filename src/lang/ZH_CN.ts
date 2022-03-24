@@ -198,7 +198,10 @@ const ZH_CN: Lang = {
     MINT_ALERT: '请注意：白名单阶段只有 一次召唤MINT 机会<br />你目前召唤MINT数量「${}」，确定要继续吗？ <br />（完成后将移除白名单资格，每个钱包最多可拥有${}个β星人）',
     MINT_ALERT_NOT_ACTIVE: 'MINT 尚未开放，敬请期待。 ',
     MINT_ALERT_EXCEED_MAX_SUPPLY: 'VBC Betamon 已经 MINT 一空，感谢支持。 ',
-    MINT_ALERT_EXCEED_MAX_BALANCE: '每个钱包持有 ${} 个NFT就无法再 召唤MINT β星人，请确认您持有的数量'
+    MINT_ALERT_EXCEED_MAX_BALANCE: '每个钱包持有 ${} 个NFT就无法再 召唤MINT β星人，请确认您持有的数量',
+    PROMOTION_1_LABEL: '活动',
+    PROMOTION_1_TITLE_BOLD: '分润回馈：',
+    PROMOTION_1_TITLE: '点我加入行列'
 };
 
 export default ZH_CN;
