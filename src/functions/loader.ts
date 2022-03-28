@@ -91,6 +91,8 @@ import em_hover from 'src/assets/images/em_hover.png';
 import em from 'src/assets/images/em.png';
 import rt_hover from 'src/assets/images/rt_hover.png';
 import rt from 'src/assets/images/rt.png';
+import wn_hover from 'src/assets/images/wn_hover.png';
+import wn from 'src/assets/images/wn.png';
 import slashes_divider from 'src/assets/images/slashes_divider.png';
 import ig_icon from 'src/assets/images/ig_icon.svg';
 
@@ -224,6 +226,8 @@ const loader = () => new Promise<void>((res) => {
         .add('em', em)
         .add('rt_hover', rt_hover)
         .add('rt', rt)
+        .add('wn_hover', wn_hover)
+        .add('wn', wn)
         .add('ig_icon', ig_icon);
 
     loader.load(() => {

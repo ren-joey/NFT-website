@@ -14,6 +14,8 @@ import EthIcon from "../Shared/EthIcon";
 import MintButton from "../Shared/MintButton";
 import SharedAlert from "../Shared/SharedAlert";
 import LinkingAnimation from "./LinkingAnimation";
+import 'src/components/FirstArea/MintBody.scss';
+import { getParameterByName } from "src/utils";
 
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
@@ -211,7 +213,12 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                             }}
                         />
 
-                        {/* <button onClick={() => EventBus.$emit('fetchLogout')}>lang.LOGOUT</button> */}
+                        {
+                            // [DEV]
+                            getParameterByName('logout') && (
+                                <button onClick={() => EventBus.$emit('fetchLogout')}>{lang.LOGOUT}</button>
+                            )
+                        }
                     </div>
                 </div>
             );

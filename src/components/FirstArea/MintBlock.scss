@@ -4,8 +4,8 @@ $angle-width: 4px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto 8.6rem;
-    padding: 0.5rem 1rem 1rem;
+    margin: 0 auto 6.6rem;
+    padding: 1.4rem 1rem 1rem;
     width: 100%;
     background-color: rgba(117, 17, 169, 0.9);
     border: 1px solid #fff;
@@ -91,153 +91,6 @@ $angle-width: 4px;
         }
     }
 
-    > .mint-body {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: -100px;
-        width: 60%;
-        color: #fff;
-        flex: 1;
-
-        &.single {
-            flex-direction: column;
-            margin-left: 0;
-        }
-
-        .mint-title {
-            margin-top: 1rem;
-            font-size: 1rem;
-            font-weight: bolder;
-        }
-
-        > .body-left {
-            padding: 1.4rem 0.8rem 1.4rem 76px;
-            width: 55%;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
-
-            @media (min-width: 992px) {
-                padding: 2rem 2rem 2rem 220px;
-                width: auto;
-            }
-        }
-
-        > .body-right {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-left: 1rem;
-            width: 45%;
-            flex-direction: column;
-
-            @media (min-width: 992px) {
-                padding-left: 0;
-                width: 300px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            margin-left: -250px;
-            width: auto;
-
-            .mint-title {
-                margin-top: 1.4rem;
-                font-size: 1.6rem;
-                font-weight: bolder;
-            }
-        }
-
-        .mint-amount {
-            display: flex;
-            color: #fff;
-
-            > .minus,
-            > .plus {
-                width: 1.5rem;
-                height: 1.5rem;
-                font-size: 1.5rem;
-                font-weight: bolder;
-                text-align: center;
-                line-height: 1.3rem;
-                color: rgb(117, 17, 169);
-                background-color: #fff;
-                border-radius: 0.5rem;
-                cursor: pointer;
-            }
-
-            > .amount {
-                margin-right: auto;
-                margin-left: auto;
-                font-size: 2rem;
-                font-weight: bolder;
-                line-height: 1.6rem;
-            }
-
-            @media (min-width: 992px) {
-                > .minus,
-                > .plus {
-                    width: 2rem;
-                    height: 2rem;
-                    font-size: 2rem;
-                    line-height: 1.7rem;
-                }
-
-                > .amount {
-                    font-size: 3rem;
-                    line-height: 2rem;
-                }
-            }
-        }
-
-        .mint-status {
-            margin-top: 0.4rem;
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
-
-        @media (min-width: 992px) {
-            .mint-status {
-                font-size: 1.2rem;
-
-                &:nth-child(2) {
-                    margin-top: 2rem;
-                }
-            }
-        }
-
-        .total-price {
-            display: flex;
-            align-items: center;
-            color: #fff;
-
-            > .amount {
-                margin: 0 0.5rem 0 0.2rem;
-                font-size: 2rem;
-                font-weight: bolder;
-            }
-
-            >.unit {
-                font-size: 1rem;
-                font-weight: bolder;
-            }
-
-            @media (min-width: 992px) {
-                padding-left: 2rem;
-
-                > .amount {
-                    margin: 0 0.5rem;
-                    font-size: 4rem;
-                }
-
-                >.unit {
-                    font-size: 1.2rem;
-                }
-            }
-        }
-    }
-
     .note {
         width: 100%;
         font-size: 0.8rem;
@@ -281,10 +134,14 @@ $angle-width: 4px;
         padding: 0.8rem 0;
         width: 80%;
         background-color: #fff;
-        border-radius: 0 0 3rem 3rem;
+        border-radius: 0 0 1.4rem 1.4rem;
         z-index: -1;
         transform: translateY(100%);
         cursor: pointer;
+
+        @media (min-width: 992px) {
+            border-radius: 0 0 3rem 3rem;
+        }
 
         .label {
             margin-right: 0.5rem;
