@@ -15,7 +15,7 @@ import MintButton from "../Shared/MintButton";
 import SharedAlert from "../Shared/SharedAlert";
 import LinkingAnimation from "./LinkingAnimation";
 import 'src/components/FirstArea/MintBody.scss';
-import { getParameterByName } from "src/utils";
+import { getParameterByName, roundDecimal } from "src/utils";
 
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
@@ -168,7 +168,9 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                     <div className="body-right">
                         <div className="total-price">
                             <EthIcon size={device === 'desktop' ? '2rem' : '1.4rem'} />
-                            <div className="amount">{Number(mintPriceEth) * amount}</div>
+                            <div className="amount">{
+                                roundDecimal(Number(mintPriceEth) * amount, 2)
+                            }</div>
                             <div className="unit">ETH</div>
                         </div>
 

@@ -1,5 +1,7 @@
 $card-padding: 0.8rem;
 $card-padding-pc: 1.8rem;
+$card-radius: 1.6rem;
+$card-radius-pc: 2.4rem;
 
 .roadmap-card-row {
     display: flex;
@@ -65,13 +67,13 @@ $card-padding-pc: 1.8rem;
             margin: 0 auto;
             width: 95%;
             border: 2px solid #fff;
-            border-radius: 1.6rem;
+            border-radius: $card-radius;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) inset, 0 5px 30px rgba(0, 0, 0, 0.3);
 
             @media (min-width: 992px) {
                 margin: 0;
                 width: 90%;
-                border-radius: 2.4rem;
+                border-radius: $card-radius-pc;
             }
 
             .backdrop {
@@ -89,10 +91,11 @@ $card-padding-pc: 1.8rem;
                 padding: #{$card-padding * 2} $card-padding $card-padding #{$card-padding * 4};
                 color: #fff;
                 background-color: rgba(255, 255, 255, 0.3);
-                border-radius: 2rem 2rem 0 0;
+                border-radius: $card-radius $card-radius 0 0;
 
                 @media (min-width: 992px) {
                     padding: $card-padding-pc $card-padding-pc $card-padding-pc #{$card-padding-pc * 2.5};
+                    border-radius: $card-radius-pc $card-radius-pc 0 0;
                 }
 
                 & > .title {
@@ -151,14 +154,15 @@ $card-padding-pc: 1.8rem;
                 padding: #{$card-padding - 0.2rem} $card-padding $card-padding;
                 color: #00e4ff;
                 background-color: rgba(85, 0, 141, 0.3);
-                border-radius: 0 0 2rem 2rem;
+                border-radius: 0 0 $card-radius $card-radius;
 
                 &.social-card {
-                    padding: 0 $card-padding;
+                    padding: 0 $card-padding
                 }
 
                 @media (min-width: 992px) {
                     padding: #{$card-padding-pc - 0.3rem};
+                    border-radius: 0 0 $card-radius-pc $card-radius-pc;
 
                     &.social-card {
                         padding: 0 $card-padding;
