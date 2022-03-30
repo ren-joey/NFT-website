@@ -5,7 +5,6 @@ import loadingAnimation from "src/animation/loadingAnimation";
 import BAlienSvg from "src/components/Shared/BAlienSvg";
 import gaParser from "src/functions/gaParser";
 import loader from "src/functions/loader";
-import { getParameterByName } from "src/utils";
 import 'src/views/LoadingPage.scss';
 
 interface IProps {
@@ -91,8 +90,7 @@ const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
         }
 
         loader().then(() => {
-            if (getParameterByName('preview')
-            || trailerEndedRef.current) hideLoadingPageAndShowFrontPage();
+            if (trailerEndedRef.current) hideLoadingPageAndShowFrontPage();
             loaderIsReady.current = true;
         });
     }, []);

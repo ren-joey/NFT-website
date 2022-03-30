@@ -20,7 +20,8 @@ const PermissionCertification = () => {
     const {
         isAuthenticated,
         isWeb3Enabled,
-        enableWeb3
+        enableWeb3,
+        account
     } = useMoralis();
 
     const {
@@ -73,7 +74,8 @@ const PermissionCertification = () => {
         MAX_SUPPLY,
         MAX_WHITE_LIST_SUPPLY,
         MAX_VIP_WHITE_LIST_SUPPLY,
-        totalSupply
+        totalSupply,
+        status
     ]);
 
     const fetchContractVariable = (
@@ -108,6 +110,10 @@ const PermissionCertification = () => {
             });
         }
     }, [isWeb3Enabled]);
+
+    useEffect(() => {
+        if (isWeb3Enabled) EventBus.$emit('fetchGetBalance');
+    }, [account]);
 
     useEffect(() => {
         if (isAuthenticated) enableWeb3();

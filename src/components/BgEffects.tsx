@@ -1,7 +1,6 @@
 import { Loader } from 'pixi.js';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import bgEffectInit from 'src/animation/bgEffect';
-import { getParameterByName } from 'src/utils';
 
 import 'src/components/BgEffects.scss';
 import { getResources } from 'src/functions/loader';
@@ -11,9 +10,7 @@ const BgEffects = () => {
     const { diff } = useContext(EventContext);
 
     useEffect(() => {
-        if (!getParameterByName('bg-effect')) {
-            bgEffectInit();
-        }
+        bgEffectInit();
     }, []);
 
     return (

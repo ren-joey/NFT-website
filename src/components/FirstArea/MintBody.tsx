@@ -1,5 +1,4 @@
 import { BigNumber } from "ethers";
-import { rename } from "fs";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useMoralis, useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
@@ -8,8 +7,7 @@ import { LangContext } from "src/Context/LangContext";
 import mintErrorHandler from "src/functions/mintErrorHandler";
 import { getWeb3ExecuteFunctionOption } from "src/views/contractAbi";
 import { ContractContext } from "src/views/ContractService/ContractContext";
-import MintPrice from "src/views/ContractService/MintPrice";
-import { nullable, nullableBigNumber } from "src/views/interfaces";
+import { nullableBigNumber } from "src/views/interfaces";
 import EthIcon from "../Shared/EthIcon";
 import MintButton from "../Shared/MintButton";
 import SharedAlert, { IAlertData } from "../Shared/SharedAlert";
@@ -33,7 +31,9 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
         isWeb3Enabled
     } = useMoralis();
 
-    const { data: nativeBalance } = useNativeBalance({ chain: moralisConfig.provider as chainList });
+    const { data: nativeBalance } = useNativeBalance({
+        chain: moralisConfig.provider as chainList
+    });
 
     const {
         fetch,
@@ -92,7 +92,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                             text: lang.MINTED_ALERT_BTN,
                             onClick: () => {
                                 disableAlert();
-                                window.open(`https://rinkeby.etherscan.io/tx/${prevId}`, '_blank');
+                                window.open(`https://rinkeby.etherscan.io/tx/${result.hash}`, '_blank');
                             }
                         }
                     ]

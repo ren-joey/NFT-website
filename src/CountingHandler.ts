@@ -1,5 +1,4 @@
 import moment from 'moment';
-import ZH_CN from './lang/ZH_CN';
 import { getParameterByName } from './utils';
 
 const timeFormat = 'YYYY/MM/DD HH:mm:ss Z';
@@ -7,16 +6,6 @@ const timeOffset = '+08:00';
 
 const timeParser = (time: string) => `${time} ${timeOffset}`;
 const getMoment = (time: string) => moment(timeParser(time), timeFormat);
-
-// const regex = new RegExp(/(?<![1-9]+)0/g);
-// const date1 = ZH_CN.ROADMAP_CARD_2_DATE.replace(regex, '');
-// const date2 = ZH_CN.ROADMAP_CARD_3_DATE.replace(regex, '');
-// const date3 = ZH_CN.ROADMAP_CARD_4_DATE.replace(regex, '');
-
-// [DEV]
-// const date1 = ZH_CN.ROADMAP_CARD_2_DATE;
-// const date2 = ZH_CN.ROADMAP_CARD_3_DATE;
-// const date3 = ZH_CN.ROADMAP_CARD_4_DATE;
 
 class CountingHandler {
     now: undefined|moment.Moment;
@@ -26,24 +15,23 @@ class CountingHandler {
 
     constructor() {
         this.counterTimes = [
-            // getMoment(`2022/${date1} 15:00`),
-            // getMoment(`2022/${date2} 15:00`),
-            // getMoment(`2022/${date3} 15:00`)
-            getMoment(`2022/03/30 13:40`), // VIP [DEV]
-            getMoment(`2022/03/30 13:50`), // 搗蛋
-            getMoment(`2022/03/30 14:00`), // 全面
-            getMoment(`2022/03/30 14:10`), // 解盲
-            getMoment(`2022/03/30 14:20`) // 下一波活動
-            // getMoment(`2022/03/31 15:00`), // VIP
-            // getMoment(`2022/04/26 15:00`), // 搗蛋
-            // getMoment(`2022/04/27 15:00`), // 全面
-            // getMoment(`2022/05/18 15:00`), // 解盲
-            // getMoment(`2022/06/30 15:00`) // 下一波活動
+            // getMoment(`2022/03/30 17:26`), // VIP [DEV]
+            // getMoment(`2022/03/31 17:27`), // 搗蛋
+            // getMoment(`2022/03/31 17:28`), // 全面
+            // getMoment(`2022/03/31 17:29`), // 解盲
+            // getMoment(`2022/03/31 16:20`) // 下一波活動
+
+            getMoment(`2022/03/31 15:00`), // VIP
+            getMoment(`2022/04/26 15:00`), // 搗蛋
+            getMoment(`2022/04/27 15:00`), // 全面
+            getMoment(`2022/05/18 15:00`), // 解盲
+            getMoment(`2022/06/30 15:00`) // 下一波活動
         ];
 
         /**
          * 測試用的時間設定到陣列中
          * 如 ?setTime=0&time=2022/06/01 15:00 +08:00
+         * [DEV]
          */
         const setTime = getParameterByName('setTime');
         if(setTime) {
@@ -67,6 +55,12 @@ class CountingHandler {
     }
 
     initialize() {
+        // const getDateTime = async () => {
+        //     const res: any = await axios.get('https://worldtimeapi.org/api/timezone/Asia/Taipei');
+        //     let now = moment(res?.datetime);
+        //     if (!now.isValid()) now = moment();
+        //     return now;
+        // };
         this.now = moment();
 
         for (let i = 0; i < this.counterTimes.length; i += 1) {

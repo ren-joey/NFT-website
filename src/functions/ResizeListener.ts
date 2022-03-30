@@ -17,7 +17,6 @@ class ResizeListener {
 
     add(fn: () => any) {
         this.methodList.push(fn);
-        // console.log(this.methodList);
     }
 
     erase() {

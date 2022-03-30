@@ -6,7 +6,6 @@ import { useContext, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { nullableBigNumber } from 'src/views/interfaces';
 import { ContractContext } from 'src/views/ContractService/ContractContext';
-import { lang } from 'moment';
 import { LangContext } from 'src/Context/LangContext';
 import hrefTo from 'src/functions/hrefTo';
 import { socialList } from 'src/socialMediaConfig';

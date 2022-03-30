@@ -65,10 +65,8 @@ const FrontPage = () => {
         // RwdContext 監聽事件
         ResizeListener.add(rootEventLister);
 
-        if (!getParameterByName('scroll-trigger')) {
-            scrollTriggerInit();
-            // bubbleScrollTrigger();
-        }
+        // 全局滾動動畫
+        scrollTriggerInit();
 
         return () => {
             ResizeListener.erase();

@@ -1,35 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import 'src/components/FirstArea/Counter.scss';
-import { defaultEventContext, EventContext } from 'src/Context/EventContext';
-import CountingHandler from 'src/CountingHandler';
+import { EventContext } from 'src/Context/EventContext';
 
 const Counter = () => {
     const {
-        counter,
-        setCounter,
-        status,
-        setStatus,
-        setEnd,
-        setDiff
+        counter
     } = useContext(EventContext);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setDiff(CountingHandler.diff);
-            if (CountingHandler.diff <= 0) {
-                setCounter(defaultEventContext.counter);
-            } else {
-                setCounter(CountingHandler.getDateTime());
-            }
-
-            if (CountingHandler.status !== status) {
-                setStatus(CountingHandler.status);
-                setEnd(CountingHandler.getEnd());
-            }
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    });
 
     return (
         <div className="counter-area">

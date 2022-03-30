@@ -1,10 +1,6 @@
 import gsap, { Back } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// const clearStyles = (dom: null|Element) => {
-//     if (dom) dom.removeAttribute('style');
-// };
-
 const scrollTriggerKillAll = () => {
     ScrollTrigger.getAll().forEach((scrollTrigger) => {
         if (scrollTrigger.vars.id) {
