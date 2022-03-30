@@ -29,11 +29,16 @@ class CountingHandler {
             // getMoment(`2022/${date1} 15:00`),
             // getMoment(`2022/${date2} 15:00`),
             // getMoment(`2022/${date3} 15:00`)
-            getMoment(`2022/03/31 15:00`), // VIP
-            getMoment(`2022/03/31 16:00`), // 搗蛋
-            getMoment(`2022/04/01 15:00`), // 全面
-            getMoment(`2022/05/18 15:00`), // 解盲
-            getMoment(`2022/06/30 15:00`) // 下一波活動
+            getMoment(`2022/03/30 13:40`), // VIP [DEV]
+            getMoment(`2022/03/30 13:50`), // 搗蛋
+            getMoment(`2022/03/30 14:00`), // 全面
+            getMoment(`2022/03/30 14:10`), // 解盲
+            getMoment(`2022/03/30 14:20`) // 下一波活動
+            // getMoment(`2022/03/31 15:00`), // VIP
+            // getMoment(`2022/04/26 15:00`), // 搗蛋
+            // getMoment(`2022/04/27 15:00`), // 全面
+            // getMoment(`2022/05/18 15:00`), // 解盲
+            // getMoment(`2022/06/30 15:00`) // 下一波活動
         ];
 
         /**

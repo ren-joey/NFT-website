@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useMoralis } from "react-moralis";
 import { EventBus } from "src/bus";
+import { LangContext } from "src/Context/LangContext";
 import moralisConfig from "../moralisConfig";
 
 const LoginService = () => {
+    const lang = useContext(LangContext);
+
     const {
         authenticate,
         isAuthenticated,
@@ -12,7 +16,7 @@ const LoginService = () => {
     const fetchAuthenticate = async () => {
         await authenticate({
             chainId: moralisConfig.chainId,
-            signingMessage: moralisConfig.signingMessage
+            signingMessage: lang.SIGNING_MESSAGE
         });
     };
 

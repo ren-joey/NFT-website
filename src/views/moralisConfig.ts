@@ -1,3 +1,29 @@
+export type chainList =
+    "eth"
+    | "0x1"
+    | "ropsten"
+    | "0x3"
+    | "rinkeby"
+    | "0x4"
+    | "goerli"
+    | "0x5"
+    | "kovan"
+    | "0x2a"
+    | "polygon"
+    | "0x89"
+    | "mumbai"
+    | "0x13881"
+    | "bsc"
+    | "0x38"
+    | "bsc testnet"
+    | "0x61"
+    | "avalanche"
+    | "0xa86a"
+    | "avalanche testnet"
+    | "0xa869"
+    | "fantom"
+    | "0xfa";
+
 const moralisConfig = {
     serverUrl: 'https://0h72z1f6z5zv.usemoralis.com:2053/server',
     appId: 'U6GvcTlZ2aD8hF0CD967tsAA9AAFKS25H0NPXCJ0',
@@ -9,7 +35,6 @@ const moralisConfig = {
     ownerAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0',
     provider: 'rinkeby',
     chainId: 4,
-    signingMessage: '你已準備好 召喚MINT β星人嗎？請先閱讀以下幾點說明\n\n1.召喚MINT 除了需要 0.1ETH 外，還需要額外給礦工的交易手續費 ( GAS FEE 瓦斯費 )\n2.不管有無成功買到都需支付這筆費用，因此沒搶到需自行承擔 GAS FEE\n3.GAS FEE 為浮動值，如您交易過程看到過高的費用可取消嘗試重新交易\n4.如看到高達 4ETH 的 GAS FEE，一率為合約錯誤；請勿當成 GAS FEE ，也不要確認交易\n\nβ星球期待你的到來。',
     metadataBaseUrl: 'https://0h72z1f6z5zv.usemoralis.com/',
     imageUrl: 'https://d2lle8dgtqcwbk.cloudfront.net'
 };

@@ -43,10 +43,7 @@ const MintButton = ({ disable = false, style = {}, text, onClick }: IProps) => {
         <div
             className="mint-button"
             style={mintButtonStyle}
-            onClick={() => {
-                if (disable) return;
-                onClick();
-            }}
+            onClick={onClick}
         >
             {text}
         </div>

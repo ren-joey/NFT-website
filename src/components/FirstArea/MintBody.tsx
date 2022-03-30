@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
 import { rename } from "fs";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import { useMoralis, useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
 import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
@@ -12,10 +12,13 @@ import MintPrice from "src/views/ContractService/MintPrice";
 import { nullable, nullableBigNumber } from "src/views/interfaces";
 import EthIcon from "../Shared/EthIcon";
 import MintButton from "../Shared/MintButton";
-import SharedAlert from "../Shared/SharedAlert";
+import SharedAlert, { IAlertData } from "../Shared/SharedAlert";
 import LinkingAnimation from "./LinkingAnimation";
 import 'src/components/FirstArea/MintBody.scss';
 import { getParameterByName, roundDecimal } from "src/utils";
+import hrefTo from "src/functions/hrefTo";
+import { socialList } from "src/socialMediaConfig";
+import moralisConfig, { chainList } from "src/views/moralisConfig";
 
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
@@ -29,6 +32,8 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
         isAuthenticated,
         isWeb3Enabled
     } = useMoralis();
+
+    const { data: nativeBalance } = useNativeBalance({ chain: moralisConfig.provider as chainList });
 
     const {
         fetch,
@@ -49,15 +54,18 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
     } = useContext(EventContext);
 
     const lang = useContext(LangContext);
-
-    const [alertState, setAlertState] = useState(false);
-    const [confirmState, setConfirmState] = useState(false);
-    const [content, setContent] = useState('');
     const [prevId, setPrevId] = useState('');
+    const [alertData, setAlertData] = useState<IAlertData>({
+        enable: false,
+        btnList: [],
+        content: ''
+    });
 
     const [amount, setAmount] = useState(1);
     const increaseAmount = () => setAmount((amount + 1) % (Number(maxBalance) + 1) || 3);
     const decreaseAmount = () => setAmount((amount - 1) || 1);
+
+    const disableAlert = () => setAlertData({ enable: false, btnList: [], content: '' });
 
     const fetchMintBetamon = () => new Promise<void>((res) => {
         const doFetch = async (price: nullableBigNumber = mintPrice) => {
@@ -76,8 +84,19 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             if (result !== undefined) {
                 setPrevId(result.hash);
 
-                setContent(lang.MINTED_ALERT);
-                setAlertState(true);
+                setAlertData({
+                    enable: true,
+                    content: lang.MINTED_ALERT,
+                    btnList: [
+                        {
+                            text: lang.MINTED_ALERT_BTN,
+                            onClick: () => {
+                                disableAlert();
+                                window.open(`https://rinkeby.etherscan.io/tx/${prevId}`, '_blank');
+                            }
+                        }
+                    ]
+                });
             }
 
             res();
@@ -92,6 +111,92 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
         }
     });
 
+    const enableMintNotOpenAlert = () => {
+        setAlertData({
+            enable: true,
+            content: lang.MINT_NOT_OPEN,
+            btnList: [
+                {
+                    text: lang.I_WILL_EXPECT,
+                    onClick: disableAlert
+                }
+            ]
+        });
+    };
+
+    const enableSoldOutAlert = () => {
+        setAlertData({
+            enable: true,
+            content: lang.MINT_SOLD_OUT,
+            btnList: [
+                {
+                    text: lang.GO_TO_OPENSEA,
+                    onClick: () => {
+                        hrefTo(socialList[0]);
+                        disableAlert();
+                    }
+                },
+                {
+                    text: lang.GO_TO_DISCORD,
+                    onClick: () => {
+                        hrefTo(socialList[1]);
+                        disableAlert();
+                    }
+                }
+            ]
+        });
+    };
+
+    const enableExcessAlert = () => {
+        if (maxBalance === null) return;
+        setAlertData({
+            enable: true,
+            content: lang.MINT_EXCESS_ALERT.replace('${}', maxBalance.toString()),
+            btnList: [
+                {
+                    text: lang.I_WILL_ADJUST,
+                    onClick: disableAlert
+                }
+            ]
+        });
+    };
+
+    const enableNotEnoughEth = () => {
+        if (maxBalance === null || mintPriceEth === null) return;
+        setAlertData({
+            enable: true,
+            content: lang.NOT_ENOUGH_ETH_ALERT.replace('${}', mintPriceEth.toString()),
+            btnList: [
+                {
+                    text: lang.I_WILL_PREPARE_MORE_ETH,
+                    onClick: disableAlert
+                }
+            ]
+        });
+    };
+
+    const enableConfirmAlert = () => {
+        if (amount === null || maxBalance === null) return;
+        setAlertData({
+            enable: true,
+            content: lang.MINT_ALERT.replace('${}', amount.toString()).replace('${}', maxBalance.toString()),
+            btnList: [
+                {
+                    text: lang.CANCEL,
+                    type: 'gray',
+                    onClick: disableAlert
+                },
+                {
+                    text: lang.CONFIRM,
+                    onClick: () => {
+                        disableAlert();
+                        fetchMintBetamon();
+                    }
+                }
+            ]
+        });
+    };
+
     useEffect(() => {
         if (error) {
             const regex = /error=([^;]*)(?=, method=)/g;
@@ -99,7 +204,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             if (arr) {
                 const balance = maxBalance === null ? '--' : maxBalance.toString();
                 const errorObj = JSON.parse(arr[0].replace('error=', ''));
-                mintErrorHandler(errorObj, lang, balance);
+                mintErrorHandler(errorObj, lang, balance, setAlertData, disableAlert, mintPriceEth);
             }
         }
     }, [error]);
@@ -177,42 +282,47 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                         <MintButton
                             text="Mint Now"
                             onClick={() => {
-                                if (status < 2) setConfirmState(true);
-                                else fetchMintBetamon();
+                                // 非 mint 期間
+                                if (status === -1 || status >= 3) enableMintNotOpenAlert();
+
+                                // 合約資料尚未 fetch 完成
+                                else if (getBalance === null
+                                    || maxBalance === null
+                                    || remain === null
+                                    || mintPrice === null) return;
+
+                                // 所有 NFT 於該階段已 mint 完畢
+                                else if (remain.lte(0)) enableSoldOutAlert();
+
+                                // 持有的 ETH 不足
+                                else if (nativeBalance.balance
+                                    && mintPrice.mul(amount).gt(nativeBalance.balance)) {
+                                    enableNotEnoughEth();
+
+                                // 持有的 NFT 超出上限
+                                } else if (getBalance.add(amount).gt(maxBalance)) {
+                                    enableExcessAlert();
+
+                                // 白名單 MINT 期間
+                                } else if (status < 2) enableConfirmAlert();
+
+                                // 公售期間
+                                else if (status === 2) fetchMintBetamon();
                             }}
                             disable={
                                 remain === null
                                 || status === -1
                                 || getBalance?.gte(maxBalance || 0)
-                                || confirmState === true
+                                || alertData.enable === true
                                 || remain.lte(0) ? true : undefined
                             }
                             style={buttonSize}
                         />
 
                         <SharedAlert
-                            enable={confirmState}
-                            content={lang.MINT_ALERT.replace('${}', Number(amount).toString()).replace('${}', Number(maxBalance).toString())}
-                            confirmText={lang.CONFIRM}
-                            onConfirm={() => {
-                                setConfirmState(false);
-                                fetchMintBetamon();
-                            }}
-                            cancelText={lang.CANCEL}
-                            onCancel={() => {
-                                setConfirmState(false);
-                            }} />
-
-                        <SharedAlert enable={alertState} content={content}
-                            confirmText={lang.CONFIRM}
-                            onConfirm={() => {
-                                setAlertState(false);
-                                window.open(`https://rinkeby.etherscan.io/tx/${prevId}`, '_blank');
-                            }}
-                            cancelText={lang.CANCEL}
-                            onCancel={() => {
-                                setAlertState(false);
-                            }}
+                            enable={alertData.enable}
+                            content={alertData.content}
+                            btnList={alertData.btnList}
                         />
 
                         {

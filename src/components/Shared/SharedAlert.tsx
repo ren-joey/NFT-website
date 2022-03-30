@@ -3,16 +3,23 @@ import MintButton from "src/components/Shared/MintButton";
 import 'src/components/Shared/SharedAlert.scss';
 import SharedButton from './SharedButton';
 
-interface IProps {
-    enable: boolean,
-    content: string,
-    confirmText?: string,
-    onConfirm?: () => void,
-    cancelText?: string,
-    onCancel?: () => void
+interface IBtn {
+    text: string;
+    type?: 'default'|'gray';
+    onClick: () => void;
 }
 
-const SharedAlert = ({ enable, content, confirmText, onConfirm, cancelText, onCancel }: IProps) => {
+export interface IAlertData {
+    enable: boolean;
+    content: string;
+    btnList: IBtn[];
+    // confirmText?: string,
+    // onConfirm?: () => void,
+    // cancelText?: string,
+    // onCancel?: () => void
+}
+
+const SharedAlert = ({ enable, content, btnList }: IAlertData) => {
     const [state, setState] = useState(false);
 
     useEffect(() => {
@@ -27,6 +34,16 @@ const SharedAlert = ({ enable, content, confirmText, onConfirm, cancelText, onCa
 
                     <div className="button-area">
                         {
+                            btnList.map((btn, idx) => (
+                                <SharedButton
+                                    type={btn.type}
+                                    text={btn.text}
+                                    onClick={btn.onClick}
+                                    key={idx}
+                                />
+                            ))
+                        }
+                        {/* {
                             (cancelText !== undefined && onCancel !== undefined)
                             && <SharedButton
                                 type='gray'
@@ -47,7 +64,7 @@ const SharedAlert = ({ enable, content, confirmText, onConfirm, cancelText, onCa
                                     setState(false);
                                 }}
                             />
-                        }
+                        } */}
                     </div>
                 </div>
 

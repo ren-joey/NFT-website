@@ -197,14 +197,29 @@ const ZH_TW: Lang = {
     MINT_BLOCK_NOTE_DEFAULT: 'β 星人降臨地球搗亂倒數',
     MINT_BODY_TITLE_1: '支付',
     MINT_BODY_TITLE_2: '0.1 ETH 即可召喚 B 星人',
-    MINTED_ALERT: '【交易进行中】<br />点选【确认】可至 Etherscan 确认召唤MINT(交易)是否成功',
-    MINT_ALERT: '請注意：白名單階段只有 一次召喚MINT 機會<br />你目前召喚MINT數量「${}」，確定要繼續嗎？<br />（完成後將移除白名單資格，每個錢包最多可擁有${}個β星人）',
+    MINT_NOT_OPEN: 'β星人 召喚 MINT 尚未開放<br />敬請期待',
+    I_WILL_EXPECT: '好的我會期待',
+    MINT_SOLD_OUT: '第一波880個 β星人已被全數召喚完畢<br />可至 OpenSea 進行購買，或密切關注下一波 β星人降臨',
+    I_WILL_WAIT: '好的我等',
+    GO_TO_OPENSEA: '前往OpenSea',
+    GO_TO_DISCORD: '前往Discord',
+    MINT_EXCESS_TOTAL_SUPPLY: '選擇召喚的 MINT數量太多囉<br />目前只剩下 N 個 β星人可供召喚MINT喔',
+    MINT_EXCESS_ALERT: '選擇召喚的 MINT 數量太多囉<br />你的錢包加上這次召喚MINT數量最多只能${}個<br />請確認後再進行召喚MINT',
+    I_WILL_ADJUST: '好的我調整一下',
+    MINTED_ALERT: '交易進行中<br />可至 Etherscan 確認召喚MINT(交易)是否成功',
+    MINTED_ALERT_BTN: '前往Etherscan',
+    MINT_ALERT: '請注意<br />白名單階段只有 一次召喚MINT 機會<br />你目前召喚MINT數量「${}」，確定要繼續嗎？<br />（完成後將移除白名單資格，每個錢包最多可擁有${}個β星人）',
     MINT_ALERT_NOT_ACTIVE: 'MINT 尚未開放，敬請期待。',
     MINT_ALERT_EXCEED_MAX_SUPPLY: 'VBC Betamon 已經 MINT 一空，感謝支持。',
     MINT_ALERT_EXCEED_MAX_BALANCE: '每個錢包持有 ${} 個NFT就無法再 召喚MINT β星人，請確認您持有的數量',
+    NOT_ENOUGH_ETH_ALERT: 'β星人 召喚MINT所需的以太能量不足<br />召喚MINT β星人需要 ${} ETH/個<br />還會需要額外給礦工的瓦斯費 ( GAS FEE )<br />GAS FEE為浮動值，建議多預留ETH',
+    I_WILL_PREPARE_MORE_ETH: '好的我來準備更多以太能量',
+    NOT_INT_WHITE_LIST: '限定白名單優先召喚MINT階段<br />很抱歉，你並非這階段可召喚MINT的人類白名單',
+    I_WILL_WAIT_MORE: '好的我再等等',
     PROMOTION_1_LABEL: '活動',
     PROMOTION_1_TITLE_BOLD: '分潤回饋：',
-    PROMOTION_1_TITLE: '點我加入行列'
+    PROMOTION_1_TITLE: '點我加入行列',
+    SIGNING_MESSAGE: '你已準備好 召喚MINT β星人嗎？請先閱讀以下幾點說明\n\n1.召喚MINT 除了需要 0.1ETH 外，還需要額外給礦工的交易手續費 ( GAS FEE 瓦斯費 )\n2.不管有無成功買到都需支付這筆費用，因此沒搶到需自行承擔 GAS FEE\n3.GAS FEE 為浮動值，如您交易過程看到過高的費用可取消嘗試重新交易\n4.如看到高達 4ETH 的 GAS FEE，一率為合約錯誤；請勿當成 GAS FEE ，也不要確認交易\n\nβ星球期待你的到來。'
 };
 
 export default ZH_TW;
