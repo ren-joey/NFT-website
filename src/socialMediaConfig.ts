@@ -11,8 +11,8 @@ export const socialList: ISocialList[] = [
     {
         iconName: 'opensea',
         title: 'OPENSEA',
-        href: 'https://opensea.io/VBC-labs',
-        visible: false
+        href: 'https://opensea.io/collection/vbc-betamon',
+        visible: true
     },
     {
         iconName: 'discord',

@@ -28,7 +28,7 @@ const moralisConfig = {
     serverUrl: 'https://0h72z1f6z5zv.usemoralis.com:2053/server',
     appId: 'U6GvcTlZ2aD8hF0CD967tsAA9AAFKS25H0NPXCJ0',
 
-    contractAddress: '0x6a4ac0445D5eb5228A5C68CA8A3d475Dcd9D02c4', // 正式鏈
+    contractAddress: '0xC8d3eFDA9DC9912150e7d2AfE17587e566a0BdaE', // 正式鏈
     // contractAddress: '0x6a4ac0445D5eb5228A5C68CA8A3d475Dcd9D02c4', // 0330_CB3 [DEV]
     // contractAddress: '0x67f89F08430C842658F09dc446583e70AA2aa392', // CB2
     // contractAddress: '0x68781cE693c9A3fe78b0eDfdA8BD7854AEe78b8c', // 個人測試，有 burn

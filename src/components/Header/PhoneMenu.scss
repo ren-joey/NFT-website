@@ -19,6 +19,11 @@ $text-delay: 0.1s;
     transition: transform 0.3s;
     transform: translateX(100%);
 
+    @media (max-height: 569.98px) {
+        padding-top: $header-size-sm / 3;
+        padding-bottom: $header-size-sm / 3;
+    }
+
     .menu-btn {
         display: flex;
         align-items: center;
