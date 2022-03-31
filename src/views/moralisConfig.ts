@@ -32,6 +32,7 @@ const moralisConfig = {
     // contractAddress: '0x6a4ac0445D5eb5228A5C68CA8A3d475Dcd9D02c4', // 0330_CB3 [DEV]
     // contractAddress: '0x67f89F08430C842658F09dc446583e70AA2aa392', // CB2
     // contractAddress: '0x68781cE693c9A3fe78b0eDfdA8BD7854AEe78b8c', // 個人測試，有 burn
+    // contractAddress: '0x2DAF1C98AB11d2756eBFf49435f4Af21EdcecD71', // 個人測試，有 burn，MAX_SUPPLY 10
     // contractAddress: '0x9F3f5AAB9C18B60BC18C774E90DAb3Af3c8D381d', // CB1
     // contractAddress: '0xa388582a7b12094414f625951f5efe25f127ab93',
     // contractAddress: '0x6ae4304a7aF24EB71173331FA7b25E95F99D2Bß07',
