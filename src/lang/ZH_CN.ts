@@ -176,6 +176,7 @@ const ZH_CN: Lang = {
     STATEMENT_CONTENT_4: '4. 请使用官方网址「vbc-labs.com」进入网站进行 β星人召唤，千万不要自己搜寻或是点别人给的连结，避免仿冒的网站、合约、Opensea出现导致您的损失；如发生误买 VBC labs 恕不负责。',
     UNDER_CONSTRUCTION: '画面施工中，请稍后再回来...',
     CONFIRM: '确认',
+    CLOSE: '关闭',
     CANCEL: '取消',
     LOGOUT: '登出',
     REMAIN: '剩余数量：',
@@ -199,7 +200,7 @@ const ZH_CN: Lang = {
     MINT_BODY_TITLE_2: '0.1 ETH 即可召唤 B 星人',
     MINT_NOT_OPEN: 'β星人 召唤 MINT 尚未开放<br />敬请期待',
     I_WILL_EXPECT: '好的我会期待',
-    MINT_SOLD_OUT: '第一波880个 β星人已被全数召唤完毕<br />可至 OpenSea 进行购买，或密切关注下一波 β星人降临',
+    MINT_SOLD_OUT: '这一波的β星人已被全数召唤完毕<br />可至 OpenSea 进行购买，或密切关注下一波 β星人降临',
     I_WILL_WAIT: '好的我等',
     GO_TO_OPENSEA: '前往OpenSea',
     GO_TO_DISCORD: '前往Discord',
@@ -219,7 +220,11 @@ const ZH_CN: Lang = {
     PROMOTION_1_LABEL: '活动',
     PROMOTION_1_TITLE_BOLD: '分润回馈：',
     PROMOTION_1_TITLE: '点我加入行列',
-    SIGNING_MESSAGE: '你已准备好 召唤MINT β星人吗？请先阅读以下几点说明\n\n1.召唤MINT 除了需要 0.1ETH 外，还需要额外给矿工的交易手续费 ( GAS FEE 瓦斯费 )\n2.不管有无成功买到都需支付这笔费用，因此没抢到需自行承担 GAS FEE\n3.GAS FEE 为浮动值，如您交易过程看到过高的费用可取消尝试重新交易\n4.如看到高达 4ETH 的 GAS FEE，一率为合约错误；请勿当成 GAS FEE ，也不要确认交易\n\nβ星球期待你的到来。'
+    SIGNING_MESSAGE: '你已准备好 召唤MINT β星人吗？请先阅读以下几点说明\n\n1.召唤MINT 除了需要 0.1ETH 外，还需要额外给矿工的交易手续费 ( GAS FEE 瓦斯费 )\n2.不管有无成功买到都需支付这笔费用，因此没抢到需自行承担 GAS FEE\n3.GAS FEE 为浮动值，如您交易过程看到过高的费用可取消尝试重新交易\n4.如看到高达 4ETH 的 GAS FEE，一率为合约错误；请勿当成 GAS FEE ，也不要确认交易\n\nβ星球期待你的到来。',
+    SOLD_OUT_ALERT_TITLE_1: 'VIP白单',
+    SOLD_OUT_ALERT_TITLE_2: 'β星人优先 Mint 召唤阶段',
+    SOLD_OUT_ALERT_TITLE_XL: '7分钟售凿',
+    SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注把握第二波的时间'
 };
 
 export default ZH_CN;

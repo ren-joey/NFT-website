@@ -92,7 +92,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                             text: lang.MINTED_ALERT_BTN,
                             onClick: () => {
                                 disableAlert();
-                                window.open(`https://rinkeby.etherscan.io/tx/${result.hash}`, '_blank');
+                                window.open(`${moralisConfig.etherscanUrl}${result.hash}`, '_blank');
                             }
                         }
                     ]

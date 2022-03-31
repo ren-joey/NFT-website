@@ -6,14 +6,13 @@ import BetamonStage from "src/components/FirstArea/BetamonStage";
 import Counter from "src/components/FirstArea/Counter";
 import MintBlock from "src/components/FirstArea/MintBlock";
 import RevealTime from "src/components/FirstArea/RevealTime";
+import SoldOutAlert from "src/components/Shared/SoldOutAlert";
 import { EventContext } from "src/Context/EventContext";
 import { getParameterByName } from "src/utils";
 import { getWeb3ExecuteFunctionOption } from "./contractAbi";
 import { ContractContext } from "./ContractService/ContractContext";
 import GetContractVariable from "./ContractService/GetContractVariable";
-import MaxBalance from "./ContractService/MaxBalance";
-import MintPrice from "./ContractService/MintPrice";
-import { nullable, nullableBigNumber } from "./interfaces";
+import { nullableBigNumber } from "./interfaces";
 import LoginService from "./UserService/LoginService";
 
 const PermissionCertification = () => {
@@ -185,6 +184,8 @@ const PermissionCertification = () => {
 
             {/* 時間及倒數區塊 */}
             { timeArea() }
+
+            <SoldOutAlert />
         </>
     );
 };

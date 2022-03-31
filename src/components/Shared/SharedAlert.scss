@@ -29,9 +29,37 @@ $angle-width: 4px;
             max-width: 100%;
         }
 
+        .skull-icon {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 5rem;
+            height: 5rem;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+            transform: translate(-50%, -50%);
+        }
+
         .alert-body {
             text-align: center;
             line-height: 2rem;
+            color: #fff;
+
+            > .alert-title {
+                margin: 0.6rem 0;
+                font-size: 1.4rem;
+                font-weight: bolder;
+
+                @media (min-width: 992px) {
+                    margin: 0.6rem 3rem 0;
+                }
+
+                &.xl {
+                    font-size: 2rem;
+                    line-height: 4rem;
+                }
+            }
 
             .button-area {
                 display: flex;
