@@ -38,7 +38,8 @@ const moralisConfig = {
     // contractAddress: '0x6ae4304a7aF24EB71173331FA7b25E95F99D2Bß07',
 
     ownerAddress: '0x03799820935f0FF5c0CE8ceBd82DB49b4053e4E8', // 主錢包
-    // ownerAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0', // [DEV]
+    // ownerAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0', // account 1 [DEV]
+    // ownerAddress: '0x23AdF1409c5b2436978BF21d9AB36BCb918F2607', // account 3 [DEV]
 
     provider: 'eth',
     // provider: 'rinkeby', // [DEV]
