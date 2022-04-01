@@ -34,7 +34,6 @@ const SoldOutAlert = () => {
 
                     <div className="button-area">
                         <SharedButton
-                            type="gray"
                             text={lang.CLOSE}
                             onClick={() => setState(false)}
                         />

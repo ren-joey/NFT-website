@@ -183,7 +183,6 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
             btnList: [
                 {
                     text: lang.CANCEL,
-                    type: 'gray',
                     onClick: disableAlert
                 },
                 {
