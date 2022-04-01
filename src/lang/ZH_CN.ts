@@ -224,7 +224,7 @@ const ZH_CN: Lang = {
     SOLD_OUT_ALERT_TITLE_1: 'VIP白单',
     SOLD_OUT_ALERT_TITLE_2: 'β星人优先 Mint 召唤阶段',
     SOLD_OUT_ALERT_TITLE_XL: '7分钟售罄',
-    SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注把握第二波的时间'
+    SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注捣蛋白名单开放MINT的时间'
 };
 
 export default ZH_CN;
