@@ -223,7 +223,7 @@ const ZH_TW: Lang = {
     SIGNING_MESSAGE: '你已準備好 召喚MINT β星人嗎？請先閱讀以下幾點說明\n\n1.召喚MINT 除了需要 0.1ETH 外，還需要額外給礦工的交易手續費 ( GAS FEE 瓦斯費 )\n2.不管有無成功買到都需支付這筆費用，因此沒搶到需自行承擔 GAS FEE\n3.GAS FEE 為浮動值，如您交易過程看到過高的費用可取消嘗試重新交易\n4.如看到高達 4ETH 的 GAS FEE，一率為合約錯誤；請勿當成 GAS FEE ，也不要確認交易\n\nβ星球期待你的到來。',
     SOLD_OUT_ALERT_TITLE_1: 'VIP白單',
     SOLD_OUT_ALERT_TITLE_2: 'β星人優先 Mint 召喚階段',
-    SOLD_OUT_ALERT_TITLE_XL: '7分鐘售鑿',
+    SOLD_OUT_ALERT_TITLE_XL: '7分鐘售罄',
     SOLD_OUT_ALERT_CONTENT: '感謝各位地球人的支持<br />請持續關注把握第二波的時間'
 };
 

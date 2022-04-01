@@ -1,8 +1,10 @@
 import { useContext, useMemo } from "react";
 import { EventContext } from "src/Context/EventContext";
 
+type btnColorList = 'default'|'gray'|'orange';
+
 interface IProps {
-    type?: 'default'|'gray',
+    type?: btnColorList,
     style?: React.CSSProperties,
     text: string,
     onClick: () => void
@@ -10,9 +12,17 @@ interface IProps {
 
 const SharedButton = ({ type = 'default', style = {}, text, onClick }: IProps) => {
     const { device } = useContext(EventContext);
-    const gradientColor = type === 'gray'
-        ? 'linear-gradient(to bottom, #a4a4a4 20%,#e3e3e3 77%)'
-        : 'linear-gradient(to bottom, #ff009c 20%,#ff88f5 77%)';
+    let gradientColor: string;
+    switch (type) {
+        case 'gray':
+            gradientColor = 'linear-gradient(to bottom, #a4a4a4 20%,#e3e3e3 77%)';
+            break;
+        case 'orange':
+            gradientColor = 'linear-gradient(to bottom, #ff744d 20%, #FE0036 77%)';
+            break;
+        default:
+            gradientColor = 'linear-gradient(to bottom, #ff009c 20%,#ff88f5 77%)';
+    }
     const boxDepth = type === 'gray' ? '0 3px 0 #a5a5a5' : '0 3px 0 #fff';
     const boxShadow = type === 'gray' ? '' : ', 0 5px 10px #ff009c, 0 5px 10px #ff009c, 0 5px 5px #5c0039';
 

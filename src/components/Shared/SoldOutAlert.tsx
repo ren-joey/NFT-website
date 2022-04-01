@@ -12,7 +12,7 @@ const SoldOutAlert = () => {
 
     return (
         <div className={`alert-wrap ${state ? 'active' : ''}`}>
-            <div className="alert-block">
+            <div className="alert-block gradient">
                 <div className="skull-icon" style={
                     { backgroundImage: `url(${getResources('skull_icon')})` }
                 }></div>
@@ -34,6 +34,7 @@ const SoldOutAlert = () => {
 
                     <div className="button-area">
                         <SharedButton
+                            type="orange"
                             text={lang.CLOSE}
                             onClick={() => setState(false)}
                         />
