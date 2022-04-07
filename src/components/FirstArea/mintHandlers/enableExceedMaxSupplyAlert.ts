@@ -1,19 +1,17 @@
 import { IMintAlertHandler } from "./mintAlertHandler";
 
-const enableExcessAlert = ({
-    maxBalance,
+const enableExceedMaxSupplyAlert = ({
     setAlertData,
     lang,
     disableAlert
 }: Pick<
     IMintAlertHandler,
-    'maxBalance'|'setAlertData'|'lang'|'disableAlert'
+    'lang'|'setAlertData'|'disableAlert'
     >
 ) => {
-    if (maxBalance === null) return;
     setAlertData({
         enable: true,
-        content: lang.MINT_EXCESS_ALERT.replace('${}', maxBalance.toString()),
+        content: lang.MINT_EXCESS_TOTAL_SUPPLY,
         btnList: [
             {
                 text: lang.I_WILL_ADJUST,
@@ -23,4 +21,4 @@ const enableExcessAlert = ({
     });
 };
 
-export default enableExcessAlert;
+export default enableExceedMaxSupplyAlert;

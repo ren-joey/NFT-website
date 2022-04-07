@@ -4,11 +4,13 @@
  */
 const hideBatch = (...domArray: (HTMLElement|string)[]): void => {
     for (let i = 0; i < domArray.length; i += 1) {
-        if (!domArray[i]) return;
-        const dom = String(typeof domArray[i]) === 'string'
-            ? <HTMLElement>document.querySelector(<string>domArray[i])
-            : <HTMLElement>domArray[i];
-        dom.style.display = 'none';
+        let dom = domArray[i];
+        if (dom) {
+            dom = (typeof dom === 'string')
+                ? document.querySelector(dom) as HTMLElement
+                : dom as HTMLElement;
+            dom.style.display = 'none';
+        }
     }
 };
 

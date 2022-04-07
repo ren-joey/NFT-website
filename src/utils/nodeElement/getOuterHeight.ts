@@ -9,7 +9,9 @@ const getOuterHeight = (dom: HTMLElement): number => {
     const { getComputedStyle } = window;
     const computedStyle = getComputedStyle(elm, null);
     const elmHeight = string2Number(computedStyle.height);
-    const elmMargin = string2Number(computedStyle.marginTop) + string2Number(computedStyle.marginBottom);
+    const elmMarginTop = string2Number(computedStyle.marginTop);
+    const elmMarginBottom = string2Number(computedStyle.marginBottom);
+    const elmMargin = elmMarginTop + elmMarginBottom;
 
     return elmHeight + elmMargin;
 };

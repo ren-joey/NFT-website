@@ -1,13 +1,11 @@
 import { useContext, useState } from 'react';
 import 'src/components/Shared/SharedAlert.scss';
-import { EventContext } from 'src/Context/EventContext';
 import { LangContext } from 'src/Context/LangContext';
 import { getResources } from 'src/functions/loader';
 import SharedButton from './SharedButton';
 
 const SoldOutAlert = () => {
     const [state, setState] = useState(true);
-    const { device } = useContext(EventContext);
     const lang = useContext(LangContext);
 
     return (
