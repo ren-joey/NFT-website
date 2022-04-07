@@ -1,5 +1,4 @@
-import { ReactNode, useContext, useEffect } from "react";
-import { EventContext } from "src/Context/EventContext";
+import { useContext } from "react";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
 
@@ -10,7 +9,6 @@ interface IProps {
 }
 
 const FAQBlock = ({ idx, slotContent }: IProps) => {
-    const { device } = useContext(EventContext);
     const lang = useContext(LangContext);
     const title = lang[`FAQ_${idx}_TITLE`];
     const content = lang[`FAQ_${idx}_CONTENT`];

@@ -1,11 +1,12 @@
+import stringReplacer from "src/utils/stringFormat/stringReplacer";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const enableNotEnoughEth = ({
     setAlertData,
     disableAlert,
+    lang,
     maxBalance,
-    mintPriceEth,
-    lang
+    mintPriceEth
 }: Pick<
     IMintAlertHandler,
     'maxBalance'|'setAlertData'|'lang'|'disableAlert'|'mintPriceEth'
@@ -14,7 +15,7 @@ const enableNotEnoughEth = ({
     if (maxBalance === null || mintPriceEth === null) return;
     setAlertData({
         enable: true,
-        content: lang.NOT_ENOUGH_ETH_ALERT.replace('${}', mintPriceEth.toString()),
+        content: stringReplacer(lang.NOT_ENOUGH_ETH_ALERT, mintPriceEth),
         btnList: [
             {
                 text: lang.I_WILL_PREPARE_MORE_ETH,

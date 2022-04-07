@@ -43,7 +43,7 @@ const PermissionCertification = () => {
     const _totalSupply = getParameterByName('totalSupply'); // [DEV]
 
     const remain = useMemo<nullableBigNumber>(() => {
-        if (_totalSupply !== null) return BigNumber.from(_totalSupply);
+        if (_totalSupply) return BigNumber.from(_totalSupply);
 
         if (totalSupply === null
             || MAX_VIP_WHITE_LIST_SUPPLY === null

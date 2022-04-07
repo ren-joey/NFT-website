@@ -215,7 +215,7 @@ const ZH_TW: Lang = {
     MINT_ALERT_EXCEED_MAX_BALANCE: '每個錢包持有 ${} 個NFT就無法再 召喚MINT β星人，請確認您持有的數量',
     NOT_ENOUGH_ETH_ALERT: 'β星人 召喚MINT所需的以太能量不足<br />召喚MINT β星人需要 ${} ETH/個<br />還會需要額外給礦工的瓦斯費 ( GAS FEE )<br />GAS FEE為浮動值，建議多預留ETH',
     I_WILL_PREPARE_MORE_ETH: '好的我來準備更多以太能量',
-    NOT_INT_WHITE_LIST: '限定白名單優先召喚MINT階段<br />很抱歉，你並非這階段可召喚MINT的人類白名單',
+    NOT_IN_WHITE_LIST: '限定白名單優先召喚MINT階段<br />很抱歉，你並非這階段可召喚MINT的人類白名單',
     I_WILL_WAIT_MORE: '好的我再等等',
     PROMOTION_1_LABEL: '活動',
     PROMOTION_1_TITLE_BOLD: '分潤回饋：',

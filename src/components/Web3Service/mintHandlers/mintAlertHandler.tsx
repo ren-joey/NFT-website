@@ -5,11 +5,11 @@ import { Lang } from "src/lang";
 import { IAlertData } from "../../Shared/SharedAlert";
 import { MintMethodName } from "../../FirstArea/MintBody";
 import { INativeBalance } from "../../FirstArea/MintButtonHandler";
-import enableConfirmAlert from "./enableConfirmAlert";
-import enableExcessAlert from "./enableExcessAlert";
 import enableMintNotOpenAlert from "./enableMintNotOpenAlert";
-import enableNotEnoughEth from "./enableNotEnoughEth";
 import enableSoldOutAlert from "./enableSoldOutAlert";
+import enableNotEnoughEth from "./enableNotEnoughEth";
+import enableExceedAlert from "./enableExcessAlert";
+import enableConfirmAlert from "./enableConfirmAlert";
 import fetchMintBetamon from "./fetchMintBetamon";
 
 export type moralisFetch = (key: ResolveCallOptions<
@@ -76,7 +76,7 @@ export const mintAlertHandler = ({
 
         // 持有的 NFT 超出上限
     } else if (getBalance.add(amount).gt(maxBalance)) {
-        enableExcessAlert({
+        enableExceedAlert({
             ...defaultParams,
             maxBalance
         });

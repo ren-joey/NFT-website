@@ -1,20 +1,17 @@
-import stringReplacer from "src/utils/stringFormat/stringReplacer";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
-const enableExceedAlert = ({
-    maxBalance,
+const enableExceedMaxSupplyAlert = ({
     setAlertData,
     lang,
     disableAlert
 }: Pick<
     IMintAlertHandler,
-    'maxBalance'|'setAlertData'|'lang'|'disableAlert'
+    'lang'|'setAlertData'|'disableAlert'
     >
 ) => {
-    if (maxBalance === null) return;
     setAlertData({
         enable: true,
-        content: stringReplacer(lang.MINT_EXCESS_ALERT, maxBalance),
+        content: lang.MINT_EXCESS_TOTAL_SUPPLY,
         btnList: [
             {
                 text: lang.I_WILL_ADJUST,
@@ -24,4 +21,4 @@ const enableExceedAlert = ({
     });
 };
 
-export default enableExceedAlert;
+export default enableExceedMaxSupplyAlert;

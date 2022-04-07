@@ -8,6 +8,7 @@ import { ContractContext } from 'src/Context/ContractContext';
 import { LangContext } from 'src/Context/LangContext';
 import hrefTo from 'src/functions/hrefTo';
 import { socialList } from 'src/socialMediaConfig';
+import stringReplacer from 'src/utils/stringFormat/stringReplacer';
 import { nullableBigNumber } from 'src/interfaces/types';
 
 interface IProps {
@@ -47,7 +48,7 @@ const MintBlock = ({ remain }: IProps) => {
                     return lang.MINT_BLOCK_NOTE_4_SOLD_OUT;
                 }
                 if (maxBalance === null) return '';
-                return lang.MINT_BLOCK_NOTE_4.replace('${}', maxBalance.toString());
+                return stringReplacer(lang.MINT_BLOCK_NOTE_4, maxBalance);
             case 3:
                 return lang.MINT_BLOCK_NOTE_5;
             default:
