@@ -1,8 +1,8 @@
 import { BigNumber } from "ethers";
 import { EventBus } from "src/bus";
-import { getWeb3ExecuteFunctionOption } from "src/views/contractAbi";
-import { nullableBigNumber } from "src/views/interfaces";
-import moralisConfig from "src/views/moralisConfig";
+import { getWeb3ExecuteFunctionOption } from "src/contractAbi";
+import { nullableBigNumber } from "src/interfaces/types";
+import moralisConfig from "src/moralisConfig";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const fetchMintBetamon = ({

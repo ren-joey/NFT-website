@@ -1,11 +1,11 @@
 import { BigNumber } from "ethers";
-import { useContext, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { MoralisProvider } from "react-moralis";
-import { EventContext } from "src/Context/EventContext";
-import { ContractContext } from "src/views/ContractService/ContractContext";
-import { INft, nullable, nullableBigNumber } from "src/views/interfaces";
-import moralisConfig from "src/views/moralisConfig";
-import PermissionCertification from "src/views/PermissionCertification";
+import { ContractContext } from "src/Context/ContractContext";
+import { INft } from "src/interfaces/nft";
+import { nullable, nullableBigNumber } from "src/interfaces/types";
+import moralisConfig from "src/moralisConfig";
+import PermissionCertification from "src/components/Web3Service/PermissionCertification";
 
 const Web3Provider = () => {
     const [getBalance, setGetBalance] = useState<nullableBigNumber>(null);

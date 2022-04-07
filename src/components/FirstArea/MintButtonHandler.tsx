@@ -1,17 +1,15 @@
-import { BigNumber } from "ethers";
 import { useContext, useEffect } from "react";
 import { useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
-import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
-import mintErrorHandler from "src/functions/mintErrorHandler";
-import { ContractContext } from "src/views/ContractService/ContractContext";
-import { nullableBigNumber } from "src/views/interfaces";
-import moralisConfig, { chainList } from "src/views/moralisConfig";
+import { ContractContext } from "src/Context/ContractContext";
+import moralisConfig, { chainList } from "src/moralisConfig";
 import MintButton from "../Shared/MintButton";
 import { IAlertData } from "../Shared/SharedAlert";
 import { MintMethodName } from "./MintBody";
-import { mintAlertHandler } from "./mintHandlers/mintAlertHandler";
+import { mintAlertHandler } from "../Web3Service/mintHandlers/mintAlertHandler";
+import { nullableBigNumber } from "src/interfaces/types";
+import mintErrorHandler from "../Web3Service/functions/mintErrorHandler";
 
 interface IProps {
     amount: number,
@@ -61,7 +59,14 @@ const MintButtonHandler = ({
             if (arr) {
                 const balance = maxBalance === null ? '--' : maxBalance.toString();
                 const errorObj = JSON.parse(arr[0].replace('error=', ''));
-                mintErrorHandler(errorObj, lang, balance, setAlertData, disableAlert, mintPriceEth);
+                mintErrorHandler(
+                    errorObj,
+                    lang,
+                    balance,
+                    setAlertData,
+                    disableAlert,
+                    mintPriceEth
+                );
             }
         }
     }, [error]);

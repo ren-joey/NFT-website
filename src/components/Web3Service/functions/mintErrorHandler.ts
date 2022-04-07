@@ -1,8 +1,6 @@
 import { IAlertData } from "src/components/Shared/SharedAlert";
+import { nullable } from "src/interfaces/types";
 import { Lang } from "src/lang";
-import { socialList } from "src/socialMediaConfig";
-import { nullable } from "src/views/interfaces";
-import hrefTo from "./hrefTo";
 
 interface IErrorMsgObj {
     message: string,

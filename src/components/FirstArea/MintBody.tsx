@@ -3,8 +3,7 @@ import { useMoralis } from "react-moralis";
 import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
-import { ContractContext } from "src/views/ContractService/ContractContext";
-import { nullableBigNumber } from "src/views/interfaces";
+import { ContractContext } from "src/Context/ContractContext";
 import EthIcon from "../Shared/EthIcon";
 import MintButton from "../Shared/MintButton";
 import SharedAlert, { IAlertData } from "../Shared/SharedAlert";
@@ -12,6 +11,7 @@ import LinkingAnimation from "./LinkingAnimation";
 import 'src/components/FirstArea/MintBody.scss';
 import { getParameterByName, roundDecimal } from "src/utils";
 import MintButtonHandler from "./MintButtonHandler";
+import { nullableBigNumber } from "src/interfaces/types";
 
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';

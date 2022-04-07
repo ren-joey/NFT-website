@@ -2,10 +2,10 @@ import 'src/components/FirstArea/FirstArea.scss';
 import BetamonStagePhone from './BetamonStagePhone';
 import TitleArea from './TitleArea';
 import LinkArea from './LinkArea';
-import Web3Provider from './Web3Provider/Web3Provider';
 import { useContext, useEffect } from 'react';
 import { defaultEventContext, EventContext } from 'src/Context/EventContext';
 import CountingHandler from 'src/CountingHandler';
+import Web3Provider from '../Web3Service/Web3Provider';
 
 const FirstArea = () => {
     const {

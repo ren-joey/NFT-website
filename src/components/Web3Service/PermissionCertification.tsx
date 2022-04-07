@@ -8,12 +8,12 @@ import MintBlock from "src/components/FirstArea/MintBlock";
 import RevealTime from "src/components/FirstArea/RevealTime";
 import SoldOutAlert from "src/components/Shared/SoldOutAlert";
 import { EventContext } from "src/Context/EventContext";
+import { nullableBigNumber } from "src/interfaces/types";
 import { getParameterByName } from "src/utils";
-import { getWeb3ExecuteFunctionOption } from "./contractAbi";
-import { ContractContext } from "./ContractService/ContractContext";
-import GetContractVariable from "./ContractService/GetContractVariable";
-import { nullableBigNumber } from "./interfaces";
-import LoginService from "./UserService/LoginService";
+import { ContractContext } from "../../Context/ContractContext";
+import fetchContractVariable from "./functions/fetchContractVariable";
+import { contractVariables, getContractContextBigNumSetter, getContractContextBooleanSetter } from "./functions/getContractContextSetter";
+import LoginService from "./LoginService";
 
 const PermissionCertification = () => {
     const {
@@ -23,15 +23,13 @@ const PermissionCertification = () => {
         account
     } = useMoralis();
 
+    const contractContext = useContext(ContractContext);
     const {
         MAX_SUPPLY,
         MAX_VIP_WHITE_LIST_SUPPLY,
         MAX_WHITE_LIST_SUPPLY,
-        totalSupply,
-        setIsSaleActive,
-        setIsVipWhiteListSaleActive,
-        setIsWhiteListSaleActive
-    } = useContext(ContractContext);
+        totalSupply
+    } = contractContext;
 
     const {
         status,
@@ -77,36 +75,42 @@ const PermissionCertification = () => {
         status
     ]);
 
-    const fetchContractVariable = (
-        paramName: string,
-        params: any = undefined
-    ) => new Promise<boolean>((resolve) => {
-        let option = getWeb3ExecuteFunctionOption(paramName);
-        if (params) option = { ...option, params };
-        fetch({ params: option }).then((result) => {
-            resolve(result as boolean);
-        });
-    });
-
     useEffect(() => {
         if (isWeb3Enabled === true) {
-            EventBus.$emit('fetchMintPrice');
-            EventBus.$emit('fetchMAX_SUPPLY');
-            EventBus.$emit('fetchMAX_VIP_WHITE_LIST_SUPPLY');
-            EventBus.$emit('fetchMAX_WHITE_LIST_SUPPLY');
-            EventBus.$emit('fetchTotalSupply');
-            EventBus.$emit('fetchMaxBalance');
-            EventBus.$emit('fetchGetBalance');
+            const paramNamesReturnBigNum: contractVariables[] = [
+                'mintPrice',
+                'maxBalance',
+                'totalSupply',
+                'getBalance',
+                'MAX_SUPPLY',
+                'MAX_VIP_WHITE_LIST_SUPPLY',
+                'MAX_WHITE_LIST_SUPPLY',
+                '_isVipWhiteListSaleActive',
+                '_isWhiteListSaleActive',
+                '_isSaleActive'
+            ];
 
-            fetchContractVariable('_isVipWhiteListSaleActive').then((res) => {
-                setIsVipWhiteListSaleActive(res);
-            });
-            fetchContractVariable('_isWhiteListSaleActive').then((res) => {
-                setIsWhiteListSaleActive(res);
-            });
-            fetchContractVariable('_isSaleActive').then((res) => {
-                setIsSaleActive(res);
-            });
+            for (let i = 0; i < paramNamesReturnBigNum.length; i++) {
+                const paramName = paramNamesReturnBigNum[i];
+                fetchContractVariable<BigNumber|boolean>({
+                    paramName,
+                    fetch
+                }).then((res) => {
+                    if (typeof res === 'boolean') {
+                        const setter = getContractContextBooleanSetter({
+                            contractContext,
+                            paramName
+                        });
+                        setter(res);
+                    } else {
+                        const setter = getContractContextBigNumSetter({
+                            contractContext,
+                            paramName
+                        });
+                        setter(res);
+                    }
+                });
+            }
         }
     }, [isWeb3Enabled]);
 
@@ -170,14 +174,6 @@ const PermissionCertification = () => {
         <>
             {/* <UserBalance /> */}
             <LoginService />
-
-            <GetContractVariable methodName="mintPrice" />
-            <GetContractVariable methodName="maxBalance" />
-            <GetContractVariable methodName="totalSupply" />
-            <GetContractVariable methodName="getBalance" />
-            <GetContractVariable methodName="MAX_SUPPLY" />
-            <GetContractVariable methodName="MAX_VIP_WHITE_LIST_SUPPLY" />
-            <GetContractVariable methodName="MAX_WHITE_LIST_SUPPLY" />
 
             {/* mint 區塊 */}
             { mintArea() }
