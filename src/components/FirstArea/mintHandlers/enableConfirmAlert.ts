@@ -1,3 +1,4 @@
+import stringReplacer from "src/utils/stringFormat/stringReplacer";
 import fetchMintBetamon from "./fetchMintBetamon";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
@@ -18,10 +19,11 @@ const enableConfirmAlert = ({
     if (amount === null || maxBalance === null) return;
     setAlertData({
         enable: true,
-        content: lang.MINT_ALERT.replace('${}', amount.toString()).replace('${}', maxBalance.toString()),
+        content: stringReplacer(lang.MINT_ALERT, amount, maxBalance),
         btnList: [
             {
                 text: lang.CANCEL,
+                type: 'gray',
                 onClick: disableAlert
             },
             {

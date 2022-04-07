@@ -1,7 +1,7 @@
 import { useContext, useMemo } from "react";
 import { EventContext } from "src/Context/EventContext";
 
-type btnColorList = 'default'|'gray'|'orange';
+export type btnColorList = 'default'|'gray'|'orange';
 
 interface IProps {
     type?: btnColorList,

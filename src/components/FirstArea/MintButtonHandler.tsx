@@ -1,7 +1,5 @@
-import { BigNumber } from "ethers";
 import { useContext, useEffect } from "react";
 import { useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
-import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
 import mintErrorHandler from "src/functions/mintErrorHandler";
@@ -59,9 +57,15 @@ const MintButtonHandler = ({
             const regex = /error=([^;]*)(?=, method=)/g;
             const arr = error.message.match(regex);
             if (arr) {
-                const balance = maxBalance === null ? '--' : maxBalance.toString();
                 const errorObj = JSON.parse(arr[0].replace('error=', ''));
-                mintErrorHandler(errorObj, lang, balance, setAlertData, disableAlert, mintPriceEth);
+                mintErrorHandler(
+                    errorObj,
+                    lang,
+                    maxBalance,
+                    setAlertData,
+                    disableAlert,
+                    mintPriceEth
+                );
             }
         }
     }, [error]);
@@ -87,11 +91,11 @@ const MintButtonHandler = ({
                 });
             }}
             disable={
-                remain === null
-                    || status === -1
-                    || getBalance?.gte(maxBalance || 0)
-                    || alertData.enable === true
-                    || remain.lte(0) ? true : undefined
+                remain === null // 尚未 fetch 完畢
+                    || status === -1 // 活動尚未開始
+                    || getBalance?.gte(maxBalance || 0) // 持有 nft 已達上限
+                    || alertData.enable === true // 任意彈窗尚未處理完成
+                    || remain.lte(0) ? true : undefined // 剩餘數量 <= 0
             }
             style={buttonSize}
         />
