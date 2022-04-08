@@ -15,6 +15,8 @@ import { ContractContext } from "../../Context/ContractContext";
 import fetchContractVariable from "./functions/fetchContractVariable";
 import { getContractContextBigNumSetter, getContractContextBooleanSetter } from "./functions/getContractContextSetter";
 import LoginService from "./LoginService";
+import SharedAlert from "../Shared/SharedAlert";
+import NftCollection from "./NftCollection";
 
 const PermissionCertification = () => {
     const {
@@ -183,7 +185,14 @@ const PermissionCertification = () => {
             {/* 時間及倒數區塊 */}
             { timeArea() }
 
-            <SoldOutAlert />
+            {/* nft metadata 區塊 */}
+            <SharedAlert
+                btnList={[]}
+                content={<NftCollection />}
+                enable={true}
+            />
+
+            {/* <SoldOutAlert /> [DEV] */}
         </>
     );
 };

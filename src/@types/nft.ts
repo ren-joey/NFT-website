@@ -1,3 +1,4 @@
+import { ChainList } from "./contract";
 import { IMetadata } from "./metadata";
 
 export interface INft {
@@ -17,4 +18,16 @@ export interface INft {
     token_address: string;
     token_id: string;
     token_uri: string;
+}
+
+export interface IMoralisConfig {
+    serverUrl: string,
+    appId: string,
+    contractAddress: string,
+    ownerAddress: string,
+    provider: ChainList,
+    chainId: number,
+    etherscanUrl: string,
+    metadataBaseUrl: string,
+    imageUrl: string
 }
