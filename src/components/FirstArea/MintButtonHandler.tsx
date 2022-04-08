@@ -3,17 +3,17 @@ import { useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
 import { ContractContext } from "src/Context/ContractContext";
-import moralisConfig, { chainList } from "src/moralisConfig";
+import moralisConfig from "src/moralisConfig";
 import MintButton from "../Shared/MintButton";
 import { IAlertData } from "../Shared/SharedAlert";
-import { MintMethodName } from "./MintBody";
 import { mintAlertHandler } from "../Web3Service/mintHandlers/mintAlertHandler";
-import { nullableBigNumber } from "src/interfaces/types";
 import mintErrorHandler from "../Web3Service/functions/mintErrorHandler";
+import { NullableBigNumber } from "src/@types/basicVariable";
+import { ChainList, MintMethodName } from "src/@types/contract";
 
 interface IProps {
     amount: number,
-    remain: nullableBigNumber,
+    remain: NullableBigNumber,
     mintMethodName: MintMethodName,
     alertData: IAlertData,
     setAlertData: (key: IAlertData) => void,
@@ -34,7 +34,7 @@ const MintButtonHandler = ({
     buttonSize
 }: IProps) => {
     const { data: nativeBalance }: { data: INativeBalance } = useNativeBalance({
-        chain: moralisConfig.provider as chainList
+        chain: moralisConfig.provider as ChainList
     });
 
     const lang = useContext(LangContext);

@@ -1,7 +1,7 @@
-export type socialIconName = 'twitter'|'opensea'|'discord'|'ig'|'promotion_1';
+import { SocialIconName } from "./@types/basicVariable";
 
 export interface ISocialList {
-    iconName: socialIconName,
+    iconName: SocialIconName,
     title: string,
     href: string,
     visible: boolean

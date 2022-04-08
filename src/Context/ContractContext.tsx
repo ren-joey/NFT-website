@@ -1,23 +1,23 @@
 import { BigNumber } from "ethers";
 import React from "react";
-import { INft } from "src/interfaces/nft";
-import { nullable, nullableBigNumber } from "src/interfaces/types";
+import { INft } from "src/@types/nft";
+import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
 
 export interface IContractData {
-    getBalance: nullableBigNumber,
+    getBalance: NullableBigNumber,
     setGetBalance: (num: BigNumber) => void;
-    MAX_SUPPLY: nullableBigNumber;
+    MAX_SUPPLY: NullableBigNumber;
     setMAX_SUPPLY: (num: BigNumber) => void;
-    MAX_VIP_WHITE_LIST_SUPPLY: nullableBigNumber;
+    MAX_VIP_WHITE_LIST_SUPPLY: NullableBigNumber;
     setMAX_VIP_WHITE_LIST_SUPPLY: (num: BigNumber) => void;
-    MAX_WHITE_LIST_SUPPLY: nullableBigNumber;
+    MAX_WHITE_LIST_SUPPLY: NullableBigNumber;
     setMAX_WHITE_LIST_SUPPLY: (num: BigNumber) => void;
-    totalSupply: nullableBigNumber;
+    totalSupply: NullableBigNumber;
     setTotalSupply: (num: BigNumber) => void;
-    mintPrice: nullableBigNumber;
-    mintPriceEth: nullable,
+    mintPrice: NullableBigNumber;
+    mintPriceEth: Nullable,
     setMintPrice: (num: BigNumber) => void;
-    maxBalance: nullableBigNumber;
+    maxBalance: NullableBigNumber;
     setMaxBalance: (num: BigNumber) => void
     nfts: INft[];
     setNfts: (nfts: INft[]) => void;

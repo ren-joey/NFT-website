@@ -2,12 +2,12 @@ import React from 'react';
 import 'src/components/Shared/SocialButton.scss';
 import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
-import { socialIconName } from 'src/socialMediaConfig';
+import { SocialIconName } from 'src/@types/basicVariable';
 
 interface Props {
     className: string,
     name: string,
-    iconName: socialIconName,
+    iconName: SocialIconName,
     href: string
 }
 

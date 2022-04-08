@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
-import { DeviceString } from 'src/Context/EventContext';
 import ResizeListener from 'src/functions/ResizeListener';
-import { bubbleScrollTrigger } from '../bubbleScrollTrigger';
+import { DeviceString } from 'src/@types/basicVariable';
+import { bubbleScrollTrigger } from 'src/animation/bubbleScrollTrigger';
 
 const getDevice: () => DeviceString = () => window.innerWidth >= 992 ? 'desktop' : 'phone';
 

@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import { LangContext } from "src/Context/LangContext";
 import 'src/components/AboutB/FeatureCard.scss';
 import { EventContext } from "src/Context/EventContext";
-import { LangString } from "src/lang";
 import { getResources } from "src/functions/loader";
 import gaParser from "src/functions/gaParser";
+import { LangString } from "src/@types/basicVariable";
 interface Props {
     idx: number,
     line?: boolean,

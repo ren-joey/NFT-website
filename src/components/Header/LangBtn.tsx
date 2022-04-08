@@ -1,5 +1,5 @@
 import 'src/components/Header/LangBtn.scss';
-import { LangString } from 'src/lang';
+import { LangString } from 'src/@types/basicVariable';
 
 interface ILangBtn {
     selectedLang: LangString,

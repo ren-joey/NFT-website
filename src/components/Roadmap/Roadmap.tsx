@@ -1,12 +1,12 @@
 import RoadmapCard from './RoadmapCard';
 import 'src/components/Roadmap/Roadmap.scss';
 import SocialButton from '../Shared/SocialButton';
-import { LangString } from 'src/lang';
 import { useContext } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { getResources } from 'src/functions/loader';
 import { socialList } from 'src/socialMediaConfig';
 import RoadmapSocialCard from './RoadmapSocialCard';
+import { LangString } from 'src/@types/basicVariable';
 
 interface IRoadmap {
     selectedLang: LangString

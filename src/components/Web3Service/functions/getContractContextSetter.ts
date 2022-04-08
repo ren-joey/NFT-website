@@ -1,23 +1,9 @@
 import { BigNumber } from "ethers";
 import { IContractData } from "src/Context/ContractContext";
-
-export type contractVariablesReturnsBigNum = 'mintPrice'
-                            | 'maxBalance'
-                            | 'totalSupply'
-                            | 'getBalance'
-                            | 'MAX_SUPPLY'
-                            | 'MAX_VIP_WHITE_LIST_SUPPLY'
-                            | 'MAX_WHITE_LIST_SUPPLY';
-
-export type contractVariablesReturnsBoolean = '_isVipWhiteListSaleActive'
-                            | '_isWhiteListSaleActive'
-                            | '_isSaleActive';
-
-export type contractVariables = contractVariablesReturnsBigNum
-                            | contractVariablesReturnsBoolean;
+import { ContractVariables } from "src/@types/contract";
 
 interface IProps {
-    paramName: contractVariables;
+    paramName: ContractVariables;
     contractContext: IContractData;
 }
 

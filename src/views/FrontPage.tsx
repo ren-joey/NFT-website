@@ -9,19 +9,17 @@ import FirstArea from "src/components/FirstArea/FirstArea";
 import Footer from "src/components/Footer";
 import Header from "src/components/Header/Header";
 import Roadmap from "src/components/Roadmap/Roadmap";
-import { DeviceString, EventContext } from "src/Context/EventContext";
+import { EventContext } from "src/Context/EventContext";
 import { getParameterByName } from "src/utils/url/getParameterByName";
 import ScrollDownIcon from "src/components/Shared/ScrollDownIcon";
 import BackToTop from "src/components/Shared/BackToTopIcon";
 import ResizeListener from "src/functions/ResizeListener";
 
 // 語系相關
-import { LangString } from "src/lang";
 import { LangContext } from "src/Context/LangContext";
 import ZH_CN from "src/lang/ZH_CN";
 import ZH_TW from "src/lang/ZH_TW";
 
-// style 相關
 import 'src/views/FrontPage.scss';
 import CountingHandler from "src/CountingHandler";
 import ToBeAnnounced from "src/components/ToBeAnnounced";
@@ -30,6 +28,7 @@ import KolSupport from "src/components/KolSupport/KolSupport";
 import MediaSupport from "src/components/MediaSupport/MediaSupport";
 import VbcLabs from "src/components/VbcLabs/VbcLabs";
 import Statement from "src/components/Statement";
+import { DeviceString, LangString } from "src/@types/basicVariable";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -62,6 +61,7 @@ const FrontPage = () => {
                 previousDevice = 'phone';
             }
         };
+
         // RwdContext 監聽事件
         ResizeListener.add(rootEventLister);
 

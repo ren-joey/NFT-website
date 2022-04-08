@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import 'src/components/Shared/SharedAlert.scss';
-import SharedButton, { btnColorList } from './SharedButton';
+import { BtnColorList } from 'src/@types/basicVariable';
+import SharedButton from './SharedButton';
 
 interface IBtn {
     text: string;
-    type?: btnColorList;
+    type?: BtnColorList;
     onClick: () => void;
 }
 

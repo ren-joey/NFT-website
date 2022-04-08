@@ -3,7 +3,7 @@ import { scrollToRoadmap } from 'src/animation/scrollToTrigger';
 import 'src/components/Header/PhoneMenu.scss';
 import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
-import { LangString } from 'src/lang';
+import { LangString } from 'src/@types/basicVariable';
 import { socialList } from 'src/socialMediaConfig';
 import PhoneLangBtn from './PhoneLangBtn';
 
