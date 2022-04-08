@@ -1,10 +1,9 @@
 import { useContext, useMemo } from "react";
 import { EventContext } from "src/Context/EventContext";
-
-export type btnColorList = 'default'|'gray'|'orange';
+import { BtnColorList } from "src/@types/basicVariable";
 
 interface IProps {
-    type?: btnColorList,
+    type?: BtnColorList,
     style?: React.CSSProperties,
     text: string,
     onClick: () => void

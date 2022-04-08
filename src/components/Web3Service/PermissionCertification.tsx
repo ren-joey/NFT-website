@@ -8,11 +8,12 @@ import MintBlock from "src/components/FirstArea/MintBlock";
 import RevealTime from "src/components/FirstArea/RevealTime";
 import SoldOutAlert from "src/components/Shared/SoldOutAlert";
 import { EventContext } from "src/Context/EventContext";
-import { nullableBigNumber } from "src/interfaces/types";
+import { NullableBigNumber } from "src/@types/basicVariable";
+import { ContractResponse, ContractVariables } from "src/@types/contract";
 import { getParameterByName } from "src/utils";
 import { ContractContext } from "../../Context/ContractContext";
 import fetchContractVariable from "./functions/fetchContractVariable";
-import { contractVariables, getContractContextBigNumSetter, getContractContextBooleanSetter } from "./functions/getContractContextSetter";
+import { getContractContextBigNumSetter, getContractContextBooleanSetter } from "./functions/getContractContextSetter";
 import LoginService from "./LoginService";
 
 const PermissionCertification = () => {
@@ -42,7 +43,7 @@ const PermissionCertification = () => {
 
     const _totalSupply = getParameterByName('totalSupply'); // [DEV]
 
-    const remain = useMemo<nullableBigNumber>(() => {
+    const remain = useMemo<NullableBigNumber>(() => {
         if (_totalSupply) return BigNumber.from(_totalSupply);
 
         if (totalSupply === null
@@ -77,7 +78,7 @@ const PermissionCertification = () => {
 
     useEffect(() => {
         if (isWeb3Enabled === true) {
-            const paramNamesReturnBigNum: contractVariables[] = [
+            const paramNamesReturnBigNum: ContractVariables[] = [
                 'mintPrice',
                 'maxBalance',
                 'totalSupply',
@@ -92,10 +93,11 @@ const PermissionCertification = () => {
 
             for (let i = 0; i < paramNamesReturnBigNum.length; i++) {
                 const paramName = paramNamesReturnBigNum[i];
-                fetchContractVariable<BigNumber|boolean>({
+                fetchContractVariable<ContractResponse>({
                     paramName,
                     fetch
                 }).then((res) => {
+                    if (res === undefined) return;
                     if (typeof res === 'boolean') {
                         const setter = getContractContextBooleanSetter({
                             contractContext,

@@ -11,12 +11,11 @@ import LinkingAnimation from "./LinkingAnimation";
 import 'src/components/FirstArea/MintBody.scss';
 import { getParameterByName, roundDecimal } from "src/utils";
 import MintButtonHandler from "./MintButtonHandler";
-import { nullableBigNumber } from "src/interfaces/types";
+import { NullableBigNumber } from "src/@types/basicVariable";
+import { MintMethodName } from "src/@types/contract";
 
-
-export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
 interface IMintMethodName {
-    remain: nullableBigNumber
+    remain: NullableBigNumber
     mintMethodName?: MintMethodName,
 }
 
@@ -46,7 +45,10 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
     });
 
     const [amount, setAmount] = useState(1);
-    const increaseAmount = () => setAmount((amount + 1) % (Number(maxBalance) + 1) || 3);
+    const increaseAmount = () => {
+        const max = Number(maxBalance);
+        setAmount((amount + 1) % (max + 1) || max);
+    };
     const decreaseAmount = () => setAmount((amount - 1) || 1);
 
     const buttonSize = useMemo<React.CSSProperties>(() => {

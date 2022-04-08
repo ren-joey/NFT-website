@@ -1,5 +1,5 @@
 import { IAlertData } from "src/components/Shared/SharedAlert";
-import { nullable, nullableBigNumber } from "src/interfaces/types";
+import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
 import { Lang } from "src/lang";
 import enableExceedMaxSupplyAlert from "../mintHandlers/enableExceedMaxSupplyAlert";
 import enableMintNotOpenAlert from "../mintHandlers/enableMintNotOpenAlert";
@@ -14,10 +14,10 @@ interface IErrorMsgObj {
 const mintErrorHandler = (
     error: IErrorMsgObj,
     lang: Lang,
-    maxBalance: nullableBigNumber,
+    maxBalance: NullableBigNumber,
     setAlertData: (key: IAlertData) => void,
     disableAlert: () => void,
-    mintPriceEth: nullable
+    mintPriceEth: Nullable
 ) => {
     const defaultParams = { setAlertData, disableAlert, lang };
     if (error.message.includes('Sale must be active to mint Betamon')) {

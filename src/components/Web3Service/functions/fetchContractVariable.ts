@@ -1,11 +1,10 @@
-import { moralisFetch } from "src/components/Web3Service/mintHandlers/mintAlertHandler";
-import { getWeb3ExecuteFunctionOption } from "../../../contractAbi";
-import { contractVariables } from "./getContractContextSetter";
+import { ContractVariables, MoralisFetch } from "src/@types/contract";
+import { getWeb3ExecuteFunctionOption } from "src/contractAbi";
 
 export interface IFetchContractVariable {
-    paramName: contractVariables,
+    paramName: ContractVariables,
     params?: any,
-    fetch: moralisFetch
+    fetch: MoralisFetch
 }
 
 function fetchContractVariable<T>({

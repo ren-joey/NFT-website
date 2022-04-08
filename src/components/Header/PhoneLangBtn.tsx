@@ -1,6 +1,6 @@
 import 'src/components/Header/PhoneLangBtn.scss';
 import { getResources } from 'src/functions/loader';
-import { LangString } from 'src/lang';
+import { LangString } from 'src/@types/basicVariable';
 
 interface ILangBtn {
     selectedLang: LangString,

@@ -3,10 +3,10 @@ import 'src/components/AboutB/AboutB.scss';
 import { LangContext } from 'src/Context/LangContext';
 import { EventContext } from 'src/Context/EventContext';
 import { getResources } from 'src/functions/loader';
-import { LangString } from 'src/lang';
 import Star from '../Shared/Star';
 import BAlienSlider from './BAlienSlider';
 import FeatureCard from './FeatureCard';
+import { LangString } from 'src/@types/basicVariable';
 
 interface IAboutB {
     selectedLang: LangString

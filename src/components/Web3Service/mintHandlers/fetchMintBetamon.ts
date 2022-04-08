@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
 import { EventBus } from "src/bus";
 import { getWeb3ExecuteFunctionOption } from "src/contractAbi";
-import { nullableBigNumber } from "src/interfaces/types";
+import { NullableBigNumber } from "src/@types/basicVariable";
 import moralisConfig from "src/moralisConfig";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
@@ -18,7 +18,7 @@ const fetchMintBetamon = ({
     'amount'|'mintPrice'|'mintMethodName'|'setAlertData'|'lang'|'disableAlert'|'fetch'
 >
 ) => new Promise<void>((res) => {
-    const doFetch = async (price: nullableBigNumber) => {
+    const doFetch = async (price: NullableBigNumber) => {
         const mintBetamonOptions = getWeb3ExecuteFunctionOption(mintMethodName);
 
         const result: any = await fetch({

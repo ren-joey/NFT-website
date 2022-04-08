@@ -1,29 +1,3 @@
-export type chainList =
-    "eth"
-    | "0x1"
-    | "ropsten"
-    | "0x3"
-    | "rinkeby"
-    | "0x4"
-    | "goerli"
-    | "0x5"
-    | "kovan"
-    | "0x2a"
-    | "polygon"
-    | "0x89"
-    | "mumbai"
-    | "0x13881"
-    | "bsc"
-    | "0x38"
-    | "bsc testnet"
-    | "0x61"
-    | "avalanche"
-    | "0xa86a"
-    | "avalanche testnet"
-    | "0xa869"
-    | "fantom"
-    | "0xfa";
-
 const moralisConfig = {
     serverUrl: 'https://0h72z1f6z5zv.usemoralis.com:2053/server',
     appId: 'U6GvcTlZ2aD8hF0CD967tsAA9AAFKS25H0NPXCJ0',
