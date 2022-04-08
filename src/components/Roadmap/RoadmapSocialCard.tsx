@@ -4,7 +4,6 @@ import 'src/components/Roadmap/RoadmapCard.scss';
 import { getResources } from "src/functions/loader";
 import { EventContext } from "src/Context/EventContext";
 import { socialList } from "src/socialMediaConfig";
-import hrefTo from "src/functions/hrefTo";
 import SocialIconButton from "../Shared/SocialIconButton";
 
 interface Props {

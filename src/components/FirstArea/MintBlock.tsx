@@ -4,12 +4,12 @@ import { scrollToFaq } from "src/animation/scrollToTrigger";
 import MintBody, { MintMethodName } from "./MintBody";
 import { useContext, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
-import { nullableBigNumber } from 'src/views/interfaces';
-import { ContractContext } from 'src/views/ContractService/ContractContext';
+import { ContractContext } from 'src/Context/ContractContext';
 import { LangContext } from 'src/Context/LangContext';
 import hrefTo from 'src/functions/hrefTo';
 import { socialList } from 'src/socialMediaConfig';
 import stringReplacer from 'src/utils/stringFormat/stringReplacer';
+import { nullableBigNumber } from 'src/interfaces/types';
 
 interface IProps {
     remain: nullableBigNumber

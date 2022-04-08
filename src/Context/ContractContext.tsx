@@ -1,33 +1,7 @@
 import { BigNumber } from "ethers";
-
-export type nullable = (null|number);
-export type nullableBigNumber = (null|BigNumber);
-export interface IMetadata {
-    description: string;
-    external_url: string;
-    image: string;
-    name: string;
-    attributes?: any[]
-}
-
-export interface INft {
-    amount: string;
-    block_number: string;
-    block_number_minted: string;
-    contract_type: string;
-    frozen: number;
-    image: string;
-    is_valid: number;
-    metadata: IMetadata;
-    name: string;
-    owner_of: string;
-    symbol: string;
-    synced_at: string;
-    syncing: number;
-    token_address: string;
-    token_id: string;
-    token_uri: string;
-}
+import React from "react";
+import { INft } from "src/interfaces/nft";
+import { nullable, nullableBigNumber } from "src/interfaces/types";
 
 export interface IContractData {
     getBalance: nullableBigNumber,
@@ -61,3 +35,42 @@ export interface IContractData {
     setIsVipWhiteListSaleActive: (bool: boolean) => void;
     [key: string]: any;
 }
+
+const contractData: IContractData = {
+    getBalance: null,
+    setGetBalance: () => {},
+    MAX_SUPPLY: null,
+    setMAX_SUPPLY: () => {},
+    MAX_VIP_WHITE_LIST_SUPPLY: null,
+    setMAX_VIP_WHITE_LIST_SUPPLY: () => {},
+    MAX_WHITE_LIST_SUPPLY: null,
+    setMAX_WHITE_LIST_SUPPLY: () => {},
+    totalSupply: null,
+    setTotalSupply: () => {},
+    mintPrice: null,
+    setMintPrice: () => {},
+    mintPriceEth: null,
+    maxBalance: null,
+    setMaxBalance: () => {},
+    isBlindBoxOpened: undefined,
+    setIsBlindBoxOpened: () => {},
+    isVipWhiteList: undefined,
+    setIsVipWhiteList: () => {},
+    isWhiteList: undefined,
+    setIsWhiteList: () => {},
+    isSaleActive: false,
+    setIsSaleActive: () => {},
+    isWhiteListSaleActive: false,
+    setIsWhiteListSaleActive: () =>{},
+    isVipWhiteListSaleActive: false,
+    setIsVipWhiteListSaleActive: () => {},
+    nfts: [],
+    setNfts: () => {}
+};
+
+const ContractContext = React.createContext({...contractData});
+
+export {
+    ContractContext,
+    contractData
+};

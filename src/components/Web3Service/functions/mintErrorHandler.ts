@@ -1,10 +1,10 @@
-import enableExceedMaxSupplyAlert from "src/components/FirstArea/mintHandlers/enableExceedMaxSupplyAlert";
-import enableMintNotOpenAlert from "src/components/FirstArea/mintHandlers/enableMintNotOpenAlert";
-import enableNotEnoughEth from "src/components/FirstArea/mintHandlers/enableNotEnoughEth";
-import enableNotInWhiteList from "src/components/FirstArea/mintHandlers/enableNotInWhiteList";
 import { IAlertData } from "src/components/Shared/SharedAlert";
+import { nullable, nullableBigNumber } from "src/interfaces/types";
 import { Lang } from "src/lang";
-import { nullable, nullableBigNumber } from "src/views/interfaces";
+import enableExceedMaxSupplyAlert from "../mintHandlers/enableExceedMaxSupplyAlert";
+import enableMintNotOpenAlert from "../mintHandlers/enableMintNotOpenAlert";
+import enableNotEnoughEth from "../mintHandlers/enableNotEnoughEth";
+import enableNotInWhiteList from "../mintHandlers/enableNotInWhiteList";
 
 interface IErrorMsgObj {
     message: string,

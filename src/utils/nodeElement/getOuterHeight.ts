@@ -11,9 +11,9 @@ const getOuterHeight = (dom: HTMLElement): number => {
     const elmHeight = string2Number(computedStyle.height);
     const elmMarginTop = string2Number(computedStyle.marginTop);
     const elmMarginBottom = string2Number(computedStyle.marginBottom);
-    const elmMargin = elmMarginTop + elmMarginBottom;
+    const elmMargin = Number(elmMarginTop) + Number(elmMarginBottom);
 
-    return elmHeight + elmMargin;
+    return Number(elmHeight) + elmMargin;
 };
 
 export { getOuterHeight as default };

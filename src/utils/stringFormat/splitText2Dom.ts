@@ -50,7 +50,7 @@ const splitText2Dom = (
                     const aIdx: (string|number)[] = index.split('-');
                     for (let i = +aIdx[0]; i <= +aIdx[1]; i += 1) aIdx.push(i);
                     aIdx.forEach((idx) => {
-                        aTextDom[idx].setAttribute('style', `display: inline-block; ${jStyle.style}`);
+                        aTextDom[+idx].setAttribute('style', `display: inline-block; ${jStyle.style}`);
                     });
                 }
             });
@@ -113,7 +113,7 @@ const splitText2DomWithoutSpace = (
                     const aIdx: (string|number)[] = index.split('-');
                     for (let i = +aIdx[0]; i <= +aIdx[1]; i += 1) aIdx.push(i);
                     aIdx.forEach((idx) => {
-                        aTextDom[idx].setAttribute('style', `display: inline-block; ${jStyle.style}`);
+                        aTextDom[+idx].setAttribute('style', `display: inline-block; ${jStyle.style}`);
                     });
                 }
             });

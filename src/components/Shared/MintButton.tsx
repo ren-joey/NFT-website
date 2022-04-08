@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React from "react";
 
 interface IProps {
     disable?: boolean,
@@ -8,9 +8,6 @@ interface IProps {
 }
 
 const MintButton = ({ disable = false, style = {}, text, onClick }: IProps) => {
-    // const [fetching, setFetching] = useState(false);
-    // const disabled = useMemo(() => fetching || disable, [fetching, disable]);
-    // const disabled = useMemo(() => disable, [disable]);
     const gradientColor = disable
         ? 'linear-gradient(to bottom, #a4a4a4 20%,#e3e3e3 77%)'
         : 'linear-gradient(to bottom, #ff009c 20%,#ff88f5 77%)';
@@ -29,15 +26,6 @@ const MintButton = ({ disable = false, style = {}, text, onClick }: IProps) => {
         cursor: disable ? 'not-allowed' : 'pointer',
         ...style
     };
-
-    // const toggleFetching = () => setFetching((x) => !x);
-
-    // const clickHandler = () => {
-    //     if (disabled) return;
-
-    //     toggleFetching();
-    //     onClick().then(toggleFetching);
-    // };
 
     return (
         <div

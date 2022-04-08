@@ -6,7 +6,7 @@
 const number2StringNoRoundShort = (num: number): string => {
     let number: number;
     let sNumber: string;
-    let float: number|string;
+    let float: number|string|undefined;
     let digit = '';
     if (num >= 10000) {
         number = Math.floor(num / 10000);

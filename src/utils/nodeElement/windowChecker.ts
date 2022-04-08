@@ -1,11 +1,13 @@
+type deviceSizeStr = 'xl'|'lg'|'md'|'sm';
+
 /**
  * 螢幕寬度度量器
  * 'xl' || 'lg' || 'md' || 'sm'
  * @returns 當前寬度區間
  */
-const windowChecker = (): string => {
+const windowChecker = (): deviceSizeStr => {
     const { innerWidth } = window;
-    let device;
+    let device: deviceSizeStr = 'sm';
     if (innerWidth > 1440) {
         device = 'xl';
     } else if (innerWidth > 1200 && innerWidth <= 1440) {

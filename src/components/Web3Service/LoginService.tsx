@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useMoralis } from "react-moralis";
 import { EventBus } from "src/bus";
 import { LangContext } from "src/Context/LangContext";
-import moralisConfig from "../moralisConfig";
+import moralisConfig from "src/moralisConfig";
 
 const LoginService = () => {
     const lang = useContext(LangContext);

@@ -1,17 +1,21 @@
 import { Web3ExecuteFunctionParameters } from "react-moralis";
 import { ResolveCallOptions } from "react-moralis/lib/hooks/internal/_useResolveAsyncCall";
+import { nullable, nullableBigNumber } from "src/interfaces/types";
 import { Lang } from "src/lang";
-import { nullable, nullableBigNumber } from "src/views/interfaces";
 import { IAlertData } from "../../Shared/SharedAlert";
-import { MintMethodName } from "../MintBody";
-import { INativeBalance } from "../MintButtonHandler";
-import enableConfirmAlert from "./enableConfirmAlert";
-import enableExceedAlert from "./enableExceedAlert";
+import { MintMethodName } from "../../FirstArea/MintBody";
+import { INativeBalance } from "../../FirstArea/MintButtonHandler";
 import enableMintNotOpenAlert from "./enableMintNotOpenAlert";
-import enableNotEnoughEth from "./enableNotEnoughEth";
 import enableSoldOutAlert from "./enableSoldOutAlert";
+import enableNotEnoughEth from "./enableNotEnoughEth";
+import enableExceedAlert from "./enableExcessAlert";
+import enableConfirmAlert from "./enableConfirmAlert";
 import fetchMintBetamon from "./fetchMintBetamon";
 
+export type moralisFetch = (key: ResolveCallOptions<
+    unknown,
+    Web3ExecuteFunctionParameters
+>) => Promise<unknown>
 export interface IMintAlertHandler {
     setAlertData: (key: IAlertData) => void,
     disableAlert: () => void,
@@ -24,10 +28,7 @@ export interface IMintAlertHandler {
     mintPriceEth: nullable,
     nativeBalance: INativeBalance,
     mintMethodName: MintMethodName,
-    fetch: (key: ResolveCallOptions<
-        unknown,
-        Web3ExecuteFunctionParameters
-    >) => Promise<unknown>,
+    fetch: moralisFetch,
     lang: Lang
 }
 

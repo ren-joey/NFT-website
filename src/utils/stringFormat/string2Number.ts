@@ -3,10 +3,11 @@
  * @param str - 要轉換的字串，如 '100px'
  * @returns 回傳數字，如果傳入空值則回應 1
  */
-const string2Number = (str: string): number => {
+const string2Number = (str: string): (number|null) => {
     if (!str || str === 'none') return null;
     const re = /\d+/gm;
-    return +(re.exec(str).join(''));
+    const captures = re.exec(str);
+    return captures ? +(captures.join('')) : null;
 };
 
 export { string2Number as default };

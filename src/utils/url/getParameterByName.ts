@@ -11,7 +11,7 @@ const getParameterByName = (
     const formatName = name.replace(/[[\]]/g, '\\$&');
     const regex = new RegExp(`[?&]${formatName}(=([^&#]*)|&|#|$)`);
     const results = regex.exec(url);
-    if (!results) return null;
+    if (!results) return '';
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 };
