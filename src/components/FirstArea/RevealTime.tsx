@@ -19,7 +19,7 @@ const RevealTime = () => {
                     </div>
                 ) : (
                     <div className="reveal-time">
-                        { lang.STAY_TURNED }
+                        { lang.STAY_TUNED }
                     </div>
                 )
             }
