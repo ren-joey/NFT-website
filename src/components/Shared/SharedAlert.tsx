@@ -11,7 +11,7 @@ interface IBtn {
 
 export interface IAlertData {
     enable: boolean;
-    content: string;
+    content: string|JSX.Element;
     btnList: IBtn[];
 }
 
@@ -26,20 +26,27 @@ const SharedAlert = ({ enable, content, btnList }: IAlertData) => {
         <div className={`alert-wrap ${state ? 'active' : ''}`}>
             <div className="alert-block">
                 <div className="alert-body">
-                    <div dangerouslySetInnerHTML={{ __html: content }}></div>
+                    {
+                        typeof content === 'string'
+                            ? <div dangerouslySetInnerHTML={{ __html: content }}></div>
+                            : content
+                    }
 
-                    <div className="button-area">
-                        {
-                            btnList.map((btn, idx) => (
-                                <SharedButton
-                                    type={btn.type}
-                                    text={btn.text}
-                                    onClick={btn.onClick}
-                                    key={idx}
-                                />
-                            ))
-                        }
-                    </div>
+                    {
+                        btnList.length > 0
+                        && <div className="button-area">
+                            {
+                                btnList.map((btn, idx) => (
+                                    <SharedButton
+                                        type={btn.type}
+                                        text={btn.text}
+                                        onClick={btn.onClick}
+                                        key={idx}
+                                    />
+                                ))
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div className="angle left top"></div>

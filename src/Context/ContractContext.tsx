@@ -21,6 +21,8 @@ export interface IContractData {
     setMaxBalance: (num: BigNumber) => void
     nfts: INft[];
     setNfts: (nfts: INft[]) => void;
+    allNfts: INft[];
+    setAllNfts: (nfts: INft[]) => void;
     isBlindBoxOpened: (undefined|boolean);
     setIsBlindBoxOpened: (bool: boolean) => void;
     isVipWhiteList: (undefined|boolean);
@@ -65,7 +67,9 @@ const contractData: IContractData = {
     isVipWhiteListSaleActive: false,
     setIsVipWhiteListSaleActive: () => {},
     nfts: [],
-    setNfts: () => {}
+    setNfts: () => {},
+    allNfts: [],
+    setAllNfts: () => {}
 };
 
 const ContractContext = React.createContext({...contractData});

@@ -29,6 +29,7 @@ import MediaSupport from "src/components/MediaSupport/MediaSupport";
 import VbcLabs from "src/components/VbcLabs/VbcLabs";
 import Statement from "src/components/Statement";
 import { DeviceString, LangString } from "src/@types/basicVariable";
+import reportWebVitals from "src/reportWebVitals";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 

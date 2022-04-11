@@ -1,11 +1,6 @@
 import { BigNumber } from "ethers";
 import React, { useContext, useEffect, useMemo } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import { EventBus } from "src/bus";
-import BetamonStage from "src/components/FirstArea/BetamonStage";
-import Counter from "src/components/FirstArea/Counter";
-import MintBlock from "src/components/FirstArea/MintBlock";
-import RevealTime from "src/components/FirstArea/RevealTime";
 import SoldOutAlert from "src/components/Shared/SoldOutAlert";
 import { EventContext } from "src/Context/EventContext";
 import { NullableBigNumber } from "src/@types/basicVariable";
@@ -15,6 +10,11 @@ import { ContractContext } from "../../Context/ContractContext";
 import fetchContractVariable from "./functions/fetchContractVariable";
 import { getContractContextBigNumSetter, getContractContextBooleanSetter } from "./functions/getContractContextSetter";
 import LoginService from "./LoginService";
+import TimeArea from "../FirstArea/PurpleBlock/TimeArea";
+import BlockSwitcher from "../FirstArea/BlockSwitcher";
+import NftBalance from "./NftBalance";
+import NftCollection from "./NftCollection";
+import SharedAlert from "../Shared/SharedAlert";
 
 const PermissionCertification = () => {
     const {
@@ -32,10 +32,7 @@ const PermissionCertification = () => {
         totalSupply
     } = contractContext;
 
-    const {
-        status,
-        diff
-    } = useContext(EventContext);
+    const { status } = useContext(EventContext);
 
     const {
         fetch
@@ -104,7 +101,7 @@ const PermissionCertification = () => {
                             paramName
                         });
                         setter(res);
-                    } else {
+                    } else if (typeof res !== 'string') {
                         const setter = getContractContextBigNumSetter({
                             contractContext,
                             paramName
@@ -117,60 +114,27 @@ const PermissionCertification = () => {
     }, [isWeb3Enabled]);
 
     useEffect(() => {
-        if (isWeb3Enabled) EventBus.$emit('fetchGetBalance');
+        if (isWeb3Enabled) {
+            const paramName: ContractVariables = 'getBalance';
+            fetchContractVariable<BigNumber | undefined>({
+                paramName,
+                fetch
+            }).then((res) => {
+                if (res === undefined) return;
+                if (typeof res !== 'boolean' && typeof res !== 'string') {
+                    const setter = getContractContextBigNumSetter({
+                        contractContext,
+                        paramName
+                    });
+                    setter(res);
+                }
+            });
+        }
     }, [account]);
 
     useEffect(() => {
         if (isAuthenticated) enableWeb3();
     }, [isAuthenticated]);
-
-    const mintArea = () => {
-        switch(status) {
-            case -1:
-                if (diff > 604800000) {
-                    return (
-                        <BetamonStage />
-                    );
-                }
-                return (
-                    <MintBlock remain={remain} />
-                );
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-                return (
-                    <MintBlock remain={remain} />
-                );
-            default:
-                return false;
-        }
-    };
-
-    const timeArea = () => {
-        switch(status) {
-            case -1:
-            case 3:
-                return (
-                    <>
-                        <RevealTime />
-                        <Counter />
-                    </>
-                );
-            case 0:
-            case 1:
-                return null;
-            case 2:
-                return (remain?.isZero()) && (
-                    <>
-                        <RevealTime />
-                        <Counter />
-                    </>
-                );
-            default:
-                return null;
-        }
-    };
 
     return (
         <>
@@ -178,11 +142,18 @@ const PermissionCertification = () => {
             <LoginService />
 
             {/* mint 區塊 */}
-            { mintArea() }
+            <BlockSwitcher remain={remain} />
 
             {/* 時間及倒數區塊 */}
-            { timeArea() }
+            <TimeArea remain={remain} />
 
+            {/* nft balance & metadata  */}
+            {/* <NftBalance /> */}
+
+            {/* all nfts from contract */}
+            {/* <NftCollection /> */}
+
+            {/* VIP 白名單售罄彈窗 */}
             <SoldOutAlert />
         </>
     );

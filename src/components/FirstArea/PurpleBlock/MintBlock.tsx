@@ -1,7 +1,6 @@
-import 'src/components/FirstArea/MintBlock.scss';
+import 'src/components/FirstArea/PurpleBlock/MintBlock.scss';
 import { getResources } from "src/functions/loader";
 import { scrollToFaq } from "src/animation/scrollToTrigger";
-import MintBody from "./MintBody";
 import { useContext, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { ContractContext } from 'src/Context/ContractContext';
@@ -11,6 +10,7 @@ import { socialList } from 'src/socialMediaConfig';
 import stringReplacer from 'src/utils/stringFormat/stringReplacer';
 import { NullableBigNumber } from 'src/@types/basicVariable';
 import { MintMethodName } from 'src/@types/contract';
+import MintBody from './MintBody';
 
 interface IProps {
     remain: NullableBigNumber

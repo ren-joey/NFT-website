@@ -1,5 +1,5 @@
 import { Loader } from 'pixi.js';
-import { useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 import bgEffectInit from 'src/animation/bgEffect';
 
 import 'src/components/BgEffects.scss';

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import 'src/components/FirstArea/LinkingAnimation.scss';
+import 'src/components/FirstArea/PurpleBlock/LinkingAnimation.scss';
 import { EventContext } from 'src/Context/EventContext';
 import { getResources } from 'src/functions/loader';
 

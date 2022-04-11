@@ -25,6 +25,7 @@ const Web3Provider = () => {
     }, [mintPrice]);
     const [maxBalance, setMaxBalance] = useState<NullableBigNumber>(null);
     const [nfts, setNfts] = useState<INft[]>([]);
+    const [allNfts, setAllNfts] = useState<INft[]>([]);
     const [isBlindBoxOpened, setIsBlindBoxOpened] = useState<(undefined|boolean)>(undefined);
     const [isVipWhiteList, setIsVipWhiteList] = useState<(undefined|boolean)>(undefined);
     const [isWhiteList, setIsWhiteList] = useState<undefined|boolean>(undefined);
@@ -55,6 +56,8 @@ const Web3Provider = () => {
                 setMaxBalance,
                 nfts,
                 setNfts,
+                allNfts,
+                setAllNfts,
                 isBlindBoxOpened,
                 setIsBlindBoxOpened,
                 isVipWhiteList,

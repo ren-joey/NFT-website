@@ -3,6 +3,7 @@
 .first-area {
     position: relative;
     padding-top: 120px;
+    z-index: 3;
 
     @media (min-width: 992px) {
         padding-top: $header-size + $header-flexible-size;
