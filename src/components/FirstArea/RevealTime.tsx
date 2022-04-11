@@ -2,10 +2,12 @@
 
 import { useContext, useMemo } from "react";
 import { EventContext } from "src/Context/EventContext";
+import { LangContext } from "src/Context/LangContext";
 import CountingHandler from "src/CountingHandler";
 
 const RevealTime = () => {
     const { end } = useContext(EventContext);
+    const lang = useContext(LangContext);
     const diff = useMemo(() => end.diff(CountingHandler.now), [end]);
 
     return (
@@ -17,7 +19,7 @@ const RevealTime = () => {
                     </div>
                 ) : (
                     <div className="reveal-time">
-                        敬請期待
+                        { lang.STAY_TURNED }
                     </div>
                 )
             }

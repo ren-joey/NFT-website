@@ -3,7 +3,7 @@ import { Web3ExecuteFunctionParameters } from "react-moralis";
 import { ResolveCallOptions } from "react-moralis/lib/hooks/internal/_useResolveAsyncCall";
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
-export type ContractResponse = (undefined|boolean|BigNumber);
+export type ContractResponse = (undefined|boolean|BigNumber|string);
 export type ContractVariablesReturnsBigNum = 'mintPrice'
                             | 'maxBalance'
                             | 'totalSupply'
@@ -14,8 +14,11 @@ export type ContractVariablesReturnsBigNum = 'mintPrice'
 export type ContractVariablesReturnsBoolean = '_isVipWhiteListSaleActive'
                             | '_isWhiteListSaleActive'
                             | '_isSaleActive';
+export type ContractVariablesReturnsString = 'tokenURI'
+                            | 'ownerOf';
 export type ContractVariables = ContractVariablesReturnsBigNum
-                            | ContractVariablesReturnsBoolean;
+                            | ContractVariablesReturnsBoolean
+                            | ContractVariablesReturnsString;
 export type ChainList = "eth"
                             | "0x1"
                             | "ropsten"

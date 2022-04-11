@@ -9,7 +9,7 @@ $angle-width: 4px;
     justify-content: center;
     width: 100%;
     height: 100%;
-    z-index: 5;
+    z-index: 6;
 
     &.active {
         display: flex;
@@ -51,6 +51,9 @@ $angle-width: 4px;
         }
 
         .alert-body {
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 65vh;
             text-align: center;
             line-height: 2rem;
             color: #fff;

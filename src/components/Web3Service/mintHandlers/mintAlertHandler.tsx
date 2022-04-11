@@ -1,6 +1,5 @@
 import { Lang } from "src/lang";
 import { IAlertData } from "../../Shared/SharedAlert";
-import { INativeBalance } from "../../FirstArea/MintButtonHandler";
 import enableMintNotOpenAlert from "./enableMintNotOpenAlert";
 import enableSoldOutAlert from "./enableSoldOutAlert";
 import enableNotEnoughEth from "./enableNotEnoughEth";
@@ -9,6 +8,7 @@ import enableConfirmAlert from "./enableConfirmAlert";
 import fetchMintBetamon from "./fetchMintBetamon";
 import { MintMethodName, MoralisFetch } from "src/@types/contract";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
+import { INativeBalance } from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 
 export interface IMintAlertHandler {
     setAlertData: (key: IAlertData) => void,

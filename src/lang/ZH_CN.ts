@@ -175,6 +175,7 @@ const ZH_CN: Lang = {
     STATEMENT_CONTENT_3: '3. 如看到高达 4ETH 的 GAS FEE，一率为合约错误；请勿当成 GAS FEE ，也不要确认交易。',
     STATEMENT_CONTENT_4: '4. 请使用官方网址「vbc-labs.com」进入网站进行 β星人召唤，千万不要自己搜寻或是点别人给的连结，避免仿冒的网站、合约、Opensea出现导致您的损失；如发生误买 VBC labs 恕不负责。',
     UNDER_CONSTRUCTION: '画面施工中，请稍后再回来...',
+    STAY_TURNED: '敬请期待',
     CONFIRM: '确认',
     CLOSE: '关闭',
     CANCEL: '取消',

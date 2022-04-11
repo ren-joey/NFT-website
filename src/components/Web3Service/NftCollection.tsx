@@ -1,65 +1,57 @@
+import all from 'gsap-trial/src/all';
 import Moralis from 'moralis';
-import { useContext, useEffect, useMemo } from "react";
-import { useMoralis, useNFTBalances } from "react-moralis";
+import { useContext, useEffect } from "react";
+import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import { ContractVariables } from 'src/@types/contract';
+import { INft } from 'src/@types/nft';
 import { ContractContext } from 'src/Context/ContractContext';
 import moralisConfig from "src/moralisConfig";
-
-export const nullAddress = '0x0000000000000000000000000000000000000000';
+import fetchContractVariable from './functions/fetchContractVariable';
 
 const NftCollection = () => {
-    const {
-        data,
-        error
-    } = useNFTBalances();
-    const {
-        nfts,
-        setNfts
-    } = useContext(ContractContext);
+    const { isAuthenticated, isWeb3Enabled } = useMoralis();
+    const { fetch } = useWeb3ExecuteFunction();
+    const { setAllNfts } = useContext(ContractContext);
 
-    const matchedNfts = useMemo(() => {
-        if (!data || !data.result) return [];
-        const lowercaseContractAddr = moralisConfig.contractAddress.toLowerCase();
-        return data.result.filter((nft) => {
-            const lowercaseNftAddr = nft.token_address.toLowerCase();
-            return lowercaseNftAddr === lowercaseContractAddr;
+    const fetchAllNfts = async () => {
+        const polygonNfts = await Moralis.Web3API.token.getAllTokenIds({
+            address: moralisConfig.contractAddress,
+            chain: moralisConfig.provider
         });
-    }, [data]);
+        if (!polygonNfts || !polygonNfts.result) return;
 
-    // useEffect(() => {
-    //     if (account && isWeb3Enabled) {
-    //         const options = {
-    //             chain: moralisConfig.provider,
-    //             address: account,
-    //             token_address: moralisConfig.contractAddress
-    //         };
+        const _nfts = polygonNfts.result;
+        const nfts: INft[] = [];
 
-    //         const fetch = async () => {
-    //             const nfts = await Moralis.Web3API.account.getNFTsForContract(options);
-    //             console.log(nfts);
-    //         };
+        const paramName: ContractVariables = 'ownerOf';
+        const allPromises = [];
+        for (let i = 0; i < _nfts.length; i++) {
+            const { token_id } = _nfts[i];
+            allPromises.push(fetchContractVariable<string | undefined>({
+                paramName,
+                fetch,
+                params: {
+                    tokenId: token_id
+                }
+            }));
+        }
 
-    //         fetch();
-    //     }
-    // }, [account, isWeb3Enabled]);
+        Promise.all(allPromises).then((addresses) => {
+            for (let i = 0; i < _nfts.length; i++) {
+                nfts.push({
+                    ..._nfts[i],
+                    owner_of: addresses[i]
+                });
+            }
+        });
+        setAllNfts(nfts);
+    };
 
     useEffect(() => {
-        console.log('=====matchedNfts=====');
-        console.log(matchedNfts);
-    }, [matchedNfts]);
+        if (isAuthenticated && isWeb3Enabled) fetchAllNfts();
+    }, [ isAuthenticated, isWeb3Enabled ]);
 
-    return (
-        <div style={{ color: '#fff' }}>
-            {
-                matchedNfts.map((nft, idx) => (
-                    <div key={idx}>
-                        {nft.token_id}
-                        <br />
-                        {nft.token_address}
-                    </div>
-                ))
-            }
-        </div>
-    );
+    return null;
 };
 
 export default NftCollection;
