@@ -15,9 +15,10 @@ interface IProps {
 
 const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
     const loaderIsReady = useRef(false);
+
     const trailerEndedRef = useRef(
         localStorage.getItem('skip-trailer') === 'true'
-        || getParameterByName('auto-login')
+        || getParameterByName('auto-login') // auto-login 啟用時不需顯示前導動畫
     );
     const [trailerEnded, setTrailerEnded] = useState(trailerEndedRef.current);
     const tl = gsap.timeline();
