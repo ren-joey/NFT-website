@@ -15,6 +15,7 @@ import BlockSwitcher from "../FirstArea/BlockSwitcher";
 import NftBalance from "./NftBalance";
 import NftCollection from "./NftCollection";
 import SharedAlert from "../Shared/SharedAlert";
+import NftTransfer from "./NftTransfer";
 
 const PermissionCertification = () => {
     const {
@@ -149,6 +150,14 @@ const PermissionCertification = () => {
 
             {/* nft balance & metadata  */}
             {/* <NftBalance /> */}
+
+            {/* <SharedAlert
+                btnList={[]}
+                content={
+                    <NftTransfer />
+                }
+                enable={true}
+            /> */}
 
             {/* all nfts from contract */}
             {/* <NftCollection /> */}
