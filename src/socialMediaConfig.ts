@@ -29,7 +29,7 @@ export const socialList: ISocialList[] = [
     {
         iconName: 'ig',
         title: 'INSTAGRAM',
-        href: 'https://www.instagram.com/p/CbPGrLUhDDQ/',
+        href: 'https://www.instagram.com/vbclabs/',
         visible: true
     },
     {
