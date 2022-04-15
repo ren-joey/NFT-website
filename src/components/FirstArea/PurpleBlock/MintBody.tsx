@@ -13,6 +13,8 @@ import MintButton from "src/components/Shared/MintButton";
 import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
 import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
+import deviceDetector from "src/functions/deviceDetector";
+import metamaskRedirect from "src/functions/metamaskRedirect";
 
 interface IMintMethodName {
     remain: NullableBigNumber
@@ -78,7 +80,13 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                 <MintButton
                     text={lang.LINK_WALLET}
                     style={buttonSize}
-                    onClick={() => EventBus.$emit('fetchLogin')}
+                    onClick={() => {
+                        if (deviceDetector.device?.type !== 'desktop' && !getParameterByName('auto-login')) {
+                            metamaskRedirect();
+                        } else {
+                            EventBus.$emit('fetchLogin');
+                        }
+                    }}
                 />
 
                 <LinkingAnimation />

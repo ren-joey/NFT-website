@@ -5,44 +5,24 @@
  * @returns 清除指定參數後的網址
  */
 const removeParameterByName = (
-    parameter: string,
-    url: string = window.location.href
-): string => {
-    // prefer to use l.search if you have a location/link object
-    const urlparts = url.split('?');
-    if (urlparts.length >= 2) {
-        if (urlparts[0].indexOf('#/') !== -1) {
-            const prefix = `${encodeURIComponent(parameter)}=`;
-            const pars = urlparts[1].split(/[&]/g);
-
-            // reverse iteration as may be destructive
-            for (let i = pars.length - 1; i >= 0; i -= 1) {
-            // idiom for string.startsWith
-                if (pars[i].lastIndexOf(prefix, 0) !== -1) {
-                    pars.splice(i, 1);
-                }
-            }
-
-            return urlparts[0] + (pars.length > 0 ? `?${pars.join('&')}` : '');
-        }
-
-        const idx = urlparts[1].lastIndexOf('#/');
-        const lastStr = urlparts[1].substr(idx);
-        urlparts[1] = urlparts[1].substr(0, idx);
-        const prefix = `${encodeURIComponent(parameter)}=`;
-        const pars = urlparts[1].split(/[&]/g);
-
-        // reverse iteration as may be destructive
-        for (let i = pars.length - 1; i >= 0; i -= 1) {
-            // idiom for string.startsWith
-            if (pars[i].lastIndexOf(prefix, 0) !== -1) {
-                pars.splice(i, 1);
+    key: string,
+    sourceURL: string = window.location.href
+) => {
+    let rtn = sourceURL.split("?")[0],
+        param,
+        params_arr = [];
+    const queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : "";
+    if (queryString !== "") {
+        params_arr = queryString.split("&");
+        for (let i = params_arr.length - 1; i >= 0; i -= 1) {
+            param = params_arr[i].split("=")[0];
+            if (param === key) {
+                params_arr.splice(i, 1);
             }
         }
-
-        return urlparts[0] + (pars.length > 0 ? `?${pars.join('&')}` : '') + lastStr;
+        if (params_arr.length) rtn = rtn + "?" + params_arr.join("&");
     }
-    return url;
+    return rtn;
 };
 
 export { removeParameterByName as default };
