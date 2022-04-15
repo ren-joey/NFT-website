@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import { EventBus } from "src/bus";
 import { LangContext } from "src/Context/LangContext";
 import moralisConfig from "src/moralisConfig";
+import { getParameterByName } from "src/utils";
 
 const LoginService = () => {
     const lang = useContext(LangContext);
@@ -37,6 +38,16 @@ const LoginService = () => {
             res();
         })
     );
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (getParameterByName('auto-login')) {
+                if (!isAuthenticated) {
+                    fetchAuthenticate();
+                }
+            }
+        }, 1000);
+    }, []);
 
     return (
         null

@@ -5,6 +5,7 @@ import loadingAnimation from "src/animation/loadingAnimation";
 import BAlienSvg from "src/components/Shared/BAlienSvg";
 import gaParser from "src/functions/gaParser";
 import loader from "src/functions/loader";
+import { getParameterByName } from "src/utils";
 import 'src/views/LoadingPage.scss';
 
 interface IProps {
@@ -14,7 +15,11 @@ interface IProps {
 
 const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
     const loaderIsReady = useRef(false);
-    const trailerEndedRef = useRef(localStorage.getItem('skip-trailer') === 'true');
+
+    const trailerEndedRef = useRef(
+        localStorage.getItem('skip-trailer') === 'true'
+        || getParameterByName('auto-login') // auto-login 啟用時不需顯示前導動畫
+    );
     const [trailerEnded, setTrailerEnded] = useState(trailerEndedRef.current);
     const tl = gsap.timeline();
     tl.addLabel('Start');

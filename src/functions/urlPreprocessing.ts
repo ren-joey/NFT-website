@@ -4,9 +4,9 @@ import socialMediaRedirect from "./socialMediaRedirect";
 
 const urlPreprocessing = () => (
     new Promise<void>((res) => {
-        const origin = getParameterByName('o');
-        const redirect = getParameterByName('r');
-        const category = getParameterByName('c');
+        const origin = getParameterByName('o') || '';
+        const redirect = getParameterByName('r') || '';
+        const category = getParameterByName('c') || '';
         if (!origin && !redirect && !category) res(undefined);
 
         gaParser(origin, redirect, category);
