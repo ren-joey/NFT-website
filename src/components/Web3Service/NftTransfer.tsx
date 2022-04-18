@@ -10,11 +10,6 @@ const NftTransfer = () => {
     const { nfts } = useContext(ContractContext);
 
     const doTransfer = (nft: INft) => {
-        console.log({
-            from: nft.owner_of,
-            to: moralisConfig.ownerAddress,
-            tokenId: nft.token_id
-        });
         fetchContractVariable<void>({
             fetch,
             paramName: 'transferFrom',

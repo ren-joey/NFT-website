@@ -15,11 +15,8 @@ function fetchContractVariable<T>({
     return new Promise<T>((resolve) => {
         let option = getWeb3ExecuteFunctionOption(paramName);
         if (params) option = { ...option, params };
-        console.log({ params: option });
         fetch({ params: option }).then((result) => {
             resolve(result as T);
-        }).catch((err) => {
-            console.log(err);
         });
     });
 }

@@ -38,10 +38,6 @@ const NftBalance = () => {
         }
     }, [data]);
 
-    useEffect(() => {
-        console.log(nfts);
-    }, [nfts]);
-
     return null;
 };
 
