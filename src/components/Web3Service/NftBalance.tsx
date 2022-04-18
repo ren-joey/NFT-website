@@ -12,7 +12,7 @@ const NftBalance = () => {
         token_addresses: [moralisConfig.contractAddress]
     });
     const { fetch, isFetching } = useWeb3ExecuteFunction();
-    const { nfts, setNfts } = useContext(ContractContext);
+    const { setNfts } = useContext(ContractContext);
 
     useEffect(() => {
         if (data && data.result && !isFetching) {
