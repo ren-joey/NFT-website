@@ -16,9 +16,12 @@ export type ContractVariablesReturnsBoolean = '_isVipWhiteListSaleActive'
                             | '_isSaleActive';
 export type ContractVariablesReturnsString = 'tokenURI'
                             | 'ownerOf';
+export type ContractVariablesReturnsVoid = 'safeTransferFrom'
+                            | 'transferFrom';
 export type ContractVariables = ContractVariablesReturnsBigNum
                             | ContractVariablesReturnsBoolean
-                            | ContractVariablesReturnsString;
+                            | ContractVariablesReturnsString
+                            | ContractVariablesReturnsVoid;
 export type ChainList = "eth"
                             | "0x1"
                             | "ropsten"
