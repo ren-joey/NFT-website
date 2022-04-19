@@ -12,10 +12,11 @@ import { getContractContextBigNumSetter, getContractContextBooleanSetter } from 
 import LoginService from "./LoginService";
 import TimeArea from "../FirstArea/PurpleBlock/TimeArea";
 import BlockSwitcher from "../FirstArea/BlockSwitcher";
-import NftBalance from "./NftBalance";
-import NftCollection from "./NftCollection";
-import SharedAlert from "../Shared/SharedAlert";
-import NftTransfer from "./NftTransfer";
+// import NftBalance from "./NftBalance";
+// import NftCollection from "./NftCollection";
+// import SharedAlert from "../Shared/SharedAlert";
+// import NftTransfer from "./NftTransfer";
+// import WalletConnection from "./WalletConnection";
 
 const PermissionCertification = () => {
     const {

@@ -13,8 +13,6 @@ import MintButton from "src/components/Shared/MintButton";
 import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
 import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
-import deviceDetector from "src/functions/deviceDetector";
-import metamaskRedirect from "src/functions/metamaskRedirect";
 
 interface IMintMethodName {
     remain: NullableBigNumber
@@ -66,7 +64,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
     }, [device]);
 
     // 尚未連結錢包
-    if (!isAuthenticated) {
+    if (!isAuthenticated || !isWeb3Enabled) {
         return (
             <div className="mint-body single">
                 <div className="mint-title">
@@ -80,29 +78,23 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                 <MintButton
                     text={lang.LINK_WALLET}
                     style={buttonSize}
-                    onClick={() => {
-                        if (deviceDetector.device?.type !== 'desktop' && !getParameterByName('auto-login')) {
-                            metamaskRedirect();
-                        } else {
-                            EventBus.$emit('fetchLogin');
-                        }
-                    }}
+                    onClick={() => EventBus.$emit('fetchLogin')}
                 />
 
                 <LinkingAnimation />
             </div>
         );
 
-    // 已連結錢包但 Web3.0 無法啟用，好發於錢包被自動登出
-    } else if (isAuthenticated && !isWeb3Enabled) {
-        return (
-            <div className="mint-body single">
-                <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
-                    {lang.CHECK_YOUR_WALLET}
-                </div>
-                <LinkingAnimation />
-            </div>
-        );
+        // 已連結錢包但 Web3.0 無法啟用，好發於錢包被自動登出
+        // } else if (isAuthenticated && !isWeb3Enabled) {
+        //     return (
+        //         <div className="mint-body single">
+        //             <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
+        //                 {lang.CHECK_YOUR_WALLET}
+        //             </div>
+        //             <LinkingAnimation />
+        //         </div>
+        //     );
 
     // 解盲時段
     } else if (status === 3) {

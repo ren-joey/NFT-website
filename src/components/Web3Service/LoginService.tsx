@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import { EventBus } from "src/bus";
 import { LangContext } from "src/Context/LangContext";
+import deviceDetector from "src/functions/deviceDetector";
 import moralisConfig from "src/moralisConfig";
 import { getParameterByName } from "src/utils";
 
@@ -17,7 +18,10 @@ const LoginService = () => {
     const fetchAuthenticate = async () => {
         await authenticate({
             chainId: moralisConfig.chainId,
-            signingMessage: lang.SIGNING_MESSAGE
+            signingMessage: lang.SIGNING_MESSAGE,
+            ...(deviceDetector.device?.type !== 'desktop') ? {
+                provider: 'walletconnect'
+            } :  {}
         });
     };
 

@@ -8,11 +8,11 @@ import { socialList } from 'src/socialMediaConfig';
 import RoadmapSocialCard from './RoadmapSocialCard';
 import { LangString } from 'src/@types/basicVariable';
 
-interface IRoadmap {
+interface Props {
     selectedLang: LangString
 }
 
-const Roadmap = ({ selectedLang }: IRoadmap) => {
+const Roadmap = ({ selectedLang }: Props) => {
     const { device } = useContext(EventContext);
 
     const getLine = () => {
