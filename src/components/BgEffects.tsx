@@ -1,6 +1,5 @@
 import { Loader } from 'pixi.js';
-import { useCallback, useContext, useEffect } from 'react';
-import bgEffectInit from 'src/animation/bgEffect';
+import { useContext, useEffect } from 'react';
 
 import 'src/components/BgEffects.scss';
 import { getResources } from 'src/functions/loader';
@@ -10,7 +9,9 @@ const BgEffects = () => {
     const { diff } = useContext(EventContext);
 
     useEffect(() => {
-        bgEffectInit();
+        import('src/animation/bgEffect').then((method) => {
+            method.default();
+        });
     }, []);
 
     return (
