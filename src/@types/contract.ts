@@ -3,7 +3,7 @@ import { Web3ExecuteFunctionParameters } from "react-moralis";
 import { ResolveCallOptions } from "react-moralis/lib/hooks/internal/_useResolveAsyncCall";
 
 export type MintMethodName = 'vipWhiteListMintBetamon'|'whiteListMintBetamon'|'mintBetamon';
-export type ContractResponse = (undefined|boolean|BigNumber|string);
+export type ContractResponse = (undefined|boolean|BigNumber|string|string[]);
 export type ContractVariablesReturnsBigNum = 'mintPrice'
                             | 'maxBalance'
                             | 'totalSupply'
@@ -18,10 +18,12 @@ export type ContractVariablesReturnsString = 'tokenURI'
                             | 'ownerOf';
 export type ContractVariablesReturnsVoid = 'safeTransferFrom'
                             | 'transferFrom';
+export type ContractVariablesReturnsBigNumArray = 'getBetamonByOwner';
 export type ContractVariables = ContractVariablesReturnsBigNum
                             | ContractVariablesReturnsBoolean
                             | ContractVariablesReturnsString
-                            | ContractVariablesReturnsVoid;
+                            | ContractVariablesReturnsVoid
+                            | ContractVariablesReturnsBigNumArray;
 export type ChainList = "eth"
                             | "0x1"
                             | "ropsten"
