@@ -24,7 +24,7 @@ const NftBalance = () => {
                     fetchBasicNftData({
                         account,
                         fetch,
-                        nfts: nfts
+                        nfts
                     }).then((processedNfts) => {
                         setNfts(processedNfts);
                     });
