@@ -21,7 +21,9 @@ const LoginService = () => {
             signingMessage: lang.SIGNING_MESSAGE,
             ...(deviceDetector.device?.type !== 'desktop') ? {
                 provider: 'walletconnect'
-            } :  {}
+            } :  {
+                provider: 'metamask'
+            }
         });
     };
 

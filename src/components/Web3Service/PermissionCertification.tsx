@@ -12,6 +12,8 @@ import { getContractContextBigNumSetter, getContractContextBooleanSetter } from 
 import LoginService from "./LoginService";
 import TimeArea from "../FirstArea/PurpleBlock/TimeArea";
 import BlockSwitcher from "../FirstArea/BlockSwitcher";
+import deviceDetector from "src/functions/deviceDetector";
+import NftBalance from "./NftBalance";
 // import NftBalance from "./NftBalance";
 // import NftCollection from "./NftCollection";
 // import SharedAlert from "../Shared/SharedAlert";
@@ -103,7 +105,7 @@ const PermissionCertification = () => {
                             paramName
                         });
                         setter(res);
-                    } else if (typeof res !== 'string') {
+                    } else if (res instanceof BigNumber) {
                         const setter = getContractContextBigNumSetter({
                             contractContext,
                             paramName
@@ -122,8 +124,7 @@ const PermissionCertification = () => {
                 paramName,
                 fetch
             }).then((res) => {
-                if (res === undefined) return;
-                if (typeof res !== 'boolean' && typeof res !== 'string') {
+                if (res instanceof BigNumber) {
                     const setter = getContractContextBigNumSetter({
                         contractContext,
                         paramName
@@ -135,7 +136,13 @@ const PermissionCertification = () => {
     }, [account]);
 
     useEffect(() => {
-        if (isAuthenticated) enableWeb3();
+        if (isAuthenticated) enableWeb3(
+            deviceDetector.device?.type !== 'desktop' ? {
+                provider: 'walletconnect'
+            } : {
+                provider: 'metamask'
+            }
+        );
     }, [isAuthenticated]);
 
     return (
@@ -150,7 +157,12 @@ const PermissionCertification = () => {
             <TimeArea remain={remain} />
 
             {/* nft balance & metadata  */}
-            {/* <NftBalance /> */}
+            {
+                // [DEV]
+                getParameterByName('transfer') && (
+                    <NftBalance />
+                )
+            }
 
             {/* <SharedAlert
                 btnList={[]}

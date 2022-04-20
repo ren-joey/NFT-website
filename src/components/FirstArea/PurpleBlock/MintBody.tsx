@@ -13,6 +13,7 @@ import MintButton from "src/components/Shared/MintButton";
 import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
 import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
+import NftTransfer from "src/components/Web3Service/NftTransfer";
 
 interface IMintMethodName {
     remain: NullableBigNumber
@@ -162,6 +163,13 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                         // [DEV]
                         getParameterByName('logout') && (
                             <button onClick={() => EventBus.$emit('fetchLogout')}>{lang.LOGOUT}</button>
+                        )
+                    }
+
+                    {
+                        // [DEV]
+                        getParameterByName('transfer') && (
+                            <NftTransfer />
                         )
                     }
                 </div>
