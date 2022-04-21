@@ -4,14 +4,13 @@ import { useContext, useEffect } from 'react';
 import 'src/components/BgEffects.scss';
 import { getResources } from 'src/functions/loader';
 import { EventContext } from 'src/Context/EventContext';
+import bgEffectInit from 'src/animation/bgEffect';
 
 const BgEffects = () => {
     const { diff } = useContext(EventContext);
 
     useEffect(() => {
-        import('src/animation/bgEffect').then((method) => {
-            method.default();
-        });
+        bgEffectInit();
     }, []);
 
     return (

@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { scrollTriggerInit, scrollTriggerKillAll } from "src/animation/scrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import BgEffects from "src/components/BgEffects";
@@ -20,8 +20,15 @@ import 'src/views/FrontPage.scss';
 import CountingHandler from "src/CountingHandler";
 import ToBeAnnounced from "src/components/ToBeAnnounced";
 import { DeviceString, LangString } from "src/@types/basicVariable";
-import LazyStaticDom from "src/components/LazyComponents/LazyStaticDom";
-import LazyFirstArea from "src/components/LazyComponents/LazyFirstArea";
+import VbcLabs from "src/components/VbcLabs/VbcLabs";
+import FAQ from "src/components/FAQ/FAQ";
+import Footer from "src/components/Footer";
+import Statement from "src/components/Statement";
+import FirstArea from "src/components/FirstArea/FirstArea";
+import AboutB from "src/components/AboutB/AboutB";
+import KolSupport from "src/components/KolSupport/KolSupport";
+import MediaSupport from "src/components/MediaSupport/MediaSupport";
+import Roadmap from "src/components/Roadmap/Roadmap";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -83,35 +90,6 @@ const FrontPage = () => {
         }
     }, [selectedLang]);
 
-    const staticLazyFirstArea = useMemo(
-        () => (<LazyFirstArea selectedLang={selectedLang} />),
-        []
-    );
-
-    const staticLazyDoms = useMemo(() => (
-        <Suspense fallback={null}>
-            {/* 開賣期 */}
-            <div className="fp-container">
-                <LazyStaticDom entry={
-                    import('src/components/VbcLabs/VbcLabs')
-                } />
-
-                <LazyStaticDom entry={
-                    import('src/components/FAQ/FAQ')
-                } />
-            </div>
-
-            <LazyStaticDom entry={
-                import('src/components/Footer')
-            } />
-
-            {/* 召喚聲明 */}
-            <LazyStaticDom entry={
-                import('src/components/Statement')
-            } />
-        </Suspense>
-    ), []);
-
     return (
         <LangContext.Provider value={{ ...lang }}>
             <EventContext.Provider value={{
@@ -133,11 +111,29 @@ const FrontPage = () => {
                         setSelectedLang={setSelectedLang}
                     />
 
-                    { staticLazyFirstArea }
+                    <div className="fp-container">
+                        <FirstArea />
+                        <AboutB selectedLang={selectedLang} />
+                        <KolSupport total={5} />
+                        <MediaSupport total={6} />
+                        <Roadmap selectedLang={selectedLang} />
+                    </div>
 
+                    {/* to be announced 旋轉效果 */}
                     <ToBeAnnounced />
 
-                    { staticLazyDoms }
+                    {/* 開賣期 */}
+                    <div className="fp-container">
+                        <VbcLabs />
+
+                        <FAQ />
+                    </div>
+
+                    {/* 地球效果 */}
+                    <Footer />
+
+                    {/* 底部免責聲明 */}
+                    <Statement />
 
                     {/* fixed 背景特效區塊 */}
                     <BgEffects />

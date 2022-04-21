@@ -1,19 +1,15 @@
 import 'src/components/FirstArea/FirstArea.scss';
 import TitleArea from './TitleArea';
 import LinkArea from './LinkArea';
-import { Suspense, useMemo } from 'react';
+import { useMemo } from 'react';
 import BetamonStagePhone from './BetamonStage/BetamonStagePhone';
-import LazyStaticDom from '../LazyComponents/LazyStaticDom';
+import Web3Provider from '../Web3Service/Web3Provider';
 
 const FirstArea = () => {
     const staticWeb3Provider = useMemo(() => (
         <div className="front-container">
             {/* 包含 mint 區塊、時間及倒數 */}
-            <Suspense fallback={null}>
-                <LazyStaticDom entry={
-                    import('src/components/Web3Service/Web3Provider')
-                } />
-            </Suspense>
+            <Web3Provider />
 
             {/* 主標題、介紹及連結 */}
             <TitleArea />
