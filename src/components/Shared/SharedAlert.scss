@@ -17,7 +17,7 @@ $angle-width: 4px;
 
     .alert-block {
         position: relative;
-        padding: 2rem;
+        padding: 2rem 2rem 1rem;
         max-width: 390px;
         background-color: rgba(117, 17, 169, 0.9);
         border: 1px solid #fff;
@@ -78,6 +78,7 @@ $angle-width: 4px;
                 flex-wrap: wrap;
                 justify-content: center;
                 margin-top: 1rem;
+                padding-bottom: 1rem;
             }
         }
 

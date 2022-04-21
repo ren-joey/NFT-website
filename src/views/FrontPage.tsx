@@ -2,13 +2,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
 import { scrollTriggerInit, scrollTriggerKillAll } from "src/animation/scrollTrigger";
-import AboutB from "src/components/AboutB/AboutB";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import BgEffects from "src/components/BgEffects";
-import FirstArea from "src/components/FirstArea/FirstArea";
-import Footer from "src/components/Footer";
 import Header from "src/components/Header/Header";
-import Roadmap from "src/components/Roadmap/Roadmap";
 import { EventContext } from "src/Context/EventContext";
 import { getParameterByName } from "src/utils/url/getParameterByName";
 import ScrollDownIcon from "src/components/Shared/ScrollDownIcon";
@@ -23,13 +19,16 @@ import ZH_TW from "src/lang/ZH_TW";
 import 'src/views/FrontPage.scss';
 import CountingHandler from "src/CountingHandler";
 import ToBeAnnounced from "src/components/ToBeAnnounced";
+import { DeviceString, LangString } from "src/@types/basicVariable";
+import VbcLabs from "src/components/VbcLabs/VbcLabs";
 import FAQ from "src/components/FAQ/FAQ";
+import Footer from "src/components/Footer";
+import Statement from "src/components/Statement";
+import FirstArea from "src/components/FirstArea/FirstArea";
+import AboutB from "src/components/AboutB/AboutB";
 import KolSupport from "src/components/KolSupport/KolSupport";
 import MediaSupport from "src/components/MediaSupport/MediaSupport";
-import VbcLabs from "src/components/VbcLabs/VbcLabs";
-import Statement from "src/components/Statement";
-import { DeviceString, LangString } from "src/@types/basicVariable";
-import reportWebVitals from "src/reportWebVitals";
+import Roadmap from "src/components/Roadmap/Roadmap";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -120,17 +119,20 @@ const FrontPage = () => {
                         <Roadmap selectedLang={selectedLang} />
                     </div>
 
+                    {/* to be announced 旋轉效果 */}
                     <ToBeAnnounced />
 
                     {/* 開賣期 */}
                     <div className="fp-container">
                         <VbcLabs />
+
                         <FAQ />
                     </div>
 
+                    {/* 地球效果 */}
                     <Footer />
 
-                    {/* 召喚聲明 */}
+                    {/* 底部免責聲明 */}
                     <Statement />
 
                     {/* fixed 背景特效區塊 */}

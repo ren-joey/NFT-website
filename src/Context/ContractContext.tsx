@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import React from "react";
-import { INft } from "src/@types/nft";
+import { BasicNft, INft } from "src/@types/nft";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
 
 export interface IContractData {
@@ -19,10 +19,10 @@ export interface IContractData {
     setMintPrice: (num: BigNumber) => void;
     maxBalance: NullableBigNumber;
     setMaxBalance: (num: BigNumber) => void
-    nfts: INft[];
-    setNfts: (nfts: INft[]) => void;
-    allNfts: INft[];
-    setAllNfts: (nfts: INft[]) => void;
+    nfts: (INft | BasicNft)[];
+    setNfts: (nfts: (INft | BasicNft)[]) => void;
+    allNfts: (INft | BasicNft)[];
+    setAllNfts: (nfts: (INft | BasicNft)[]) => void;
     isBlindBoxOpened: (undefined|boolean);
     setIsBlindBoxOpened: (bool: boolean) => void;
     isVipWhiteList: (undefined|boolean);

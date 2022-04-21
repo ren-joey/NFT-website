@@ -1,6 +1,12 @@
 import { ChainList } from "./contract";
 import { IMetadata } from "./metadata";
 
+export interface BasicNft {
+    token_id: string,
+    metadata: IMetadata | undefined,
+    owner_of: string
+}
+
 export interface INft {
     image?: string | null | undefined;
     metadata?: IMetadata | string | undefined;

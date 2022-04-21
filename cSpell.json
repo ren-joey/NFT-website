@@ -104,6 +104,8 @@
         "webfonts",
         "moralis",
         "betamon",
-        "subevent"
+        "subevent",
+        "walletconnect",
+        "tailwindcss"
     ]
 }
