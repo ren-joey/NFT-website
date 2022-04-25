@@ -1,6 +1,18 @@
 import { ChainList } from "./contract";
 import { IMetadata } from "./metadata";
 
+
+export type Web3Provider = 'metamask'
+                            | 'walletconnect'
+                            | 'walletConnect'
+                            | 'wc'
+                            | 'magicLink'
+                            | 'web3Auth';
+
+interface Provider {
+    provider?: Web3Provider
+}
+
 export interface BasicNft {
     token_id: string,
     metadata: IMetadata | undefined,
@@ -24,6 +36,7 @@ export interface INft {
 }
 
 export interface IMoralisConfig {
+    officialWebsiteUrl: string,
     serverUrl: string,
     appId: string,
     contractAddress: string,
@@ -32,5 +45,6 @@ export interface IMoralisConfig {
     chainId: number,
     etherscanUrl: string,
     metadataBaseUrl: string,
-    imageUrl: string
+    imageUrl: string,
+    authConfig: Provider
 }

@@ -20,7 +20,7 @@ const NftBalance = () => {
                 },
                 fetch
             }).then((nfts) => {
-                if (nfts instanceof Array) {
+                if (Array.isArray(nfts)) {
                     fetchBasicNftData({
                         account,
                         fetch,

@@ -14,6 +14,8 @@ import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHa
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
 import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
 import NftTransfer from "src/components/Web3Service/NftTransfer";
+import deviceDetector from "src/functions/deviceDetector";
+import metamaskRedirect from "src/functions/metamaskRedirect";
 
 interface IMintMethodName {
     remain: NullableBigNumber
@@ -79,7 +81,9 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                 <MintButton
                     text={lang.LINK_WALLET}
                     style={buttonSize}
-                    onClick={() => EventBus.$emit('fetchLogin')}
+                    onClick={() => {
+                        EventBus.$emit('fetchLogin');
+                    }}
                 />
 
                 <LinkingAnimation />

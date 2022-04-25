@@ -53,7 +53,7 @@ const PermissionCertification = () => {
                             paramName
                         });
                         setter(res);
-                    } else if (res instanceof BigNumber) {
+                    } else if (BigNumber.isBigNumber(res)) {
                         const setter = getContractContextBigNumSetter({
                             contractContext,
                             paramName

@@ -1,13 +1,14 @@
 import { BigNumber } from "ethers";
-import { useContext, useEffect } from "react";
+import { stat } from "fs";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { ContractVariables } from "src/@types/contract";
 import { EventBus } from "src/bus";
 import { ContractContext } from "src/Context/ContractContext";
 import { LangContext } from "src/Context/LangContext";
-import deviceDetector from "src/functions/deviceDetector";
 import moralisConfig from "src/moralisConfig";
-import { getParameterByName } from "src/utils";
+import { copyTextToClipboard } from "src/utils/stringFormat/copyTextToClipboard";
+import SharedAlert from "../Shared/SharedAlert";
 import fetchContractVariable from "./functions/fetchContractVariable";
 import { getContractContextBigNumSetter } from "./functions/getContractContextSetter";
 
@@ -22,22 +23,22 @@ const LoginService = () => {
         isWeb3Enabled,
         enableWeb3,
         account,
-        logout
+        logout,
+        authError
     } = useMoralis();
 
     const {
         fetch
     } = useWeb3ExecuteFunction();
 
+    const [alertState, setAlertState] = useState(false);
+    const [timer, setTimer] = useState<undefined | NodeJS.Timeout>(undefined);
+
     const fetchAuthenticate = async () => {
         await authenticate({
             chainId: moralisConfig.chainId,
             signingMessage: lang.SIGNING_MESSAGE,
-            ...(deviceDetector.device?.type !== 'desktop') ? {
-                provider: 'walletconnect'
-            } :  {
-                provider: 'metamask'
-            }
+            ...moralisConfig.authConfig
         });
     };
 
@@ -60,14 +61,14 @@ const LoginService = () => {
     );
 
     useEffect(() => {
-        setTimeout(() => {
-            if (getParameterByName('auto-login')) {
-                if (!isAuthenticated) {
-                    fetchAuthenticate();
-                }
-            }
-        }, 1000);
-    }, []);
+        if (authError) {
+            setTimer(
+                setTimeout(() => {
+                    setAlertState(true);
+                }, 3000)
+            );
+        }
+    }, [authError]);
 
     useEffect(() => {
         if (isWeb3Enabled) {
@@ -76,7 +77,7 @@ const LoginService = () => {
                 paramName,
                 fetch
             }).then((res) => {
-                if (res instanceof BigNumber) {
+                if (BigNumber.isBigNumber(res) ) {
                     const setter = getContractContextBigNumSetter({
                         contractContext,
                         paramName
@@ -88,17 +89,36 @@ const LoginService = () => {
     }, [account]);
 
     useEffect(() => {
-        if (isAuthenticated) enableWeb3(
-            deviceDetector.device?.type !== 'desktop' ? {
-                provider: 'walletconnect'
-            } : {
-                provider: 'metamask'
-            }
-        );
-    }, [isAuthenticated]);
+        if (isAuthenticated) {
+            if (timer) clearTimeout(timer);
+            enableWeb3(moralisConfig.authConfig);
+        }
+    }, [isAuthenticated, timer]);
 
     return (
-        null
+        <>
+            <SharedAlert
+                content={
+                    <div>
+                        { lang.COPY_THE_FOLLOWING_URL }
+                        <br />
+                        { moralisConfig.officialWebsiteUrl }
+                    </div>
+                }
+                btnList={
+                    [
+                        {
+                            text: lang.COPY_AND_CLOSE,
+                            onClick: () => {
+                                copyTextToClipboard(moralisConfig.officialWebsiteUrl);
+                                setAlertState(false);
+                            }
+                        }
+                    ]
+                }
+                enable={alertState}
+            />
+        </>
     );
 };
 
