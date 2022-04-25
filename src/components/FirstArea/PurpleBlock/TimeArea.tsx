@@ -1,11 +1,33 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NullableBigNumber } from "src/@types/basicVariable";
-import { EventContext } from "src/Context/EventContext";
+import { defaultEventContext, EventContext } from "src/Context/EventContext";
+import CountingHandler from "src/CountingHandler";
 import Counter from "../Counter";
 import RevealTime from "../RevealTime";
 
 const TimeArea = ({ remain }: { remain: NullableBigNumber }) => {
-    const { status } = useContext(EventContext);
+    const {
+        status,
+        setDiff,
+        setCounter,
+        setStatus,
+        setEnd
+    } = useContext(EventContext);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDiff(CountingHandler.diff);
+            if (CountingHandler.diff <= 0) {
+                setCounter(defaultEventContext.counter);
+            } else {
+                setCounter(CountingHandler.getDateTime());
+            }
+            setStatus(CountingHandler.status);
+            setEnd(CountingHandler.getEnd());
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    });
 
     switch(status) {
         case -1:

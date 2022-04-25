@@ -1,6 +1,7 @@
 import { IMoralisConfig } from "./@types/nft";
 
 const moralisConfig: IMoralisConfig = {
+    officialWebsiteUrl: 'https://www.vbc-labs.com/',
     serverUrl: 'https://0h72z1f6z5zv.usemoralis.com:2053/server',
     appId: 'U6GvcTlZ2aD8hF0CD967tsAA9AAFKS25H0NPXCJ0',
 
@@ -14,8 +15,8 @@ const moralisConfig: IMoralisConfig = {
     // contractAddress: '0x6ae4304a7aF24EB71173331FA7b25E95F99D2Bß07',
 
     // ownerAddress: '0x03799820935f0FF5c0CE8ceBd82DB49b4053e4E8', // 主錢包
-    ownerAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0', // account 1 [DEV]
-    // ownerAddress: '0x23AdF1409c5b2436978BF21d9AB36BCb918F2607', // account 3 [DEV]
+    // ownerAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0', // account 1 [DEV]
+    ownerAddress: '0x23AdF1409c5b2436978BF21d9AB36BCb918F2607', // account 3 [DEV]
 
     // provider: 'eth',
     provider: 'rinkeby', // [DEV]
@@ -28,7 +29,14 @@ const moralisConfig: IMoralisConfig = {
 
     metadataBaseUrl: 'https://d1gcra2b3uvkgc.cloudfront.net/',
     // metadataBaseUrl: 'https://0h72z1f6z5zv.usemoralis.com/', // legacy
-    imageUrl: 'https://d2lle8dgtqcwbk.cloudfront.net'
+    imageUrl: 'https://d2lle8dgtqcwbk.cloudfront.net',
+
+    authConfig: {}
+    // authConfig: deviceDetector.device?.type === 'desktop'
+    //     ? {}
+    //     : {
+    //         provider: 'walletconnect'
+    //     }
 };
 
 export default moralisConfig;

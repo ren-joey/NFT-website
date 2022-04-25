@@ -8,11 +8,11 @@ import BAlienSlider from './BAlienSlider';
 import FeatureCard from './FeatureCard';
 import { LangString } from 'src/@types/basicVariable';
 
-interface IAboutB {
+interface Props {
     selectedLang: LangString
 }
 
-const AboutB = ({ selectedLang }: IAboutB) => {
+const AboutB = ({ selectedLang }: Props) => {
     const { device } = useContext(EventContext);
     const lang = useContext(LangContext);
     const skullIcon: React.CSSProperties = { backgroundImage: `url(${getResources('skull_icon')})` };
