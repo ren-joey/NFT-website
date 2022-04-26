@@ -13,10 +13,10 @@ import { MintMethodName } from 'src/@types/contract';
 import MintBody from './MintBody';
 
 interface IProps {
-    remain: NullableBigNumber
+    supplyRemain: NullableBigNumber
 }
 
-const MintBlock = ({ remain }: IProps) => {
+const MintBlock = ({ supplyRemain }: IProps) => {
     const { status } = useContext(EventContext);
     const { maxBalance } = useContext(ContractContext);
     const lang = useContext(LangContext);
@@ -35,17 +35,17 @@ const MintBlock = ({ remain }: IProps) => {
             case -1:
                 return lang.MINT_BLOCK_NOTE_1;
             case 0:
-                if (remain?.isZero()) {
+                if (supplyRemain?.isZero()) {
                     return lang.MINT_BLOCK_NOTE_2_SOLD_OUT;
                 }
                 return lang.MINT_BLOCK_NOTE_2;
             case 1:
-                if (remain?.isZero()) {
+                if (supplyRemain?.isZero()) {
                     return lang.MINT_BLOCK_NOTE_3_SOLD_OUT;
                 }
                 return lang.MINT_BLOCK_NOTE_3;
             case 2:
-                if (remain?.isZero()) {
+                if (supplyRemain?.isZero()) {
                     return lang.MINT_BLOCK_NOTE_4_SOLD_OUT;
                 }
                 if (maxBalance === null) return '';
@@ -55,7 +55,7 @@ const MintBlock = ({ remain }: IProps) => {
             default:
                 return lang.MINT_BLOCK_NOTE_DEFAULT;
         }
-    }, [status, remain, maxBalance, lang]);
+    }, [status, supplyRemain, maxBalance, lang]);
 
     return (
         <div className="mint-block">
@@ -68,7 +68,7 @@ const MintBlock = ({ remain }: IProps) => {
                 </div>
             </div>
 
-            <MintBody mintMethodName={methodName} remain={remain} />
+            <MintBody mintMethodName={methodName} supplyRemain={supplyRemain} />
 
             <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>
 

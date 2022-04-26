@@ -8,7 +8,7 @@ import BetamonStage from "./BetamonStage/BetamonStage";
 import MintBlock from "./PurpleBlock/MintBlock";
 import TimeArea from "./PurpleBlock/TimeArea";
 
-const RemainProvider = () => {
+const SupplyRemainProvider = () => {
     const {
         MAX_SUPPLY,
         MAX_VIP_WHITE_LIST_SUPPLY,
@@ -20,7 +20,7 @@ const RemainProvider = () => {
 
     const _totalSupply = getParameterByName('totalSupply'); // [DEV]
 
-    const remain = useMemo<NullableBigNumber>(() => {
+    const supplyRemain = useMemo<NullableBigNumber>(() => {
         if (_totalSupply) return BigNumber.from(_totalSupply);
 
         if (totalSupply === null
@@ -28,23 +28,23 @@ const RemainProvider = () => {
             || MAX_WHITE_LIST_SUPPLY === null
             || MAX_SUPPLY === null) return null;
 
-        let _remain = BigNumber.from(0);
+        let remain = BigNumber.from(0);
         switch (status) {
             case -1:
             case 0:
-                _remain = MAX_VIP_WHITE_LIST_SUPPLY.sub(totalSupply);
+                remain = MAX_VIP_WHITE_LIST_SUPPLY.sub(totalSupply);
                 break;
             case 1:
-                _remain = MAX_WHITE_LIST_SUPPLY.sub(totalSupply);
+                remain = MAX_WHITE_LIST_SUPPLY.sub(totalSupply);
                 break;
             case 2:
             case 3:
-                _remain = MAX_SUPPLY.sub(totalSupply);
+                remain = MAX_SUPPLY.sub(totalSupply);
                 break;
             default:
-                _remain = BigNumber.from(0);
+                remain = BigNumber.from(0);
         }
-        return _remain.lt(0) ? BigNumber.from(0) : _remain;
+        return remain.lt(0) ? BigNumber.from(0) : remain;
     }, [
         MAX_SUPPLY,
         MAX_WHITE_LIST_SUPPLY,
@@ -60,13 +60,13 @@ const RemainProvider = () => {
                 // 活動尚未開始且距離開始時間七天以上
                 status === -1 && diff > (7 * 24 * 60 * 60 * 1000)
                     ? <BetamonStage />
-                    : <MintBlock remain={remain} />
+                    : <MintBlock supplyRemain={supplyRemain} />
             }
 
             {/* 時間及倒數區塊 */}
-            <TimeArea remain={remain} />
+            <TimeArea supplyRemain={supplyRemain} />
         </>
     );
 };
 
-export default RemainProvider;
+export default SupplyRemainProvider;

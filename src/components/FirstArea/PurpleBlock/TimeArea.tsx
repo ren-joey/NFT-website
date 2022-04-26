@@ -5,7 +5,7 @@ import CountingHandler from "src/CountingHandler";
 import Counter from "../Counter";
 import RevealTime from "../RevealTime";
 
-const TimeArea = ({ remain }: { remain: NullableBigNumber }) => {
+const TimeArea = ({ supplyRemain }: { supplyRemain: NullableBigNumber }) => {
     const {
         status,
         setDiff,
@@ -39,7 +39,7 @@ const TimeArea = ({ remain }: { remain: NullableBigNumber }) => {
                 </>
             );
         case 2:
-            return (remain?.isZero()) ? (
+            return (supplyRemain?.isZero()) ? (
                 <>
                     <RevealTime />
                     <Counter />
