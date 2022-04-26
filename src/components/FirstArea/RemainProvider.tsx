@@ -57,12 +57,10 @@ const RemainProvider = () => {
         <>
             {/* mint 區塊 */}
             {
-                status === -1 && diff > 604800000
-                    ? (
-                        <BetamonStage />
-                    ) : (
-                        <MintBlock remain={remain} />
-                    )
+                // 活動尚未開始且距離開始時間七天以上
+                status === -1 && diff > (7 * 24 * 60 * 60 * 1000)
+                    ? <BetamonStage />
+                    : <MintBlock remain={remain} />
             }
 
             {/* 時間及倒數區塊 */}
