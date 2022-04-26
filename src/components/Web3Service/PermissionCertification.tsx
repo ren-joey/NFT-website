@@ -1,7 +1,6 @@
 import { BigNumber } from "ethers";
 import React, { useContext, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import SoldOutAlert from "src/components/Shared/SoldOutAlert";
 import { ContractResponse, ContractVariables } from "src/@types/contract";
 import { getParameterByName } from "src/utils";
 import { ContractContext } from "../../Context/ContractContext";
@@ -91,9 +90,6 @@ const PermissionCertification = () => {
 
             {/* all nfts from contract */}
             {/* <NftCollection /> */}
-
-            {/* VIP 白名單售罄彈窗 */}
-            <SoldOutAlert />
         </>
     );
 };
