@@ -6,9 +6,9 @@ interface Props {
     selectedLang: LangString
 }
 
-const LazyFirstArea = ({
+const LazyFirstArea = React.memo(function LazyFirstArea ({
     selectedLang
-}: Props) => {
+}: Props) {
     const AboutB = React.lazy(() => import('src/components/AboutB/AboutB'));
     const KolSupport = React.lazy(() => import('src/components/KolSupport/KolSupport'));
     const MediaSupport = React.lazy(() => import('src/components/MediaSupport/MediaSupport'));
@@ -26,6 +26,6 @@ const LazyFirstArea = ({
             </Suspense>
         </div>
     );
-};
+});
 
 export default LazyFirstArea;
