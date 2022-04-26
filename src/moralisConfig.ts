@@ -1,6 +1,7 @@
 import { IMoralisConfig } from "./@types/nft";
 
 const moralisConfig: IMoralisConfig = {
+    version: '1.1.1',
     officialWebsiteUrl: 'https://www.vbc-labs.com/',
     serverUrl: 'https://0h72z1f6z5zv.usemoralis.com:2053/server',
     appId: 'U6GvcTlZ2aD8hF0CD967tsAA9AAFKS25H0NPXCJ0',
@@ -31,13 +32,12 @@ const moralisConfig: IMoralisConfig = {
     // metadataBaseUrl: 'https://0h72z1f6z5zv.usemoralis.com/', // legacy
     imageUrl: 'https://d2lle8dgtqcwbk.cloudfront.net',
 
-    authConfig: {},
+    authConfig: {}
     // authConfig: deviceDetector.device?.type === 'desktop'
     //     ? {}
     //     : {
     //         provider: 'walletconnect'
     //     }
-    version: '1.1.0'
 };
 
 export default moralisConfig;

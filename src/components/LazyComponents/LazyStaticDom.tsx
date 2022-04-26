@@ -1,12 +1,18 @@
-import React, { useMemo } from "react";
+import React, { Suspense } from "react";
 
-const LazyStaticDom = ({ entry }: {
+interface Props {
     entry: Promise<any>
-}) => {
-    const Dom = React.lazy(() => entry);
-    const StaticDom = useMemo(() => <Dom />, []);
+}
 
-    return StaticDom;
-};
+const LazyStaticDom = React.memo(function LazyStaticDom({
+    entry
+}: Props) {
+    const Dom = React.lazy(() => entry);
+    return (
+        <Suspense fallback={null}>
+            <Dom />
+        </Suspense>
+    );
+});
 
 export default LazyStaticDom;

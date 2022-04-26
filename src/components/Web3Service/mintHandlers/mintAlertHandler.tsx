@@ -14,7 +14,7 @@ export interface IMintAlertHandler {
     setAlertData: (key: IAlertData) => void,
     disableAlert: () => void,
     status: number,
-    remain: NullableBigNumber,
+    supplyRemain: NullableBigNumber,
     amount: number,
     getBalance: NullableBigNumber,
     maxBalance: NullableBigNumber,
@@ -32,7 +32,7 @@ export const mintAlertHandler = ({
     setAlertData,
     status,
     disableAlert,
-    remain,
+    supplyRemain,
     amount,
     getBalance,
     maxBalance,
@@ -53,11 +53,11 @@ export const mintAlertHandler = ({
     // 合約資料尚未 fetch 完成
     else if (getBalance === null
                         || maxBalance === null
-                        || remain === null
+                        || supplyRemain === null
                         || mintPrice === null) return;
 
     // 所有 NFT 於該階段已 mint 完畢
-    else if (remain.lte(0)) enableSoldOutAlert(defaultParams);
+    else if (supplyRemain.lte(0)) enableSoldOutAlert(defaultParams);
 
     // 持有的 ETH 不足
     else if (nativeBalance.balance

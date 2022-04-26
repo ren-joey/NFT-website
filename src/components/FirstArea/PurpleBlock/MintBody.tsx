@@ -16,11 +16,11 @@ import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
 import NftTransfer from "src/components/Web3Service/NftTransfer";
 
 interface IMintMethodName {
-    remain: NullableBigNumber
+    supplyRemain: NullableBigNumber
     mintMethodName?: MintMethodName,
 }
 
-const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) => {
+const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodName) => {
     const {
         isAuthenticated,
         isWeb3Enabled
@@ -123,9 +123,9 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                     <div className="mint-status">
                         {lang.REMAIN}
                         {
-                            (totalSupply === null || remain === null)
+                            (totalSupply === null || supplyRemain === null)
                                 ? '--'
-                                : remain.toString()
+                                : supplyRemain.toString()
                         }
                     </div>
                     <div className="mint-status">
@@ -149,7 +149,7 @@ const MintBody = ({ remain, mintMethodName = 'mintBetamon' }: IMintMethodName) =
                     <MintButtonHandler
                         alertData={alertData}
                         setAlertData={setAlertData}
-                        remain={remain}
+                        supplyRemain={supplyRemain}
                         amount={amount}
                         buttonSize={buttonSize}
                         mintMethodName={mintMethodName}

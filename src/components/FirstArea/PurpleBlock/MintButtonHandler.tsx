@@ -13,7 +13,7 @@ import MintButton from "src/components/Shared/MintButton";
 
 interface IProps {
     amount: number,
-    remain: NullableBigNumber,
+    supplyRemain: NullableBigNumber,
     mintMethodName: MintMethodName,
     alertData: IAlertData,
     setAlertData: (key: IAlertData) => void,
@@ -27,7 +27,7 @@ export interface INativeBalance {
 
 const MintButtonHandler = ({
     amount,
-    remain,
+    supplyRemain,
     mintMethodName,
     alertData,
     setAlertData,
@@ -85,17 +85,17 @@ const MintButtonHandler = ({
                     mintPrice,
                     mintPriceEth,
                     nativeBalance,
-                    remain,
+                    supplyRemain,
                     setAlertData,
                     status
                 });
             }}
             disable={
-                remain === null // 尚未 fetch 完畢
+                supplyRemain === null // 尚未 fetch 完畢
                     || status === -1 // 活動尚未開始
                     || getBalance?.gte(maxBalance || 0) // 持有 nft 已達上限
                     || alertData.enable === true // 任意彈窗尚未處理完成
-                    || remain.lte(0) ? true : undefined // 剩餘數量 <= 0
+                    || supplyRemain.lte(0) ? true : undefined // 剩餘數量 <= 0
             }
             style={buttonSize}
         />
