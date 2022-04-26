@@ -16,7 +16,10 @@ const enableConfirmAlert = ({
     'maxBalance'|'setAlertData'|'lang'|'disableAlert'|'amount'|'fetch'|'mintMethodName'|'mintPrice'
     >
 ) => {
-    if (amount === null || maxBalance === null) return;
+    if (amount === null
+        || maxBalance === null
+        || mintPrice === null) return;
+
     setAlertData({
         enable: true,
         content: stringReplacer(lang.MINT_ALERT, amount, maxBalance),

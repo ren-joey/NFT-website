@@ -47,10 +47,15 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
 
     const [amount, setAmount] = useState(1);
     const increaseAmount = () => {
-        const max = Number(maxBalance);
-        setAmount((amount + 1) % (max + 1) || max);
+        let nextAmount = amount + 1;
+        if (nextAmount >= 3) nextAmount = 3;
+        setAmount(nextAmount);
     };
-    const decreaseAmount = () => setAmount((amount - 1) || 1);
+    const decreaseAmount = () => {
+        let nextAmount = amount - 1;
+        if (nextAmount <= 1) nextAmount = 1;
+        setAmount(nextAmount);
+    };
 
     const buttonSize = useMemo<React.CSSProperties>(() => {
         if (device === 'desktop') {
