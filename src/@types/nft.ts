@@ -46,5 +46,6 @@ export interface IMoralisConfig {
     etherscanUrl: string,
     metadataBaseUrl: string,
     imageUrl: string,
-    authConfig: Provider
+    authConfig: Provider,
+    version: string
 }
