@@ -11,7 +11,7 @@ const enableNotInWhiteList = ({
 ) => {
     setAlertData({
         enable: true,
-        content: lang.NOT_INT_WHITE_LIST,
+        content: lang.NOT_IN_WHITE_LIST,
         btnList: [
             {
                 text: lang.I_WILL_WAIT_MORE,
