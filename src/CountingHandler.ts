@@ -15,11 +15,11 @@ class CountingHandler {
 
     constructor() {
         this.counterTimes = [
-            getMoment(`2022/03/27 17:26`), // VIP [DEV]
-            getMoment(`2022/03/27 17:27`), // 搗蛋
-            getMoment(`2022/04/27 10:20`), // 全面
-            getMoment(`2022/05/27 17:29`), // 解盲
-            getMoment(`2022/05/27 16:20`) // 下一波活動
+            getMoment(`2022/05/30 17:26`), // VIP [DEV]
+            getMoment(`2022/05/31 17:27`), // 搗蛋
+            getMoment(`2022/05/31 17:28`), // 全面
+            getMoment(`2022/05/31 17:29`), // 解盲
+            getMoment(`2022/05/31 16:20`) // 下一波活動
 
             // getMoment(`2022/03/31 15:00`), // VIP
             // getMoment(`2022/04/26 15:00`), // 搗蛋
