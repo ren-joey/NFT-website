@@ -27,6 +27,7 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
     } = useMoralis();
 
     const {
+        MAX_SUPPLY,
         getBalance,
         totalSupply,
         maxBalance,
@@ -48,7 +49,7 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
     const [amount, setAmount] = useState(1);
     const increaseAmount = () => {
         let nextAmount = amount + 1;
-        if (nextAmount >= 3) nextAmount = 3;
+        if (nextAmount >= 99) nextAmount = 99;
         setAmount(nextAmount);
     };
     const decreaseAmount = () => {
@@ -135,7 +136,11 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
                     </div>
                     <div className="mint-status">
                         {lang.MAX_BALANCE}
-                        {maxBalance === null ? '--' : maxBalance.toString()}
+                        {maxBalance === null
+                            ? '--'
+                            : MAX_SUPPLY !== null && maxBalance.eq(MAX_SUPPLY)
+                                ? '∞'
+                                : maxBalance.toString()}
                     </div>
                     <div className="mint-status">
                         {lang.BALANCE}
