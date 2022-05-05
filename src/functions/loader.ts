@@ -119,6 +119,8 @@ import crying_skull_icon from 'src/assets/images/crying_skull_icon.png';
 import exchange_phase_rules_cn from 'src/assets/images/exchange_phase_rules_cn.png';
 import exchange_phase_rules from 'src/assets/images/exchange_phase_rules.png';
 import planet from 'src/assets/images/planet.png';
+import earth_icon from 'src/assets/images/earth_icon.svg';
+import planet_icon  from 'src/assets/images/planet_icon.svg';
 
 
 const loader = () => new Promise<void>((res) => {
@@ -245,7 +247,9 @@ const loader = () => new Promise<void>((res) => {
         .add('crying_skull_icon', crying_skull_icon)
         .add('exchange_phase_rules_cn', exchange_phase_rules_cn)
         .add('exchange_phase_rules', exchange_phase_rules)
-        .add('planet', planet);
+        .add('planet', planet)
+        .add('earth_icon', earth_icon)
+        .add('planet_icon', planet_icon);
 
     loader.load(() => {
         if (pass) res();

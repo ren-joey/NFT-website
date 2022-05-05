@@ -48,7 +48,7 @@ const CoverBoard = ({
 
                     <SharedLoginButton />
 
-                    <LinkingAnimation />
+                    <LinkingAnimation type="exchange" />
                 </div>
 
                 <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>
