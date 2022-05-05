@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { scrollTriggerInit, scrollTriggerKillAll } from "src/animation/scrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import BgEffects from "src/components/BgEffects";
@@ -46,6 +46,17 @@ const FrontPage = () => {
         : {...ZH_CN};
     const [lang, setLang] = useState(prevLangObj);
     const [selectedLang, setSelectedLang] = useState<LangString>(prevLang);
+    const buttonSize = useMemo<React.CSSProperties>(() => {
+        if (device === 'desktop') {
+            return { margin: '2rem 0 1rem', whiteSpace: 'nowrap' };
+        }
+        return {
+            margin: '1rem 0 0.6rem',
+            padding: '0.6rem 1.4rem',
+            fontSize: '1.4rem',
+            whiteSpace: 'nowrap'
+        };
+    }, [device]);
 
     useEffect(() => {
         let previousDevice: DeviceString = device;
@@ -96,6 +107,7 @@ const FrontPage = () => {
                 selectedLang,
                 setSelectedLang,
                 device,
+                buttonSize,
                 status,
                 setStatus,
                 counter,

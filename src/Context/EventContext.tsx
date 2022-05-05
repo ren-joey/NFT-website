@@ -16,6 +16,7 @@ export interface IEventContext {
     selectedLang: LangString,
     setSelectedLang: (key: LangString) => void,
     device: DeviceString,
+    buttonSize: React.CSSProperties,
     status: number,
     setStatus: (key: number) => void,
     counter: ICounter,
@@ -33,6 +34,7 @@ export const defaultEventContext: IEventContext = {
     || 'ZH_TW',
     setSelectedLang: () => {},
     device: 'desktop',
+    buttonSize: {},
     status: -1,
     setStatus: () => {},
     counter: {

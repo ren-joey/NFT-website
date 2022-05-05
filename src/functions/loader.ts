@@ -112,6 +112,15 @@ import green_ball_1 from 'src/assets/images/green_ball_1.png';
 import green_ball_2 from 'src/assets/images/green_ball_2.png';
 // import b_alien_preview_head from 'src/assets/images/b_alien_preview_head.png';
 
+// 兌換期
+import betamon_3d from 'src/assets/images/3d_betamon.png';
+import alert_title_board from 'src/assets/images/alert_title_board.png';
+import crying_skull_icon from 'src/assets/images/crying_skull_icon.png';
+import exchange_phase_rules_cn from 'src/assets/images/exchange_phase_rules_cn.png';
+import exchange_phase_rules from 'src/assets/images/exchange_phase_rules.png';
+import planet from 'src/assets/images/planet.png';
+
+
 const loader = () => new Promise<void>((res) => {
     let pass = false;
     setTimeout(() => {
@@ -228,7 +237,15 @@ const loader = () => new Promise<void>((res) => {
         .add('rt', rt)
         .add('wn_hover', wn_hover)
         .add('wn', wn)
-        .add('ig_icon', ig_icon);
+        .add('ig_icon', ig_icon)
+
+        // for 兌換期
+        .add('3d_betamon', betamon_3d)
+        .add('alert_title_board', alert_title_board)
+        .add('crying_skull_icon', crying_skull_icon)
+        .add('exchange_phase_rules_cn', exchange_phase_rules_cn)
+        .add('exchange_phase_rules', exchange_phase_rules)
+        .add('planet', planet);
 
     loader.load(() => {
         if (pass) res();
