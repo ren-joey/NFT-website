@@ -47,31 +47,27 @@ const RoadmapCard = ({ idx, className = '' }: Props) => {
     return (
         <div className="roadmap-card-row">
             <div className="roadmap-time">
-                <div
-                    className={`time ${className}`}
-                    dangerouslySetInnerHTML={{
-                        __html: lang[`ROADMAP_CARD_${idx}_DATE`]
-                    }}
-                >
+                <div className={`pre-line time ${className}`}>
+                    { lang[`ROADMAP_CARD_${idx}_DATE`] }
                 </div>
             </div>
             <div className="roadmap-main">
                 <div className="roadmap-card">
                     <div className="card-top">
-                        <div className="title"
-                            dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_TITLE`]}}
-                        ></div>
-                        <div className="subtitle"
-                            dangerouslySetInnerHTML={
-                                {__html: lang[`ROADMAP_CARD_${idx}_SUBTITLE`]}
-                            }
-                        ></div>
+                        <div className="title pre-line">
+                            { lang[`ROADMAP_CARD_${idx}_TITLE`] }
+                        </div>
+                        <div className="subtitle pre-line">
+                            { lang[`ROADMAP_CARD_${idx}_SUBTITLE`] }
+                        </div>
                         <div className="star" style={
                             { backgroundImage: `url(${getResources('star_icon')})` }
                         }></div>
                     </div>
                     <div className="card-bottom">
-                        <div className="remark" dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_REMARK`]}}></div>
+                        <div className="remark pre-line">
+                            { lang[`ROADMAP_CARD_${idx}_REMARK`] }
+                        </div>
                     </div>
 
                     { btn() }

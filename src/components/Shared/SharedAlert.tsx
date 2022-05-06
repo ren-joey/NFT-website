@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import 'src/components/Shared/SharedAlert.scss';
 import { BtnColorList } from 'src/@types/basicVariable';
-import SharedButton from './SharedButton';
+import SharedButton from './Buttons/SharedButton';
 
 interface IBtn {
     text: string;

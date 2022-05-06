@@ -12,6 +12,7 @@
     z-index: -1;
     transform: translateY(100%);
     cursor: pointer;
+    pointer-events: painted;
 
     @media (min-width: 992px) {
         border-radius: 0 0 3rem 3rem;

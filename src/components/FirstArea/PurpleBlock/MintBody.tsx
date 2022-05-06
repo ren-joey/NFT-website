@@ -8,13 +8,12 @@ import { getParameterByName, roundDecimal } from "src/utils";
 import { NullableBigNumber } from "src/@types/basicVariable";
 import { MintMethodName } from "src/@types/contract";
 import SharedAlert, { IAlertData } from "src/components/Shared/SharedAlert";
-import EthIcon from "src/components/Shared/EthIcon";
-import MintButton from "src/components/Shared/MintButton";
+import EthIcon from "src/components/Shared/Buttons/EthIcon";
 import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
 import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
 import NftTransfer from "src/components/Web3Service/NftTransfer";
-import SharedLoginButton from "src/components/Shared/SharedLoginButton";
+import SharedLoginButton from "src/components/Shared/Buttons/SharedLoginButton";
 
 interface IMintMethodName {
     supplyRemain: NullableBigNumber
@@ -72,7 +71,6 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
                 </div>
 
                 <SharedLoginButton />
-
                 <LinkingAnimation />
             </div>
         );

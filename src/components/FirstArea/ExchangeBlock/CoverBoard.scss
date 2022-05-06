@@ -86,24 +86,4 @@ $angle-width: 4px;
             line-height: 2rem;
         }
     }
-
-    .faq-button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 0.3rem 1rem;
-        font-size: 1.2rem;
-        font-weight: bolder;
-        color: #fff;
-        background-color: #b379d6;
-        border: 2px solid #fff;
-        border-radius: 2rem;
-        z-index: 2;
-        transform: translate(0, -20%);
-        cursor: pointer;
-
-        @media (min-width: 992px) {
-            transform: translate(20%, -20%);
-        }
-    }
 }

@@ -1,0 +1,47 @@
+.main-board {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+
+    .nft-list {
+        width: 55%;
+
+        .nft-container {
+            .nft-title-board {
+                position: absolute;
+                top: 0;
+                left: 10%;
+                padding-bottom: calc(80% / 487 * 52);
+                width: 80%;
+                background-size: 100% auto;
+                filter: contrast(1.2) brightness(-1);
+                transform: translateY(-100%);
+
+                .title-text {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    font-size: 1.5rem;
+                    font-weight: bolder;
+                    letter-spacing: 0.5rem;
+                    text-align: center;
+                    line-height: 2.9rem;
+                    color: #ff46bc;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    .planet {
+        position: relative;
+        width: 45%;
+
+        .planet-bg {
+            padding-bottom: calc(100% / 835 * 731);
+            width: 100%;
+            background-size: 100% auto;
+        }
+    }
+}

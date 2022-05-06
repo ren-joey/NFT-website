@@ -1,11 +1,15 @@
 import 'src/components/Shared/SharedPurpleBlock.scss';
 
 interface Props {
-    content: JSX.Element
+    content: JSX.Element,
+    className?: string
 }
 
-const SharedPurpleBlock = ({ content }: Props) => (
-    <div className="mint-block">
+const SharedPurpleBlock = ({
+    content,
+    className = ''
+}: Props) => (
+    <div className={`mint-block ${className}`}>
         { content }
 
         <div className="angle left top"></div>

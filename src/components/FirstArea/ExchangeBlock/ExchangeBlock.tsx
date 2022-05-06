@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NullableBigNumber } from "src/@types/basicVariable";
 import CoverBoard from "./CoverBoard";
+import MainBoard from "./MainBoard";
 
 export type ExchangePageName = 'cover' | 'main';
 
@@ -10,7 +11,7 @@ const ExchangeBlock = () => {
     if (exchangePage === 'cover') {
         return <CoverBoard setExchangePage={setExchangePage} />;
     } else if (exchangePage === 'main') {
-        return <></>;
+        return <MainBoard />;
     }
     return (null);
 };

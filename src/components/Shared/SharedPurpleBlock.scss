@@ -10,10 +10,12 @@ $angle-width: 4px;
     border-radius: 1rem;
     box-shadow: 0 0 20px #ff46bc, 0 0 20px #ff46bc, 0 0 20px #ff46bc;
 
-    @media (min-width: 992px) {
-        margin: 8.6rem auto;
-        padding: 2rem;
-        width: 800px;
+    &.pc-w-800 {
+        @media (min-width: 992px) {
+            margin: 8.6rem auto;
+            padding: 2rem;
+            width: 800px;
+        }
     }
 
     > .angle {

@@ -10,11 +10,9 @@ import { NullableBigNumber } from 'src/@types/basicVariable';
 import { ExchangePageName } from 'src/components/FirstArea/ExchangeBlock/ExchangeBlock';
 import SubeventButton from '../SubeventButton/SubeventButton';
 import SharedPurpleBlock from 'src/components/Shared/SharedPurpleBlock';
-import EthIcon from 'src/components/Shared/EthIcon';
-import { roundDecimal } from 'src/utils';
-import MintButton from 'src/components/Shared/MintButton';
-import SharedLoginButton from 'src/components/Shared/SharedLoginButton';
 import LinkingAnimation from '../PurpleBlock/LinkingAnimation';
+import SharedButtonLg from 'src/components/Shared/Buttons/SharedButtonLg';
+import SharedFaqButton from 'src/components/Shared/Buttons/SharedFaqButton';
 
 interface Props {
     setExchangePage: (key: ExchangePageName) => void
@@ -23,39 +21,38 @@ interface Props {
 const CoverBoard = ({
     setExchangePage
 }: Props) => {
-    const { device } = useContext(EventContext);
     const lang = useContext(LangContext);
 
     return (
-        <SharedPurpleBlock content={
-            <div className="cover-board">
-                <div className="b-alien-container-for-mint-block">
-                    <div className="b-alien-area">
-                        <div className="b-alien-line" style={
-                            { backgroundImage: `url(${getResources('3d_betamon')})` }
-                        }></div>
-                    </div>
-                </div>
-
-                <div className="mint-body single">
-                    <div className="mint-title">
-                        {lang.MINT_BODY_TITLE_1}
-                    &nbsp;
-                        <EthIcon size={device === 'desktop' ? '1.4rem' : '0.8rem'} />
-                    &nbsp;
-                        {lang.MINT_BODY_TITLE_2}
+        <SharedPurpleBlock
+            className="pc-w-800"
+            content={
+                <div className="cover-board">
+                    <div className="b-alien-container-for-mint-block">
+                        <div className="b-alien-area">
+                            <div className="b-alien-line" style={
+                                { backgroundImage: `url(${getResources('3d_betamon')})` }
+                            }></div>
+                        </div>
                     </div>
 
-                    <SharedLoginButton />
+                    <div className="mint-body single">
+                        <div className="mint-title text-center pre-line">
+                            { lang.EXCHANGE_COVER_TITLE }
+                        </div>
 
-                    <LinkingAnimation type="exchange" />
+                        <SharedButtonLg
+                            onClick={() => setExchangePage('main') }
+                            text={ lang.EXCHANGE_COVER_BTN }
+                        />
+
+                        <LinkingAnimation type="exchange" />
+                    </div>
+
+                    <SharedFaqButton />
+                    <SubeventButton />
                 </div>
-
-                <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>
-
-                <SubeventButton />
-            </div>
-        } />
+            } />
     );
 };
 
