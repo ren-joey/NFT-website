@@ -1,12 +1,9 @@
 import { BigNumber } from "ethers";
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
 import { ContractContext } from "src/Context/ContractContext";
 import { EventContext } from "src/Context/EventContext";
 import { getParameterByName } from "src/utils";
-import BetamonStage from "./BetamonStage/BetamonStage";
-import ExchangeBlock from "./ExchangeBlock/ExchangeBlock";
-import PurpleBlock from "./PurpleBlock/PurpleBlock";
 import TimeArea from "./PurpleBlock/TimeArea";
 
 const SupplyRemainProvider = () => {
@@ -56,18 +53,21 @@ const SupplyRemainProvider = () => {
 
     const prevStatus = useRef<Nullable>(null);
     const [displayDom, setDisplayDom] = useState<null|JSX.Element>(null);
+
+    // Lazy Loading
+    const BetamonStage = React.lazy(() => import('./BetamonStage/BetamonStage'));
+    const PurpleBlock = React.lazy(() => import('./PurpleBlock/PurpleBlock'));
+    const ExchangeBlock = React.lazy(() => import('./ExchangeBlock/ExchangeBlock'));
     useEffect(() => {
-        console.log(status);
-        console.log(prevStatus.current);
         if (status !== prevStatus.current) {
             prevStatus.current = status;
 
             // 活動尚未開始且距離開始時間七天以上
             if (status === -1 && diff > (7 * 24 * 60 * 60 * 1000)) {
                 setDisplayDom(<BetamonStage />);
-            } else if (status < 3) {
+            } else if (status <= 3) {
                 setDisplayDom(<PurpleBlock supplyRemain={supplyRemain} />);
-            } else if (status === 3) {
+            } else if (status === 4) {
                 setDisplayDom(<ExchangeBlock />);
             } else {
                 setDisplayDom(<BetamonStage />);
@@ -78,7 +78,9 @@ const SupplyRemainProvider = () => {
     return (
         <>
             {/* mint 區塊 */}
-            { displayDom }
+            <Suspense fallback={<></>}>
+                { displayDom }
+            </Suspense>
 
             {/* 時間及倒數區塊 */}
             <TimeArea supplyRemain={supplyRemain} />

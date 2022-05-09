@@ -1,7 +1,7 @@
 import 'src/components/FirstArea/ExchangeBlock/CoverBoard.scss';
 import { getResources } from "src/functions/loader";
 import { scrollToFaq } from "src/animation/scrollToTrigger";
-import { useContext, useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { LangContext } from 'src/Context/LangContext';
 import hrefTo from 'src/functions/hrefTo';
@@ -13,14 +13,10 @@ import SharedPurpleBlock from 'src/components/Shared/SharedPurpleBlock';
 import LinkingAnimation from '../PurpleBlock/LinkingAnimation';
 import SharedButtonLg from 'src/components/Shared/Buttons/SharedButtonLg';
 import SharedFaqButton from 'src/components/Shared/Buttons/SharedFaqButton';
+import SharedLoginButton from 'src/components/Shared/Buttons/SharedLoginButton';
+import { useMoralis } from 'react-moralis';
 
-interface Props {
-    setExchangePage: (key: ExchangePageName) => void
-}
-
-const CoverBoard = ({
-    setExchangePage
-}: Props) => {
+const CoverBoard = () => {
     const lang = useContext(LangContext);
 
     return (
@@ -41,10 +37,11 @@ const CoverBoard = ({
                             { lang.EXCHANGE_COVER_TITLE }
                         </div>
 
-                        <SharedButtonLg
+                        {/* <SharedButtonLg
                             onClick={() => setExchangePage('main') }
                             text={ lang.EXCHANGE_COVER_BTN }
-                        />
+                        /> */}
+                        <SharedLoginButton />
 
                         <LinkingAnimation type="exchange" />
                     </div>

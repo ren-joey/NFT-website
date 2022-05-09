@@ -5,9 +5,10 @@ import { ContractContext } from 'src/Context/ContractContext';
 import fetchBasicNftData from './functions/fetchBasicNftData';
 import fetchContractVariable from './functions/fetchContractVariable';
 
+
+
 const NftBalance = () => {
     const { account } = useMoralis();
-    // const { data } = useNFTBalances();
     const { fetch } = useWeb3ExecuteFunction();
     const { setNfts } = useContext(ContractContext);
 
@@ -33,32 +34,7 @@ const NftBalance = () => {
         }
     }, [account]);
 
-    // useEffect(() => {
-    //     if (data && data.result && !isFetching) {
-    //         console.log(data);
-    //         const _nfts = data.result.map((nft) => {
-    //             fetchContractVariable<ContractResponse>({
-    //                 paramName: 'tokenURI',
-    //                 params: {
-    //                     tokenId: '1'
-    //                 },
-    //                 fetch
-    //             }).then((uri) => {
-    //                 if (typeof uri === 'string') {
-    //                     axios.get(uri).then((res) => {
-    //                         nft.metadata = res.data as IMetadata;
-    //                         nft.token_uri = uri;
-    //                     });
-    //                 }
-    //             });
-    //             return nft;
-    //         });
-
-    //         setNfts(_nfts);
-    //     }
-    // }, [data]);
-
-    return null;
+    return (null);
 };
 
 export default NftBalance;

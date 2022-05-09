@@ -72,14 +72,6 @@ const PermissionCertification = () => {
             {/* Purple block & 時間及倒數區塊 */}
             <RemainProvider />
 
-            {/* nft balance & metadata  */}
-            {
-                // [DEV]
-                getParameterByName('transfer') && (
-                    <NftBalance />
-                )
-            }
-
             {/* <SharedAlert
                 btnList={[]}
                 content={

@@ -229,7 +229,15 @@ const ZH_CN: Lang = {
     SOLD_OUT_ALERT_TITLE_XL: '7分钟售罄',
     SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注捣蛋白名单开放MINT的时间',
     EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
-    EXCHANGE_COVER_BTN: '发动实体具象超能力'
+    EXCHANGE_COVER_BTN: '发动实体具象超能力',
+    ZERO_BALANCE: '您尚未持有β星人',
+    PLANET_BTN_REIFICATION: '实体具象召唤所',
+    PLANET_BTN_SUMMON_BETAMON: '召唤β星人',
+    PLANET_BTN_ARENA: '竞技场',
+    PLANET_BTN_B_BANK: 'β银行',
+    PLANET_BTN_PLANET_MINE: '星球矿区',
+    REIFICATION_TITLE: '实体具象召唤所',
+    REIFICATION_DESC: '选择拥有的β星人RNFT进行实体公仔兑换'
 };
 
 export default ZH_CN;

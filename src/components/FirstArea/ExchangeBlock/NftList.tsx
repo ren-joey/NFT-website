@@ -1,14 +1,22 @@
 import { useContext } from "react";
+import { StableNftMembers } from "src/@types/nft";
+import { EventBus } from "src/bus";
+import SharedButtonLg from "src/components/Shared/Buttons/SharedButtonLg";
 import SharedFaqButton from "src/components/Shared/Buttons/SharedFaqButton";
 import SharedPurpleBlock from "src/components/Shared/SharedPurpleBlock";
+import NftBalance from "src/components/Web3Service/NftBalance";
+import NftStableBalance from "src/components/Web3Service/NftStableBalance";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
+import { getParameterByName } from "src/utils";
 import SubeventButton from "../SubeventButton/SubeventButton";
 
-const NftList = () => {
-    const {
-
-    } = useContext(LangContext);
+const NftList = ({
+    stableNfts,
+    setStableNfts,
+    selectedNftAmount
+}: StableNftMembers) => {
+    const lang = useContext(LangContext);
 
     return (
         <div className="nft-list">
@@ -18,13 +26,40 @@ const NftList = () => {
                         { backgroundImage: `url(${getResources('alert_title_board')})` }
                     }>
                         <div className="title-text">
-                            實體具象召喚所
+                            { lang.REIFICATION_TITLE }
                         </div>
                     </div>
-                    1<br />
-                    1<br />
-                    1<br />
-                    1<br />
+
+                    <div className="nft-title">
+                        { lang.REIFICATION_DESC }
+                    </div>
+
+                    {/* 單純取得 nftBalance 資料 */}
+                    <NftBalance />
+
+                    {/* 負責將 nftBalance 打印到 dom 上 */}
+                    <NftStableBalance
+                        setStableNfts={setStableNfts}
+                        stableNfts={stableNfts}
+                    />
+
+                    {
+                        // [DEV]
+                        getParameterByName('logout') && (
+                            <button onClick={() => EventBus.$emit('fetchLogout')}>{lang.LOGOUT}</button>
+                        )
+                    }
+
+                    <SharedButtonLg
+                        disable={selectedNftAmount === 0}
+                        onClick={() => {}}
+                        text={ lang.EXCHANGE_COVER_BTN + (
+                            selectedNftAmount > 0
+                                ? `(${selectedNftAmount})`
+                                : ''
+                        ) }
+                    />
+
                     <SharedFaqButton />
                     <SubeventButton />
                 </div>

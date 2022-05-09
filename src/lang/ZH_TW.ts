@@ -229,7 +229,15 @@ const ZH_TW: Lang = {
     SOLD_OUT_ALERT_TITLE_XL: '7分鐘售罄',
     SOLD_OUT_ALERT_CONTENT: '感謝各位地球人的支持<br />請持續關注搗蛋白名單開放MINT的時間',
     EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申請兌換潮玩',
-    EXCHANGE_COVER_BTN: '發動實體具象超能力'
+    EXCHANGE_COVER_BTN: '發動實體具象超能力',
+    ZERO_BALANCE: '您尚未持有β星人',
+    PLANET_BTN_REIFICATION: '實體具象召喚所',
+    PLANET_BTN_SUMMON_BETAMON: '召喚β星人',
+    PLANET_BTN_ARENA: '競技場',
+    PLANET_BTN_B_BANK: 'β銀行',
+    PLANET_BTN_PLANET_MINE: '星球礦區',
+    REIFICATION_TITLE: '實體具象召喚所',
+    REIFICATION_DESC: '選擇擁有的β星人RNFT進行實體公仔兌換'
 };
 
 export default ZH_TW;
