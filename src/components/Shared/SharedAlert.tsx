@@ -1,19 +1,7 @@
 import { useEffect, useState } from 'react';
 import 'src/components/Shared/SharedAlert.scss';
-import { BtnColorList } from 'src/@types/basicVariable';
 import SharedButton from './Buttons/SharedButton';
-
-interface IBtn {
-    text: string;
-    type?: BtnColorList;
-    onClick: () => void;
-}
-
-export interface IAlertData {
-    enable: boolean;
-    content: string|JSX.Element;
-    btnList: IBtn[];
-}
+import { IAlertData } from 'src/@types/viewVariables';
 
 const SharedAlert = ({ enable, content, btnList }: IAlertData) => {
     const [state, setState] = useState(false);

@@ -1,5 +1,5 @@
-import { IAlertData } from "src/components/Shared/SharedAlert";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
+import { IAlertData } from "src/@types/viewVariables";
 import { Lang } from "src/lang";
 import enableExceedMaxSupplyAlert from "../mintHandlers/enableExceedMaxSupplyAlert";
 import enableMintNotOpenAlert from "../mintHandlers/enableMintNotOpenAlert";

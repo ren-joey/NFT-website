@@ -1,8 +1,9 @@
-import 'src/components/FirstArea/FirstArea.scss';
 import TitleArea from './TitleArea';
 import LinkArea from './LinkArea';
 import BetamonStagePhone from './BetamonStage/BetamonStagePhone';
-import React, { Suspense, useContext, useMemo } from 'react';
+import React, { Suspense, useMemo } from 'react';
+import 'src/components/FirstArea/FirstArea.scss';
+import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
 
 const FirstArea = () => {
     const Web3Provider = useMemo(

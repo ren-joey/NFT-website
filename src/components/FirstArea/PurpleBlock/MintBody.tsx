@@ -7,13 +7,13 @@ import { ContractContext } from "src/Context/ContractContext";
 import { getParameterByName, roundDecimal } from "src/utils";
 import { NullableBigNumber } from "src/@types/basicVariable";
 import { MintMethodName } from "src/@types/contract";
-import SharedAlert, { IAlertData } from "src/components/Shared/SharedAlert";
 import EthIcon from "src/components/Shared/Buttons/EthIcon";
 import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
-import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
 import NftTransfer from "src/components/Web3Service/NftTransfer";
 import SharedLoginButton from "src/components/Shared/Buttons/SharedLoginButton";
+import { IAlertData } from "src/@types/viewVariables";
+import SharedAlert from "src/components/Shared/SharedAlert";
 
 interface IMintMethodName {
     supplyRemain: NullableBigNumber

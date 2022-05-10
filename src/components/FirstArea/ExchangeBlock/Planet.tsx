@@ -14,6 +14,7 @@ const Planet = () => {
         <div className="planet">
             <div className="planet-button reification-spot">
                 <SharedPurpleButton
+                    disable={true}
                     style={deepPurpleBg}
                     onClick={() => {}}
                     text={lang.PLANET_BTN_REIFICATION}

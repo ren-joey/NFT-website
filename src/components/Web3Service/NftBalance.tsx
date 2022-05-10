@@ -5,34 +5,38 @@ import { ContractContext } from 'src/Context/ContractContext';
 import fetchBasicNftData from './functions/fetchBasicNftData';
 import fetchContractVariable from './functions/fetchContractVariable';
 
-
-
 const NftBalance = () => {
-    const { account } = useMoralis();
+    const {
+        account,
+        isAuthenticated,
+        isWeb3Enabled
+    } = useMoralis();
     const { fetch } = useWeb3ExecuteFunction();
     const { setNfts } = useContext(ContractContext);
 
     useEffect(() => {
-        if (account) {
-            fetchContractVariable<ContractResponse>({
-                paramName: 'getBetamonByOwner',
-                params: {
-                    _owner: account
-                },
-                fetch
-            }).then((nfts) => {
-                if (Array.isArray(nfts)) {
-                    fetchBasicNftData({
-                        account,
-                        fetch,
-                        nfts
-                    }).then((processedNfts) => {
-                        setNfts(processedNfts);
-                    });
-                }
-            });
+        if (account && isAuthenticated && isWeb3Enabled) {
+            setTimeout(() => {
+                fetchContractVariable<ContractResponse>({
+                    paramName: 'getBetamonByOwner',
+                    params: {
+                        _owner: account
+                    },
+                    fetch
+                }).then((nfts) => {
+                    if (Array.isArray(nfts)) {
+                        fetchBasicNftData({
+                            account,
+                            fetch,
+                            nfts
+                        }).then((processedNfts) => {
+                            setNfts(processedNfts);
+                        });
+                    }
+                });
+            }, 200);
         }
-    }, [account]);
+    }, [account, isAuthenticated, isWeb3Enabled]);
 
     return (null);
 };

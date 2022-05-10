@@ -32,6 +32,8 @@ const NftStableBalance = ({
 
     const selectNft = (idx: number) => {
         const cloneArr = [...stableNfts];
+        const firstTrueIdx = cloneArr.findIndex((nft) => nft.select === true);
+        if (firstTrueIdx !== -1 && firstTrueIdx !== idx) return;
         cloneArr[idx].select = !(cloneArr[idx].select);
         setStableNfts(cloneArr);
     };

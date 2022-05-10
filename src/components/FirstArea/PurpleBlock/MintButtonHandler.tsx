@@ -6,10 +6,10 @@ import { ContractContext } from "src/Context/ContractContext";
 import moralisConfig from "src/moralisConfig";
 import { NullableBigNumber } from "src/@types/basicVariable";
 import { ChainList, MintMethodName } from "src/@types/contract";
-import { IAlertData } from "src/components/Shared/SharedAlert";
 import mintErrorHandler from "src/components/Web3Service/functions/mintErrorHandler";
 import { mintAlertHandler } from "src/components/Web3Service/mintHandlers/mintAlertHandler";
 import MintButton from "src/components/Shared/Buttons/MintButton";
+import { IAlertData } from "src/@types/viewVariables";
 
 interface IProps {
     amount: number,
