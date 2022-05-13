@@ -56,19 +56,26 @@ const MintBlock = ({ supplyRemain }: IProps) => {
                 return lang.MINT_BLOCK_NOTE_DEFAULT;
         }
     }, [status, supplyRemain, maxBalance, lang]);
+    const spotlightLeft: React.CSSProperties = { backgroundImage: `url(${getResources('spotlight_left')})` };
 
     return (
         <div className="mint-block">
-            <div className="b-alien-container-for-mint-block">
+            <div className={`b-alien-container-for-mint-block ${status === 3 && 'center'}`}>
                 <div className="b-alien-area">
                     <div className="b-alien-wave"></div>
                     <div className="b-alien-line" style={
                         { backgroundImage: `url(${getResources('b_alien')})` }
                     }></div>
+                    { status === 3 && <div className="spotlight" style={spotlightLeft}></div> }
+                    { status === 3 && <div className="spotlight reverse" style={spotlightLeft}></div> }
                 </div>
             </div>
 
-            <MintBody mintMethodName={methodName} supplyRemain={supplyRemain} />
+            {
+                status < 3 && (
+                    <MintBody mintMethodName={methodName} supplyRemain={supplyRemain} />
+                )
+            }
 
             <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>
 
