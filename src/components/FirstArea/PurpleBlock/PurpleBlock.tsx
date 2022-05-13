@@ -21,7 +21,6 @@ const PurpleBlock = ({ supplyRemain }: IProps) => {
     const { maxBalance } = useContext(ContractContext);
     const lang = useContext(LangContext);
 
-    const spotlightLeft: React.CSSProperties = { backgroundImage: `url(${getResources('spotlight_left')})` };
     const methodName = useMemo<MintMethodName>(() => {
         switch (status) {
             case 0:
@@ -58,6 +57,7 @@ const PurpleBlock = ({ supplyRemain }: IProps) => {
                 return lang.MINT_BLOCK_NOTE_DEFAULT;
         }
     }, [status, supplyRemain, maxBalance, lang]);
+    const spotlightLeft: React.CSSProperties = { backgroundImage: `url(${getResources('spotlight_left')})` };
 
     return (
         <SharedPurpleBlock

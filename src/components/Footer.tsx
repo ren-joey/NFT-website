@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="footer">
             <div className="gradient"></div>
             <div className="copyright">
-                {lang.COPYRIGHT}
+                { lang.COPYRIGHT }
                 <br />
                 <small>v{moralisConfig.version}</small>
             </div>
