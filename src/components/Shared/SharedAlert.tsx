@@ -1,18 +1,32 @@
 import { useEffect, useState } from 'react';
 import 'src/components/Shared/SharedAlert.scss';
 import SharedButton from './Buttons/SharedButton';
-import { IAlertData } from 'src/@types/viewVariables';
+import { AlertData } from 'src/@types/viewVariables';
+import { EventBus } from 'src/bus';
 
-const SharedAlert = ({ enable, content, btnList }: IAlertData) => {
+const SharedAlert = ({
+    id,
+    content,
+    btnList,
+    closeBtnEnable
+}: AlertData) => {
     const [state, setState] = useState(false);
+    const clickHandler = (cb = () => {}) => {
+        setState(false);
+        cb();
+    };
 
-    useEffect(() => {
-        setState(enable);
-    }, [enable]);
+    useEffect(() => EventBus.$on(id, (bool = true) => setState(bool)), []);
 
     return (
-        <div className={`alert-wrap ${state ? 'active' : ''}`}>
+        <div className={`alert-wrap pointer-events-painted ${state ? 'active' : ''}`}>
             <div className="alert-block">
+                {
+                    closeBtnEnable === true && (
+                        <div onClick={() => setState(false)}>close</div>
+                    )
+                }
+
                 <div className="alert-body">
                     {
                         typeof content === 'string'
@@ -28,7 +42,7 @@ const SharedAlert = ({ enable, content, btnList }: IAlertData) => {
                                     <SharedButton
                                         type={btn.type}
                                         text={btn.text}
-                                        onClick={btn.onClick}
+                                        onClick={() => clickHandler(btn.onClick)}
                                         key={idx}
                                     />
                                 ))

@@ -25,6 +25,10 @@ body,
     cursor: default !important;
 }
 
+.pointer-events-painted {
+    pointer-events: painted;
+}
+
 .text-center {
     text-align: center !important;
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useMoralis } from "react-moralis";
 import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
@@ -12,8 +12,6 @@ import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHa
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
 import NftTransfer from "src/components/Web3Service/NftTransfer";
 import SharedLoginButton from "src/components/Shared/Buttons/SharedLoginButton";
-import { IAlertData } from "src/@types/viewVariables";
-import SharedAlert from "src/components/Shared/SharedAlert";
 
 interface IMintMethodName {
     supplyRemain: NullableBigNumber
@@ -40,11 +38,6 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
     } = useContext(EventContext);
 
     const lang = useContext(LangContext);
-    const [alertData, setAlertData] = useState<IAlertData>({
-        enable: false,
-        btnList: [],
-        content: ''
-    });
 
     const [amount, setAmount] = useState(1);
     const increaseAmount = () => {
@@ -117,18 +110,10 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
                     </div>
 
                     <MintButtonHandler
-                        alertData={alertData}
-                        setAlertData={setAlertData}
                         supplyRemain={supplyRemain}
                         amount={amount}
                         buttonSize={buttonSize}
                         mintMethodName={mintMethodName}
-                    />
-
-                    <SharedAlert
-                        enable={alertData.enable}
-                        content={alertData.content}
-                        btnList={alertData.btnList}
                     />
 
                     {

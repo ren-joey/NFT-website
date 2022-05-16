@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NftExchangeEssentials } from "src/@types/viewVariables";
+import { StableNftMembers } from "src/@types/nft";
 import { EventBus } from "src/bus";
 import SharedButtonLg from "src/components/Shared/Buttons/SharedButtonLg";
 import SharedFaqButton from "src/components/Shared/Buttons/SharedFaqButton";
@@ -14,20 +14,9 @@ import SubeventButton from "../SubeventButton/SubeventButton";
 const NftList = ({
     stableNfts,
     setStableNfts,
-    selectedNftAmount,
-    disableAlert,
-    setAlert
-}: NftExchangeEssentials) => {
+    selectedNftAmount
+}: StableNftMembers) => {
     const lang = useContext(LangContext);
-    const setFormAlert = () => {
-        // TODO:
-        // const
-
-        setAlert({
-            type: 'form'
-
-        });
-    };
 
     return (
         <div className="nft-list">
@@ -63,11 +52,11 @@ const NftList = ({
 
                     <SharedButtonLg
                         disable={selectedNftAmount === 0}
-                        onClick={() => {}}
+                        onClick={() => EventBus.$emit('form')}
                         text={ lang.EXCHANGE_COVER_BTN }
                     />
 
-                    <SharedFaqButton />
+                    <SharedFaqButton onClick={() => EventBus.$emit('faq')} />
                     <SubeventButton />
                 </div>
             } />

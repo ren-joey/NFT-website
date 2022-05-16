@@ -8,11 +8,8 @@ import fetchMintBetamon from "./fetchMintBetamon";
 import { MintMethodName, MoralisFetch } from "src/@types/contract";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
 import { INativeBalance } from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
-import { IAlertData } from "src/@types/viewVariables";
 
 export interface IMintAlertHandler {
-    setAlertData: (key: IAlertData) => void,
-    disableAlert: () => void,
     status: number,
     supplyRemain: NullableBigNumber,
     amount: number,
@@ -29,9 +26,7 @@ export interface IMintAlertHandler {
 export const mintAlertHandler = ({
     fetch,
     mintMethodName,
-    setAlertData,
     status,
-    disableAlert,
     supplyRemain,
     amount,
     getBalance,
@@ -41,11 +36,7 @@ export const mintAlertHandler = ({
     nativeBalance,
     lang
 }: IMintAlertHandler) => {
-    const defaultParams = {
-        disableAlert,
-        lang,
-        setAlertData
-    };
+    const defaultParams = { lang };
 
     // 非 mint 期間
     if (status === -1 || status >= 3) enableMintNotOpenAlert(defaultParams);

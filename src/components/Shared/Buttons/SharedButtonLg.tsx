@@ -14,13 +14,17 @@ const SharedButtonLg = ({
     disable = false
 }: Props) => {
     const { buttonSize } = useContext(EventContext);
+    const clickHandler = () => {
+        if (disable) return;
+        onClick();
+    };
 
     return (
         <MintButton
             disable={disable}
             text={text}
             style={buttonSize}
-            onClick={onClick}
+            onClick={clickHandler}
         />
     );
 };

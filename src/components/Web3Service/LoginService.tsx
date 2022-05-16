@@ -30,7 +30,6 @@ const LoginService = () => {
         fetch
     } = useWeb3ExecuteFunction();
 
-    const [alertState, setAlertState] = useState(false);
     const [timer, setTimer] = useState<undefined | NodeJS.Timeout>(undefined);
 
     const fetchAuthenticate = async () => {
@@ -63,7 +62,7 @@ const LoginService = () => {
         if (authError) {
             setTimer(
                 setTimeout(() => {
-                    setAlertState(true);
+                    EventBus.$emit('loginRedirection');
                 }, 3000)
             );
         }
@@ -97,6 +96,7 @@ const LoginService = () => {
     return (
         <>
             <SharedAlert
+                id="loginRedirection"
                 content={
                     <div>
                         { lang.COPY_THE_FOLLOWING_URL }
@@ -110,12 +110,10 @@ const LoginService = () => {
                             text: lang.COPY_AND_CLOSE,
                             onClick: () => {
                                 copyTextToClipboard(moralisConfig.officialWebsiteUrl);
-                                setAlertState(false);
                             }
                         }
                     ]
                 }
-                enable={alertState}
             />
         </>
     );

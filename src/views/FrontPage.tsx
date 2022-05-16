@@ -29,6 +29,7 @@ import AboutB from "src/components/AboutB/AboutB";
 import KolSupport from "src/components/KolSupport/KolSupport";
 import MediaSupport from "src/components/MediaSupport/MediaSupport";
 import Roadmap from "src/components/Roadmap/Roadmap";
+import GlobalAlert from "src/components/Global/GlobalAlert";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -117,6 +118,9 @@ const FrontPage = () => {
                 diff,
                 setDiff
             }}>
+                {/* 全局共用彈窗 */}
+                <GlobalAlert />
+
                 <div className="fp-wrapper">
                     <Header
                         selectedLang={selectedLang}
@@ -155,7 +159,6 @@ const FrontPage = () => {
 
                     {/* fixed 返回最頂端按鈕 */}
                     <BackToTop />
-
                 </div>
             </EventContext.Provider>
         </LangContext.Provider>

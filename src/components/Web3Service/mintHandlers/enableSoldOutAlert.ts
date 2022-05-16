@@ -1,36 +1,29 @@
+import { EventBus } from "src/bus";
 import hrefTo from "src/functions/hrefTo";
+import { Lang } from "src/lang";
 import { socialList } from "src/socialMediaConfig";
-import { IMintAlertHandler } from "./mintAlertHandler";
 
 const enableSoldOutAlert = ({
-    setAlertData,
-    lang,
-    disableAlert
-}: Pick<
-    IMintAlertHandler,
-    'setAlertData'|'lang'|'disableAlert'
-    >
-) => {
-    setAlertData({
-        enable: true,
-        content: lang.MINT_SOLD_OUT,
-        btnList: [
-            {
-                text: lang.GO_TO_OPENSEA,
-                onClick: () => {
-                    hrefTo(socialList[0]);
-                    disableAlert();
+    lang
+}: {
+    lang: Lang
+}) => {
+    EventBus.$emit(
+        'global-alert',
+        {
+            content: lang.MINT_SOLD_OUT,
+            btnList: [
+                {
+                    text: lang.GO_TO_OPENSEA,
+                    onClick: () => hrefTo(socialList[0])
+                },
+                {
+                    text: lang.GO_TO_DISCORD,
+                    onClick: () => hrefTo(socialList[1])
                 }
-            },
-            {
-                text: lang.GO_TO_DISCORD,
-                onClick: () => {
-                    hrefTo(socialList[1]);
-                    disableAlert();
-                }
-            }
-        ]
-    });
+            ]
+        }
+    );
 };
 
 export default enableSoldOutAlert;

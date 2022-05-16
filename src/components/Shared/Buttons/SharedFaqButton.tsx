@@ -1,6 +1,18 @@
 import { scrollToFaq } from 'src/animation/scrollToTrigger';
 import 'src/components/Shared/Buttons/SharedFaqButton.scss';
 
-const SharedFaqButton = () => <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>;
+interface Props {
+    onClick?: () => void
+}
+
+const SharedFaqButton = ({ onClick }: Props) => (
+    <div
+        className="faq-button"
+        onClick={
+            () => onClick ? onClick() : scrollToFaq()
+        }>
+        FAQ
+    </div>
+);
 
 export default SharedFaqButton;

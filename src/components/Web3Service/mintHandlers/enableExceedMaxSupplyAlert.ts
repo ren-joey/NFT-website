@@ -1,22 +1,15 @@
-import { IMintAlertHandler } from "./mintAlertHandler";
+import enableGlobalAlert from "src/functions/enableGlobalAlert";
+import { Lang } from "src/lang";
 
 const enableExceedMaxSupplyAlert = ({
-    setAlertData,
-    lang,
-    disableAlert
-}: Pick<
-    IMintAlertHandler,
-    'lang'|'setAlertData'|'disableAlert'
-    >
-) => {
-    setAlertData({
-        enable: true,
+    lang
+}: {
+    lang: Lang
+}) => {
+    enableGlobalAlert({
         content: lang.MINT_EXCESS_TOTAL_SUPPLY,
         btnList: [
-            {
-                text: lang.I_WILL_ADJUST,
-                onClick: disableAlert
-            }
+            { text: lang.I_WILL_ADJUST }
         ]
     });
 };

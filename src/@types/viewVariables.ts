@@ -1,5 +1,5 @@
 import { BtnColorList } from "./basicVariable";
-import { StableNft, StableNftMembers } from "./nft";
+import { StableNft } from "./nft";
 
 export type ExchangeAlertName = 'faq'
                                     | 'basic'
@@ -7,11 +7,9 @@ export type ExchangeAlertName = 'faq'
 
 export type SelectedNfts = StableNft[];
 
-export interface NftExchangeEssentials extends StableNftMembers, NftExchangeAlertHandlers {}
-
 export interface BasicAlert {
     type: 'basic',
-    alertData: IAlertData
+    alertData: AlertData
 }
 
 export interface FaqAlert {
@@ -26,28 +24,16 @@ export interface FormAlert {
 export interface IBtn {
     text: string;
     type?: BtnColorList;
-    onClick: () => void;
+    onClick?: () => void;
 }
 
-export interface IAlertData {
-    enable: boolean;
+export interface AlertData {
+    id: string;
+    closeBtnEnable?: boolean;
     content: string|JSX.Element;
     btnList: IBtn[];
 }
 
 export interface ExchangeAlertState {
-    enable: boolean;
-    type: ExchangeAlertName;
-    alertData?: IAlertData;
-    stableNfts?: StableNft[];
+    selectedNfts?: StableNft[];
 }
-
-export interface NftExchangeAlertHandlers {
-    setAlert: (key: Omit<
-        ExchangeAlertState,
-        'enable'
-    >) => void;
-    disableAlert: () => void;
-}
-
-export interface NftAlertEssentials extends ExchangeAlertState, NftExchangeAlertHandlers {}

@@ -1,46 +1,42 @@
-import { NftAlertEssentials } from "src/@types/viewVariables";
+import { useContext } from "react";
+import { StableNft } from "src/@types/nft";
 import SharedAlert from 'src/components/Shared/SharedAlert';
+import { LangContext } from "src/Context/LangContext";
 
-const ExchangeAlertController = ({
-    enable,
-    type,
-    alertData = undefined,
-    stableNfts = undefined,
-    disableAlert,
-    setAlert
-}: NftAlertEssentials) => {
-    if (enable === false) {
-        return (null);
-    } else if (type === 'basic' && alertData !== undefined) {
-        return (
+interface Props {
+    selectedNfts: StableNft[]
+}
+
+const ExchangeAlertController = ({ selectedNfts }: Props) => {
+    const lang = useContext(LangContext);
+
+    return (
+        <div>
             <SharedAlert
-                enable={enable}
-                content={alertData.content}
-                btnList={alertData.btnList}
+                id="basic"
+                content={<div>basic</div>}
+                btnList={[
+                    { text: 'test' }
+                ]}
             />
-        );
-    } else if (type === 'faq') {
-        return (
+
             <SharedAlert
-                enable={true}
-                content={
-                    <div>faq</div>
-                }
-                btnList={[]}
+                id="faq"
+                content={<div>faq</div>}
+                btnList={[
+                    { text: 'test' }
+                ]}
             />
-        );
-    } else if (type === 'form' && stableNfts !== undefined) {
-        return (
+
             <SharedAlert
-                enable={true}
-                content={
-                    <div>shared alert</div>
-                }
-                btnList={[]}
+                id="form"
+                content={<div>shared alert</div>}
+                btnList={[
+                    { text: 'test' }
+                ]}
             />
-        );
-    }
-    return (null);
+        </div>
+    );
 };
 
 export default ExchangeAlertController;
