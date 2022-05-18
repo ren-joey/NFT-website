@@ -7,58 +7,43 @@ const formChecker = (
     onComplete: () => void,
     onError: (key: FormWarning) => void
 ) => {
+    const error: FormWarning = {
+        term_1: '',
+        term_2: ''
+    };
+
     if (
         !form.name
         || !form.phone
         || !form.email
     ) {
-        enableGlobalAlert({
-            content: '請完整填寫您的兌換資料',
-            btnList: [
-                {text: '確定'}
-            ]
-        });
-        onError({
-            term_1: '資料填寫不完全',
-            term_2: ''
-        });
-    } else if (!form.country
-        || !form.city
-        || !form.zip
-        || !form.address) {
-        enableGlobalAlert({
-            content: '請完整填寫您的兌換資料',
-            btnList: [
-                {text: '確定'}
-            ]
-        });
-        onError({
-            term_1: '',
-            term_2: '資料填寫不完全'
-        });
+        error.term_1 = '資料填寫不完全';
     } else {
         const emailRes = formatChecker.email(form.email);
-        if (emailRes !== true) {
+        if (emailRes !== true) error.term_1 = emailRes;
+
+        const phoneRes = formatChecker.phone(form.phone);
+        if (phoneRes !== true) error.term_1 = phoneRes;
+
+        const nameRes = formatChecker.noNumber(form.name);
+        if (nameRes !== true) error.term_1 = '姓名' + nameRes;
+    }
+
+    if (!form.country
+        || !form.city
+        || !form.address) {
+        error.term_2 = '資料填寫不完全';
+    }
+
+    onError(error);
+
+    if (!error.term_1 && !error.term_2) {
+        if (!form.term_1 || !form.term_2) {
             enableGlobalAlert({
-                content: emailRes,
+                content: '請閱讀並同意兌換條款',
                 btnList: [
                     {text: '確定'}
                 ]
-            });
-            onError({
-                term_1: emailRes,
-                term_2: ''
-            });
-        } else if (!form.term_1 || !form.term_2) {
-            enableGlobalAlert({
-                content: '請閱圖並同意兌換條款',
-                btnList: [
-                    {text: '確定'}
-                ]
-            });
-            onError({
-                term_1: '',
-                term_2: ''
             });
         } else onComplete();
     }

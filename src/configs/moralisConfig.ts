@@ -1,4 +1,4 @@
-import { IMoralisConfig } from "./@types/nft";
+import { IMoralisConfig } from "../@types/nft";
 
 const moralisConfig: IMoralisConfig = {
     version: '1.1.7',

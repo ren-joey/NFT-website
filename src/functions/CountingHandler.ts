@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { getParameterByName } from './utils';
+import { getParameterByName } from '../utils';
 
 const timeFormat = 'YYYY/MM/DD HH:mm:ss Z';
 const timeOffset = '+08:00';

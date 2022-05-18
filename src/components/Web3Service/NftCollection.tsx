@@ -5,7 +5,7 @@ import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { ContractVariables } from 'src/@types/contract';
 import { INft } from 'src/@types/nft';
 import { ContractContext } from 'src/Context/ContractContext';
-import moralisConfig from "src/moralisConfig";
+import moralisConfig from "src/configs/moralisConfig";
 import fetchContractVariable from './functions/fetchContractVariable';
 
 const NftCollection = () => {

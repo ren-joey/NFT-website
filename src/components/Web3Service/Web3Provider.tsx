@@ -4,7 +4,7 @@ import { MoralisProvider } from "react-moralis";
 import { ContractContext } from "src/Context/ContractContext";
 import { BasicNft, INft } from "src/@types/nft";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
-import moralisConfig from "src/moralisConfig";
+import moralisConfig from "src/configs/moralisConfig";
 import PermissionCertification from "src/components/Web3Service/PermissionCertification";
 
 const Web3Provider = () => {

@@ -1,4 +1,4 @@
-import { ISocialList } from "src/socialMediaConfig";
+import { ISocialList } from "src/configs/socialMediaConfig";
 import gaParser from "./gaParser";
 
 const hrefTo = (

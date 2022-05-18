@@ -16,7 +16,7 @@ import faq_6_table_cn from 'src/assets/images/faq_6_table_cn.png';
 import faq_6_table_tw_m from 'src/assets/images/faq_6_table_tw_m.png';
 import faq_6_table_tw from 'src/assets/images/faq_6_table_tw.png';
 import { EventContext } from "src/Context/EventContext";
-import { socialList } from "src/socialMediaConfig";
+import { socialList } from "src/configs/socialMediaConfig";
 import SocialIconButton from "../Shared/Buttons/SocialIconButton";
 
 const FAQ = () => {

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
-import moralisConfig from "src/moralisConfig";
+import moralisConfig from "src/configs/moralisConfig";
 
 const Footer = () => {
     const lang = useContext(LangContext);

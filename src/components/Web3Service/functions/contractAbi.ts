@@ -1,5 +1,5 @@
 import Moralis from "moralis/types";
-import moralisConfig from "./moralisConfig";
+import moralisConfig from "../../../configs/moralisConfig";
 
 const contractAbi = [
     {

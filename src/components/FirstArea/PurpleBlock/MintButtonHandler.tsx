@@ -3,9 +3,9 @@ import { useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
 import { ContractContext } from "src/Context/ContractContext";
-import moralisConfig from "src/moralisConfig";
+import moralisConfig from "src/configs/moralisConfig";
 import { NullableBigNumber } from "src/@types/basicVariable";
-import { ChainList, MintMethodName } from "src/@types/contract";
+import { ChainList, INativeBalance, MintMethodName } from "src/@types/contract";
 import mintErrorHandler from "src/components/Web3Service/functions/mintErrorHandler";
 import { mintAlertHandler } from "src/components/Web3Service/mintHandlers/mintAlertHandler";
 import MintButton from "src/components/Shared/Buttons/MintButton";
@@ -15,11 +15,6 @@ interface IProps {
     supplyRemain: NullableBigNumber,
     mintMethodName: MintMethodName,
     buttonSize: React.CSSProperties
-}
-
-export interface INativeBalance {
-    balance: string | undefined;
-    formatted: string | null;
 }
 
 const MintButtonHandler = ({

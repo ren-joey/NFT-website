@@ -8,12 +8,13 @@ $form-input-radius: 0.5rem;
 .alert-block {
     &.form {
         padding: 0;
-        width: calc(100% - 2rem);
+        width: calc(100% - 1rem);
         background-color: #fff;
         border: 0;
         box-shadow: 0 0 20px $form-shadow, 0 0 20px $form-shadow, 0 0 20px $form-shadow;
 
         @media (min-width: 992px) {
+            width: calc(100% - 2rem);
             width: 560px;
         }
 
@@ -23,6 +24,10 @@ $form-input-radius: 0.5rem;
             font-weight: bolder;
             background-color: $form-grey;
             border-radius: $form-radius $form-radius 0 0;
+
+            &.warning {
+                background-color: $form-purple;
+            }
 
             small {
                 display: inline-block;
@@ -40,11 +45,15 @@ $form-input-radius: 0.5rem;
 }
 
 .form-content {
-    padding: $form-padding $form-padding * 3;
+    padding: $form-padding $form-padding * 2;
     width: 100%;
     text-align: left;
     color: $form-grey;
     background-color: #fff;
+
+    @media (min-width: 992px) {
+        padding: $form-padding $form-padding * 3;
+    }
 
     .form-section-title {
         margin-top: 1rem;
@@ -105,58 +114,78 @@ $form-input-radius: 0.5rem;
 
         .form-nft {
             display: flex;
+            align-items: start;
 
             .nft-img {
                 overflow: hidden;
-                width: 40%;
+                width: 35%;
                 border-radius: $form-radius;
+
+                @media (min-width: 992px) {
+                    width: 40%;
+                }
             }
 
             .nft-desc {
-                padding-left: 2rem;
-                width: 60%;
+                padding-left: 1rem;
+                width: 65%;
                 font-weight: bolder;
 
-                .nft-name {
-                    font-size: 2rem;
-                    font-weight: normal;
+                @media (min-width: 992px) {
+                    margin-left: 2rem;
+                    width: 60%;
                 }
 
-                .nft-term {
-                    cursor: pointer;
+                .nft-name {
+                    font-size: 1.6rem;
+                    font-weight: normal;
 
-                    &:hover {
-                        .nft-term-text {
-                            border-bottom: 1px solid $form-grey;
-                        }
-                    }
-
-                    .nft-term-check-box {
-                        display: inline-block;
-                        margin-right: 0.4rem;
-                        width: 0.8rem;
-                        height: 0.8rem;
-                        border: 1px solid $form-grey;
-
-                        &.checked {
-                            background-color: $form-purple;
-                            border: 1px solid $form-purple;
-                        }
-                    }
-
-                    .nft-term-text {
-                        display: inline-block;
-                        font-size: 0.9rem;
-                        font-weight: normal;
-                        border-bottom: 1px solid transparent;
-
-                        .clickable-span {
-                            font-weight: bolder;
-                            color: cornflowerblue;
-                        }
+                    @media (min-width: 992px) {
+                        font-size: 2rem;
                     }
                 }
             }
+        }
+    }
+}
+
+.nft-term {
+    cursor: pointer;
+
+    @media (min-width: 992px) {
+        &:not(:last-child) {
+            margin-top: 2rem;
+        }
+    }
+
+    &:hover {
+        .nft-term-text {
+            border-bottom: 1px solid $form-grey;
+        }
+    }
+
+    .nft-term-check-box {
+        display: inline-block;
+        margin-right: 0.4rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        border: 1px solid $form-grey;
+
+        &.checked {
+            background-color: $form-purple;
+            border: 1px solid $form-purple;
+        }
+    }
+
+    .nft-term-text {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: normal;
+        border-bottom: 1px solid transparent;
+
+        .clickable-span {
+            font-weight: bolder;
+            color: cornflowerblue;
         }
     }
 }

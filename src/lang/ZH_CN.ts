@@ -1,5 +1,5 @@
 import { Lang } from 'src/lang/index';
-import { socialList } from 'src/socialMediaConfig';
+import { socialList } from 'src/configs/socialMediaConfig';
 import kol_preview_1 from 'src/assets/images/kol_preview_1.png';
 import kol_preview_2 from 'src/assets/images/kol_preview_2.png';
 import kol_preview_3 from 'src/assets/images/kol_preview_3.png';

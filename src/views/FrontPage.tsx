@@ -17,7 +17,7 @@ import ZH_CN from "src/lang/ZH_CN";
 import ZH_TW from "src/lang/ZH_TW";
 
 import 'src/views/FrontPage.scss';
-import CountingHandler from "src/CountingHandler";
+import CountingHandler from "src/functions/CountingHandler";
 import ToBeAnnounced from "src/components/ToBeAnnounced";
 import { DeviceString, LangString } from "src/@types/basicVariable";
 import VbcLabs from "src/components/VbcLabs/VbcLabs";

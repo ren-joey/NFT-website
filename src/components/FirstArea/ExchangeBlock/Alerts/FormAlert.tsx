@@ -1,19 +1,13 @@
 import { useContext, useEffect, useMemo, useState } from "react";
 import { StableNft } from "src/@types/nft";
-import SharedAlert from "src/components/Shared/SharedAlert";
 import { LangContext } from "src/Context/LangContext";
 import 'src/components/FirstArea/ExchangeBlock/Alerts/FormAlert.scss';
 import { EventBus } from "src/bus";
-import SharedButton from "src/components/Shared/Buttons/SharedButton";
-import { getResources } from "src/functions/loader";
-import Star from "src/components/Shared/Star";
-import AlertStar from "./AlertStar";
 import collapseHeader from "src/animation/collapseHeader";
 import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import formatChecker from "src/functions/formatChecker";
 import formChecker from "./functions/formChecker";
-import FormEditor from "./FormEditor";
-import FormDoubleChecker from "./FormDoubleChecker";
+import FormReadOnly from "./Form/FormReadOnly";
+import FormEditor from "./Form/FormEditor";
 
 export interface FormEssentials {
     form: FormData;
@@ -126,7 +120,7 @@ const FormAlert = ({
 
                 {
                     mode === 'readonly' && (
-                        <FormDoubleChecker {...formEssentials} />
+                        <FormReadOnly {...formEssentials} />
                     )
                 }
             </div>

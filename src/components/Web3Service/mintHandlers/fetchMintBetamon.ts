@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
-import { getWeb3ExecuteFunctionOption } from "src/contractAbi";
+import { getWeb3ExecuteFunctionOption } from "src/components/Web3Service/functions/contractAbi";
 import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import moralisConfig from "src/moralisConfig";
+import moralisConfig from "src/configs/moralisConfig";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const fetchMintBetamon = ({

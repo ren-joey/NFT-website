@@ -5,7 +5,7 @@ import { ContractVariables } from "src/@types/contract";
 import { EventBus } from "src/bus";
 import { ContractContext } from "src/Context/ContractContext";
 import { LangContext } from "src/Context/LangContext";
-import moralisConfig from "src/moralisConfig";
+import moralisConfig from "src/configs/moralisConfig";
 import { copyTextToClipboard } from "src/utils/stringFormat/copyTextToClipboard";
 import SharedAlert from "../Shared/SharedAlert";
 import fetchContractVariable from "./functions/fetchContractVariable";

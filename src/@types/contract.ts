@@ -52,3 +52,7 @@ export type MoralisFetch = (key: ResolveCallOptions<
                                 unknown,
                                 Web3ExecuteFunctionParameters
                             >) => Promise<unknown>;
+export interface INativeBalance {
+    balance: string | undefined;
+    formatted: string | null;
+}

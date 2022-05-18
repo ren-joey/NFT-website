@@ -3,7 +3,7 @@ import 'src/components/Roadmap/Roadmap.scss';
 import { useContext } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { getResources } from 'src/functions/loader';
-import { socialList } from 'src/socialMediaConfig';
+import { socialList } from 'src/configs/socialMediaConfig';
 import RoadmapSocialCard from './RoadmapSocialCard';
 import { LangString } from 'src/@types/basicVariable';
 import SocialButton from '../Shared/Buttons/SocialButton';
