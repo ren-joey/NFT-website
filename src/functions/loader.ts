@@ -121,6 +121,8 @@ import exchange_phase_rules from 'src/assets/images/exchange_phase_rules.png';
 import planet from 'src/assets/images/planet.png';
 import earth_icon from 'src/assets/images/earth_icon.svg';
 import planet_icon  from 'src/assets/images/planet_icon.svg';
+import cancel_icon  from 'src/assets/images/cancel_icon.png';
+import warning_icon  from 'src/assets/images/warning_icon.png';
 
 
 const loader = () => new Promise<void>((res) => {
@@ -249,7 +251,9 @@ const loader = () => new Promise<void>((res) => {
         .add('exchange_phase_rules', exchange_phase_rules)
         .add('planet', planet)
         .add('earth_icon', earth_icon)
-        .add('planet_icon', planet_icon);
+        .add('planet_icon', planet_icon)
+        .add('cancel_icon', cancel_icon)
+        .add('warning_icon', warning_icon);
 
     loader.load(() => {
         if (pass) res();

@@ -30,6 +30,7 @@ import KolSupport from "src/components/KolSupport/KolSupport";
 import MediaSupport from "src/components/MediaSupport/MediaSupport";
 import Roadmap from "src/components/Roadmap/Roadmap";
 import GlobalAlert from "src/components/Global/GlobalAlert";
+import FormAlert from "src/components/FirstArea/ExchangeBlock/Alerts/FormAlert";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
