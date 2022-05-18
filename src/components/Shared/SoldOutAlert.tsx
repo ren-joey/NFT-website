@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import 'src/components/Shared/SharedAlert.scss';
 import { LangContext } from 'src/Context/LangContext';
 import { getResources } from 'src/functions/loader';
-import SharedButton from './SharedButton';
+import SharedButton from './Buttons/SharedButton';
 
 const SoldOutAlert = () => {
     const [state, setState] = useState(true);

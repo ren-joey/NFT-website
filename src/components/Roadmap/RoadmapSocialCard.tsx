@@ -4,7 +4,7 @@ import 'src/components/Roadmap/RoadmapCard.scss';
 import { getResources } from "src/functions/loader";
 import { EventContext } from "src/Context/EventContext";
 import { socialList } from "src/socialMediaConfig";
-import SocialIconButton from "../Shared/SocialIconButton";
+import SocialIconButton from "../Shared/Buttons/SocialIconButton";
 
 interface Props {
     idx: number,

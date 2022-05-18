@@ -1,7 +1,7 @@
 import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
 import { ISocialList } from 'src/socialMediaConfig';
-import 'src/components/Shared/SocialIconButton.scss';
+import 'src/components/Shared/Buttons/SocialIconButton.scss';
 
 interface IProps {
     social: ISocialList

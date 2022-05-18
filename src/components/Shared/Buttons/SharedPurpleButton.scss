@@ -1,0 +1,64 @@
+$angle-width: 2px;
+$border-radius: 0.4rem;
+
+.shared-purple-button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #f202e7;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    &.disabled {
+        color: #d3b3ee;
+        background-color: #be8be7;
+        opacity: 0.9;
+        cursor: default;
+
+        > .corner-border {
+            opacity: 0.6;
+        }
+    }
+
+    > .corner-border {
+        position: absolute;
+        width: 0.8rem;
+        height: 0.8rem;
+
+        &.top {
+            top: -$angle-width / 2;
+            border-top: $angle-width solid #fff;
+
+            &.left {
+                border-radius: $border-radius 0 0;
+            }
+
+            &.right {
+                border-radius: 0 $border-radius 0 0;
+            }
+        }
+
+        &.bottom {
+            bottom: -$angle-width / 2;
+            border-bottom: $angle-width solid #fff;
+
+            &.left {
+                border-radius: 0 0 0 $border-radius;
+            }
+
+            &.right {
+                border-radius: 0 0 $border-radius;
+            }
+        }
+
+        &.left {
+            left: -$angle-width / 2;
+            border-left: $angle-width solid #fff;
+        }
+
+        &.right {
+            right: -$angle-width / 2;
+            border-right: $angle-width solid #fff;
+        }
+    }
+}

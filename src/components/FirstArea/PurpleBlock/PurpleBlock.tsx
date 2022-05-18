@@ -1,25 +1,26 @@
-import 'src/components/FirstArea/PurpleBlock/MintBlock.scss';
+import 'src/components/FirstArea/PurpleBlock/PurpleBlock.scss';
 import { getResources } from "src/functions/loader";
-import { scrollToFaq } from "src/animation/scrollToTrigger";
 import { useContext, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { ContractContext } from 'src/Context/ContractContext';
 import { LangContext } from 'src/Context/LangContext';
-import hrefTo from 'src/functions/hrefTo';
-import { socialList } from 'src/socialMediaConfig';
 import stringReplacer from 'src/utils/stringFormat/stringReplacer';
 import { NullableBigNumber } from 'src/@types/basicVariable';
 import { MintMethodName } from 'src/@types/contract';
 import MintBody from './MintBody';
+import SubeventButton from '../SubeventButton/SubeventButton';
+import SharedPurpleBlock from 'src/components/Shared/SharedPurpleBlock';
+import SharedFaqButton from 'src/components/Shared/Buttons/SharedFaqButton';
 
 interface IProps {
     supplyRemain: NullableBigNumber
 }
 
-const MintBlock = ({ supplyRemain }: IProps) => {
+const PurpleBlock = ({ supplyRemain }: IProps) => {
     const { status } = useContext(EventContext);
     const { maxBalance } = useContext(ContractContext);
     const lang = useContext(LangContext);
+
     const methodName = useMemo<MintMethodName>(() => {
         switch (status) {
             case 0:
@@ -59,43 +60,36 @@ const MintBlock = ({ supplyRemain }: IProps) => {
     const spotlightLeft: React.CSSProperties = { backgroundImage: `url(${getResources('spotlight_left')})` };
 
     return (
-        <div className="mint-block">
-            <div className={`b-alien-container-for-mint-block ${status === 3 && 'center'}`}>
-                <div className="b-alien-area">
-                    <div className="b-alien-wave"></div>
-                    <div className="b-alien-line" style={
-                        { backgroundImage: `url(${getResources('b_alien')})` }
-                    }></div>
-                    { status === 3 && <div className="spotlight" style={spotlightLeft}></div> }
-                    { status === 3 && <div className="spotlight reverse" style={spotlightLeft}></div> }
+        <SharedPurpleBlock
+            className="pc-w-800"
+            content={
+                <div className='purple-block'>
+                    <div className={`b-alien-container-for-mint-block ${status === 3 && 'center'}`}>
+                        <div className="b-alien-area">
+                            <div className="b-alien-wave"></div>
+                            <div className="b-alien-line" style={
+                                { backgroundImage: `url(${getResources('b_alien')})` }
+                            }></div>
+                            { status === 3 && <div className="spotlight" style={spotlightLeft}></div> }
+                            { status === 3 && <div className="spotlight reverse" style={spotlightLeft}></div> }
+                        </div>
+                    </div>
+
+                    {
+                        status < 3 && (
+                            <MintBody mintMethodName={methodName} supplyRemain={supplyRemain} />
+                        )
+                    }
+
+                    <div className="note">
+                        {noteText}
+                    </div>
+
+                    <SharedFaqButton />
+                    <SubeventButton />
                 </div>
-            </div>
-
-            {
-                status < 3 && (
-                    <MintBody mintMethodName={methodName} supplyRemain={supplyRemain} />
-                )
-            }
-
-            <div className="faq-button" onClick={() => scrollToFaq()}>FAQ</div>
-
-            <div className="note">
-                {noteText}
-            </div>
-
-            <div className="angle left top"></div>
-            <div className="angle left bottom"></div>
-            {/* <div className="angle right top"></div> */}
-            <div className="angle right bottom"></div>
-
-            <div className="subevent-btn" onClick={() => hrefTo(socialList[4])}>
-                <div className="label">{lang.PROMOTION_1_LABEL}</div>
-                <div className="hgl">{lang.PROMOTION_1_TITLE_BOLD}</div>
-                <div className="text">{lang.PROMOTION_1_TITLE}&emsp;</div>
-                <div className="hgl text-stroke">›</div>
-            </div>
-        </div>
+            } />
     );
 };
 
-export default MintBlock;
+export default PurpleBlock;

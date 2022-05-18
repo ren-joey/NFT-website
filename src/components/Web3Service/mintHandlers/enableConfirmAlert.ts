@@ -1,10 +1,9 @@
+import enableGlobalAlert from "src/functions/enableGlobalAlert";
 import stringReplacer from "src/utils/stringFormat/stringReplacer";
 import fetchMintBetamon from "./fetchMintBetamon";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const enableConfirmAlert = ({
-    setAlertData,
-    disableAlert,
     amount,
     maxBalance,
     lang,
@@ -13,34 +12,28 @@ const enableConfirmAlert = ({
     mintPrice
 }: Pick<
     IMintAlertHandler,
-    'maxBalance'|'setAlertData'|'lang'|'disableAlert'|'amount'|'fetch'|'mintMethodName'|'mintPrice'
+    'maxBalance'|'lang'|'amount'|'fetch'|'mintMethodName'|'mintPrice'
     >
 ) => {
     if (amount === null
         || maxBalance === null
         || mintPrice === null) return;
-
-    setAlertData({
-        enable: true,
+    enableGlobalAlert({
         content: stringReplacer(lang.MINT_ALERT, amount, maxBalance),
         btnList: [
             {
                 text: lang.CANCEL,
-                type: 'gray',
-                onClick: disableAlert
+                type: 'gray'
             },
             {
                 text: lang.CONFIRM,
                 onClick: () => {
-                    disableAlert();
                     fetchMintBetamon({
                         amount,
-                        disableAlert,
                         fetch,
                         lang,
                         mintMethodName,
-                        mintPrice,
-                        setAlertData
+                        mintPrice
                     });
                 }
             }

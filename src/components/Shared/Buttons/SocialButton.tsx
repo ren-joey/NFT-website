@@ -1,5 +1,5 @@
 import React from 'react';
-import 'src/components/Shared/SocialButton.scss';
+import 'src/components/Shared/Buttons/SocialButton.scss';
 import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
 import { SocialIconName } from 'src/@types/basicVariable';

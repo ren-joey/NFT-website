@@ -1,5 +1,5 @@
 import { socialList } from "src/socialMediaConfig";
-import SocialButton from "../Shared/SocialButton";
+import SocialButton from "../Shared/Buttons/SocialButton";
 
 const LinkArea = () => (
     <div className="link-area">

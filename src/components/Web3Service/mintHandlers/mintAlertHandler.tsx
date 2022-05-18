@@ -1,5 +1,4 @@
 import { Lang } from "src/lang";
-import { IAlertData } from "../../Shared/SharedAlert";
 import enableMintNotOpenAlert from "./enableMintNotOpenAlert";
 import enableSoldOutAlert from "./enableSoldOutAlert";
 import enableNotEnoughEth from "./enableNotEnoughEth";
@@ -11,8 +10,6 @@ import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
 import { INativeBalance } from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 
 export interface IMintAlertHandler {
-    setAlertData: (key: IAlertData) => void,
-    disableAlert: () => void,
     status: number,
     supplyRemain: NullableBigNumber,
     amount: number,
@@ -29,9 +26,7 @@ export interface IMintAlertHandler {
 export const mintAlertHandler = ({
     fetch,
     mintMethodName,
-    setAlertData,
     status,
-    disableAlert,
     supplyRemain,
     amount,
     getBalance,
@@ -41,11 +36,7 @@ export const mintAlertHandler = ({
     nativeBalance,
     lang
 }: IMintAlertHandler) => {
-    const defaultParams = {
-        disableAlert,
-        lang,
-        setAlertData
-    };
+    const defaultParams = { lang };
 
     // 非 mint 期間
     if (status === -1 || status >= 3) enableMintNotOpenAlert(defaultParams);

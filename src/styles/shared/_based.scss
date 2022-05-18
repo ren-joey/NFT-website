@@ -21,6 +21,22 @@ body,
     font-size: 14px;
 }
 
+.cursor-default {
+    cursor: default !important;
+}
+
+.pointer-events-painted {
+    pointer-events: painted;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.pre-line {
+    white-space: pre-line !important;
+}
+
 @media (max-width: 991.98px) {
     .pc {
         display: none !important;

@@ -1,0 +1,62 @@
+$angle-width: 4px;
+
+.mint-block {
+    position: relative;
+    margin: 0 auto 6.6rem;
+    padding: 1.4rem 1rem 1rem;
+    width: 100%;
+    background-color: rgba(117, 17, 169, 0.9);
+    border: 1px solid #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #ff46bc, 0 0 20px #ff46bc, 0 0 20px #ff46bc;
+
+    &.pc-w-800 {
+        @media (min-width: 992px) {
+            margin: 8.6rem auto;
+            padding: 2rem;
+            width: 800px;
+        }
+    }
+
+    > .angle {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+
+        &.top {
+            top: -$angle-width / 2;
+            border-top: $angle-width solid #fff;
+
+            &.left {
+                border-radius: 1rem 0 0;
+            }
+
+            &.right {
+                border-radius: 0 1rem 0 0;
+            }
+        }
+
+        &.bottom {
+            bottom: -$angle-width / 2;
+            border-bottom: $angle-width solid #fff;
+
+            &.left {
+                border-radius: 0 0 0 1rem;
+            }
+
+            &.right {
+                border-radius: 0 0 1rem;
+            }
+        }
+
+        &.left {
+            left: -$angle-width / 2;
+            border-left: $angle-width solid #fff;
+        }
+
+        &.right {
+            right: -$angle-width / 2;
+            border-right: $angle-width solid #fff;
+        }
+    }
+}

@@ -1,25 +1,20 @@
+import enableGlobalAlert from "src/functions/enableGlobalAlert";
 import stringReplacer from "src/utils/stringFormat/stringReplacer";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const enableExceedAlert = ({
     maxBalance,
-    setAlertData,
-    lang,
-    disableAlert
+    lang
 }: Pick<
     IMintAlertHandler,
-    'maxBalance'|'setAlertData'|'lang'|'disableAlert'
+    'maxBalance'|'lang'
     >
 ) => {
     if (maxBalance === null) return;
-    setAlertData({
-        enable: true,
+    enableGlobalAlert({
         content: stringReplacer(lang.MINT_EXCESS_ALERT, maxBalance),
         btnList: [
-            {
-                text: lang.I_WILL_ADJUST,
-                onClick: disableAlert
-            }
+            { text: lang.I_WILL_ADJUST }
         ]
     });
 };

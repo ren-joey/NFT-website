@@ -6,59 +6,39 @@ import fetchBasicNftData from './functions/fetchBasicNftData';
 import fetchContractVariable from './functions/fetchContractVariable';
 
 const NftBalance = () => {
-    const { account } = useMoralis();
-    // const { data } = useNFTBalances();
+    const {
+        account,
+        isAuthenticated,
+        isWeb3Enabled
+    } = useMoralis();
     const { fetch } = useWeb3ExecuteFunction();
     const { setNfts } = useContext(ContractContext);
 
     useEffect(() => {
-        if (account) {
-            fetchContractVariable<ContractResponse>({
-                paramName: 'getBetamonByOwner',
-                params: {
-                    _owner: account
-                },
-                fetch
-            }).then((nfts) => {
-                if (Array.isArray(nfts)) {
-                    fetchBasicNftData({
-                        account,
-                        fetch,
-                        nfts
-                    }).then((processedNfts) => {
-                        setNfts(processedNfts);
-                    });
-                }
-            });
+        if (account && isAuthenticated && isWeb3Enabled) {
+            setTimeout(() => {
+                fetchContractVariable<ContractResponse>({
+                    paramName: 'getBetamonByOwner',
+                    params: {
+                        _owner: account
+                    },
+                    fetch
+                }).then((nfts) => {
+                    if (Array.isArray(nfts)) {
+                        fetchBasicNftData({
+                            account,
+                            fetch,
+                            nfts
+                        }).then((processedNfts) => {
+                            setNfts(processedNfts);
+                        });
+                    }
+                });
+            }, 200);
         }
-    }, [account]);
+    }, [account, isAuthenticated, isWeb3Enabled]);
 
-    // useEffect(() => {
-    //     if (data && data.result && !isFetching) {
-    //         console.log(data);
-    //         const _nfts = data.result.map((nft) => {
-    //             fetchContractVariable<ContractResponse>({
-    //                 paramName: 'tokenURI',
-    //                 params: {
-    //                     tokenId: '1'
-    //                 },
-    //                 fetch
-    //             }).then((uri) => {
-    //                 if (typeof uri === 'string') {
-    //                     axios.get(uri).then((res) => {
-    //                         nft.metadata = res.data as IMetadata;
-    //                         nft.token_uri = uri;
-    //                     });
-    //                 }
-    //             });
-    //             return nft;
-    //         });
-
-    //         setNfts(_nfts);
-    //     }
-    // }, [data]);
-
-    return null;
+    return (null);
 };
 
 export default NftBalance;

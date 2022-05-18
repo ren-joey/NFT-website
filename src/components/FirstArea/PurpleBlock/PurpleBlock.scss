@@ -1,0 +1,98 @@
+.purple-block {
+    display: flex;
+    flex-wrap: wrap;
+
+    .b-alien-container-for-mint-block {
+        // margin-right: -10%;
+        margin-left: -10%;
+        width: 40%;
+
+        &.center {
+            margin-left: 30%;
+        }
+
+        @media (min-width: 992px) {
+            margin-top: -26%;
+            margin-right: 0;
+            margin-left: -5%;
+            width: 300px;
+
+            &.center {
+                margin-left: calc(50% - 150px);
+            }
+        }
+
+        > .b-alien-area {
+            position: relative;
+            padding-bottom: calc(100% / 296 * 362); // 296 x 362
+            width: 100%;
+
+            @media (min-width: 992px) {
+                margin: 50px auto 0;
+            }
+
+            .b-alien-wave {
+                position: absolute;
+                top: 6.3%;
+                left: -3%;
+                padding-bottom: 106%;
+                width: 106%;
+                background-image: url("/assets/images/b_alien_wave.gif");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .b-alien-line {
+                position: absolute;
+                top: 6.3%;
+                left: 18%;
+                padding-bottom: calc(64% / 424 * 729);
+                width: 64%;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .ground {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 296px;
+                height: 129px;
+                background-position: center bottom;
+                background-size: 100% auto;
+            }
+
+            .spotlight {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                padding-bottom: calc(80px / 156 * 328); // 156x328
+                width: 80px;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                transform: translate(-60%, -50%);
+                animation: y-move 10s ease-in-out 0s infinite;
+
+                &.reverse {
+                    right: 0;
+                    left: auto;
+                    transform: translate(60%, -50%) scaleX(-1);
+                    animation: y-move-2 10s cubic-bezier(0.435, -0.305, 0.55, 1.37) 0s infinite;
+                }
+            }
+        }
+    }
+
+    .note {
+        width: 100%;
+        font-size: 0.8rem;
+        text-align: center;
+        line-height: 1.2rem;
+        color: #fff;
+
+        @media (min-width: 992px) {
+            font-size: 1rem;
+            line-height: 2rem;
+        }
+    }
+}

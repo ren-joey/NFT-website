@@ -8,16 +8,16 @@ const TitleArea = () => {
 
     return (
         <div className="title-area">
-            <div className="title"
-                dangerouslySetInnerHTML={{
-                    __html: status > -1
+            <div className="title pre-line">
+                {
+                    status > -1
                         ? lang.FIRST_AREA_TITLE_ARRIVED
                         : lang.FIRST_AREA_TITLE
-                }}
-            ></div>
-            <div className="desc"
-                dangerouslySetInnerHTML={{__html: lang.FIRST_AREA_DESC}}
-            ></div>
+                }
+            </div>
+            <div className="desc pre-line" dangerouslySetInnerHTML={{
+                __html: lang.FIRST_AREA_DESC
+            }}></div>
         </div>
     );
 };

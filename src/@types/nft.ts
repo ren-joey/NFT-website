@@ -1,7 +1,6 @@
 import { ChainList } from "./contract";
 import { IMetadata } from "./metadata";
 
-
 export type Web3Provider = 'metamask'
                             | 'walletconnect'
                             | 'walletConnect'
@@ -11,6 +10,22 @@ export type Web3Provider = 'metamask'
 
 interface Provider {
     provider?: Web3Provider
+}
+
+export interface StableNftMembers {
+    stableNfts: StableNftOption[];
+    setStableNfts: (key: StableNftOption[]) => void;
+    selectedNftAmount: number;
+}
+
+export interface StableNftOption extends StableNft {
+    select: boolean
+}
+
+export interface StableNft {
+    token_id: string,
+    metadata: IMetadata,
+    owner_of: string
 }
 
 export interface BasicNft {

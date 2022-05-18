@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useMoralis } from "react-moralis";
 import { EventBus } from "src/bus";
 import { EventContext } from "src/Context/EventContext";
@@ -7,13 +7,11 @@ import { ContractContext } from "src/Context/ContractContext";
 import { getParameterByName, roundDecimal } from "src/utils";
 import { NullableBigNumber } from "src/@types/basicVariable";
 import { MintMethodName } from "src/@types/contract";
-import SharedAlert, { IAlertData } from "src/components/Shared/SharedAlert";
-import EthIcon from "src/components/Shared/EthIcon";
-import MintButton from "src/components/Shared/MintButton";
+import EthIcon from "src/components/Shared/Buttons/EthIcon";
 import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
-import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
 import NftTransfer from "src/components/Web3Service/NftTransfer";
+import SharedLoginButton from "src/components/Shared/Buttons/SharedLoginButton";
 
 interface IMintMethodName {
     supplyRemain: NullableBigNumber
@@ -35,16 +33,11 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
     } = useContext(ContractContext);
 
     const {
-        status,
+        buttonSize,
         device
     } = useContext(EventContext);
 
     const lang = useContext(LangContext);
-    const [alertData, setAlertData] = useState<IAlertData>({
-        enable: false,
-        btnList: [],
-        content: ''
-    });
 
     const [amount, setAmount] = useState(1);
     const increaseAmount = () => {
@@ -58,18 +51,6 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
         setAmount(nextAmount);
     };
 
-    const buttonSize = useMemo<React.CSSProperties>(() => {
-        if (device === 'desktop') {
-            return { margin: '2rem 0 1rem', whiteSpace: 'nowrap' };
-        }
-        return {
-            margin: '1rem 0 0.6rem',
-            padding: '0.6rem 1.4rem',
-            fontSize: '1.4rem',
-            whiteSpace: 'nowrap'
-        };
-    }, [device]);
-
     // 尚未連結錢包
     if (!isAuthenticated || !isWeb3Enabled) {
         return (
@@ -82,36 +63,8 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
                     {lang.MINT_BODY_TITLE_2}
                 </div>
 
-                <MintButton
-                    text={lang.LINK_WALLET}
-                    style={buttonSize}
-                    onClick={() => {
-                        EventBus.$emit('fetchLogin');
-                    }}
-                />
-
+                <SharedLoginButton />
                 <LinkingAnimation />
-            </div>
-        );
-
-        // 已連結錢包但 Web3.0 無法啟用，好發於錢包被自動登出
-        // } else if (isAuthenticated && !isWeb3Enabled) {
-        //     return (
-        //         <div className="mint-body single">
-        //             <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
-        //                 {lang.CHECK_YOUR_WALLET}
-        //             </div>
-        //             <LinkingAnimation />
-        //         </div>
-        //     );
-
-    // 解盲時段
-    } else if (status === 3) {
-        return (
-            <div className="mint-body single">
-                <div className="mint-title" style={{ margin: '2rem 0 1rem' }}>
-                    {lang.BLIND_BOX_OPENED}
-                </div>
             </div>
         );
 
@@ -157,18 +110,10 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
                     </div>
 
                     <MintButtonHandler
-                        alertData={alertData}
-                        setAlertData={setAlertData}
                         supplyRemain={supplyRemain}
                         amount={amount}
                         buttonSize={buttonSize}
                         mintMethodName={mintMethodName}
-                    />
-
-                    <SharedAlert
-                        enable={alertData.enable}
-                        content={alertData.content}
-                        btnList={alertData.btnList}
                     />
 
                     {

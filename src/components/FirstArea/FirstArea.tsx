@@ -1,23 +1,33 @@
-import 'src/components/FirstArea/FirstArea.scss';
 import TitleArea from './TitleArea';
 import LinkArea from './LinkArea';
 import BetamonStagePhone from './BetamonStage/BetamonStagePhone';
-import Web3Provider from '../Web3Service/Web3Provider';
+import React, { Suspense, useMemo } from 'react';
+import 'src/components/FirstArea/FirstArea.scss';
+import 'src/components/FirstArea/PurpleBlock/MintBody.scss';
 
-const FirstArea = () => (
-    <div className="first-area">
-        <div className="front-container">
-            {/* 包含 mint 區塊、時間及倒數 */}
-            <Web3Provider />
+const FirstArea = () => {
+    const Web3Provider = useMemo(
+        () => React.lazy(() => import('../Web3Service/Web3Provider')),
+        []
+    );
 
-            {/* 主標題、介紹及連結 */}
-            <TitleArea />
-            <LinkArea />
+    return (
+        <div className="first-area">
+            <div className="front-container">
+                {/* 包含 mint 區塊、時間及倒數 */}
+                <Suspense fallback={<></>}>
+                    <Web3Provider />
+                </Suspense>
 
-            {/* phone 版 betamon 區域 */}
-            <BetamonStagePhone />
+                {/* 主標題、介紹及連結 */}
+                <TitleArea />
+                <LinkArea />
+
+                {/* phone 版 betamon 區域 */}
+                <BetamonStagePhone />
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default FirstArea;

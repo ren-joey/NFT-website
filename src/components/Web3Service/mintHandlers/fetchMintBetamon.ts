@@ -1,19 +1,18 @@
 import { BigNumber } from "ethers";
 import { getWeb3ExecuteFunctionOption } from "src/contractAbi";
+import enableGlobalAlert from "src/functions/enableGlobalAlert";
 import moralisConfig from "src/moralisConfig";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const fetchMintBetamon = ({
     mintMethodName,
-    setAlertData,
-    disableAlert,
     amount,
     mintPrice,
     fetch,
     lang
 }: Pick<
     IMintAlertHandler,
-    'amount'|'mintPrice'|'mintMethodName'|'setAlertData'|'lang'|'disableAlert'|'fetch'
+    'amount'|'mintPrice'|'mintMethodName'|'lang'|'fetch'
 >
 ) => new Promise<void>((res) => {
     if (mintPrice === null) return;
@@ -32,14 +31,12 @@ const fetchMintBetamon = ({
         });
 
         if (result !== undefined) {
-            setAlertData({
-                enable: true,
+            enableGlobalAlert({
                 content: lang.MINTED_ALERT,
                 btnList: [
                     {
                         text: lang.MINTED_ALERT_BTN,
                         onClick: () => {
-                            disableAlert();
                             window.open(`${moralisConfig.etherscanUrl}${result.hash}`, '_blank');
                         }
                     }

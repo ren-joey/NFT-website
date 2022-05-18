@@ -1,26 +1,21 @@
+import enableGlobalAlert from "src/functions/enableGlobalAlert";
 import stringReplacer from "src/utils/stringFormat/stringReplacer";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const enableNotEnoughEth = ({
-    setAlertData,
-    disableAlert,
     lang,
     maxBalance,
     mintPriceEth
 }: Pick<
     IMintAlertHandler,
-    'maxBalance'|'setAlertData'|'lang'|'disableAlert'|'mintPriceEth'
+    'maxBalance'|'lang'|'mintPriceEth'
     >
 ) => {
     if (maxBalance === null || mintPriceEth === null) return;
-    setAlertData({
-        enable: true,
+    enableGlobalAlert({
         content: stringReplacer(lang.NOT_ENOUGH_ETH_ALERT, mintPriceEth),
         btnList: [
-            {
-                text: lang.I_WILL_PREPARE_MORE_ETH,
-                onClick: disableAlert
-            }
+            { text: lang.I_WILL_PREPARE_MORE_ETH }
         ]
     });
 };

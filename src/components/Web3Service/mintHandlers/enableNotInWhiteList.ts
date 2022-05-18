@@ -1,22 +1,15 @@
-import { IMintAlertHandler } from "./mintAlertHandler";
+import enableGlobalAlert from "src/functions/enableGlobalAlert";
+import { Lang } from "src/lang";
 
 const enableNotInWhiteList = ({
-    disableAlert,
-    setAlertData,
     lang
-}: Pick<
-    IMintAlertHandler,
-    'setAlertData'|'disableAlert'|'lang'
-    >
-) => {
-    setAlertData({
-        enable: true,
+}: {
+    lang: Lang
+}) => {
+    enableGlobalAlert({
         content: lang.NOT_IN_WHITE_LIST,
         btnList: [
-            {
-                text: lang.I_WILL_WAIT_MORE,
-                onClick: disableAlert
-            }
+            { text: lang.I_WILL_WAIT_MORE }
         ]
     });
 };
