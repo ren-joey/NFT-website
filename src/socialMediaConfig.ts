@@ -33,9 +33,9 @@ export const socialList: ISocialList[] = [
         visible: true
     },
     {
-        iconName: 'promotion_1',
-        title: 'promotion_1',
-        href: 'https://www.vbc-labs.com/promotion/1',
+        iconName: 'promotion',
+        title: 'promotion',
+        href: 'https://www.vbc-labs.com/promotion/2',
         visible: false
     }
 ];
