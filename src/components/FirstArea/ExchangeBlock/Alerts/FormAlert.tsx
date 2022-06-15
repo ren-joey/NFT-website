@@ -8,6 +8,7 @@ import enableGlobalAlert from "src/functions/enableGlobalAlert";
 import formChecker from "./functions/formChecker";
 import FormReadOnly from "./Form/FormReadOnly";
 import FormEditor from "./Form/FormEditor";
+import SubmitProcedure from "./SubmitProcedure";
 
 export interface FormEssentials {
     form: FormData;
@@ -38,18 +39,18 @@ export interface FormData extends Terms {
     address: string;
 }
 
-export type FormMode = 'edit'|'readonly';
+export type FormMode = 'edit'|'readonly'|'sending';
 
 const defaultFrom = {
-    name: '',
-    phone: '',
-    email: '',
-    country: '',
-    city: '',
-    zip: '',
-    address: '',
-    term_1: false,
-    term_2: false
+    name: 'joey',
+    phone: '09123456789',
+    email: 't@g.com',
+    country: '123',
+    city: '123',
+    zip: '123',
+    address: '123',
+    term_1: true,
+    term_2: true
 };
 
 const FormAlert = ({
@@ -79,7 +80,7 @@ const FormAlert = ({
                 (err) => setWarning(err)
             );
         } else if (mode === 'readonly') {
-            // TODO:
+            setMode('sending');
         }
     };
     const cancel = () => {
@@ -91,7 +92,7 @@ const FormAlert = ({
                     {text: '確定', onClick: () => setState(false)}
                 ]
             });
-        } else if (mode === 'readonly') {
+        } else if (mode === 'readonly' || mode === 'sending') {
             setMode('edit');
         }
     };
@@ -121,6 +122,12 @@ const FormAlert = ({
                 {
                     mode === 'readonly' && (
                         <FormReadOnly {...formEssentials} />
+                    )
+                }
+
+                {
+                    mode === 'sending' && (
+                        <SubmitProcedure {...formEssentials} />
                     )
                 }
             </div>

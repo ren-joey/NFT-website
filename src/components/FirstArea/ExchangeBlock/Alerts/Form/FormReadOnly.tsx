@@ -97,18 +97,16 @@ const FormReadOnly = ({
                                     <div className="nft-name">
                                         {aNft.metadata.name}
                                     </div>
-
-                                    { device === 'desktop' && <TermsReadOnly /> }
                                 </div>
                             </div>
                         )
                     }
                 </div>
 
-                { device === 'phone' && <TermsReadOnly /> }
+                <br />
 
                 <div className="text-center">
-                    <WarningIcon /> 送出後將無法修改，請務必確認您填寫的寄送資料
+                    <WarningIcon /> 送出後將無法修改，請務必確認您的寄送資料
                 </div>
 
             </div> {/* form-content */}

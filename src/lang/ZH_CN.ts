@@ -236,6 +236,7 @@ const ZH_CN: Lang = {
     PLANET_BTN_ARENA: '竞技场',
     PLANET_BTN_B_BANK: 'β银行',
     PLANET_BTN_PLANET_MINE: '星球矿区',
+    PLANET_BTN_MARKET: 'β市集',
     REIFICATION_TITLE: '实体具象召唤所',
     REIFICATION_DESC: '选择拥有的β星人RNFT进行实体公仔兑换'
 };

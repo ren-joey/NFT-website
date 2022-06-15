@@ -45,7 +45,7 @@ const Planet = () => {
                 <SharedPurpleButton
                     disable={true}
                     onClick={() => {}}
-                    text={lang.PLANET_BTN_PLANET_MINE}
+                    text={lang.PLANET_BTN_MARKET}
                 />
             </div>
 

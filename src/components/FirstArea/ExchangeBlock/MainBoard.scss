@@ -1,11 +1,20 @@
 .main-board {
     display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     pointer-events: none;
 
+    @media (min-width: 992px) {
+        flex-direction: row;
+    }
+
     .nft-list {
         margin-top: calc(80% / 487 * 52);
-        width: 55%;
+        width: 100%;
+
+        @media (min-width: 992px) {
+            width: 55%;
+        }
 
         .nft-container {
             text-align: center;
@@ -26,21 +35,30 @@
                     top: calc(50% - 0.75rem);
                     left: 0;
                     width: 100%;
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     font-weight: bolder;
-                    letter-spacing: 0.5rem;
                     text-align: center;
+                    line-height: 1.5rem;
                     color: #ff46bc;
                     z-index: 1;
+                    letter-spacing: 0.5rem;
+
+                    @media (min-width: 992px) {
+                        font-size: 1.5rem;
+                    }
                 }
             }
 
             .nft-title {
                 padding-top: 0.6rem;
                 padding-bottom: 1rem;
-                font-size: 1.4rem;
+                font-size: 1rem;
                 font-weight: bolder;
                 color: #fff;
+
+                @media (min-width: 992px) {
+                    font-size: 1.4rem;
+                }
             }
 
             .nft-list-container {
@@ -128,8 +146,12 @@
 
     .planet {
         position: relative;
-        width: 45%;
+        width: 100%;
         pointer-events: painted;
+
+        @media (min-width: 992px) {
+            width: 45%;
+        }
 
         .planet-button {
             position: absolute;
@@ -146,7 +168,11 @@
 
             &.arena {
                 top: 45%;
-                right: -5%;
+                right: 0;
+
+                @media (min-width: 992px) {
+                    right: -5%;
+                }
             }
 
             &.b-bank {
@@ -156,7 +182,7 @@
 
             &.planet-mine {
                 bottom: 5%;
-                left: 10%;
+                left: 14%;
             }
         }
 

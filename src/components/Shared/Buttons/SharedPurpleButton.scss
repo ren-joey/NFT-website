@@ -2,12 +2,17 @@ $angle-width: 2px;
 $border-radius: 0.4rem;
 
 .shared-purple-button {
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
     color: #fff;
     background-color: #f202e7;
     border-radius: $border-radius;
     cursor: pointer;
+
+    @media (min-width: 992px) {
+        padding: 0.5rem 1rem;
+        font-size: 1.2rem;
+    }
 
     &.disabled {
         color: #d3b3ee;
