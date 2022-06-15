@@ -14,6 +14,7 @@ import transactionReceiptCheck from "src/components/Web3Service/functions/transa
 import moralisConfig from "src/configs/moralisConfig";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
+import sleepHelper from "src/utils/basic/sleepHelper";
 import stringReplacer from "src/utils/stringFormat/stringReplacer";
 import AlertStar from "./AlertStar";
 import TermsReadOnly from "./Form/TermsReadOnly";
@@ -77,10 +78,23 @@ const SubmitProcedure = ({
             .catch((err) => resolve(err));
     });
 
+    const completeExchange = () => new Promise((resolve) => {
+        axios({
+            method: 'POST',
+            url: 'http://localhost:8080/api/transfer-verify',
+            data: {
+                ...form,
+                nft_id: aNft.token_id
+            }
+        })
+            .then((res) => resolve(res.data))
+            .catch((err) => resolve(err.response.data));
+    });
+
     const failHandler = () => {
         setMessage('兌換申請失敗，請重新申請');
         setStatus(-1);
-        setTimeout(cancel, 1000);
+        setTimeout(cancel, 3000);
     };
 
     const doSubmit = async () => {
@@ -103,21 +117,29 @@ const SubmitProcedure = ({
         }
 
         setMessage('NFT 轉移中');
-        const txAddress = await transferNftToContractOwner();
-        if (!txAddress) {
+        const transaction = await transferNftToContractOwner();
+        if (!transaction) {
             failHandler();
             return;
         }
 
-        setMessage('交易等待中，這個階段可能需要數分鐘的時間，請耐心等候，切勿關閉網頁。');
+        setMessage('等待交易中，可能需要數分鐘的時間，請耐心等候，勿關閉視窗');
         let receipt;
-        while (receipt === null) {
-            receipt = await transactionReceiptCheck(txAddress);
-            // TODO:
-            // await
+        while (!receipt
+            || (receipt.status !== true
+                && receipt.status !== false)
+        ) {
+            receipt = await transactionReceiptCheck(transaction.hash);
+            await sleepHelper(1000);
+        }
+        if (receipt.status === false) {
+            failHandler();
+            return;
         }
 
-        console.log(receipt);
+        const finalSubmission = await completeExchange();
+        console.log(finalSubmission);
+        // TODO:
     };
 
     useEffect(() => {
