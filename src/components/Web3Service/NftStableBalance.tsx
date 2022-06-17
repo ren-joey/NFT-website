@@ -3,6 +3,7 @@ import { StableNftMembers, StableNftOption } from "src/@types/nft";
 import { ContractContext } from "src/Context/ContractContext";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
+import CheckSign from "../Shared/CheckSign";
 
 const NftStableBalance = ({
     stableNfts,
@@ -59,7 +60,14 @@ const NftStableBalance = ({
                                 <div
                                     className={`card-pointer-area ${nft.select ? 'selected' : ''}`}
                                     onClick={() => selectNft(idx)}
-                                ></div>
+                                >
+                                    <div className="check-sign">
+                                        <CheckSign style={{
+                                            stroke: '#fff',
+                                            strokeWidth: 3
+                                        }} />
+                                    </div>
+                                </div>
                                 <img src={nft.metadata.image} alt={nft.metadata.description}></img>
                                 <div className="nft-name">
                                     {nft.metadata.name}

@@ -229,6 +229,8 @@ const ZH_CN: Lang = {
     SOLD_OUT_ALERT_TITLE_2: 'β星人优先 Mint 召唤阶段',
     SOLD_OUT_ALERT_TITLE_XL: '7分钟售罄',
     SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注捣蛋白名单开放MINT的时间',
+
+    // 兌換其相關
     EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
     EXCHANGE_COVER_BTN: '发动实体具象超能力',
     ZERO_BALANCE: '您尚未持有β星人',
@@ -240,7 +242,27 @@ const ZH_CN: Lang = {
     PLANET_BTN_MARKET: 'β市集',
     REIFICATION_TITLE: '实体具象召唤所',
     REIFICATION_DESC: '选择拥有的β星人RNFT进行实体公仔兑换',
-    FORM_CONTENT_WILL_BE_LOST: '若您有填写资料将不纪录\n确定返回？'
+    EXCHANGE_FAQ_TITLE: '阶段状态解说 ＆ 最终获得',
+
+    // FORM 表單相關
+    FORM_CONTENT_WILL_BE_LOST: '若您有填写资料将不纪录\n确定返回？',
+    FILL_SUMMON_FORM_TITLE: '召唤资料填写',
+    FILL_SUMMON_FORM_SUBTITLE: '请填写您地球上资料，β星人将尽快与您相见',
+    BASIC_INFORMATION: '基本资料',
+    FULL_NAME: '姓名',
+    PHONE: '电话',
+    EMAIL: '邮件',
+    DELIVERY_ADDRESS: '寄送地址',
+    REAL_ADDRESS: '地址',
+    COUNTRY: '国家',
+    CITY: '城市',
+    ZIP: '区码',
+    SUMMON_ITEM: '召唤项目',
+    CARD_NAME: '卡片名称',
+    HAVE_FILLED_OUT: '填写完毕',
+    PLEASE_CONFIRM_YOUR_INFORMATION: '送出后将无法修改，请务必确认您的寄送资料',
+    BACK_TO_EDIT: '返回修改',
+    CONFIRM_AND_SUBMIT: '确认传输'
 };
 
 export default ZH_CN;

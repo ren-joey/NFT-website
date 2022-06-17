@@ -14,68 +14,67 @@ const FormReadOnly = ({
     cancel,
     submit
 }: FormEssentials) => {
-    const { device } = useContext(EventContext);
     const lang = useContext(LangContext);
 
     return (
         <div className="alert-body">
             <div className="form-title">
-                召喚資料填寫<br />
+                {lang.FILL_SUMMON_FORM_TITLE}<br />
                 <small>
-                    請填寫您地球上資料，β星人將儘快與您相見
+                    {lang.FILL_SUMMON_FORM_SUBTITLE}
                 </small>
             </div>
 
             <div className="form-content">
                 <div className="form-section-title">
-                    <AlertStar /> 基本資料
+                    <AlertStar /> {lang.BASIC_INFORMATION}
                 </div>
 
                 <div className="form-row">
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">姓名：{form.name}</div>
+                            <div className="form-input-label">{lang.FULL_NAME}：{form.name}</div>
                         </div>
                     </div>
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">電話：{form.phone}</div>
+                            <div className="form-input-label">{lang.PHONE}：{form.phone}</div>
                         </div>
                     </div>
                 </div>
 
                 <div className="form-input-area">
-                    <div className="form-input-label">郵件：{form.email}</div>
+                    <div className="form-input-label">{lang.EMAIL}：{form.email}</div>
                 </div>
 
                 <div className="form-section-title">
-                    <AlertStar /> 寄送地址
+                    <AlertStar /> {lang.DELIVERY_ADDRESS}
                 </div>
 
                 <div className="form-row">
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">國家：{form.country}</div>
+                            <div className="form-input-label">{lang.COUNTRY}：{form.country}</div>
                         </div>
                     </div>
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">城市：{form.city}</div>
+                            <div className="form-input-label">{lang.CITY}：{form.city}</div>
                         </div>
                     </div>
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">區碼：{form.zip}</div>
+                            <div className="form-input-label">{lang.ZIP}：{form.zip}</div>
                         </div>
                     </div>
                 </div>
 
                 <div className="form-input-area">
-                    <div className="form-input-label">地址：{form.address}</div>
+                    <div className="form-input-label">{lang.REAL_ADDRESS}：{form.address}</div>
                 </div>
 
                 <div className="form-section-title">
-                    <AlertStar /> 召喚項目
+                    <AlertStar /> {lang.SUMMON_ITEM}
                 </div>
 
                 <div className="form-nft-section">
@@ -92,7 +91,7 @@ const FormReadOnly = ({
                                 </div>
 
                                 <div className="nft-desc">
-                                    <div className="f-bold">卡片名稱</div>
+                                    <div className="f-bold">{lang.CARD_NAME}</div>
 
                                     <div className="nft-name">
                                         {aNft.metadata.name}
@@ -106,7 +105,7 @@ const FormReadOnly = ({
                 <br />
 
                 <div className="text-center">
-                    <WarningIcon /> 送出後將無法修改，請務必確認您的寄送資料
+                    <WarningIcon /> {lang.PLEASE_CONFIRM_YOUR_INFORMATION}
                 </div>
 
             </div> {/* form-content */}
@@ -114,11 +113,11 @@ const FormReadOnly = ({
             <div className="button-area">
                 <SharedButton
                     type="gray"
-                    text="返回修改"
+                    text={lang.BACK_TO_EDIT}
                     onClick={cancel}
                 />
                 <SharedButton
-                    text="確認送出"
+                    text={lang.CONFIRM_AND_SUBMIT}
                     onClick={submit}
                 />
             </div>

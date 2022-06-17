@@ -229,6 +229,8 @@ const ZH_TW: Lang = {
     SOLD_OUT_ALERT_TITLE_2: 'β星人優先 Mint 召喚階段',
     SOLD_OUT_ALERT_TITLE_XL: '7分鐘售罄',
     SOLD_OUT_ALERT_CONTENT: '感謝各位地球人的支持<br />請持續關注搗蛋白名單開放MINT的時間',
+
+    // 兌換其相關
     EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申請兌換潮玩',
     EXCHANGE_COVER_BTN: '發動實體具象超能力',
     ZERO_BALANCE: '您尚未持有β星人',
@@ -240,7 +242,27 @@ const ZH_TW: Lang = {
     PLANET_BTN_MARKET: 'β市集',
     REIFICATION_TITLE: '實體具象召喚所',
     REIFICATION_DESC: '選擇擁有的β星人RNFT進行實體公仔兌換',
-    FORM_CONTENT_WILL_BE_LOST: '若您有填寫資料將不紀錄\n確定返回？'
+    EXCHANGE_FAQ_TITLE: '階段狀態解說 ＆ 最終獲得',
+
+    // FORM 表單相關
+    FORM_CONTENT_WILL_BE_LOST: '若您有填寫資料將不紀錄\n確定返回？',
+    FILL_SUMMON_FORM_TITLE: '召喚資料填寫',
+    FILL_SUMMON_FORM_SUBTITLE: '請填寫您地球上資料，β星人將儘快與您相見',
+    BASIC_INFORMATION: '基本資料',
+    FULL_NAME: '姓名',
+    PHONE: '電話',
+    EMAIL: '郵件',
+    DELIVERY_ADDRESS: '寄送地址',
+    REAL_ADDRESS: '地址',
+    COUNTRY: '國家',
+    CITY: '城市',
+    ZIP: '區碼',
+    SUMMON_ITEM: '召喚項目',
+    CARD_NAME: '卡片名稱',
+    HAVE_FILLED_OUT: '填寫完畢',
+    PLEASE_CONFIRM_YOUR_INFORMATION: '送出後將無法修改，請務必確認您的寄送資料',
+    BACK_TO_EDIT: '返回修改',
+    CONFIRM_AND_SUBMIT: '確認送出'
 };
 
 export default ZH_TW;

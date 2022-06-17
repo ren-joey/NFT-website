@@ -24,15 +24,15 @@ const FormEditor = (formEssentials: FormEssentials) => {
     return (
         <div className="alert-body">
             <div className="form-title">
-                召喚資料填寫<br />
+                {lang.FILL_SUMMON_FORM_TITLE}<br />
                 <small>
-                    請填寫您地球上資料，β星人將儘快與您相見
+                    {lang.FILL_SUMMON_FORM_SUBTITLE}
                 </small>
             </div>
 
             <div className="form-content">
                 <div className="form-section-title">
-                    <AlertStar /> 基本資料
+                    <AlertStar /> {lang.BASIC_INFORMATION}
                     {
                         warning.term_1 && (
                             <div className="form-section-warning">
@@ -45,7 +45,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                 <div className="form-row">
                     <div className="form-column">
                         <SharedInput
-                            label={'姓名'}
+                            label={lang.FULL_NAME}
                             value={form.name}
                             onChange={(e) => setForm((f) => (
                                 {...f, name: e.target.value}
@@ -54,7 +54,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                     </div>
                     <div className="form-column">
                         <SharedInput
-                            label={'電話'}
+                            label={lang.PHONE}
                             value={form.phone}
                             onChange={(e) => setForm((f) => (
                                 {...f, phone: e.target.value}
@@ -64,7 +64,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                 </div>
 
                 <SharedInput
-                    label={'郵件'}
+                    label={lang.EMAIL}
                     value={form.email}
                     onChange={(e) => setForm((f) => (
                         {...f, email: e.target.value}
@@ -72,7 +72,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                 />
 
                 <div className="form-section-title">
-                    <AlertStar /> 寄送地址
+                    <AlertStar /> {lang.DELIVERY_ADDRESS}
                     {
                         warning.term_2 && (
                             <div className="form-section-warning">
@@ -85,7 +85,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                 <div className="form-row">
                     <div className="form-column">
                         <SharedInput
-                            label={'國家'}
+                            label={lang.COUNTRY}
                             value={form.country}
                             onChange={(e) => setForm((f) => (
                                 {...f, country: e.target.value}
@@ -94,7 +94,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                     </div>
                     <div className="form-column">
                         <SharedInput
-                            label={'城市'}
+                            label={lang.CITY}
                             value={form.city}
                             onChange={(e) => setForm((f) => (
                                 {...f, city: e.target.value}
@@ -103,7 +103,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                     </div>
                     <div className="form-column">
                         <SharedInput
-                            label={'區碼'}
+                            label={lang.ZIP}
                             value={form.zip}
                             onChange={(e) => setForm((f) => (
                                 {...f, zip: e.target.value}
@@ -113,7 +113,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                 </div>
 
                 <SharedInput
-                    label={'地址'}
+                    label={lang.REAL_ADDRESS}
                     value={form.address}
                     onChange={(e) => setForm((f) => (
                         {...f, address: e.target.value}
@@ -121,7 +121,7 @@ const FormEditor = (formEssentials: FormEssentials) => {
                 />
 
                 <div className="form-section-title">
-                    <AlertStar /> 召喚項目
+                    <AlertStar /> {lang.SUMMON_ITEM}
                 </div>
 
                 <div className="form-nft-section">
@@ -138,7 +138,9 @@ const FormEditor = (formEssentials: FormEssentials) => {
                                 </div>
 
                                 <div className="nft-desc">
-                                    <div className="f-bold">卡片名稱</div>
+                                    <div className="f-bold">
+                                        {lang.CARD_NAME}
+                                    </div>
 
                                     <div className="nft-name">
                                         {aNft.metadata.name}
@@ -165,11 +167,11 @@ const FormEditor = (formEssentials: FormEssentials) => {
             <div className="button-area">
                 <SharedButton
                     type="gray"
-                    text="取消"
+                    text={lang.CANCEL}
                     onClick={cancel}
                 />
                 <SharedButton
-                    text="填寫完畢"
+                    text={lang.HAVE_FILLED_OUT}
                     onClick={submit}
                 />
             </div>
