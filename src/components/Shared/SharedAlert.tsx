@@ -4,6 +4,7 @@ import SharedButton from './Buttons/SharedButton';
 import { AlertData } from 'src/@types/viewVariables';
 import { EventBus } from 'src/bus';
 import { getResources } from 'src/functions/loader';
+import { fixBody, releaseBody } from 'src/utils/nodeElement/bodyFixHelper';
 
 const SharedAlert = ({
     id,
@@ -15,11 +16,13 @@ const SharedAlert = ({
 }: AlertData) => {
     const [state, setState] = useState(false);
     const clickHandler = (cb = () => {}) => {
+        releaseBody();
         setState(false);
         cb();
     };
 
     useEffect(() => EventBus.$on(id, (bool = true) => {
+        fixBody();
         onStart();
         setState(bool);
     }), []);
@@ -34,7 +37,7 @@ const SharedAlert = ({
                             style={
                                 { backgroundImage: `url(${getResources('cancel_icon')})` }
                             }
-                            onClick={() => setState(false)}>
+                            onClick={() => clickHandler()}>
                         </div>
                     )
                 }

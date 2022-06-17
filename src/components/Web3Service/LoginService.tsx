@@ -5,7 +5,7 @@ import { ContractVariables } from "src/@types/contract";
 import { EventBus } from "src/bus";
 import { ContractContext } from "src/Context/ContractContext";
 import { LangContext } from "src/Context/LangContext";
-import moralisConfig from "src/configs/moralisConfig";
+import ethConfig from "src/configs/ethConfig";
 import { copyTextToClipboard } from "src/utils/stringFormat/copyTextToClipboard";
 import SharedAlert from "../Shared/SharedAlert";
 import fetchContractVariable from "./functions/fetchContractVariable";
@@ -34,9 +34,9 @@ const LoginService = () => {
 
     const fetchAuthenticate = async () => {
         await authenticate({
-            chainId: moralisConfig.chainId,
+            chainId: ethConfig.chainId,
             signingMessage: lang.SIGNING_MESSAGE,
-            ...moralisConfig.authConfig
+            ...ethConfig.authConfig
         });
     };
 
@@ -89,7 +89,7 @@ const LoginService = () => {
     useEffect(() => {
         if (isAuthenticated) {
             if (timer) clearTimeout(timer);
-            enableWeb3(moralisConfig.authConfig);
+            enableWeb3(ethConfig.authConfig);
         }
     }, [isAuthenticated, timer]);
 
@@ -101,7 +101,7 @@ const LoginService = () => {
                     <div>
                         { lang.COPY_THE_FOLLOWING_URL }
                         <br />
-                        { moralisConfig.officialWebsiteUrl }
+                        { ethConfig.officialWebsiteUrl }
                     </div>
                 }
                 btnList={
@@ -109,7 +109,7 @@ const LoginService = () => {
                         {
                             text: lang.COPY_AND_CLOSE,
                             onClick: () => {
-                                copyTextToClipboard(moralisConfig.officialWebsiteUrl);
+                                copyTextToClipboard(ethConfig.officialWebsiteUrl);
                             }
                         }
                     ]

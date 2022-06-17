@@ -8,14 +8,15 @@ import enableGlobalAlert from "src/functions/enableGlobalAlert";
 import formChecker from "./functions/formChecker";
 import FormReadOnly from "./Form/FormReadOnly";
 import FormEditor from "./Form/FormEditor";
-import SubmitProcedure from "./SubmitProcedure";
+import SubmitProcedure from "./Form/SubmitProcedure";
+import { fixBody, releaseBody } from "src/utils/nodeElement/bodyFixHelper";
 
 export interface FormEssentials {
     form: FormData;
     aNft: StableNft;
     warning: FormWarning;
     setForm: (key: FormData|((key: FormData) => any)) => any;
-    cancel: () => any;
+    cancel: (key?: boolean) => any;
     submit: () => any;
 }
 
@@ -42,16 +43,29 @@ export interface FormData extends Terms {
 export type FormMode = 'edit'|'readonly'|'sending';
 
 const defaultFrom = {
-    name: 'joey',
-    phone: '09123456789',
-    email: 't@g.com',
-    country: '123',
-    city: '123',
-    zip: '123',
-    address: '123',
-    term_1: true,
-    term_2: true
+    name: '',
+    phone: '',
+    email: '',
+    country: '',
+    city: '',
+    zip: '',
+    address: '',
+    term_1: false,
+    term_2: false
 };
+
+// [DEV]
+// const defaultFrom = {
+//     name: 'joey',
+//     phone: '09123456789',
+//     email: 't@g.com',
+//     country: '123',
+//     city: '123',
+//     zip: '123',
+//     address: '123',
+//     term_1: true,
+//     term_2: true
+// };
 
 const FormAlert = ({
     selectedNfts
@@ -61,16 +75,16 @@ const FormAlert = ({
     const lang = useContext(LangContext);
     const [state, setState] = useState(false);
     const [mode, setMode] = useState<FormMode>('edit');
-    const clickHandler = (cb = () => {}) => {
-        setState(false);
-        cb();
-    };
     const [form, setForm] = useState<FormData>({...defaultFrom});
     const aNft = useMemo(() => selectedNfts[0], [selectedNfts]);
     const [warning, setWarning] = useState<FormWarning>({
         term_1: '',
         term_2: ''
     });
+    const closeFormAlert = () => {
+        setState(false);
+        releaseBody();
+    };
 
     const submit = () => {
         if (mode === 'edit') {
@@ -83,13 +97,16 @@ const FormAlert = ({
             setMode('sending');
         }
     };
-    const cancel = () => {
-        if (mode === 'edit') {
+    const cancel = (forceClose = false) => {
+        if (forceClose === true) {
+            closeFormAlert();
+            setMode('edit');
+        } else if (mode === 'edit') {
             enableGlobalAlert({
-                content: '若您有填寫資料將不紀錄<br/>確定返回?',
+                content: lang.FORM_CONTENT_WILL_BE_LOST,
                 btnList: [
-                    {text: '取消', type: 'gray'},
-                    {text: '確定', onClick: () => setState(false)}
+                    {text: lang.CANCEL, type: 'gray'},
+                    {text: lang.CONFIRM, onClick: () => closeFormAlert()}
                 ]
             });
         } else if (mode === 'readonly' || mode === 'sending') {
@@ -106,6 +123,7 @@ const FormAlert = ({
     };
 
     useEffect(() => EventBus.$on('form', (bool = true) => {
+        fixBody();
         collapseHeader();
         setState(bool);
     }), []);

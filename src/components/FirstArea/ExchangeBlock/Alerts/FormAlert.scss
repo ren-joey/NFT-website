@@ -1,5 +1,7 @@
 $form-grey: #808080;
 $form-purple: #fb4bc2;
+$form-green: #41a74f;
+$form-red: #a00;
 $form-padding: 0.5rem;
 $form-shadow: rgba(0, 0, 0, 0.3);
 $form-radius: 1rem;
@@ -41,6 +43,67 @@ $form-input-radius: 0.5rem;
             background-color: $form-grey;
             border-radius: 0 0 $form-radius $form-radius;
         }
+
+        .success {
+            .form-title,
+            .form-bottom {
+                background-color: $form-green;
+            }
+
+            .message {
+                color: $form-green;
+            }
+        }
+
+        .fail {
+            .form-title,
+            .form-bottom {
+                background-color: $form-red;
+            }
+
+            .message {
+                color: $form-red;
+            }
+        }
+
+        .sending {
+            .form-title,
+            .form-bottom {
+                position: relative;
+                overflow: hidden;
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    display: block;
+                    width: 500px;
+                    background:
+                        linear-gradient(
+                            to right,
+                            rgba(255, 255, 255, 0) 0%,
+                            rgba(255, 255, 255, 0.6) 50%,
+                            rgba(255, 255, 255, 0) 100%
+                        );
+                    z-index: 2;
+                    content: "";
+                    animation: move-to-right 1.2s infinite;
+                }
+            }
+        }
+    }
+}
+
+@keyframes move-to-right {
+    0% {
+        left: 0;
+        transform: translate(-100%) skewX(10deg);
+    }
+
+    100% {
+        left: 100%;
+        transform: translate(0) skew(10deg);
     }
 }
 

@@ -1,7 +1,8 @@
-import { useContext, useEffect } from "react";
+import { CSSProperties, useContext, useEffect, useMemo } from "react";
 import { StableNftMembers, StableNftOption } from "src/@types/nft";
 import { ContractContext } from "src/Context/ContractContext";
 import { LangContext } from "src/Context/LangContext";
+import { getResources } from "src/functions/loader";
 
 const NftStableBalance = ({
     stableNfts,
@@ -12,6 +13,15 @@ const NftStableBalance = ({
 >) => {
     const lang = useContext(LangContext);
     const { nfts } = useContext(ContractContext);
+    const selectNft = (idx: number) => {
+        const cloneArr = [...stableNfts];
+        for (let i = 0; i < cloneArr.length; i++) {
+            const nft = cloneArr[i];
+            if (i === idx ) nft.select = !nft.select;
+            else nft.select = false;
+        }
+        setStableNfts(cloneArr);
+    };
 
     useEffect(() => {
         const nfts_: StableNftOption[] = nfts.reduce<StableNftOption[]>((resArr, nft) => {
@@ -30,16 +40,8 @@ const NftStableBalance = ({
         setStableNfts(nfts_);
     }, [nfts]);
 
-    const selectNft = (idx: number) => {
-        const cloneArr = [...stableNfts];
-        const firstTrueIdx = cloneArr.findIndex((nft) => nft.select === true);
-        if (firstTrueIdx !== -1 && firstTrueIdx !== idx) return;
-        cloneArr[idx].select = !(cloneArr[idx].select);
-        setStableNfts(cloneArr);
-    };
-
     return (
-        <div className="nft-list-container">
+        <div id="nftListContainer" className="nft-list-container">
             {
                 stableNfts.length === 0
                     ? <div className="nft-card">

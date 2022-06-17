@@ -9,7 +9,7 @@ export type Web3Provider = 'metamask'
                             | 'web3Auth';
 
 interface Provider {
-    provider?: Web3Provider
+    provider?: Web3Provider;
 }
 
 export interface StableNftMembers {
@@ -19,19 +19,19 @@ export interface StableNftMembers {
 }
 
 export interface StableNftOption extends StableNft {
-    select: boolean
+    select: boolean;
 }
 
 export interface StableNft {
-    token_id: string,
-    metadata: IMetadata,
-    owner_of: string
+    token_id: string;
+    metadata: IMetadata;
+    owner_of: string;
 }
 
 export interface BasicNft {
-    token_id: string,
-    metadata: IMetadata | undefined,
-    owner_of: string
+    token_id: string;
+    metadata: IMetadata | undefined;
+    owner_of: string;
 }
 
 export interface INft {
@@ -50,17 +50,18 @@ export interface INft {
     symbol: string;
 }
 
-export interface IMoralisConfig {
-    officialWebsiteUrl: string,
-    serverUrl: string,
-    appId: string,
-    contractAddress: string,
-    ownerAddress: string,
-    provider: ChainList,
-    chainId: number,
-    etherscanUrl: string,
-    metadataBaseUrl: string,
-    imageUrl: string,
-    authConfig: Provider,
-    version: string
+export interface EthConfig {
+    officialWebsiteUrl: string;
+    serverUrl: string;
+    appId: string;
+    contractAddress: string;
+    ownerAddress: string;
+    provider: ChainList;
+    chainId: number;
+    etherscanUrl: string;
+    metadataBaseUrl: string;
+    imageUrl: string;
+    authConfig: Provider;
+    version: string;
+    nftServer: string;
 }

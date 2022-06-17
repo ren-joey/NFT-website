@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
-import moralisConfig from "src/configs/moralisConfig";
+import ethConfig from "src/configs/ethConfig";
 
 const Footer = () => {
     const lang = useContext(LangContext);
@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="copyright">
                 { lang.COPYRIGHT }
                 <br />
-                <small>v{moralisConfig.version}</small>
+                <small>v{ethConfig.version}</small>
             </div>
             { device === 'desktop' && (
                 <div className="earth" style={

@@ -1,0 +1,50 @@
+.main-board {
+    .planet {
+        position: relative;
+        width: 100%;
+        pointer-events: painted;
+
+        @media (min-width: 992px) {
+            width: 45%;
+        }
+
+        .planet-button {
+            position: absolute;
+
+            &.reification-spot {
+                top: -3%;
+                left: 10%;
+            }
+
+            &.summon-betamon {
+                top: 7%;
+                right: 3%;
+            }
+
+            &.arena {
+                top: 45%;
+                right: 0;
+
+                @media (min-width: 992px) {
+                    right: -5%;
+                }
+            }
+
+            &.b-bank {
+                right: 8%;
+                bottom: 10%;
+            }
+
+            &.planet-mine {
+                bottom: 5%;
+                left: 14%;
+            }
+        }
+
+        .planet-bg {
+            padding-bottom: calc(100% / 835 * 731);
+            width: 100%;
+            background-size: 100% auto;
+        }
+    }
+}

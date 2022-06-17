@@ -1,5 +1,5 @@
 import Moralis from "moralis/types";
-import moralisConfig from "../../../configs/moralisConfig";
+import ethConfig from "../../../configs/ethConfig";
 
 const contractAbi = [
     {
@@ -934,7 +934,7 @@ const contractAbi = [
 const getWeb3ExecuteFunctionOption = (
     name: string
 ): Moralis.ExecuteFunctionOptions => ({
-    contractAddress: moralisConfig.contractAddress,
+    contractAddress: ethConfig.contractAddress,
     functionName: name,
     abi: contractAbi
 });

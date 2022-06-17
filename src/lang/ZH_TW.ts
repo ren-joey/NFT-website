@@ -203,9 +203,10 @@ const ZH_TW: Lang = {
     MINT_BODY_TITLE_2: '0.1 ETH 即可召喚 B 星人',
     MINT_NOT_OPEN: 'β星人 召喚 MINT 尚未開放<br />敬請期待',
     I_WILL_EXPECT: '好的我會期待',
-    MINT_SOLD_OUT: '這一波的β星人已被全數召喚完畢<br />可至 OpenSea 進行購買，或密切關注下一波 β星人降臨',
+    MINT_SOLD_OUT: '這一波的β星人已被全數召喚完畢\n可至 OpenSea 進行購買，或密切關注下一波 β星人降臨',
     I_WILL_WAIT: '好的我等',
     GO_TO_OPENSEA: '前往OpenSea',
+    GO_TO_OPENSEA_AND_BUY: '前往OpenSea購買',
     GO_TO_DISCORD: '前往Discord',
     MINT_EXCESS_TOTAL_SUPPLY: '選擇召喚的 MINT數量太多囉<br />目前只剩下 N 個 β星人可供召喚MINT喔',
     MINT_EXCESS_ALERT: '選擇召喚的 MINT 數量太多囉<br />你的錢包加上這次召喚MINT數量最多只能${}個<br />請確認後再進行召喚MINT',
@@ -238,7 +239,8 @@ const ZH_TW: Lang = {
     PLANET_BTN_PLANET_MINE: '星球礦區',
     PLANET_BTN_MARKET: 'β市集',
     REIFICATION_TITLE: '實體具象召喚所',
-    REIFICATION_DESC: '選擇擁有的β星人RNFT進行實體公仔兌換'
+    REIFICATION_DESC: '選擇擁有的β星人RNFT進行實體公仔兌換',
+    FORM_CONTENT_WILL_BE_LOST: '若您有填寫資料將不紀錄\n確定返回？'
 };
 
 export default ZH_TW;
