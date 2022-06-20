@@ -1,6 +1,5 @@
 import React from 'react';
 import 'src/components/Shared/Star.scss';
-import { getResources } from 'src/functions/loader';
 
 const StaticStar = ({
     style = {}

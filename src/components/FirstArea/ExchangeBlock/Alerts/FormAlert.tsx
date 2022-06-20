@@ -5,7 +5,7 @@ import 'src/components/FirstArea/ExchangeBlock/Alerts/FormAlert.scss';
 import { EventBus } from "src/bus";
 import collapseHeader from "src/animation/collapseHeader";
 import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import formChecker from "./functions/formChecker";
+import formChecker from "./Form/functions/formChecker";
 import FormReadOnly from "./Form/FormReadOnly";
 import FormEditor from "./Form/FormEditor";
 import SubmitProcedure from "./Form/SubmitProcedure";
@@ -89,6 +89,7 @@ const FormAlert = ({
     const submit = () => {
         if (mode === 'edit') {
             formChecker(
+                lang,
                 form,
                 () => setMode('readonly'),
                 (err) => setWarning(err)
@@ -122,6 +123,19 @@ const FormAlert = ({
         submit
     };
 
+    const FromDisplay = (): JSX.Element => {
+        switch(mode) {
+            case 'edit':
+                return <FormEditor {...formEssentials} />;
+            case 'readonly':
+                return <FormReadOnly {...formEssentials} />;
+            case 'sending':
+                return <SubmitProcedure {...formEssentials} />;
+            default:
+                return <></>;
+        }
+    };
+
     useEffect(() => EventBus.$on('form', (bool = true) => {
         fixBody();
         collapseHeader();
@@ -131,23 +145,7 @@ const FormAlert = ({
     return (
         <div className={`alert-wrap start pointer-events-painted ${state ? 'active' : ''}`}>
             <div className="alert-block form">
-                {
-                    mode === 'edit' && (
-                        <FormEditor {...formEssentials} />
-                    )
-                }
-
-                {
-                    mode === 'readonly' && (
-                        <FormReadOnly {...formEssentials} />
-                    )
-                }
-
-                {
-                    mode === 'sending' && (
-                        <SubmitProcedure {...formEssentials} />
-                    )
-                }
+                { FromDisplay() }
             </div>
 
             <div className="alert-mask"></div>
