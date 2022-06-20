@@ -260,9 +260,24 @@ const ZH_CN: Lang = {
     SUMMON_ITEM: '召唤项目',
     CARD_NAME: '卡片名称',
     HAVE_FILLED_OUT: '填写完毕',
+    READ_AND_ACCEPT_THE_TERMS: '请阅读并同意兑换条款',
+    FORM_NOT_COMPLETELY_FILLED: '资料填写不完全',
     PLEASE_CONFIRM_YOUR_INFORMATION: '送出后将无法修改，请务必确认您的寄送资料',
     BACK_TO_EDIT: '返回修改',
-    CONFIRM_AND_SUBMIT: '确认传输'
+    CONFIRM_AND_SUBMIT: '确认传输',
+    SIGNATURE_MESSAGE: '是否同意兑换实体公仔？后续将空投 #${} RNFT至VBC钱包；过程将支付gas fee，申请完成后VBC将再空投NFT给您。Do you agree to redeem ? The #${} RNFT will return to VBC wallet. It need to pay the gas fee. VBC will send the redeemed NFT to your wallet.',
+    SUBMITTING: '正在提交您的召唤资料',
+    SUBMISSION_FAILED: '申请失败',
+    SUBMISSION_SUCCEEDED: '申请成功',
+    SUBMISSION_FAILED_ERROR_MESSAGE: '兑换申请失败，请重新申请',
+    SUBMISSION_SUCCEEDED_MESSAGE: '此 NFT 已经完成申请。',
+    ACCOUNT_ERROR_MESSAGE: '您的帐户有误，请稍后再试',
+    SUBMISSION_SIGNING: '签署中',
+    SUBMISSION_VERIFYING: '资料验证中',
+    SUBMISSION_NFT_TRANSFERRING: 'NFT 转移中',
+    NFT_TRANSFER_ERROR_MESSAGE: 'NFT 转移失败，请重新申请',
+    SUBMISSION_TRANSACTION_WAITING: '等待交易中，可能需要数分钟的时间，请耐心等候，勿关闭视窗',
+    TRANSACTION_ERROR_MESSAGE: 'ETH 交易失败，请确认钱包后重新申请'
 };
 
 export default ZH_CN;
