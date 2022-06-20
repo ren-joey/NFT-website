@@ -259,6 +259,8 @@ const ZH_CN: Lang = {
     ZIP: '区码',
     SUMMON_ITEM: '召唤项目',
     CARD_NAME: '卡片名称',
+    FORM_TERM_1: '确定实体化将不可撤回取消',
+    FORM_TERM_2: '本人已详阅相关说明',
     HAVE_FILLED_OUT: '填写完毕',
     READ_AND_ACCEPT_THE_TERMS: '请阅读并同意兑换条款',
     FORM_NOT_COMPLETELY_FILLED: '资料填写不完全',
