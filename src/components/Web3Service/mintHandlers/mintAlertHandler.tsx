@@ -5,9 +5,8 @@ import enableNotEnoughEth from "./enableNotEnoughEth";
 import enableExceedAlert from "./enableExcessAlert";
 import enableConfirmAlert from "./enableConfirmAlert";
 import fetchMintBetamon from "./fetchMintBetamon";
-import { MintMethodName, MoralisFetch } from "src/@types/contract";
+import { INativeBalance, MintMethodName, MoralisFetch } from "src/@types/contract";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
-import { INativeBalance } from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
 
 export interface IMintAlertHandler {
     status: number,

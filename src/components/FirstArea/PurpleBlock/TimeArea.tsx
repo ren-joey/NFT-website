@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { NullableBigNumber } from "src/@types/basicVariable";
 import { defaultEventContext, EventContext } from "src/Context/EventContext";
-import CountingHandler from "src/CountingHandler";
+import CountingHandler from "src/functions/CountingHandler";
 import Counter from "../Counter";
 import RevealTime from "../RevealTime";
 

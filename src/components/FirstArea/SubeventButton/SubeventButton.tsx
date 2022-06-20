@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { LangContext } from "src/Context/LangContext";
 import hrefTo from "src/functions/hrefTo";
-import { socialList } from "src/socialMediaConfig";
+import { socialList } from "src/configs/socialMediaConfig";
 import 'src/components/FirstArea/SubeventButton/SubeventButton.scss';
 
 const SubeventButton = () => {

@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { StableNftMembers } from "src/@types/nft";
 import SharedPurpleButton from "src/components/Shared/Buttons/SharedPurpleButton";
 import { LangContext } from "src/Context/LangContext";
 import { getResources } from "src/functions/loader";
+import "src/components/FirstArea/ExchangeBlock/Planet.scss";
 
 const Planet = () => {
     const lang = useContext(LangContext);
@@ -45,7 +45,7 @@ const Planet = () => {
                 <SharedPurpleButton
                     disable={true}
                     onClick={() => {}}
-                    text={lang.PLANET_BTN_PLANET_MINE}
+                    text={lang.PLANET_BTN_MARKET}
                 />
             </div>
 

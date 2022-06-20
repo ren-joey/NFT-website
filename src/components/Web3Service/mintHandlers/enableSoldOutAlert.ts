@@ -1,7 +1,7 @@
 import { EventBus } from "src/bus";
 import hrefTo from "src/functions/hrefTo";
 import { Lang } from "src/lang";
-import { socialList } from "src/socialMediaConfig";
+import { socialList } from "src/configs/socialMediaConfig";
 
 const enableSoldOutAlert = ({
     lang

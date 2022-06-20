@@ -1,0 +1,16 @@
+.faq-content {
+    width: 100%;
+
+    @media (min-width: 992px) {
+        width: 560px;
+    }
+
+    .faq-image {
+        // 746x1315
+        margin-bottom: 2rem;
+        padding-bottom: calc(100% / 746 * 1315);
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+}

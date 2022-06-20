@@ -1,42 +1,21 @@
 import { useContext } from "react";
 import { StableNft } from "src/@types/nft";
-import SharedAlert from 'src/components/Shared/SharedAlert';
-import { LangContext } from "src/Context/LangContext";
+import BasicAlert from "./Alerts/BasicAlert";
+import FaqAlert from "./Alerts/FaqAlert";
+import FormAlert from "./Alerts/FormAlert";
 
 interface Props {
     selectedNfts: StableNft[]
 }
 
-const ExchangeAlertController = ({ selectedNfts }: Props) => {
-    const lang = useContext(LangContext);
+const ExchangeAlertController = ({ selectedNfts }: Props) => (
+    <div>
+        <FormAlert selectedNfts={selectedNfts} />
 
-    return (
-        <div>
-            <SharedAlert
-                id="basic"
-                content={<div>basic</div>}
-                btnList={[
-                    { text: 'test' }
-                ]}
-            />
+        <FaqAlert />
 
-            <SharedAlert
-                id="faq"
-                content={<div>faq</div>}
-                btnList={[
-                    { text: 'test' }
-                ]}
-            />
-
-            <SharedAlert
-                id="form"
-                content={<div>shared alert</div>}
-                btnList={[
-                    { text: 'test' }
-                ]}
-            />
-        </div>
-    );
-};
+        <BasicAlert />
+    </div>
+);
 
 export default ExchangeAlertController;

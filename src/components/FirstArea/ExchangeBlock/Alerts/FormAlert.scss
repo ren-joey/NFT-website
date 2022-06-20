@@ -1,0 +1,262 @@
+$form-grey: #808080;
+$form-purple: #fb4bc2;
+$form-green: #41a74f;
+$form-red: #a00;
+$form-padding: 0.5rem;
+$form-shadow: rgba(0, 0, 0, 0.3);
+$form-radius: 1rem;
+$form-input-radius: 0.5rem;
+
+.alert-block {
+    &.form {
+        padding: 0;
+        width: calc(100% - 1rem);
+        background-color: #fff;
+        border: 0;
+        box-shadow: 0 0 20px $form-shadow, 0 0 20px $form-shadow, 0 0 20px $form-shadow;
+
+        @media (min-width: 992px) {
+            width: calc(100% - 2rem);
+            width: 560px;
+        }
+
+        .form-title {
+            padding: 0.6rem;
+            font-size: 1.4rem;
+            font-weight: bolder;
+            background-color: $form-grey;
+            border-radius: $form-radius $form-radius 0 0;
+
+            &.warning {
+                background-color: $form-purple;
+            }
+
+            small {
+                display: inline-block;
+                font-size: 0.9rem;
+                font-weight: normal;
+            }
+        }
+
+        .form-bottom {
+            height: 1rem;
+            background-color: $form-grey;
+            border-radius: 0 0 $form-radius $form-radius;
+        }
+
+        .success {
+            .form-title,
+            .form-bottom {
+                background-color: $form-green;
+            }
+
+            .message {
+                color: $form-green;
+            }
+        }
+
+        .fail {
+            .form-title,
+            .form-bottom {
+                background-color: $form-red;
+            }
+
+            .message {
+                color: $form-red;
+            }
+        }
+
+        .sending {
+            .form-title,
+            .form-bottom {
+                position: relative;
+                overflow: hidden;
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    display: block;
+                    width: 500px;
+                    background:
+                        linear-gradient(
+                            to right,
+                            rgba(255, 255, 255, 0) 0%,
+                            rgba(255, 255, 255, 0.6) 50%,
+                            rgba(255, 255, 255, 0) 100%
+                        );
+                    z-index: 2;
+                    content: "";
+                    animation: move-to-right 1.2s infinite;
+                }
+            }
+        }
+    }
+}
+
+@keyframes move-to-right {
+    0% {
+        left: 0;
+        transform: translate(-100%) skewX(10deg);
+    }
+
+    100% {
+        left: 100%;
+        transform: translate(0) skew(10deg);
+    }
+}
+
+.form-content {
+    padding: $form-padding $form-padding * 2;
+    width: 100%;
+    text-align: left;
+    color: $form-grey;
+    background-color: #fff;
+
+    @media (min-width: 992px) {
+        padding: $form-padding $form-padding * 3;
+    }
+
+    .form-section-title {
+        margin-top: 1rem;
+        font-weight: bolder;
+
+        .form-section-warning {
+            display: inline-block;
+            margin-left: 1rem;
+            font-weight: normal;
+            color: #f00;
+        }
+    }
+
+    .form-row {
+        display: flex;
+        width: 100%;
+
+        .form-column {
+            flex: 1;
+
+            &:not(:last-child) {
+                padding-right: $form-padding;
+            }
+        }
+
+        .w-50 {
+            width: 50%;
+        }
+
+        .w-33 {
+            width: 33.3%;
+        }
+    }
+
+    .form-input-area {
+        display: flex;
+        margin-top: 1rem;
+        color: $form-grey;
+
+        .form-input-label {
+            padding-right: $form-padding;
+            white-space: nowrap;
+        }
+
+        .form-input {
+            border: 1px solid $form-grey;
+            border-radius: $form-input-radius;
+            flex: 1;
+
+            &.sm {
+                width: 0;
+            }
+        }
+    }
+
+    .form-nft-section {
+        margin-top: 1rem;
+
+        .form-nft {
+            display: flex;
+            align-items: start;
+
+            .nft-img {
+                overflow: hidden;
+                width: 35%;
+                border-radius: $form-radius;
+
+                @media (min-width: 992px) {
+                    width: 40%;
+                }
+            }
+
+            .nft-desc {
+                padding-left: 1rem;
+                width: 65%;
+                font-weight: bolder;
+
+                @media (min-width: 992px) {
+                    margin-left: 2rem;
+                    width: 60%;
+                }
+
+                .nft-name {
+                    font-size: 1.6rem;
+                    font-weight: normal;
+
+                    @media (min-width: 992px) {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nft-term {
+    cursor: pointer;
+
+    @media (min-width: 992px) {
+        &:not(:last-child) {
+            margin-top: 2rem;
+        }
+    }
+
+    &:hover {
+        .nft-term-text {
+            border-bottom: 1px solid $form-grey;
+        }
+    }
+
+    .nft-term-check-box {
+        display: inline-block;
+        margin-right: 0.4rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        border: 1px solid $form-grey;
+
+        &.checked {
+            background-color: $form-purple;
+            border: 1px solid $form-purple;
+        }
+    }
+
+    .nft-term-text {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: normal;
+        border-bottom: 1px solid transparent;
+
+        .clickable-span {
+            font-weight: bolder;
+            color: cornflowerblue;
+        }
+    }
+}
+
+.alert-star {
+    display: inline-block;
+    margin-right: 0.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    transform: translateY(0.3rem);
+}

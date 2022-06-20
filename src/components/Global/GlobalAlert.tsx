@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import 'src/components/Shared/SharedAlert.scss';
 import { EventBus } from 'src/bus';
 import SharedButton from '../Shared/Buttons/SharedButton';
@@ -73,7 +73,7 @@ const GlobalAlert = () => {
                 <div className="alert-body">
                     {
                         typeof content === 'string'
-                            ? <div dangerouslySetInnerHTML={{ __html: content }}></div>
+                            ? <div className="pre-line">{content}</div>
                             : content
                     }
 

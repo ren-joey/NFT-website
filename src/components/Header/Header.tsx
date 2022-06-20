@@ -8,7 +8,7 @@ import { EventContext } from 'src/Context/EventContext';
 import hrefTo from 'src/functions/hrefTo';
 import { getResources } from 'src/functions/loader';
 import { LangString } from 'src/@types/basicVariable';
-import { socialList } from '../../socialMediaConfig';
+import { socialList } from '../../configs/socialMediaConfig';
 import MenuBtn from './MenuBtn';
 import PhoneMenu from './PhoneMenu';
 

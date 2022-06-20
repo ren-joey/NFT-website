@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
-import { getWeb3ExecuteFunctionOption } from "src/contractAbi";
+import { getWeb3ExecuteFunctionOption } from "src/components/Web3Service/functions/contractAbi";
 import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import moralisConfig from "src/moralisConfig";
+import ethConfig from "src/configs/ethConfig";
 import { IMintAlertHandler } from "./mintAlertHandler";
 
 const fetchMintBetamon = ({
@@ -37,7 +37,7 @@ const fetchMintBetamon = ({
                     {
                         text: lang.MINTED_ALERT_BTN,
                         onClick: () => {
-                            window.open(`${moralisConfig.etherscanUrl}${result.hash}`, '_blank');
+                            window.open(`${ethConfig.etherscanUrl}${result.hash}`, '_blank');
                         }
                     }
                 ]

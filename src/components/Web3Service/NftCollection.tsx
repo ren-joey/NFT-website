@@ -5,7 +5,7 @@ import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { ContractVariables } from 'src/@types/contract';
 import { INft } from 'src/@types/nft';
 import { ContractContext } from 'src/Context/ContractContext';
-import moralisConfig from "src/moralisConfig";
+import ethConfig from "src/configs/ethConfig";
 import fetchContractVariable from './functions/fetchContractVariable';
 
 const NftCollection = () => {
@@ -15,8 +15,8 @@ const NftCollection = () => {
 
     const fetchAllNfts = async () => {
         const polygonNfts = await Moralis.Web3API.token.getAllTokenIds({
-            address: moralisConfig.contractAddress,
-            chain: moralisConfig.provider
+            address: ethConfig.contractAddress,
+            chain: ethConfig.provider
         });
         if (!polygonNfts || !polygonNfts.result) return;
 

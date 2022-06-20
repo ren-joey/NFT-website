@@ -1,4 +1,4 @@
-import { socialList } from "src/socialMediaConfig";
+import { socialList } from "src/configs/socialMediaConfig";
 
 const socialMediaRedirect = (redirect: string) => {
     const href = socialList.find(social => social.iconName === redirect)?.href;

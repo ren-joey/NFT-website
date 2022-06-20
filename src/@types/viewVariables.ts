@@ -30,8 +30,10 @@ export interface IBtn {
 export interface AlertData {
     id: string;
     closeBtnEnable?: boolean;
+    className?: string;
     content: string|JSX.Element;
     btnList: IBtn[];
+    onStart?: () => void;
 }
 
 export interface ExchangeAlertState {

@@ -1,5 +1,5 @@
 import { ContractVariables, MoralisFetch } from "src/@types/contract";
-import { getWeb3ExecuteFunctionOption } from "src/contractAbi";
+import { getWeb3ExecuteFunctionOption } from "src/components/Web3Service/functions/contractAbi";
 
 export interface IFetchContractVariable {
     paramName: ContractVariables,

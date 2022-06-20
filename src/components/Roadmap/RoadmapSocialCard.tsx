@@ -3,7 +3,7 @@ import { LangContext } from "src/Context/LangContext";
 import 'src/components/Roadmap/RoadmapCard.scss';
 import { getResources } from "src/functions/loader";
 import { EventContext } from "src/Context/EventContext";
-import { socialList } from "src/socialMediaConfig";
+import { socialList } from "src/configs/socialMediaConfig";
 import SocialIconButton from "../Shared/Buttons/SocialIconButton";
 
 interface Props {

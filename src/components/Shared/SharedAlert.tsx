@@ -3,27 +3,42 @@ import 'src/components/Shared/SharedAlert.scss';
 import SharedButton from './Buttons/SharedButton';
 import { AlertData } from 'src/@types/viewVariables';
 import { EventBus } from 'src/bus';
+import { getResources } from 'src/functions/loader';
+import { fixBody, releaseBody } from 'src/utils/nodeElement/bodyFixHelper';
 
 const SharedAlert = ({
     id,
     content,
     btnList,
-    closeBtnEnable
+    className = '',
+    closeBtnEnable = false,
+    onStart = () => {}
 }: AlertData) => {
     const [state, setState] = useState(false);
     const clickHandler = (cb = () => {}) => {
+        releaseBody();
         setState(false);
         cb();
     };
 
-    useEffect(() => EventBus.$on(id, (bool = true) => setState(bool)), []);
+    useEffect(() => EventBus.$on(id, (bool = true) => {
+        fixBody();
+        onStart();
+        setState(bool);
+    }), []);
 
     return (
-        <div className={`alert-wrap pointer-events-painted ${state ? 'active' : ''}`}>
+        <div className={`alert-wrap pointer-events-painted ${state ? 'active' : ''} ${className}`}>
             <div className="alert-block">
                 {
                     closeBtnEnable === true && (
-                        <div onClick={() => setState(false)}>close</div>
+                        <div
+                            className='alert-cancel-icon'
+                            style={
+                                { backgroundImage: `url(${getResources('cancel_icon')})` }
+                            }
+                            onClick={() => clickHandler()}>
+                        </div>
                     )
                 }
 

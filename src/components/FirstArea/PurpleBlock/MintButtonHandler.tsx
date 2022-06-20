@@ -3,9 +3,9 @@ import { useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
 import { EventContext } from "src/Context/EventContext";
 import { LangContext } from "src/Context/LangContext";
 import { ContractContext } from "src/Context/ContractContext";
-import moralisConfig from "src/moralisConfig";
+import ethConfig from "src/configs/ethConfig";
 import { NullableBigNumber } from "src/@types/basicVariable";
-import { ChainList, MintMethodName } from "src/@types/contract";
+import { ChainList, INativeBalance, MintMethodName } from "src/@types/contract";
 import mintErrorHandler from "src/components/Web3Service/functions/mintErrorHandler";
 import { mintAlertHandler } from "src/components/Web3Service/mintHandlers/mintAlertHandler";
 import MintButton from "src/components/Shared/Buttons/MintButton";
@@ -17,11 +17,6 @@ interface IProps {
     buttonSize: React.CSSProperties
 }
 
-export interface INativeBalance {
-    balance: string | undefined;
-    formatted: string | null;
-}
-
 const MintButtonHandler = ({
     amount,
     supplyRemain,
@@ -29,7 +24,7 @@ const MintButtonHandler = ({
     buttonSize
 }: IProps) => {
     const { data: nativeBalance }: { data: INativeBalance } = useNativeBalance({
-        chain: moralisConfig.provider as ChainList
+        chain: ethConfig.provider as ChainList
     });
 
     const lang = useContext(LangContext);

@@ -1,0 +1,43 @@
+import { useContext, useMemo } from "react";
+import SharedAlert from "src/components/Shared/SharedAlert";
+import { EventContext } from "src/Context/EventContext";
+import { LangContext } from "src/Context/LangContext";
+import { getResources } from 'src/functions/loader';
+import 'src/components/FirstArea/ExchangeBlock/Alerts/FaqAlert.scss';
+import collapseHeader from "src/animation/collapseHeader";
+
+const FaqAlert = () => {
+    const lang = useContext(LangContext);
+    const { selectedLang } = useContext(EventContext);
+    const faqBgImage = useMemo(() => {
+        if (selectedLang === 'ZH_CN') {
+            return getResources('exchange_phase_rules_cn');
+        } else if (selectedLang === 'ZH_TW') {
+            return getResources('exchange_phase_rules');
+        }
+    }, [selectedLang]);
+
+    return (
+        <SharedAlert
+            id="faq"
+            content={
+                <>
+                    <div className="alert-title">
+                        階段狀態解說 ＆ 最終獲得
+                    </div>
+                    <div className="faq-content">
+                        <div className="faq-image" style={
+                            { backgroundImage: `url(${faqBgImage})` }
+                        }></div>
+                    </div>
+                </>
+            }
+            btnList={[]}
+            className="start"
+            closeBtnEnable={true}
+            onStart={collapseHeader}
+        />
+    );
+};
+
+export default FaqAlert;

@@ -4,7 +4,7 @@ import { MoralisProvider } from "react-moralis";
 import { ContractContext } from "src/Context/ContractContext";
 import { BasicNft, INft } from "src/@types/nft";
 import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
-import moralisConfig from "src/moralisConfig";
+import ethConfig from "src/configs/ethConfig";
 import PermissionCertification from "src/components/Web3Service/PermissionCertification";
 
 const Web3Provider = () => {
@@ -35,8 +35,8 @@ const Web3Provider = () => {
 
     return (
         <MoralisProvider
-            appId={moralisConfig.appId}
-            serverUrl={moralisConfig.serverUrl}
+            appId={ethConfig.appId}
+            serverUrl={ethConfig.serverUrl}
         >
             <ContractContext.Provider value={{
                 getBalance,
