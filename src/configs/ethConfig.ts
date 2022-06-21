@@ -15,7 +15,8 @@ const ethConfig: EthConfig = {
     // contractAddress: '0xa388582a7b12094414f625951f5efe25f127ab93',
     // contractAddress: '0x6ae4304a7aF24EB71173331FA7b25E95F99D2Bß07',
 
-    // ownerAddress: '0x03799820935f0FF5c0CE8ceBd82DB49b4053e4E8', // 主錢包
+    // ownerAddress: '0xe9D837b4F7A3C37794738fa682a928A9cfBF623A', // 主錢包
+    // ownerAddress: '0x03799820935f0FF5c0CE8ceBd82DB49b4053e4E8', // 主錢包(以廢棄)
     ownerAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0', // account 1 [DEV]
     // ownerAddress: '0x23AdF1409c5b2436978BF21d9AB36BCb918F2607', // account 3 [DEV]
 
