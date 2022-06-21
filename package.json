@@ -6,7 +6,9 @@
         "start": "react-app-rewired start",
         "build": "react-app-rewired build",
         "test": "react-app-rewired test",
-        "eject": "react-app-rewired eject"
+        "eject": "react-app-rewired eject",
+        "move-file-to-server": "node ./node_tasks/fileMover.js",
+        "build:server": "npm run build && npm run move-file-to-server"
     },
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.1",
