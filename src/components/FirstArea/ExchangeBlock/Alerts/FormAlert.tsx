@@ -42,7 +42,7 @@ export interface FormData extends Terms {
 
 export type FormMode = 'edit'|'readonly'|'sending';
 
-const defaultFrom = {
+const defaultForm = {
     name: '',
     phone: '',
     email: '',
@@ -55,7 +55,7 @@ const defaultFrom = {
 };
 
 // [DEV]
-// const defaultFrom = {
+// const defaultForm = {
 //     name: 'joey',
 //     phone: '09123456789',
 //     email: 't@g.com',
@@ -75,7 +75,7 @@ const FormAlert = ({
     const lang = useContext(LangContext);
     const [state, setState] = useState(false);
     const [mode, setMode] = useState<FormMode>('edit');
-    const [form, setForm] = useState<FormData>({...defaultFrom});
+    const [form, setForm] = useState<FormData>({...defaultForm});
     const aNft = useMemo(() => selectedNfts[0], [selectedNfts]);
     const [warning, setWarning] = useState<FormWarning>({
         term_1: '',
@@ -123,7 +123,7 @@ const FormAlert = ({
         submit
     };
 
-    const FromDisplay = (): JSX.Element => {
+    const FormDisplay = (): JSX.Element => {
         switch(mode) {
             case 'edit':
                 return <FormEditor {...formEssentials} />;
@@ -145,7 +145,7 @@ const FormAlert = ({
     return (
         <div className={`alert-wrap start pointer-events-painted ${state ? 'active' : ''}`}>
             <div className="alert-block form">
-                { FromDisplay() }
+                { FormDisplay() }
             </div>
 
             <div className="alert-mask"></div>
