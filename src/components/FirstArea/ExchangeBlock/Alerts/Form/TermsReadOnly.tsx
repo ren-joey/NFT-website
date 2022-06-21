@@ -6,22 +6,22 @@ const TermsReadOnly = () => {
     const lang = useContext(LangContext);
 
     return (
-    <>
-        <div className="nft-term mt-2rem">
-            <div className="nft-term-check-box checked"></div>
-            <div className="nft-term-text">
-                {lang.FORM_TERM_1}
+        <>
+            <div className="nft-term mt-2rem">
+                <div className="nft-term-check-box checked"></div>
+                <div className="nft-term-text">
+                    {lang.FORM_TERM_1}
+                </div>
             </div>
-        </div>
 
-        <div className="nft-term">
-            <div className="nft-term-check-box checked"></div>
-            <div className="nft-term-text">
-                {lang.FORM_TERM_2}【FAQ】
+            <div className="nft-term">
+                <div className="nft-term-check-box checked"></div>
+                <div className="nft-term-text">
+                    {lang.FORM_TERM_2}【FAQ】
+                </div>
             </div>
-        </div>
-    </>
+        </>
     );
-);
+};
 
 export default TermsReadOnly;
