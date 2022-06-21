@@ -5,7 +5,7 @@ import 'src/components/FirstArea/ExchangeBlock/Alerts/FormAlert.scss';
 import { EventBus } from "src/bus";
 import collapseHeader from "src/animation/collapseHeader";
 import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import formChecker from "./functions/formChecker";
+import formChecker from "./Form/functions/formChecker";
 import FormReadOnly from "./Form/FormReadOnly";
 import FormEditor from "./Form/FormEditor";
 import SubmitProcedure from "./Form/SubmitProcedure";
@@ -42,7 +42,7 @@ export interface FormData extends Terms {
 
 export type FormMode = 'edit'|'readonly'|'sending';
 
-const defaultFrom = {
+const defaultForm = {
     name: '',
     phone: '',
     email: '',
@@ -55,7 +55,7 @@ const defaultFrom = {
 };
 
 // [DEV]
-// const defaultFrom = {
+// const defaultForm = {
 //     name: 'joey',
 //     phone: '09123456789',
 //     email: 't@g.com',
@@ -75,7 +75,7 @@ const FormAlert = ({
     const lang = useContext(LangContext);
     const [state, setState] = useState(false);
     const [mode, setMode] = useState<FormMode>('edit');
-    const [form, setForm] = useState<FormData>({...defaultFrom});
+    const [form, setForm] = useState<FormData>({...defaultForm});
     const aNft = useMemo(() => selectedNfts[0], [selectedNfts]);
     const [warning, setWarning] = useState<FormWarning>({
         term_1: '',
@@ -89,6 +89,7 @@ const FormAlert = ({
     const submit = () => {
         if (mode === 'edit') {
             formChecker(
+                lang,
                 form,
                 () => setMode('readonly'),
                 (err) => setWarning(err)
@@ -122,6 +123,19 @@ const FormAlert = ({
         submit
     };
 
+    const FormDisplay = (): JSX.Element => {
+        switch(mode) {
+            case 'edit':
+                return <FormEditor {...formEssentials} />;
+            case 'readonly':
+                return <FormReadOnly {...formEssentials} />;
+            case 'sending':
+                return <SubmitProcedure {...formEssentials} />;
+            default:
+                return <></>;
+        }
+    };
+
     useEffect(() => EventBus.$on('form', (bool = true) => {
         fixBody();
         collapseHeader();
@@ -131,23 +145,7 @@ const FormAlert = ({
     return (
         <div className={`alert-wrap start pointer-events-painted ${state ? 'active' : ''}`}>
             <div className="alert-block form">
-                {
-                    mode === 'edit' && (
-                        <FormEditor {...formEssentials} />
-                    )
-                }
-
-                {
-                    mode === 'readonly' && (
-                        <FormReadOnly {...formEssentials} />
-                    )
-                }
-
-                {
-                    mode === 'sending' && (
-                        <SubmitProcedure {...formEssentials} />
-                    )
-                }
+                { FormDisplay() }
             </div>
 
             <div className="alert-mask"></div>

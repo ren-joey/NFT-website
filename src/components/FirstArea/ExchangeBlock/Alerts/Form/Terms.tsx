@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import { EventBus } from "src/bus";
+import { LangContext } from "src/Context/LangContext";
 import { FormEssentials } from "../FormAlert";
 
-const Terms = (formEssentials: FormEssentials) => {
-    const {
-        form,
-        setForm
-    } = formEssentials;
+const Terms = ({
+    form,
+    setForm
+}: FormEssentials) => {
+    const lang = useContext(LangContext);
 
     return (
         <>
@@ -17,7 +19,7 @@ const Terms = (formEssentials: FormEssentials) => {
                 }))}>
                 <div className={`nft-term-check-box ${form.term_1 ? 'checked': ''}`}></div>
                 <div className="nft-term-text">
-                    確定實體化將不可撤回取消
+                    {lang.FORM_TERM_1}
                 </div>
             </div>
 
@@ -29,7 +31,7 @@ const Terms = (formEssentials: FormEssentials) => {
                 }))}>
                 <div className={`nft-term-check-box ${form.term_2 ? 'checked': ''}`}></div>
                 <div className="nft-term-text">
-                    本人已詳閱相關說明<span className="clickable-span" onClick={(v) => {
+                    {lang.FORM_TERM_2}<span className="clickable-span" onClick={(v) => {
                         v.stopPropagation();
                         EventBus.$emit('faq');
                     }}>【FAQ】</span>

@@ -23,7 +23,7 @@ const FaqAlert = () => {
             content={
                 <>
                     <div className="alert-title">
-                        階段狀態解說 ＆ 最終獲得
+                        {lang.EXCHANGE_FAQ_TITLE}
                     </div>
                     <div className="faq-content">
                         <div className="faq-image" style={

@@ -229,6 +229,8 @@ const ZH_CN: Lang = {
     SOLD_OUT_ALERT_TITLE_2: 'β星人优先 Mint 召唤阶段',
     SOLD_OUT_ALERT_TITLE_XL: '7分钟售罄',
     SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注捣蛋白名单开放MINT的时间',
+
+    // 兌換其相關
     EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
     EXCHANGE_COVER_BTN: '发动实体具象超能力',
     ZERO_BALANCE: '您尚未持有β星人',
@@ -240,7 +242,44 @@ const ZH_CN: Lang = {
     PLANET_BTN_MARKET: 'β市集',
     REIFICATION_TITLE: '实体具象召唤所',
     REIFICATION_DESC: '选择拥有的β星人RNFT进行实体公仔兑换',
-    FORM_CONTENT_WILL_BE_LOST: '若您有填写资料将不纪录\n确定返回？'
+    EXCHANGE_FAQ_TITLE: '阶段状态解说 ＆ 最终获得',
+
+    // FORM 表單相關
+    FORM_CONTENT_WILL_BE_LOST: '若您有填写资料将不纪录\n确定返回？',
+    FILL_SUMMON_FORM_TITLE: '召唤资料填写',
+    FILL_SUMMON_FORM_SUBTITLE: '请填写您地球上资料，β星人将尽快与您相见',
+    BASIC_INFORMATION: '基本资料',
+    FULL_NAME: '姓名',
+    PHONE: '电话',
+    EMAIL: '邮件',
+    DELIVERY_ADDRESS: '寄送地址',
+    REAL_ADDRESS: '地址',
+    COUNTRY: '国家',
+    CITY: '城市',
+    ZIP: '区码',
+    SUMMON_ITEM: '召唤项目',
+    CARD_NAME: '卡片名称',
+    FORM_TERM_1: '确定实体化将不可撤回取消',
+    FORM_TERM_2: '本人已详阅相关说明',
+    HAVE_FILLED_OUT: '填写完毕',
+    READ_AND_ACCEPT_THE_TERMS: '请阅读并同意兑换条款',
+    FORM_NOT_COMPLETELY_FILLED: '资料填写不完全',
+    PLEASE_CONFIRM_YOUR_INFORMATION: '送出后将无法修改，请务必确认您的寄送资料',
+    BACK_TO_EDIT: '返回修改',
+    CONFIRM_AND_SUBMIT: '确认传输',
+    SIGNATURE_MESSAGE: '是否同意兑换实体公仔？后续将空投 #${} RNFT至VBC钱包；过程将支付gas fee，申请完成后VBC将再空投NFT给您。Do you agree to redeem ? The #${} RNFT will return to VBC wallet. It need to pay the gas fee. VBC will send the redeemed NFT to your wallet.',
+    SUBMITTING: '正在提交您的召唤资料',
+    SUBMISSION_FAILED: '申请失败',
+    SUBMISSION_SUCCEEDED: '申请成功',
+    SUBMISSION_FAILED_ERROR_MESSAGE: '兑换申请失败，请重新申请',
+    SUBMISSION_SUCCEEDED_MESSAGE: '此 NFT 已经完成申请。',
+    ACCOUNT_ERROR_MESSAGE: '您的帐户有误，请稍后再试',
+    SUBMISSION_SIGNING: '签署中',
+    SUBMISSION_VERIFYING: '资料验证中',
+    SUBMISSION_NFT_TRANSFERRING: 'NFT 转移中',
+    NFT_TRANSFER_ERROR_MESSAGE: 'NFT 转移失败，请重新申请',
+    SUBMISSION_TRANSACTION_WAITING: '等待交易中，可能需要数分钟的时间，请耐心等候，勿关闭视窗',
+    TRANSACTION_ERROR_MESSAGE: 'ETH 交易失败，请确认钱包后重新申请'
 };
 
 export default ZH_CN;
