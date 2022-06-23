@@ -54,7 +54,7 @@ const submissionProcedure = async ({
 
         setMemo(lang.SUBMISSION_VERIFYING);
         const resForm = await send({ account, aNft, form, message, signature });
-        if (!resForm || resForm.message) {
+        if (!resForm || resForm.message || !resForm.id) {
             throw new Error(resForm?.message);
         } else if (resForm && resForm.is_transferred) {
             successHandler();
