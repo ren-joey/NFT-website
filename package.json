@@ -9,7 +9,7 @@
         "build:legacy": "react-scripts build",
         "test": "react-app-rewired test",
         "eject": "react-app-rewired eject",
-        "move-file-to-server": "node ./node_tasks/fileMover.js",
+        "move-file-to-server": "node ./node_tasks/npm-scripts-for-laravel-frontend/bin/index.js",
         "build:server": "npm run build && npm run move-file-to-server"
     },
     "dependencies": {
