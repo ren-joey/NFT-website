@@ -33,9 +33,6 @@ const ethConfig: EthConfig = {
     // metadataBaseUrl: 'https://0h72z1f6z5zv.usemoralis.com/', // legacy
     imageUrl: 'https://d2lle8dgtqcwbk.cloudfront.net',
 
-    // nftServer: 'http://localhost:8080',
-    nftServer: 'http://35.78.190.63',
-
     authConfig: {}
     // authConfig: deviceDetector.device?.type === 'desktop'
     //     ? {}

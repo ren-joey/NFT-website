@@ -40,7 +40,7 @@ const send = ({
 }: SendParams) => new Promise<any>((resolve) => {
     axios({
         method: 'POST',
-        url: `${ethConfig.nftServer}/api/submit`,
+        url: '/api/submit',
         data: {
             ...form,
             full_name: form.name,
@@ -89,7 +89,7 @@ const completeExchange = ({
 }: CompleteExchangeParams) => new Promise((resolve) => {
     axios({
         method: 'POST',
-        url: `${ethConfig.nftServer}/api/transfer-verify`,
+        url: '/api/transfer-verify',
         data: {
             ...form,
             nft_id: aNft.token_id

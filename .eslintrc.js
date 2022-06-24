@@ -69,6 +69,9 @@ module.exports = {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4]
     },
+    ignorePatterns: [
+        "**/setupProxy.js"
+    ],
     settings: {
         react: {
             // Tells eslint-plugin-react to automatically detect the version of React to use
