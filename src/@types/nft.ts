@@ -63,5 +63,4 @@ export interface EthConfig {
     imageUrl: string;
     authConfig: Provider;
     version: string;
-    nftServer: string;
 }
