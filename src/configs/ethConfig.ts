@@ -1,7 +1,7 @@
 import { EthConfig } from "../@types/nft";
 
 const ethConfig: EthConfig = {
-    version: '1.2.1',
+    version: '1.2.2',
     exchangeOpen: false,
     officialWebsiteUrl: 'https://www.vbc-labs.com/',
     serverUrl: 'https://0h72z1f6z5zv.usemoralis.com:2053/server',

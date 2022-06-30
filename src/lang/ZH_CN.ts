@@ -232,7 +232,7 @@ const ZH_CN: Lang = {
     SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注捣蛋白名单开放MINT的时间',
 
     // 兌換其相關
-    EXCHANGE_COVER_TITLE: 'RNFT 1:1 兌換\n20公分高品質實體潮玩',
+    EXCHANGE_COVER_TITLE: 'RNFT 1:1 兑换\n20公分高品质实体潮玩',
     // EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
     EXCHANGE_COVER_BTN: '发动实体具象超能力',
     ZERO_BALANCE: '您尚未持有β星人',
