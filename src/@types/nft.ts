@@ -63,4 +63,5 @@ export interface EthConfig {
     imageUrl: string;
     authConfig: Provider;
     version: string;
+    exchangeOpen: boolean;
 }

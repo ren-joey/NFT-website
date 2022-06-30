@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useMoralis } from "react-moralis";
 import { NullableBigNumber } from "src/@types/basicVariable";
+import ethConfig from "src/configs/ethConfig";
 import CoverBoard from "./CoverBoard";
 import MainBoard from "./MainBoard";
 
@@ -21,9 +22,14 @@ const ExchangeBlock = () => {
     //     } else setExchangePage('cover');
     // }, [isWeb3Enabled, isAuthenticated]);
 
-    if (!isAuthenticated || !isWeb3Enabled) {
+    if (!ethConfig.exchangeOpen
+        || !isAuthenticated
+        || !isWeb3Enabled
+    ) {
         return <CoverBoard />;
-    } else return <MainBoard />;
+    }
+
+    return <MainBoard />;
 };
 
 export default ExchangeBlock;

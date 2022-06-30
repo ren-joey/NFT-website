@@ -27,11 +27,16 @@ const MintButton = ({ disable = false, style = {}, text, onClick }: IProps) => {
         ...style
     };
 
+    const clickHandler = () => {
+        if (disable === true) return;
+        onClick();
+    };
+
     return (
         <div
             className="mint-button"
             style={mintButtonStyle}
-            onClick={onClick}
+            onClick={clickHandler}
         >
             {text}
         </div>

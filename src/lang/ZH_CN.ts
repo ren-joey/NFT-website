@@ -177,6 +177,7 @@ const ZH_CN: Lang = {
     UNDER_CONSTRUCTION: '画面施工中，请稍后再回来...',
     COPY_THE_FOLLOWING_URL: '请复制以下网址贴到您的狐狸钱包浏览器',
     STAY_TUNED: '敬请期待',
+    COMING_SOON: '近期开放',
     CONFIRM: '确认',
     CLOSE: '关闭',
     CANCEL: '取消',
@@ -231,7 +232,8 @@ const ZH_CN: Lang = {
     SOLD_OUT_ALERT_CONTENT: '感谢各位地球人的支持<br />请持续关注捣蛋白名单开放MINT的时间',
 
     // 兌換其相關
-    EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
+    EXCHANGE_COVER_TITLE: 'RNFT 1:1 兌換\n20公分高品質實體潮玩',
+    // EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
     EXCHANGE_COVER_BTN: '发动实体具象超能力',
     ZERO_BALANCE: '您尚未持有β星人',
     PLANET_BTN_REIFICATION: '实体具象召唤所',
