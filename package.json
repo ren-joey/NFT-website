@@ -8,11 +8,13 @@
         "build": "react-app-rewired build",
         "build:legacy": "react-scripts build",
         "test": "react-app-rewired test",
+        "lint": "code-checker && tsc --noEmit && NODE_ENV=production eslint ./src",
         "eject": "react-app-rewired eject",
-        "move-file-to-server": "node ./node_tasks/npm-scripts-for-laravel-frontend/bin/index.js",
-        "build:server": "npm run build && npm run move-file-to-server"
+        "build:server": "npm run lint && npm run build && move-frontend-app"
     },
     "dependencies": {
+        "@ren-joey/code-checker": "0.0.6",
+        "@ren-joey/laravel-frontend-file-mover": "0.0.2",
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.5.0",

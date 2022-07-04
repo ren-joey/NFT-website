@@ -1,4 +1,0 @@
-[submodule "node_tasks/npm-scripts-for-laravel-frontend"]
-    path = node_tasks/npm-scripts-for-laravel-frontend
-    url = git@github.com:bbinmkt-organization/npm-scripts-for-laravel-frontend.git
-    branch = develop
