@@ -7,10 +7,12 @@
         "start:legacy": "react-scripts start",
         "build": "react-app-rewired build",
         "build:legacy": "react-scripts build",
+        "build:dev": "DISABLE_ESLINT_PLUGIN=true react-app-rewired build",
         "test": "react-app-rewired test",
         "lint": "code-checker && tsc --noEmit && NODE_ENV=production eslint ./src",
         "eject": "react-app-rewired eject",
-        "build:server": "npm run lint && npm run build && move-frontend-app"
+        "build:server": "npm run lint && npm run build && move-frontend-app",
+        "build:dev-server": "npm run build:dev && move-frontend-app"
     },
     "dependencies": {
         "@ren-joey/code-checker": "0.0.8",
