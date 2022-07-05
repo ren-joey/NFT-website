@@ -14,6 +14,6 @@ module.exports = {
         'WARNING:',
         'ERROR:',
         'APPROVED:',
-        'ANSWER:',
+        'ANSWER:'
     ]
 };
