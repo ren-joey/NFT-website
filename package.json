@@ -13,7 +13,7 @@
         "build:server": "npm run lint && npm run build && move-frontend-app"
     },
     "dependencies": {
-        "@ren-joey/code-checker": "0.0.6",
+        "@ren-joey/code-checker": "0.0.8",
         "@ren-joey/laravel-frontend-file-mover": "0.0.2",
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^12.1.2",

@@ -33,7 +33,7 @@ module.exports = {
 
         /* common */
         indent: [2, 4, { SwitchCase: 1 }],
-        'no-unused-vars': 'warn',
+        'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
         'comma-dangle': ['error', 'never'],
         'arrow-body-style': ['error', 'as-needed'],
         'global-require': 'off',
