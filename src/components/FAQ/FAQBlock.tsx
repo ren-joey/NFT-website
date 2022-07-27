@@ -26,7 +26,7 @@ const FAQBlock = ({ idx, slotContent }: IProps) => {
                     dangerouslySetInnerHTML={{ __html: title }}
                 ></div>
                 <div
-                    className="faq-content"
+                    className="faq-content pre-line"
                     dangerouslySetInnerHTML={{ __html: content }}
                 ></div>
 

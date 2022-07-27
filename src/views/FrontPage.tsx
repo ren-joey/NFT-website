@@ -150,7 +150,7 @@ const FrontPage = () => {
                     <Footer />
 
                     {/* 底部免責聲明 */}
-                    <Statement />
+                    {/* <Statement /> */}
 
                     {/* fixed 背景特效區塊 */}
                     <BgEffects />

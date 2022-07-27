@@ -63,24 +63,9 @@ const FAQ = () => {
             }></div>
 
             <FAQBlock idx={1} />
-            <FAQBlock idx={2} slotContent={
+            {/* <FAQBlock idx={2} slotContent={
                 <SocialIconButton social={socialList[1]} />
-            } />
-            <FAQBlock idx={3} />
-            <FAQBlock idx={4} />
-            <FAQBlock idx={5} slotContent={
-                <img
-                    style={{
-                        display: 'block',
-                        marginTop: '2rem',
-                        marginBottom: '2rem',
-                        width: device === 'desktop' ? '90%' : '100%',
-                        height: 'auto'
-                    }}
-                    src={images.faq_5_table}
-                    alt=""
-                />
-            } />
+            } /> */}
             <FAQBlock idx={6} slotContent={
                 <>
                     <img
@@ -106,6 +91,21 @@ const FAQ = () => {
                         alt=""
                     />
                 </>
+            } />
+            {/* <FAQBlock idx={3} /> */}
+            <FAQBlock idx={4} />
+            <FAQBlock idx={5} slotContent={
+                <img
+                    style={{
+                        display: 'block',
+                        marginTop: '2rem',
+                        marginBottom: '2rem',
+                        width: device === 'desktop' ? '90%' : '100%',
+                        height: 'auto'
+                    }}
+                    src={images.faq_5_table}
+                    alt=""
+                />
             } />
             <FAQBlock idx={7} />
         </div>

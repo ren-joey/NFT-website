@@ -37,10 +37,22 @@ const Roadmap = ({ selectedLang }: Props) => {
                 </div>
             </div>
 
-            {/* { getLine() } */}
+            <RoadmapCard idx={6} className="text-stroke" />
+            { getLine() }
+
+            <RoadmapCard idx={5} className="text-stroke" />
+            { getLine() }
+
+            <RoadmapCard idx={4} className="text-stroke" />
+            { getLine() }
+
+            <RoadmapCard idx={3} className="text-stroke" />
+            { getLine() }
+
+            <RoadmapCard idx={2} className="text-stroke" />
+            { getLine() }
 
             <RoadmapSocialCard idx={1} className="text-stroke" />
-
             { getLine() }
 
             <div className="link-area">
@@ -59,24 +71,6 @@ const Roadmap = ({ selectedLang }: Props) => {
                     ))
                 }
             </div>
-
-            <RoadmapCard idx={2} className="text-stroke" />
-
-            { getLine() }
-
-            <RoadmapCard idx={3} />
-
-            { getLine() }
-
-            <RoadmapCard idx={4} />
-
-            { getLine() }
-
-            <RoadmapCard idx={5} className="text-stroke" />
-
-            { getLine() }
-
-            <RoadmapCard idx={6} className="text-stroke" />
 
         </div>
     );

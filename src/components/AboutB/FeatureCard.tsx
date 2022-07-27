@@ -60,7 +60,7 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
                     dangerouslySetInnerHTML={{__html: title}}
                 ></div>
                 <div
-                    className="desc"
+                    className="desc pre-line"
                     dangerouslySetInnerHTML={{__html: desc}}
                 ></div>
                 { btn() }
