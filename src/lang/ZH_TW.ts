@@ -146,6 +146,12 @@ const ZH_TW: Lang = {
     MEMBER_13_TITLE: '通訊士',
     MEMBER_13_NAME: 'RT',
     MEMBER_13_DESC: '專案執行企劃專才,多媒體背景與跨領域數位行銷領域6年經歷。',
+    MEMBER_14_TITLE: '????士', // [DEV]
+    MEMBER_14_NAME: 'OC', // [DEV]
+    MEMBER_14_DESC: '?', // [DEV]
+    MEMBER_15_TITLE: '????士', // [DEV]
+    MEMBER_15_NAME: 'WC', // [DEV]
+    MEMBER_15_DESC: '?', // [DEV]
     ABOUT_VBC_DIVIDER_1: '目前創意飛船β的成員有以下多位身懷各種絕技正打算大展身手',
     ABOUT_VBC_DIVIDER_2: '註：將隨著進程持續增加成員。',
     FAQ_1_TITLE: '如何購買β星人NFT？',

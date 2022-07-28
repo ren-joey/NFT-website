@@ -145,6 +145,12 @@ const ZH_CN: Lang = {
     MEMBER_12_DESC: '拥有来无影去无踪的创意想法，涉足行销领域5年经历，是团队中的行销鬼才。',
     MEMBER_13_TITLE: '通讯士',
     MEMBER_13_NAME: 'RT',
+    MEMBER_14_TITLE: '????士', // [DEV]
+    MEMBER_14_NAME: 'OC', // [DEV]
+    MEMBER_14_DESC: '?', // [DEV]
+    MEMBER_15_TITLE: '????士', // [DEV]
+    MEMBER_15_NAME: 'WC', // [DEV]
+    MEMBER_15_DESC: '?', // [DEV]
     MEMBER_13_DESC: '专案执行企划专才,多媒体背景与跨领域数位行销领域6年经历。',
     ABOUT_VBC_DIVIDER_1: '目前创意飞船β的成员有以下多位身怀各种绝技正打算大展身手',
     ABOUT_VBC_DIVIDER_2: '注：将随着进程持续增加成员。',

@@ -93,6 +93,10 @@ import rt_hover from 'src/assets/images/rt_hover.png';
 import rt from 'src/assets/images/rt.png';
 import wn_hover from 'src/assets/images/wn_hover.png';
 import wn from 'src/assets/images/wn.png';
+import oc_hover from 'src/assets/images/oc_hover.png';
+import oc from 'src/assets/images/oc.png';
+import wc_hover from 'src/assets/images/wc_hover.png';
+import wc from 'src/assets/images/wc.png';
 import slashes_divider from 'src/assets/images/slashes_divider.png';
 import ig_icon from 'src/assets/images/ig_icon.svg';
 
@@ -241,6 +245,10 @@ const loader = () => new Promise<void>((res) => {
         .add('rt', rt)
         .add('wn_hover', wn_hover)
         .add('wn', wn)
+        .add('oc_hover', oc_hover)
+        .add('oc', oc)
+        .add('wc_hover', wc_hover)
+        .add('wc', wc)
         .add('ig_icon', ig_icon)
 
         // for 兌換期
