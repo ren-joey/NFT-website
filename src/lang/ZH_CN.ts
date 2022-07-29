@@ -145,9 +145,9 @@ const ZH_CN: Lang = {
     MEMBER_12_DESC: '拥有来无影去无踪的创意想法，涉足行销领域5年经历，是团队中的行销鬼才。',
     MEMBER_13_TITLE: '通讯士',
     MEMBER_13_NAME: 'RT',
-    MEMBER_14_TITLE: '????士', // [DEV]
-    MEMBER_14_NAME: 'OC', // [DEV]
-    MEMBER_14_DESC: '?', // [DEV]
+    MEMBER_14_TITLE: '宇航士',
+    MEMBER_14_NAME: 'OC',
+    MEMBER_14_DESC: '擅长手绘插图的涂鸦鬼才，曾入围金点设计奖项，拥有绘图主播经历',
     MEMBER_15_TITLE: '????士', // [DEV]
     MEMBER_15_NAME: 'WC', // [DEV]
     MEMBER_15_DESC: '?', // [DEV]

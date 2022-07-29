@@ -146,9 +146,9 @@ const ZH_TW: Lang = {
     MEMBER_13_TITLE: '通訊士',
     MEMBER_13_NAME: 'RT',
     MEMBER_13_DESC: '專案執行企劃專才,多媒體背景與跨領域數位行銷領域6年經歷。',
-    MEMBER_14_TITLE: '????士', // [DEV]
-    MEMBER_14_NAME: 'OC', // [DEV]
-    MEMBER_14_DESC: '?', // [DEV]
+    MEMBER_14_TITLE: '宇航士',
+    MEMBER_14_NAME: 'OC',
+    MEMBER_14_DESC: '擅長手繪插圖的塗鴉鬼才，曾入圍金點設計獎項，擁有繪圖主播經歷',
     MEMBER_15_TITLE: '????士', // [DEV]
     MEMBER_15_NAME: 'WC', // [DEV]
     MEMBER_15_DESC: '?', // [DEV]
