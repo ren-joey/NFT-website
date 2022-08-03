@@ -20,7 +20,11 @@ const SocialButton = ({ className, name, iconName, href }: Props) => {
             className={`link-btn ${className}`}
             onClick={() => hrefTo({iconName, href})}
         >
-            <div className="icon" style={iconStyle}></div>
+            <div
+                className="icon"
+                style={iconStyle}
+            >
+            </div>
             <div className="text">
                 {name}
             </div>

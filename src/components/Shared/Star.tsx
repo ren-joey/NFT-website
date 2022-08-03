@@ -9,12 +9,16 @@ const Star = ({
     isStatic?: boolean,
     style?: React.CSSProperties
 }) => (
-    <div className={`star-icon ${isStatic ? 'static' : ''}`} style={
-        {
-            ...style,
-            backgroundImage: `url(${getResources('glowing_star')})`
+    <div
+        className={`star-icon ${isStatic ? 'static' : ''}`}
+        style={
+            {
+                ...style,
+                backgroundImage: `url(${getResources('glowing_star')})`
+            }
         }
-    }></div>
+    >
+    </div>
 );
 
 export default Star;

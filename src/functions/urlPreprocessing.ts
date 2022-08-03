@@ -1,6 +1,6 @@
-import { getParameterByName, removeParameterByName } from "src/utils";
-import gaParser from "./gaParser";
-import socialMediaRedirect from "./socialMediaRedirect";
+import { getParameterByName, removeParameterByName } from 'src/utils';
+import gaParser from './gaParser';
+import socialMediaRedirect from './socialMediaRedirect';
 
 const urlPreprocessing = () => (
     new Promise<void>((res) => {

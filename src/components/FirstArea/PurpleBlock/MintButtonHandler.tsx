@@ -1,14 +1,14 @@
-import { useContext, useEffect } from "react";
-import { useNativeBalance, useWeb3ExecuteFunction } from "react-moralis";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
-import { ContractContext } from "src/Context/ContractContext";
-import ethConfig from "src/configs/ethConfig";
-import { NullableBigNumber } from "src/@types/basicVariable";
-import { ChainList, INativeBalance, MintMethodName } from "src/@types/contract";
-import mintErrorHandler from "src/components/Web3Service/functions/mintErrorHandler";
-import { mintAlertHandler } from "src/components/Web3Service/mintHandlers/mintAlertHandler";
-import MintButton from "src/components/Shared/Buttons/MintButton";
+import { useContext, useEffect } from 'react';
+import { useNativeBalance, useWeb3ExecuteFunction } from 'react-moralis';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
+import { ContractContext } from 'src/Context/ContractContext';
+import ethConfig from 'src/configs/ethConfig';
+import { NullableBigNumber } from 'src/@types/basicVariable';
+import { ChainList, INativeBalance, MintMethodName } from 'src/@types/contract';
+import mintErrorHandler from 'src/components/Web3Service/functions/mintErrorHandler';
+import { mintAlertHandler } from 'src/components/Web3Service/mintHandlers/mintAlertHandler';
+import MintButton from 'src/components/Shared/Buttons/MintButton';
 
 interface IProps {
     amount: number,

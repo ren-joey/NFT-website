@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import * as PIXI from 'pixi.js';
-import { getRandomNumber } from "src/utils";
+import { getRandomNumber } from 'src/utils';
 
 const getFloatingElementSpirit = (
     app: PIXI.Application,

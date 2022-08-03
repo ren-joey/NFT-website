@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
+import { useContext } from 'react';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
 
 const TitleArea = () => {
     const lang = useContext(LangContext);
@@ -15,9 +15,13 @@ const TitleArea = () => {
                         : lang.FIRST_AREA_TITLE
                 }
             </div>
-            <div className="desc pre-line" dangerouslySetInnerHTML={{
-                __html: lang.FIRST_AREA_DESC
-            }}></div>
+            <div
+                className="desc pre-line"
+                dangerouslySetInnerHTML={{
+                    __html: lang.FIRST_AREA_DESC
+                }}
+            >
+            </div>
         </div>
     );
 };

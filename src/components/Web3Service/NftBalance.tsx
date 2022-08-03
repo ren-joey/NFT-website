@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import { useContext, useEffect } from 'react';
+import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import { ContractResponse } from 'src/@types/contract';
-import { EventBus } from "src/bus";
+import { EventBus } from 'src/bus';
 import { ContractContext } from 'src/Context/ContractContext';
 import fetchBasicNftData from './functions/fetchBasicNftData';
 import fetchContractVariable from './functions/fetchContractVariable';

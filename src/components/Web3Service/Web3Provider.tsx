@@ -1,11 +1,11 @@
-import { BigNumber } from "ethers";
-import { useMemo, useState } from "react";
-import { MoralisProvider } from "react-moralis";
-import { ContractContext } from "src/Context/ContractContext";
-import { BasicNft, INft } from "src/@types/nft";
-import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
-import ethConfig from "src/configs/ethConfig";
-import PermissionCertification from "src/components/Web3Service/PermissionCertification";
+import { BigNumber } from 'ethers';
+import { useMemo, useState } from 'react';
+import { MoralisProvider } from 'react-moralis';
+import { ContractContext } from 'src/Context/ContractContext';
+import { BasicNft, INft } from 'src/@types/nft';
+import { Nullable, NullableBigNumber } from 'src/@types/basicVariable';
+import ethConfig from 'src/configs/ethConfig';
+import PermissionCertification from 'src/components/Web3Service/PermissionCertification';
 
 const Web3Provider = () => {
     const [getBalance, setGetBalance] = useState<NullableBigNumber>(null);
@@ -38,39 +38,41 @@ const Web3Provider = () => {
             appId={ethConfig.appId}
             serverUrl={ethConfig.serverUrl}
         >
-            <ContractContext.Provider value={{
-                getBalance,
-                setGetBalance,
-                MAX_SUPPLY,
-                setMAX_SUPPLY,
-                MAX_VIP_WHITE_LIST_SUPPLY,
-                setMAX_VIP_WHITE_LIST_SUPPLY,
-                MAX_WHITE_LIST_SUPPLY,
-                setMAX_WHITE_LIST_SUPPLY,
-                totalSupply,
-                setTotalSupply,
-                mintPrice,
-                setMintPrice,
-                mintPriceEth,
-                maxBalance,
-                setMaxBalance,
-                nfts,
-                setNfts,
-                allNfts,
-                setAllNfts,
-                isBlindBoxOpened,
-                setIsBlindBoxOpened,
-                isVipWhiteList,
-                setIsVipWhiteList,
-                isWhiteList,
-                setIsWhiteList,
-                isSaleActive,
-                setIsSaleActive,
-                isWhiteListSaleActive,
-                setIsWhiteListSaleActive,
-                isVipWhiteListSaleActive,
-                setIsVipWhiteListSaleActive
-            }}>
+            <ContractContext.Provider
+                value={{
+                    getBalance,
+                    setGetBalance,
+                    MAX_SUPPLY,
+                    setMAX_SUPPLY,
+                    MAX_VIP_WHITE_LIST_SUPPLY,
+                    setMAX_VIP_WHITE_LIST_SUPPLY,
+                    MAX_WHITE_LIST_SUPPLY,
+                    setMAX_WHITE_LIST_SUPPLY,
+                    totalSupply,
+                    setTotalSupply,
+                    mintPrice,
+                    setMintPrice,
+                    mintPriceEth,
+                    maxBalance,
+                    setMaxBalance,
+                    nfts,
+                    setNfts,
+                    allNfts,
+                    setAllNfts,
+                    isBlindBoxOpened,
+                    setIsBlindBoxOpened,
+                    isVipWhiteList,
+                    setIsVipWhiteList,
+                    isWhiteList,
+                    setIsWhiteList,
+                    isSaleActive,
+                    setIsSaleActive,
+                    isWhiteListSaleActive,
+                    setIsWhiteListSaleActive,
+                    isVipWhiteListSaleActive,
+                    setIsVipWhiteListSaleActive
+                }}
+            >
                 {/* mint 區塊 */}
                 <PermissionCertification />
             </ContractContext.Provider>

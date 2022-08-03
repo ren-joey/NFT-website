@@ -1,8 +1,8 @@
-import { BigNumber } from "ethers";
-import { getWeb3ExecuteFunctionOption } from "src/components/Web3Service/functions/contractAbi";
-import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import ethConfig from "src/configs/ethConfig";
-import { IMintAlertHandler } from "./mintAlertHandler";
+import { BigNumber } from 'ethers';
+import { getWeb3ExecuteFunctionOption } from 'src/components/Web3Service/functions/contractAbi';
+import enableGlobalAlert from 'src/functions/enableGlobalAlert';
+import ethConfig from 'src/configs/ethConfig';
+import { IMintAlertHandler } from './mintAlertHandler';
 
 const fetchMintBetamon = ({
     mintMethodName,

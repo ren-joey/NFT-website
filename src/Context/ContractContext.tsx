@@ -1,7 +1,7 @@
-import { BigNumber } from "ethers";
-import React from "react";
-import { BasicNft, INft } from "src/@types/nft";
-import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
+import { BigNumber } from 'ethers';
+import React from 'react';
+import { BasicNft, INft } from 'src/@types/nft';
+import { Nullable, NullableBigNumber } from 'src/@types/basicVariable';
 
 export interface IContractData {
     getBalance: NullableBigNumber,

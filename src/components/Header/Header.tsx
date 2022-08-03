@@ -43,7 +43,10 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
     };
 
     return (
-        <div id="header" className="header">
+        <div
+            id="header"
+            className="header"
+        >
             <div className="header-container">
                 <div
                     className="logo"
@@ -51,7 +54,8 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                     style={
                         { backgroundImage: `url(${getResources('vbc_logo')})` }
                     }
-                ></div>
+                >
+                </div>
                 <div className="nav-area">
                     {
                         socialList.map((social, idx) => (social.visible) &&
@@ -60,7 +64,11 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                                 key={idx}
                                 onClick={() => hrefTo(social)}
                             >
-                                <div className="icon" style={getIcon(social.iconName)}></div>
+                                <div
+                                    className="icon"
+                                    style={getIcon(social.iconName)}
+                                >
+                                </div>
                                 <div className="nav-text">
                                     {social.title}
                                 </div>
@@ -71,7 +79,11 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                         className="nav"
                         onClick={() => scrollToRoadmap()}
                     >
-                        <div className="icon" style={getIcon('skull')}></div>
+                        <div
+                            className="icon"
+                            style={getIcon('skull')}
+                        >
+                        </div>
                         <div className="nav-text">ROADMAP</div>
                     </div>
                 </div>
@@ -80,14 +92,14 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                     <LangBtn
                         selectedLang={selectedLang}
                         setSelectedLang={setSelectedLang}
-                        lang='ZH_CN'
-                        title='简'
+                        lang="ZH_CN"
+                        title="简"
                     />
                     <LangBtn
                         selectedLang={selectedLang}
                         setSelectedLang={setSelectedLang}
-                        lang='ZH_TW'
-                        title='繁'
+                        lang="ZH_TW"
+                        title="繁"
                     />
                     {/* <LangBtn
                         selectedLang={selectedLang}

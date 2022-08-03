@@ -11,9 +11,13 @@ const SoldOutAlert = () => {
     return (
         <div className={`alert-wrap ${state ? 'active' : ''}`}>
             <div className="alert-block gradient">
-                <div className="skull-icon" style={
-                    { backgroundImage: `url(${getResources('skull_icon')})` }
-                }></div>
+                <div
+                    className="skull-icon"
+                    style={
+                        { backgroundImage: `url(${getResources('skull_icon')})` }
+                    }
+                >
+                </div>
 
                 <div className="alert-body">
                     <div className="alert-title">
@@ -26,9 +30,12 @@ const SoldOutAlert = () => {
                         {lang.SOLD_OUT_ALERT_TITLE_XL}
                     </div>
 
-                    <div dangerouslySetInnerHTML={{
-                        __html: lang.SOLD_OUT_ALERT_CONTENT
-                    }}></div>
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: lang.SOLD_OUT_ALERT_CONTENT
+                        }}
+                    >
+                    </div>
 
                     <div className="button-area">
                         <SharedButton

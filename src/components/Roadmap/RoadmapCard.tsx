@@ -1,8 +1,8 @@
-import React from "react";
-import { LangContext } from "src/Context/LangContext";
+import React from 'react';
+import { LangContext } from 'src/Context/LangContext';
 import 'src/components/Roadmap/RoadmapCard.scss';
-import { getResources } from "src/functions/loader";
-import gaParser from "src/functions/gaParser";
+import { getResources } from 'src/functions/loader';
+import gaParser from 'src/functions/gaParser';
 
 interface Props {
     idx: number,
@@ -60,9 +60,13 @@ const RoadmapCard = ({ idx, className = '' }: Props) => {
                         <div className="subtitle pre-line">
                             { lang[`ROADMAP_CARD_${idx}_SUBTITLE`] }
                         </div>
-                        <div className="star" style={
-                            { backgroundImage: `url(${getResources('star_icon')})` }
-                        }></div>
+                        <div
+                            className="star"
+                            style={
+                                { backgroundImage: `url(${getResources('star_icon')})` }
+                            }
+                        >
+                        </div>
                     </div>
                     <div className="card-bottom">
                         <div className="remark pre-line">

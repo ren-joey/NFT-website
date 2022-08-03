@@ -1,7 +1,7 @@
-import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import formatChecker from "src/functions/formatChecker";
-import { Lang } from "src/lang";
-import { FormData, FormWarning } from "../../FormAlert";
+import enableGlobalAlert from 'src/functions/enableGlobalAlert';
+import formatChecker from 'src/functions/formatChecker';
+import { Lang } from 'src/lang';
+import { FormData, FormWarning } from '../../FormAlert';
 
 const formChecker = (
     lang: Lang,

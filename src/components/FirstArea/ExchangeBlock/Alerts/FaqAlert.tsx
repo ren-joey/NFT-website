@@ -1,10 +1,10 @@
-import { useContext, useMemo } from "react";
-import SharedAlert from "src/components/Shared/SharedAlert";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
+import { useContext, useMemo } from 'react';
+import SharedAlert from 'src/components/Shared/SharedAlert';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
 import { getResources } from 'src/functions/loader';
 import 'src/components/FirstArea/ExchangeBlock/Alerts/FaqAlert.scss';
-import collapseHeader from "src/animation/collapseHeader";
+import collapseHeader from 'src/animation/collapseHeader';
 
 const FaqAlert = () => {
     const lang = useContext(LangContext);
@@ -26,9 +26,13 @@ const FaqAlert = () => {
                         {lang.EXCHANGE_FAQ_TITLE}
                     </div>
                     <div className="faq-content">
-                        <div className="faq-image" style={
-                            { backgroundImage: `url(${faqBgImage})` }
-                        }></div>
+                        <div
+                            className="faq-image"
+                            style={
+                                { backgroundImage: `url(${faqBgImage})` }
+                            }
+                        >
+                        </div>
                     </div>
                 </>
             }

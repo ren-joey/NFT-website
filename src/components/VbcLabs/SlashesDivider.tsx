@@ -18,10 +18,17 @@ const SlashesDivider = ({ content }: IProps) => {
 
     return (
         <div className="slashes-divider-wrapper">
-            <div className="slashes-divider" style={backgroundStyle}>
-                <div className="content" dangerouslySetInnerHTML={{
-                    __html: content
-                }}></div>
+            <div
+                className="slashes-divider"
+                style={backgroundStyle}
+            >
+                <div
+                    className="content"
+                    dangerouslySetInnerHTML={{
+                        __html: content
+                    }}
+                >
+                </div>
             </div>
         </div>
     );

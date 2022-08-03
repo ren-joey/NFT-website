@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { EventContext } from "src/Context/EventContext";
-import MintButton from "./MintButton";
+import { useContext } from 'react';
+import { EventContext } from 'src/Context/EventContext';
+import MintButton from './MintButton';
 
 interface Props {
     onClick: () => void,

@@ -1,933 +1,933 @@
-import Moralis from "moralis/types";
-import ethConfig from "../../../configs/ethConfig";
+import Moralis from 'moralis/types';
+import ethConfig from '../../../configs/ethConfig';
 
 const contractAbi = [
     {
-        "inputs": [],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
+        'inputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'constructor'
     },
     {
-        "anonymous": false,
-        "inputs": [
+        'anonymous': false,
+        'inputs': [
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "owner",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'owner',
+                'type': 'address'
             },
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "approved",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'approved',
+                'type': 'address'
             },
             {
-                "indexed": true,
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'indexed': true,
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "Approval",
-        "type": "event"
+        'name': 'Approval',
+        'type': 'event'
     },
     {
-        "anonymous": false,
-        "inputs": [
+        'anonymous': false,
+        'inputs': [
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "owner",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'owner',
+                'type': 'address'
             },
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "operator",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'operator',
+                'type': 'address'
             },
             {
-                "indexed": false,
-                "internalType": "bool",
-                "name": "approved",
-                "type": "bool"
+                'indexed': false,
+                'internalType': 'bool',
+                'name': 'approved',
+                'type': 'bool'
             }
         ],
-        "name": "ApprovalForAll",
-        "type": "event"
+        'name': 'ApprovalForAll',
+        'type': 'event'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'to',
+                'type': 'address'
             },
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "approve",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'approve',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "burn",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'burn',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "filpSaleActive",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'inputs': [],
+        'name': 'filpSaleActive',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "flipBlindBoxOpened",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'inputs': [],
+        'name': 'flipBlindBoxOpened',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "flipVipWhiteListSaleActive",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'inputs': [],
+        'name': 'flipVipWhiteListSaleActive',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "flipWhiteListSaleActive",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'inputs': [],
+        'name': 'flipWhiteListSaleActive',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "numBetamon",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'numBetamon',
+                'type': 'uint256'
             }
         ],
-        "name": "mintBetamon",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
+        'name': 'mintBetamon',
+        'outputs': [],
+        'stateMutability': 'payable',
+        'type': 'function'
     },
     {
-        "anonymous": false,
-        "inputs": [
+        'anonymous': false,
+        'inputs': [
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "previousOwner",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'previousOwner',
+                'type': 'address'
             },
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'newOwner',
+                'type': 'address'
             }
         ],
-        "name": "OwnershipTransferred",
-        "type": "event"
+        'name': 'OwnershipTransferred',
+        'type': 'event'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "numBetamon",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'numBetamon',
+                'type': 'uint256'
             },
             {
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'to',
+                'type': 'address'
             }
         ],
-        "name": "preserveMint",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'preserveMint',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "renounceOwnership",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'inputs': [],
+        'name': 'renounceOwnership',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "from",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'from',
+                'type': 'address'
             },
             {
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'to',
+                'type': 'address'
             },
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "safeTransferFrom",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'safeTransferFrom',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "from",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'from',
+                'type': 'address'
             },
             {
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'to',
+                'type': 'address'
             },
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             },
             {
-                "internalType": "bytes",
-                "name": "_data",
-                "type": "bytes"
+                'internalType': 'bytes',
+                'name': '_data',
+                'type': 'bytes'
             }
         ],
-        "name": "safeTransferFrom",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'safeTransferFrom',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "operator",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'operator',
+                'type': 'address'
             },
             {
-                "internalType": "bool",
-                "name": "approved",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': 'approved',
+                'type': 'bool'
             }
         ],
-        "name": "setApprovalForAll",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setApprovalForAll',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "string",
-                "name": "baseURI_",
-                "type": "string"
+                'internalType': 'string',
+                'name': 'baseURI_',
+                'type': 'string'
             }
         ],
-        "name": "setBaseURI",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setBaseURI',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "string",
-                "name": "_salt",
-                "type": "string"
+                'internalType': 'string',
+                'name': '_salt',
+                'type': 'string'
             }
         ],
-        "name": "setBlindSalt",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setBlindSalt',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "string",
-                "name": "_salt",
-                "type": "string"
+                'internalType': 'string',
+                'name': '_salt',
+                'type': 'string'
             }
         ],
-        "name": "setJsonSalt",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setJsonSalt',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "_maxBalance",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '_maxBalance',
+                'type': 'uint256'
             }
         ],
-        "name": "setMaxBalance",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setMaxBalance',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "_maxMint",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '_maxMint',
+                'type': 'uint256'
             }
         ],
-        "name": "setMaxMint",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setMaxMint',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "_mintPrice",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '_mintPrice',
+                'type': 'uint256'
             }
         ],
-        "name": "setMintPrice",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setMintPrice',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address[]",
-                "name": "_vipWhiteList",
-                "type": "address[]"
+                'internalType': 'address[]',
+                'name': '_vipWhiteList',
+                'type': 'address[]'
             }
         ],
-        "name": "setVipWhiteList",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setVipWhiteList',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address[]",
-                "name": "_whiteList",
-                "type": "address[]"
+                'internalType': 'address[]',
+                'name': '_whiteList',
+                'type': 'address[]'
             }
         ],
-        "name": "setWhiteList",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'setWhiteList',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "anonymous": false,
-        "inputs": [
+        'anonymous': false,
+        'inputs': [
             {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "supply",
-                "type": "uint256"
+                'indexed': false,
+                'internalType': 'uint256',
+                'name': 'supply',
+                'type': 'uint256'
             }
         ],
-        "name": "TokenMinted",
-        "type": "event"
+        'name': 'TokenMinted',
+        'type': 'event'
     },
     {
-        "anonymous": false,
-        "inputs": [
+        'anonymous': false,
+        'inputs': [
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "from",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'from',
+                'type': 'address'
             },
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                'indexed': true,
+                'internalType': 'address',
+                'name': 'to',
+                'type': 'address'
             },
             {
-                "indexed": true,
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'indexed': true,
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "Transfer",
-        "type": "event"
+        'name': 'Transfer',
+        'type': 'event'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "from",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'from',
+                'type': 'address'
             },
             {
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'to',
+                'type': 'address'
             },
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "transferFrom",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'transferFrom',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'newOwner',
+                'type': 'address'
             }
         ],
-        "name": "transferOwnership",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'transferOwnership',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "numBetamon",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'numBetamon',
+                'type': 'uint256'
             }
         ],
-        "name": "vipWhiteListMintBetamon",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
+        'name': 'vipWhiteListMintBetamon',
+        'outputs': [],
+        'stateMutability': 'payable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "numBetamon",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'numBetamon',
+                'type': 'uint256'
             }
         ],
-        "name": "whiteListMintBetamon",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
+        'name': 'whiteListMintBetamon',
+        'outputs': [],
+        'stateMutability': 'payable',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'to',
+                'type': 'address'
             }
         ],
-        "name": "withdraw",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        'name': 'withdraw',
+        'outputs': [],
+        'stateMutability': 'nonpayable',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "_isBlindBoxOpened",
-        "outputs": [
+        'inputs': [],
+        'name': '_isBlindBoxOpened',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "_isSaleActive",
-        "outputs": [
+        'inputs': [],
+        'name': '_isSaleActive',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "_isVipWhiteListSaleActive",
-        "outputs": [
+        'inputs': [],
+        'name': '_isVipWhiteListSaleActive',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "_isWhiteListSaleActive",
-        "outputs": [
+        'inputs': [],
+        'name': '_isWhiteListSaleActive',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "owner",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'owner',
+                'type': 'address'
             }
         ],
-        "name": "balanceOf",
-        "outputs": [
+        'name': 'balanceOf',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "getApproved",
-        "outputs": [
+        'name': 'getApproved',
+        'outputs': [
             {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
+                'internalType': 'address',
+                'name': '',
+                'type': 'address'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "getBalance",
-        "outputs": [
+        'inputs': [],
+        'name': 'getBalance',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "_owner",
-                "type": "address"
+                'internalType': 'address',
+                'name': '_owner',
+                'type': 'address'
             }
         ],
-        "name": "getBetamonByOwner",
-        "outputs": [
+        'name': 'getBetamonByOwner',
+        'outputs': [
             {
-                "internalType": "uint256[]",
-                "name": "",
-                "type": "uint256[]"
+                'internalType': 'uint256[]',
+                'name': '',
+                'type': 'uint256[]'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "num",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'num',
+                'type': 'uint256'
             },
             {
-                "internalType": "string",
-                "name": "_salt",
-                "type": "string"
+                'internalType': 'string',
+                'name': '_salt',
+                'type': 'string'
             }
         ],
-        "name": "getKeccakString",
-        "outputs": [
+        'name': 'getKeccakString',
+        'outputs': [
             {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
+                'internalType': 'string',
+                'name': '',
+                'type': 'string'
             }
         ],
-        "stateMutability": "pure",
-        "type": "function"
+        'stateMutability': 'pure',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "getTotalSupply",
-        "outputs": [
+        'inputs': [],
+        'name': 'getTotalSupply',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "owner",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'owner',
+                'type': 'address'
             },
             {
-                "internalType": "address",
-                "name": "operator",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'operator',
+                'type': 'address'
             }
         ],
-        "name": "isApprovedForAll",
-        "outputs": [
+        'name': 'isApprovedForAll',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "MAX_SUPPLY",
-        "outputs": [
+        'inputs': [],
+        'name': 'MAX_SUPPLY',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "MAX_VIP_WHITE_LIST_SUPPLY",
-        "outputs": [
+        'inputs': [],
+        'name': 'MAX_VIP_WHITE_LIST_SUPPLY',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "MAX_WHITE_LIST_SUPPLY",
-        "outputs": [
+        'inputs': [],
+        'name': 'MAX_WHITE_LIST_SUPPLY',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "maxBalance",
-        "outputs": [
+        'inputs': [],
+        'name': 'maxBalance',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "maxMint",
-        "outputs": [
+        'inputs': [],
+        'name': 'maxMint',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "mintPrice",
-        "outputs": [
+        'inputs': [],
+        'name': 'mintPrice',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "name",
-        "outputs": [
+        'inputs': [],
+        'name': 'name',
+        'outputs': [
             {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
+                'internalType': 'string',
+                'name': '',
+                'type': 'string'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "owner",
-        "outputs": [
+        'inputs': [],
+        'name': 'owner',
+        'outputs': [
             {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
+                'internalType': 'address',
+                'name': '',
+                'type': 'address'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "ownerOf",
-        "outputs": [
+        'name': 'ownerOf',
+        'outputs': [
             {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
+                'internalType': 'address',
+                'name': '',
+                'type': 'address'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "bytes4",
-                "name": "interfaceId",
-                "type": "bytes4"
+                'internalType': 'bytes4',
+                'name': 'interfaceId',
+                'type': 'bytes4'
             }
         ],
-        "name": "supportsInterface",
-        "outputs": [
+        'name': 'supportsInterface',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "symbol",
-        "outputs": [
+        'inputs': [],
+        'name': 'symbol',
+        'outputs': [
             {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
+                'internalType': 'string',
+                'name': '',
+                'type': 'string'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "bytes32",
-                "name": "data",
-                "type": "bytes32"
+                'internalType': 'bytes32',
+                'name': 'data',
+                'type': 'bytes32'
             }
         ],
-        "name": "toHex",
-        "outputs": [
+        'name': 'toHex',
+        'outputs': [
             {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
+                'internalType': 'string',
+                'name': '',
+                'type': 'string'
             }
         ],
-        "stateMutability": "pure",
-        "type": "function"
+        'stateMutability': 'pure',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "index",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'index',
+                'type': 'uint256'
             }
         ],
-        "name": "tokenByIndex",
-        "outputs": [
+        'name': 'tokenByIndex',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "owner",
-                "type": "address"
+                'internalType': 'address',
+                'name': 'owner',
+                'type': 'address'
             },
             {
-                "internalType": "uint256",
-                "name": "index",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'index',
+                'type': 'uint256'
             }
         ],
-        "name": "tokenOfOwnerByIndex",
-        "outputs": [
+        'name': 'tokenOfOwnerByIndex',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': 'tokenId',
+                'type': 'uint256'
             }
         ],
-        "name": "tokenURI",
-        "outputs": [
+        'name': 'tokenURI',
+        'outputs': [
             {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
+                'internalType': 'string',
+                'name': '',
+                'type': 'string'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [],
-        "name": "totalSupply",
-        "outputs": [
+        'inputs': [],
+        'name': 'totalSupply',
+        'outputs': [
             {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
+                'internalType': 'uint256',
+                'name': '',
+                'type': 'uint256'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
+                'internalType': 'address',
+                'name': '',
+                'type': 'address'
             }
         ],
-        "name": "vipWhiteList",
-        "outputs": [
+        'name': 'vipWhiteList',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     },
     {
-        "inputs": [
+        'inputs': [
             {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
+                'internalType': 'address',
+                'name': '',
+                'type': 'address'
             }
         ],
-        "name": "whiteList",
-        "outputs": [
+        'name': 'whiteList',
+        'outputs': [
             {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
+                'internalType': 'bool',
+                'name': '',
+                'type': 'bool'
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        'stateMutability': 'view',
+        'type': 'function'
     }
 ];
 

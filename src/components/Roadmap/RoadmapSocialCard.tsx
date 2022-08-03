@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { LangContext } from "src/Context/LangContext";
+import React, { useContext } from 'react';
+import { LangContext } from 'src/Context/LangContext';
 import 'src/components/Roadmap/RoadmapCard.scss';
-import { getResources } from "src/functions/loader";
-import { EventContext } from "src/Context/EventContext";
-import { socialList } from "src/configs/socialMediaConfig";
-import SocialIconButton from "../Shared/Buttons/SocialIconButton";
+import { getResources } from 'src/functions/loader';
+import { EventContext } from 'src/Context/EventContext';
+import { socialList } from 'src/configs/socialMediaConfig';
+import SocialIconButton from '../Shared/Buttons/SocialIconButton';
 
 interface Props {
     idx: number,
@@ -69,17 +69,25 @@ const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
             <div className="roadmap-main">
                 <div className="roadmap-card">
                     <div className="card-top">
-                        <div className="title"
+                        <div
+                            className="title"
                             dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_TITLE`]}}
-                        ></div>
-                        <div className="subtitle"
+                        >
+                        </div>
+                        <div
+                            className="subtitle"
                             dangerouslySetInnerHTML={
                                 {__html: lang[`ROADMAP_CARD_${idx}_SUBTITLE`]}
                             }
-                        ></div>
-                        <div className="star" style={
-                            { backgroundImage: `url(${getResources('star_icon')})` }
-                        }></div>
+                        >
+                        </div>
+                        <div
+                            className="star"
+                            style={
+                                { backgroundImage: `url(${getResources('star_icon')})` }
+                            }
+                        >
+                        </div>
                     </div>
                     <div className={`card-bottom ${device === 'desktop' ? 'social-card' : ''}`}>
                         <div className="remark">
@@ -87,9 +95,13 @@ const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
                         </div>
                         {
                             device === 'desktop' && (
-                                <div className="blue-arrow" style={
-                                    { backgroundImage: `url(${getResources('blue_arrow')})` }
-                                }></div>
+                                <div
+                                    className="blue-arrow"
+                                    style={
+                                        { backgroundImage: `url(${getResources('blue_arrow')})` }
+                                    }
+                                >
+                                </div>
                             )
                         }
 

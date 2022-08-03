@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
-import { useMoralis } from "react-moralis";
-import { NullableBigNumber } from "src/@types/basicVariable";
-import ethConfig from "src/configs/ethConfig";
-import CoverBoard from "./CoverBoard";
-import MainBoard from "./MainBoard";
+import { useMoralis } from 'react-moralis';
+import ethConfig from 'src/configs/ethConfig';
+import CoverBoard from './CoverBoard';
+import MainBoard from './MainBoard';
 
 export type ExchangePageName = 'cover' | 'main';
 

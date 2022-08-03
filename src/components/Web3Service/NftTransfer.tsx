@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import { BasicNft, INft } from "src/@types/nft";
-import { ContractContext } from "src/Context/ContractContext";
-import ethConfig from "src/configs/ethConfig";
-import fetchContractVariable from "./functions/fetchContractVariable";
+import { useContext } from 'react';
+import { useWeb3ExecuteFunction } from 'react-moralis';
+import { BasicNft, INft } from 'src/@types/nft';
+import { ContractContext } from 'src/Context/ContractContext';
+import ethConfig from 'src/configs/ethConfig';
+import fetchContractVariable from './functions/fetchContractVariable';
 
 const NftTransfer = () => {
     const { fetch } = useWeb3ExecuteFunction();
@@ -32,7 +32,8 @@ const NftTransfer = () => {
                             return (
                                 <button
                                     onClick={() => doTransfer(nft)}
-                                    key={idx}>
+                                    key={idx}
+                                >
                                     轉換-{nft.token_id}
                                 </button>
                             );

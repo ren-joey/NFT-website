@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import gsap from "gsap";
+import gsap from 'gsap';
 
 const bubbleScrollTrigger = (sprites: PIXI.Sprite[]) => {
     const trigger = document.getElementById('root');

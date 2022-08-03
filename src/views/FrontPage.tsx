@@ -1,36 +1,34 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useMemo, useState } from "react";
-import { scrollTriggerInit, scrollTriggerKillAll } from "src/animation/scrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import BgEffects from "src/components/BgEffects";
-import Header from "src/components/Header/Header";
-import { EventContext } from "src/Context/EventContext";
-import { getParameterByName } from "src/utils/url/getParameterByName";
-import ScrollDownIcon from "src/components/Shared/ScrollDownIcon";
-import BackToTop from "src/components/Shared/BackToTopIcon";
-import ResizeListener from "src/functions/ResizeListener";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useMemo, useState } from 'react';
+import { scrollTriggerInit, scrollTriggerKillAll } from 'src/animation/scrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import BgEffects from 'src/components/BgEffects';
+import Header from 'src/components/Header/Header';
+import { EventContext } from 'src/Context/EventContext';
+import { getParameterByName } from 'src/utils/url/getParameterByName';
+import ScrollDownIcon from 'src/components/Shared/ScrollDownIcon';
+import BackToTop from 'src/components/Shared/BackToTopIcon';
+import ResizeListener from 'src/functions/ResizeListener';
 
 // 語系相關
-import { LangContext } from "src/Context/LangContext";
-import ZH_CN from "src/lang/ZH_CN";
-import ZH_TW from "src/lang/ZH_TW";
+import { LangContext } from 'src/Context/LangContext';
+import ZH_CN from 'src/lang/ZH_CN';
+import ZH_TW from 'src/lang/ZH_TW';
 
 import 'src/views/FrontPage.scss';
-import CountingHandler from "src/functions/CountingHandler";
-import ToBeAnnounced from "src/components/ToBeAnnounced";
-import { DeviceString, LangString } from "src/@types/basicVariable";
-import VbcLabs from "src/components/VbcLabs/VbcLabs";
-import FAQ from "src/components/FAQ/FAQ";
-import Footer from "src/components/Footer";
-import Statement from "src/components/Statement";
-import FirstArea from "src/components/FirstArea/FirstArea";
-import AboutB from "src/components/AboutB/AboutB";
-import KolSupport from "src/components/KolSupport/KolSupport";
-import MediaSupport from "src/components/MediaSupport/MediaSupport";
-import Roadmap from "src/components/Roadmap/Roadmap";
-import GlobalAlert from "src/components/Global/GlobalAlert";
-import FormAlert from "src/components/FirstArea/ExchangeBlock/Alerts/FormAlert";
+import CountingHandler from 'src/functions/CountingHandler';
+import ToBeAnnounced from 'src/components/ToBeAnnounced';
+import { DeviceString, LangString } from 'src/@types/basicVariable';
+import VbcLabs from 'src/components/VbcLabs/VbcLabs';
+import FAQ from 'src/components/FAQ/FAQ';
+import Footer from 'src/components/Footer';
+import FirstArea from 'src/components/FirstArea/FirstArea';
+import AboutB from 'src/components/AboutB/AboutB';
+import KolSupport from 'src/components/KolSupport/KolSupport';
+import MediaSupport from 'src/components/MediaSupport/MediaSupport';
+import Roadmap from 'src/components/Roadmap/Roadmap';
+import GlobalAlert from 'src/components/Global/GlobalAlert';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -105,20 +103,22 @@ const FrontPage = () => {
 
     return (
         <LangContext.Provider value={{ ...lang }}>
-            <EventContext.Provider value={{
-                selectedLang,
-                setSelectedLang,
-                device,
-                buttonSize,
-                status,
-                setStatus,
-                counter,
-                setCounter,
-                end,
-                setEnd,
-                diff,
-                setDiff
-            }}>
+            <EventContext.Provider
+                value={{
+                    selectedLang,
+                    setSelectedLang,
+                    device,
+                    buttonSize,
+                    status,
+                    setStatus,
+                    counter,
+                    setCounter,
+                    end,
+                    setEnd,
+                    diff,
+                    setDiff
+                }}
+            >
                 {/* 全局共用彈窗 */}
                 <GlobalAlert />
 
@@ -142,7 +142,6 @@ const FrontPage = () => {
                     {/* 開賣期 */}
                     <div className="fp-container">
                         <VbcLabs />
-
                         <FAQ />
                     </div>
 

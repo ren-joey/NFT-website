@@ -1,17 +1,17 @@
-import React, { useContext, useState } from "react";
-import { useMoralis } from "react-moralis";
-import { EventBus } from "src/bus";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
-import { ContractContext } from "src/Context/ContractContext";
-import { getParameterByName, roundDecimal } from "src/utils";
-import { NullableBigNumber } from "src/@types/basicVariable";
-import { MintMethodName } from "src/@types/contract";
-import EthIcon from "src/components/Shared/Buttons/EthIcon";
-import MintButtonHandler from "src/components/FirstArea/PurpleBlock/MintButtonHandler";
-import LinkingAnimation from "src/components/FirstArea/PurpleBlock/LinkingAnimation";
-import NftTransfer from "src/components/Web3Service/NftTransfer";
-import SharedLoginButton from "src/components/Shared/Buttons/SharedLoginButton";
+import React, { useContext, useState } from 'react';
+import { useMoralis } from 'react-moralis';
+import { EventBus } from 'src/bus';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
+import { ContractContext } from 'src/Context/ContractContext';
+import { getParameterByName, roundDecimal } from 'src/utils';
+import { NullableBigNumber } from 'src/@types/basicVariable';
+import { MintMethodName } from 'src/@types/contract';
+import EthIcon from 'src/components/Shared/Buttons/EthIcon';
+import MintButtonHandler from 'src/components/FirstArea/PurpleBlock/MintButtonHandler';
+import LinkingAnimation from 'src/components/FirstArea/PurpleBlock/LinkingAnimation';
+import NftTransfer from 'src/components/Web3Service/NftTransfer';
+import SharedLoginButton from 'src/components/Shared/Buttons/SharedLoginButton';
 
 interface IMintMethodName {
     supplyRemain: NullableBigNumber
@@ -74,9 +74,17 @@ const MintBody = ({ supplyRemain, mintMethodName = 'mintBetamon' }: IMintMethodN
             <div className="mint-body left-push">
                 <div className="body-left">
                     <div className="mint-amount">
-                        <div className="plus" onClick={decreaseAmount}>-</div>
+                        <div
+                            className="plus"
+                            onClick={decreaseAmount}
+                        >-
+                        </div>
                         <div className="amount">{ amount }</div>
-                        <div className="minus" onClick={increaseAmount}>+</div>
+                        <div
+                            className="minus"
+                            onClick={increaseAmount}
+                        >+
+                        </div>
                     </div>
 
                     <div className="mint-status">

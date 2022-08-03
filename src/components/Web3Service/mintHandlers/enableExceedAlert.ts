@@ -1,6 +1,6 @@
-import { IMintAlertHandler } from "src/components/Web3Service/mintHandlers/mintAlertHandler";
-import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import stringReplacer from "src/utils/stringFormat/stringReplacer";
+import { IMintAlertHandler } from 'src/components/Web3Service/mintHandlers/mintAlertHandler';
+import enableGlobalAlert from 'src/functions/enableGlobalAlert';
+import stringReplacer from 'src/utils/stringFormat/stringReplacer';
 
 const enableExceedAlert = ({
     maxBalance,

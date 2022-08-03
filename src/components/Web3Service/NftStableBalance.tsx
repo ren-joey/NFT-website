@@ -1,9 +1,8 @@
-import { CSSProperties, useContext, useEffect, useMemo } from "react";
-import { StableNftMembers, StableNftOption } from "src/@types/nft";
-import { ContractContext } from "src/Context/ContractContext";
-import { LangContext } from "src/Context/LangContext";
-import { getResources } from "src/functions/loader";
-import CheckSign from "../Shared/CheckSign";
+import { useContext, useEffect } from 'react';
+import { StableNftMembers, StableNftOption } from 'src/@types/nft';
+import { ContractContext } from 'src/Context/ContractContext';
+import { LangContext } from 'src/Context/LangContext';
+import CheckSign from '../Shared/CheckSign';
 
 const NftStableBalance = ({
     stableNfts,
@@ -42,16 +41,20 @@ const NftStableBalance = ({
     }, [nfts]);
 
     return (
-        <div id="nftListContainer" className="nft-list-container">
+        <div
+            id="nftListContainer"
+            className="nft-list-container"
+        >
             {
                 stableNfts.length === 0
-                    ? <div className="nft-card">
-                        <div className="empty-card"></div>
-                        <div className="nft-name">
-                            { lang.ZERO_BALANCE }
+                    ? (
+                        <div className="nft-card">
+                            <div className="empty-card"></div>
+                            <div className="nft-name">
+                                { lang.ZERO_BALANCE }
+                            </div>
                         </div>
-                    </div>
-                    : stableNfts.map((nft, idx) => nft.metadata && (
+                    ) : stableNfts.map((nft, idx) => nft.metadata && (
                         typeof nft.metadata !== 'string' && (
                             <div
                                 className="nft-card"
@@ -62,13 +65,19 @@ const NftStableBalance = ({
                                     onClick={() => selectNft(idx)}
                                 >
                                     <div className="check-sign">
-                                        <CheckSign style={{
-                                            stroke: '#fff',
-                                            strokeWidth: 3
-                                        }} />
+                                        <CheckSign
+                                            style={{
+                                                stroke: '#fff',
+                                                strokeWidth: 3
+                                            }}
+                                        />
                                     </div>
                                 </div>
-                                <img src={nft.metadata.image} alt={nft.metadata.description}></img>
+                                <img
+                                    src={nft.metadata.image}
+                                    alt={nft.metadata.description}
+                                >
+                                </img>
                                 <div className="nft-name">
                                     {nft.metadata.name}
                                 </div>

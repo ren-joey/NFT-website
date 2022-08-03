@@ -1,6 +1,6 @@
-import { BigNumber } from "ethers";
-import { IContractData } from "src/Context/ContractContext";
-import { ContractVariables } from "src/@types/contract";
+import { BigNumber } from 'ethers';
+import { IContractData } from 'src/Context/ContractContext';
+import { ContractVariables } from 'src/@types/contract';
 
 interface IProps {
     paramName: ContractVariables;

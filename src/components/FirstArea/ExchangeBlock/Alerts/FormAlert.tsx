@@ -1,15 +1,15 @@
-import { useContext, useEffect, useMemo, useState } from "react";
-import { StableNft } from "src/@types/nft";
-import { LangContext } from "src/Context/LangContext";
+import { useContext, useEffect, useMemo, useState } from 'react';
+import { StableNft } from 'src/@types/nft';
+import { LangContext } from 'src/Context/LangContext';
 import 'src/components/FirstArea/ExchangeBlock/Alerts/FormAlert.scss';
-import { EventBus } from "src/bus";
-import collapseHeader from "src/animation/collapseHeader";
-import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import formChecker from "./Form/functions/formChecker";
-import FormReadOnly from "./Form/FormReadOnly";
-import FormEditor from "./Form/FormEditor";
-import SubmitProcedure from "./Form/SubmitProcedure";
-import { fixBody, releaseBody } from "src/utils/nodeElement/bodyFixHelper";
+import { EventBus } from 'src/bus';
+import collapseHeader from 'src/animation/collapseHeader';
+import enableGlobalAlert from 'src/functions/enableGlobalAlert';
+import formChecker from './Form/functions/formChecker';
+import FormReadOnly from './Form/FormReadOnly';
+import FormEditor from './Form/FormEditor';
+import SubmitProcedure from './Form/SubmitProcedure';
+import { fixBody, releaseBody } from 'src/utils/nodeElement/bodyFixHelper';
 
 export interface FormEssentials {
     form: FormData;

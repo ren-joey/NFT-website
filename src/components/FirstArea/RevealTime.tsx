@@ -1,9 +1,9 @@
 /* cSpell:words UTCZ */
 
-import { useContext, useMemo } from "react";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
-import CountingHandler from "src/functions/CountingHandler";
+import { useContext, useMemo } from 'react';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
+import CountingHandler from 'src/functions/CountingHandler';
 
 const RevealTime = () => {
     const { end } = useContext(EventContext);

@@ -59,7 +59,11 @@ const PhoneMenu = ({
                         onClick={() => hrefTo(social)}
                         key={idx}
                     >
-                        <div className="icon" style={getIcon(social.iconName)}></div>
+                        <div
+                            className="icon"
+                            style={getIcon(social.iconName)}
+                        >
+                        </div>
                         <div className="text">
                             {social.title}
                         </div>
@@ -73,7 +77,11 @@ const PhoneMenu = ({
                     toggleMenuStatus();
                 }}
             >
-                <div className="icon" style={getIcon('skull')}></div>
+                <div
+                    className="icon"
+                    style={getIcon('skull')}
+                >
+                </div>
                 <div className="text">ROADMAP</div>
             </div>
 
@@ -82,14 +90,14 @@ const PhoneMenu = ({
                 <PhoneLangBtn
                     selectedLang={selectedLang}
                     setSelectedLang={selectLang}
-                    lang='ZH_CN'
-                    title='简体中文'
+                    lang="ZH_CN"
+                    title="简体中文"
                 />
                 <PhoneLangBtn
                     selectedLang={selectedLang}
                     setSelectedLang={selectLang}
-                    lang='ZH_TW'
-                    title='繁體中文'
+                    lang="ZH_TW"
+                    title="繁體中文"
                 />
                 {/* <PhoneLangBtn
                     selectedLang={selectedLang}

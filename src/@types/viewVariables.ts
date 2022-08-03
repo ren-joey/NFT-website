@@ -1,5 +1,5 @@
-import { BtnColorList } from "./basicVariable";
-import { StableNft } from "./nft";
+import { BtnColorList } from './basicVariable';
+import { StableNft } from './nft';
 
 export type ExchangeAlertName = 'faq'
                                     | 'basic'

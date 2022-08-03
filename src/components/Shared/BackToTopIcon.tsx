@@ -43,8 +43,16 @@ const BackToTop = () => {
             className={`back-to-top-area ${display ? '' : 'pointer-events-none'}`}
             onClick={() => { scrollToTop(); }}
         >
-            <div className="back-to-top-icon" style={rocketStyle}></div>
-            <div className="fire-icon" style={rocketStyle}></div>
+            <div
+                className="back-to-top-icon"
+                style={rocketStyle}
+            >
+            </div>
+            <div
+                className="fire-icon"
+                style={rocketStyle}
+            >
+            </div>
         </div>
     );
 };

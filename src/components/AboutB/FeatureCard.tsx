@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
-import { LangContext } from "src/Context/LangContext";
+import React, { useMemo } from 'react';
+import { LangContext } from 'src/Context/LangContext';
 import 'src/components/AboutB/FeatureCard.scss';
-import { EventContext } from "src/Context/EventContext";
-import { getResources } from "src/functions/loader";
-import gaParser from "src/functions/gaParser";
-import { LangString } from "src/@types/basicVariable";
+import { EventContext } from 'src/Context/EventContext';
+import { getResources } from 'src/functions/loader';
+import gaParser from 'src/functions/gaParser';
+import { LangString } from 'src/@types/basicVariable';
 interface Props {
     idx: number,
     line?: boolean,
@@ -41,7 +41,10 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
             else alert(lang.RECENTLY_ANNOUNCED);
         };
         return (
-            <div className="feature-btn" onClick={action}>
+            <div
+                className="feature-btn"
+                onClick={action}
+            >
                 {btn}
             </div>
         );
@@ -49,20 +52,29 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
 
     return (
         <div className="feature-card">
-            <div className="feature-card-icon" style={
-                { backgroundImage: `url(${iconUrl})` }
-            }></div>
-            <div className="card-body" style={
-                { backgroundImage: `url(${getResources('bg')})` }
-            }>
+            <div
+                className="feature-card-icon"
+                style={
+                    { backgroundImage: `url(${iconUrl})` }
+                }
+            >
+            </div>
+            <div
+                className="card-body"
+                style={
+                    { backgroundImage: `url(${getResources('bg')})` }
+                }
+            >
                 <div
                     className={`title ${selectedLang === 'EN' ? 'force-wrap' : ''}`}
                     dangerouslySetInnerHTML={{__html: title}}
-                ></div>
+                >
+                </div>
                 <div
                     className="desc pre-line"
                     dangerouslySetInnerHTML={{__html: desc}}
-                ></div>
+                >
+                </div>
                 { btn() }
             </div>
 

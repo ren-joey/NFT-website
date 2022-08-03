@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
-import { getResources } from "src/functions/loader";
+import { useContext } from 'react';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
+import { getResources } from 'src/functions/loader';
 import 'src/components/VbcLabs/VbcLabs.scss';
-import VbcCharacter from "./VbcCharacter";
-import SlashesDivider from "./SlashesDivider";
+import VbcCharacter from './VbcCharacter';
+import SlashesDivider from './SlashesDivider';
 
 const VbcLabs = () => {
     const lang = useContext(LangContext);
@@ -14,15 +14,23 @@ const VbcLabs = () => {
         <div className="vbc-labs-wrapper">
             <div className="first-section">
                 <div className="info">
-                    <div className="title" style={
-                        { backgroundImage: `url(${getResources(device === 'desktop'
-                            ? 'about_vbc_labs'
-                            : 'about_vbc_labs_phone'
-                        )})` }
-                    }></div>
-                    <div className="content" dangerouslySetInnerHTML={{
-                        __html: lang.ABOUT_VBC_LABS
-                    }}></div>
+                    <div
+                        className="title"
+                        style={
+                            { backgroundImage: `url(${getResources(device === 'desktop'
+                                ? 'about_vbc_labs'
+                                : 'about_vbc_labs_phone'
+                            )})` }
+                        }
+                    >
+                    </div>
+                    <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                            __html: lang.ABOUT_VBC_LABS
+                        }}
+                    >
+                    </div>
                 </div>
 
                 <div className="ceo-area">
@@ -43,7 +51,10 @@ const VbcLabs = () => {
                         <div className="second-section">
                             {
                                 Array(5).fill(0).map((val, idx) => (
-                                    <div className="f-1" key={idx}>
+                                    <div
+                                        className="f-1"
+                                        key={idx}
+                                    >
                                         <VbcCharacter idx={7 - idx} />
                                     </div>
                                 ))
@@ -53,7 +64,10 @@ const VbcLabs = () => {
                         <div className="second-section">
                             {
                                 Array(7).fill(0).map((val, idx) => (
-                                    <div className="f-1" key={idx}>
+                                    <div
+                                        className="f-1"
+                                        key={idx}
+                                    >
                                         <VbcCharacter idx={14 - idx} />
                                     </div>
                                 ))
@@ -64,7 +78,10 @@ const VbcLabs = () => {
                     <div className="second-section">
                         {
                             Array(12).fill(0).map((val, idx) => (
-                                <div className="f-1" key={idx}>
+                                <div
+                                    className="f-1"
+                                    key={idx}
+                                >
                                     <VbcCharacter idx={idx + 3} />
                                 </div>
                             ))

@@ -1,14 +1,14 @@
-import { CSSProperties, useContext, useEffect, useMemo, useState } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import { EventBus } from "src/bus";
-import SharedButton from "src/components/Shared/Buttons/SharedButton";
-import CheckSign from "src/components/Shared/CheckSign";
-import LoadingCircle from "src/components/Shared/LoadingCircle";
-import { LangContext } from "src/Context/LangContext";
-import AlertStar from "../AlertStar";
-import { FormEssentials } from "../FormAlert";
-import WarningIcon from "../WarningIcon";
-import submissionProcedure from "./functions/submissionProcedure";
+import { CSSProperties, useContext, useEffect, useMemo, useState } from 'react';
+import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
+import { EventBus } from 'src/bus';
+import SharedButton from 'src/components/Shared/Buttons/SharedButton';
+import CheckSign from 'src/components/Shared/CheckSign';
+import LoadingCircle from 'src/components/Shared/LoadingCircle';
+import { LangContext } from 'src/Context/LangContext';
+import AlertStar from '../AlertStar';
+import { FormEssentials } from '../FormAlert';
+import WarningIcon from '../WarningIcon';
+import submissionProcedure from './functions/submissionProcedure';
 
 const SubmitProcedure = ({
     form,
@@ -75,7 +75,10 @@ const SubmitProcedure = ({
                 <div className="form-nft-section">
                     {
                         aNft && (
-                            <div className="form-nft" key={aNft.token_id}>
+                            <div
+                                className="form-nft"
+                                key={aNft.token_id}
+                            >
                                 <div className="nft-img">
                                     <img
                                         width="100%"

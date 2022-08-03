@@ -1,4 +1,4 @@
-import StaticStar from "src/components/Shared/StaticStar";
+import StaticStar from 'src/components/Shared/StaticStar';
 
 const AlertStar = () => (
     <div className="alert-star">

@@ -36,17 +36,30 @@ const VbcCharacter = ({ idx }: IProps) => {
                     className={className()}
                     style={
                         { backgroundImage: `url(${getResources('purple_text_bubble')})` }
-                    }>
-                    <div className="text" dangerouslySetInnerHTML={{__html: lang[`MEMBER_${idx}_DESC`]}}></div>
+                    }
+                >
+                    <div
+                        className="text"
+                        dangerouslySetInnerHTML={{__html: lang[`MEMBER_${idx}_DESC`]}}
+                    >
+                    </div>
                 </div>
 
-                <div className="vbc-character-default" style={
-                    { backgroundImage: `url(${getResources(name.toLowerCase())})` }
-                }></div>
+                <div
+                    className="vbc-character-default"
+                    style={
+                        { backgroundImage: `url(${getResources(name.toLowerCase())})` }
+                    }
+                >
+                </div>
 
-                <div className="vbc-character-hover" style={
-                    { backgroundImage: `url(${getResources(`${name.toLowerCase()}_hover`)})` }
-                }></div>
+                <div
+                    className="vbc-character-hover"
+                    style={
+                        { backgroundImage: `url(${getResources(`${name.toLowerCase()}_hover`)})` }
+                    }
+                >
+                </div>
             </div>
         </div>
     );

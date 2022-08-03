@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
-import { LangString } from "src/@types/basicVariable";
-import FirstArea from "../FirstArea/FirstArea";
+import React, { Suspense } from 'react';
+import { LangString } from 'src/@types/basicVariable';
+import FirstArea from '../FirstArea/FirstArea';
 
 interface Props {
     selectedLang: LangString

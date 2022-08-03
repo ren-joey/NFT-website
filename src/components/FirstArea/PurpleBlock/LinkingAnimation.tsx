@@ -31,18 +31,30 @@ const LinkingAnimation = ({ type = 'walletconnect' }: Props) => {
 
     return (
         <div className="linking-animation-wrap">
-            <div className="skull-outline-icon" style={leftIcon}></div>
+            <div
+                className="skull-outline-icon"
+                style={leftIcon}
+            >
+            </div>
 
             <div className="line-animation-area">
                 <div className="dotted-line">
                     { device === 'desktop' ? '......................' : '.............' }
                 </div>
                 <div className="star-container">
-                    <div className="star" style={images.star}></div>
+                    <div
+                        className="star"
+                        style={images.star}
+                    >
+                    </div>
                 </div>
             </div>
 
-            <div className="wallet-icon" style={rightIcon}></div>
+            <div
+                className="wallet-icon"
+                style={rightIcon}
+            >
+            </div>
         </div>
     );
 };

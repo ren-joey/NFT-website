@@ -1,8 +1,8 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useMemo, useState } from 'react';
 import 'src/components/KolSupport/KolSupport.scss';
-import { LangContext } from "src/Context/LangContext";
-import gaParser from "src/functions/gaParser";
-import { getResources } from "src/functions/loader";
+import { LangContext } from 'src/Context/LangContext';
+import gaParser from 'src/functions/gaParser';
+import { getResources } from 'src/functions/loader';
 
 interface IProps {
     total: number;
@@ -44,14 +44,18 @@ const MediaSupport = ({ total }: IProps) => {
                             height="auto"
                             src={imageHref}
                             title={title}
-                        ></iframe>
+                        >
+                        </iframe>
                     </div>
                 );
             case 'image':
                 return (
-                    <div className="iframe-image media" style={
-                        { backgroundImage: `url(${imageHref})` }
-                    } />
+                    <div
+                        className="iframe-image media"
+                        style={
+                            { backgroundImage: `url(${imageHref})` }
+                        }
+                    />
                 );
             default:
                 return (
@@ -68,12 +72,20 @@ const MediaSupport = ({ total }: IProps) => {
         <div className="iframe-slider-wrapper">
 
             <div className="slider-title-wrapper">
-                <div className="slider-title media" style={
-                    { backgroundImage: `url(${getResources('media_support')})` }
-                }></div>
-                <div className="slider-title-betamon ktv" style={
-                    { backgroundImage: `url(${getResources('ktv_betamon')})` }
-                }></div>
+                <div
+                    className="slider-title media"
+                    style={
+                        { backgroundImage: `url(${getResources('media_support')})` }
+                    }
+                >
+                </div>
+                <div
+                    className="slider-title-betamon ktv"
+                    style={
+                        { backgroundImage: `url(${getResources('ktv_betamon')})` }
+                    }
+                >
+                </div>
             </div>
 
             <div className="slider-card">
@@ -84,25 +96,37 @@ const MediaSupport = ({ total }: IProps) => {
                             { backgroundImage: `url(${getResources('arrow_right_shadow')})` }
                         }
                         onClick={() => prevMedia()}
-                    ></div>
+                    >
+                    </div>
 
-                    <div className="iframe-container" onClick={() => linkTo()}>
+                    <div
+                        className="iframe-container"
+                        onClick={() => linkTo()}
+                    >
                         <div className="iframe-body">
                             { iframeBody() }
                         </div>
 
                         <div className="iframe-footer">
-                            <div className="chain-icon" style={
-                                { backgroundImage: `url(${getResources('chain_icon')})` }
-                            }></div>
+                            <div
+                                className="chain-icon"
+                                style={
+                                    { backgroundImage: `url(${getResources('chain_icon')})` }
+                                }
+                            >
+                            </div>
 
                             <div className="text">
                                 { title }
                             </div>
 
-                            <div className="right-arrow" style={
-                                { backgroundImage: `url(${getResources('arrow_right')})` }
-                            }></div>
+                            <div
+                                className="right-arrow"
+                                style={
+                                    { backgroundImage: `url(${getResources('arrow_right')})` }
+                                }
+                            >
+                            </div>
                         </div>
                     </div>
 
@@ -112,7 +136,8 @@ const MediaSupport = ({ total }: IProps) => {
                             { backgroundImage: `url(${getResources('arrow_right_shadow')})` }
                         }
                         onClick={() => nextMedia()}
-                    ></div>
+                    >
+                    </div>
                 </div>
 
                 <div className="slider-options">
@@ -123,9 +148,13 @@ const MediaSupport = ({ total }: IProps) => {
                                 key={idx}
                                 onClick={() => setMediaIndex(idx)}
                             >
-                                <div className="star-icon" style={
-                                    { backgroundImage: `url(${getResources('star_icon')})` }
-                                }></div>
+                                <div
+                                    className="star-icon"
+                                    style={
+                                        { backgroundImage: `url(${getResources('star_icon')})` }
+                                    }
+                                >
+                                </div>
                                 <div className="text">
                                     {lang[`MEDIA_${idx + 1}_BTN`]}
                                 </div>

@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import SharedPurpleButton from "src/components/Shared/Buttons/SharedPurpleButton";
-import { LangContext } from "src/Context/LangContext";
-import { getResources } from "src/functions/loader";
-import "src/components/FirstArea/ExchangeBlock/Planet.scss";
+import { useContext } from 'react';
+import SharedPurpleButton from 'src/components/Shared/Buttons/SharedPurpleButton';
+import { LangContext } from 'src/Context/LangContext';
+import { getResources } from 'src/functions/loader';
+import 'src/components/FirstArea/ExchangeBlock/Planet.scss';
 
 const Planet = () => {
     const lang = useContext(LangContext);
@@ -49,9 +49,13 @@ const Planet = () => {
                 />
             </div>
 
-            <div className="planet-bg" style={
-                { backgroundImage: `url(${getResources('planet')})` }
-            }></div>
+            <div
+                className="planet-bg"
+                style={
+                    { backgroundImage: `url(${getResources('planet')})` }
+                }
+            >
+            </div>
         </div>
     );
 };

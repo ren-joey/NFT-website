@@ -1,5 +1,5 @@
 import 'src/components/FirstArea/PurpleBlock/PurpleBlock.scss';
-import { getResources } from "src/functions/loader";
+import { getResources } from 'src/functions/loader';
 import { useContext, useMemo } from 'react';
 import { EventContext } from 'src/Context/EventContext';
 import { ContractContext } from 'src/Context/ContractContext';
@@ -63,21 +63,40 @@ const PurpleBlock = ({ supplyRemain }: IProps) => {
         <SharedPurpleBlock
             className="pc-w-800"
             content={
-                <div className='purple-block'>
+                <div className="purple-block">
                     <div className={`b-alien-container-for-mint-block ${status === 3 && 'center'}`}>
                         <div className="b-alien-area">
                             <div className="b-alien-wave"></div>
-                            <div className="b-alien-line" style={
-                                { backgroundImage: `url(${getResources('b_alien')})` }
-                            }></div>
-                            { status === 3 && <div className="spotlight" style={spotlightLeft}></div> }
-                            { status === 3 && <div className="spotlight reverse" style={spotlightLeft}></div> }
+                            <div
+                                className="b-alien-line"
+                                style={
+                                    { backgroundImage: `url(${getResources('b_alien')})` }
+                                }
+                            >
+                            </div>
+                            { status === 3 && (
+                                <div
+                                    className="spotlight"
+                                    style={spotlightLeft}
+                                >
+                                </div>
+                            )}
+                            { status === 3 && (
+                                <div
+                                    className="spotlight reverse"
+                                    style={spotlightLeft}
+                                >
+                                </div>
+                            )}
                         </div>
                     </div>
 
                     {
                         status < 3 && (
-                            <MintBody mintMethodName={methodName} supplyRemain={supplyRemain} />
+                            <MintBody
+                                mintMethodName={methodName}
+                                supplyRemain={supplyRemain}
+                            />
                         )
                     }
 
@@ -88,7 +107,8 @@ const PurpleBlock = ({ supplyRemain }: IProps) => {
                     <SharedFaqButton />
                     <SubeventButton />
                 </div>
-            } />
+            }
+        />
     );
 };
 

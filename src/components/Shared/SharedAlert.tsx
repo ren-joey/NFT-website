@@ -33,11 +33,12 @@ const SharedAlert = ({
                 {
                     closeBtnEnable === true && (
                         <div
-                            className='alert-cancel-icon'
+                            className="alert-cancel-icon"
                             style={
                                 { backgroundImage: `url(${getResources('cancel_icon')})` }
                             }
-                            onClick={() => clickHandler()}>
+                            onClick={() => clickHandler()}
+                        >
                         </div>
                     )
                 }
@@ -51,18 +52,20 @@ const SharedAlert = ({
 
                     {
                         btnList.length > 0
-                        && <div className="button-area">
-                            {
-                                btnList.map((btn, idx) => (
-                                    <SharedButton
-                                        type={btn.type}
-                                        text={btn.text}
-                                        onClick={() => clickHandler(btn.onClick)}
-                                        key={idx}
-                                    />
-                                ))
-                            }
-                        </div>
+                        && (
+                            <div className="button-area">
+                                {
+                                    btnList.map((btn, idx) => (
+                                        <SharedButton
+                                            type={btn.type}
+                                            text={btn.text}
+                                            onClick={() => clickHandler(btn.onClick)}
+                                            key={idx}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        )
                     }
                 </div>
 

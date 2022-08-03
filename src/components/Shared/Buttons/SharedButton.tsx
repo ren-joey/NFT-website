@@ -1,6 +1,6 @@
-import { useContext, useMemo } from "react";
-import { EventContext } from "src/Context/EventContext";
-import { BtnColorList } from "src/@types/basicVariable";
+import { useContext, useMemo } from 'react';
+import { EventContext } from 'src/Context/EventContext';
+import { BtnColorList } from 'src/@types/basicVariable';
 
 interface IProps {
     type?: BtnColorList,

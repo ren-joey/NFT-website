@@ -1,5 +1,5 @@
-import { ISocialList } from "src/configs/socialMediaConfig";
-import gaParser from "./gaParser";
+import { ISocialList } from 'src/configs/socialMediaConfig';
+import gaParser from './gaParser';
 
 const hrefTo = (
     {iconName, href}: Omit<ISocialList, 'title' | 'visible'>

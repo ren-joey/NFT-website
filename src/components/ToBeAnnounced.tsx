@@ -18,16 +18,25 @@ const ToBeAnnounced = () => {
                         style={
                             { backgroundImage: `url(${getResources('line_turning_skew')})` }
                         }
-                    ></div>
+                    >
+                    </div>
             }
 
             { device === 'phone' && <div className="phone-line"></div> }
-            <div className="star" style={
-                { backgroundImage: `url(${getResources('glowing_star')})` }
-            }></div>
-            <div className="to-be-continue" style={
-                { backgroundImage: `url(${getResources('to_be_continue')})` }
-            }></div>
+            <div
+                className="star"
+                style={
+                    { backgroundImage: `url(${getResources('glowing_star')})` }
+                }
+            >
+            </div>
+            <div
+                className="to-be-continue"
+                style={
+                    { backgroundImage: `url(${getResources('to_be_continue')})` }
+                }
+            >
+            </div>
 
         </div>
     );

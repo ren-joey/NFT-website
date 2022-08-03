@@ -1,5 +1,5 @@
-import React from "react";
-import { getResources } from "src/functions/loader";
+import React from 'react';
+import { getResources } from 'src/functions/loader';
 
 interface IProps {
     size?: string
@@ -16,7 +16,11 @@ const EthIcon = ({ size = '1rem' }: IProps) => {
     };
 
     return (
-        <div className="eth-icon" style={style}></div>
+        <div
+            className="eth-icon"
+            style={style}
+        >
+        </div>
     );
 };
 

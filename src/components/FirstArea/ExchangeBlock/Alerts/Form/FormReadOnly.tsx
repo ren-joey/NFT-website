@@ -1,12 +1,9 @@
-import { useContext } from "react";
-import { EventBus } from "src/bus";
-import SharedButton from "src/components/Shared/Buttons/SharedButton";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
-import AlertStar from "../AlertStar";
-import TermsReadOnly from "./TermsReadOnly";
-import { FormEssentials } from "../FormAlert";
-import WarningIcon from "../WarningIcon";
+import { useContext } from 'react';
+import SharedButton from 'src/components/Shared/Buttons/SharedButton';
+import { LangContext } from 'src/Context/LangContext';
+import AlertStar from '../AlertStar';
+import { FormEssentials } from '../FormAlert';
+import WarningIcon from '../WarningIcon';
 
 const FormReadOnly = ({
     form,
@@ -80,7 +77,10 @@ const FormReadOnly = ({
                 <div className="form-nft-section">
                     {
                         aNft && (
-                            <div className="form-nft" key={aNft.token_id}>
+                            <div
+                                className="form-nft"
+                                key={aNft.token_id}
+                            >
                                 <div className="nft-img">
                                     <img
                                         width="100%"

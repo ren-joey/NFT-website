@@ -1,6 +1,6 @@
-import { StableNft } from "src/@types/nft";
-import FaqAlert from "./Alerts/FaqAlert";
-import FormAlert from "./Alerts/FormAlert";
+import { StableNft } from 'src/@types/nft';
+import FaqAlert from './Alerts/FaqAlert';
+import FormAlert from './Alerts/FormAlert';
 
 interface Props {
     selectedNfts: StableNft[]

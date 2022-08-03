@@ -1,4 +1,4 @@
-import Web3 from "web3";
+import Web3 from 'web3';
 
 const transactionReceiptCheck = (address: string) => {
     const { ethereum } = window;

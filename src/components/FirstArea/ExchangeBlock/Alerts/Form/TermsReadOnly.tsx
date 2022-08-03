@@ -1,6 +1,5 @@
-import { lang } from "moment";
-import { useContext } from "react";
-import { LangContext } from "src/Context/LangContext";
+import { useContext } from 'react';
+import { LangContext } from 'src/Context/LangContext';
 
 const TermsReadOnly = () => {
     const lang = useContext(LangContext);

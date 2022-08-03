@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
-import { getResources } from "src/functions/loader";
-import ethConfig from "src/configs/ethConfig";
+import { useContext } from 'react';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
+import { getResources } from 'src/functions/loader';
+import ethConfig from 'src/configs/ethConfig';
 
 const Footer = () => {
     const lang = useContext(LangContext);
@@ -17,9 +17,13 @@ const Footer = () => {
                 <small>v{ethConfig.version}</small>
             </div>
             { device === 'desktop' && (
-                <div className="earth" style={
-                    { backgroundImage: `url(${getResources('earth')})` }
-                }></div>
+                <div
+                    className="earth"
+                    style={
+                        { backgroundImage: `url(${getResources('earth')})` }
+                    }
+                >
+                </div>
             )}
         </div>
     );
