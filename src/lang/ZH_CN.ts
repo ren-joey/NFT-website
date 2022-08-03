@@ -171,7 +171,7 @@ const ZH_CN: Lang = {
     FAQ_6_CONTENT: '只要您拥有第一波的β星人RNFT，即可将位于多元宇宙奇异点的β星人真实召唤到你的身边！\n如果兑换期限内不进行兑换，可额外获得PLUS版本隐藏的NFT，于后续的β计划增加更多回馈\n＊兑换期限内未申请兑换的实体公仔，VBC将保有其所有权、使用权，同时维持880个全球限量发售承诺',
     FAQ_6_CONTENT_2: 'VBC labs近期将公布说明与开放兑换系统，敬请关注',
     FAQ_7_TITLE: 'Roadmap提到的β币、奖励任务、元宇宙是什么？ ',
-    FAQ_7_CONTENT: '这些是VBC labs 与 β星人将持续合作带给各位召唤师的奖励回馈机制相关内容将陆续公布说明',
+    FAQ_7_CONTENT: '这些是 VBC labs 与 β星人将持续合作带给各位召唤师的奖励回馈机制，相关内容将陆续公布说明',
     COPYRIGHT: '©2022 Vision Beyond Cosmos 保留所有权利',
     STATEMENT_TITLE: 'VBC labs β星人召唤声明',
     STATEMENT_CONTENT_1: '1. 抢购除了售价 0.1ETH 外，还需要额外给矿工的交易手续费 ( GAS FEE 瓦斯费 )；不管有无成功买到都需支付这笔费用，因此没抢到需自行承担 GAS FEE 。',
