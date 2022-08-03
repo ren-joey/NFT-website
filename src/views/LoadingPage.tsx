@@ -1,10 +1,10 @@
-import gsap, { Power0, Power4 } from "gsap";
-import { RoughEase } from "gsap/all";
-import { useEffect, useRef, useState } from "react";
-import loadingAnimation from "src/animation/loadingAnimation";
-import BAlienSvg from "src/components/Shared/BAlienSvg";
-import gaParser from "src/functions/gaParser";
-import loader from "src/functions/loader";
+import gsap, { Power0, Power4 } from 'gsap';
+import { RoughEase } from 'gsap/all';
+import { useEffect, useRef, useState } from 'react';
+import loadingAnimation from 'src/animation/loadingAnimation';
+import BAlienSvg from 'src/components/Shared/BAlienSvg';
+import gaParser from 'src/functions/gaParser';
+import loader from 'src/functions/loader';
 import 'src/views/LoadingPage.scss';
 
 interface IProps {
@@ -66,7 +66,7 @@ const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
                     template: Power0.easeOut,
                     strength: 3,
                     points: 40,
-                    taper: "in",
+                    taper: 'in',
                     randomize: false,
                     clamp: true
                 }),
@@ -120,19 +120,30 @@ const LoadingPage = ({ setFrontPageStatus, setLoadingPageStatus }: IProps) => {
                             LOADING
                         </div>
                     ) : (
-                        <div id="skipTrailerBtn" className="skip-trailer-btn" onClick={() => skipTrailer()}>
+                        <div
+                            id="skipTrailerBtn"
+                            className="skip-trailer-btn"
+                            onClick={() => skipTrailer()}
+                        >
                             SKIP
                         </div>
                     )
             }
 
-            <div id="loadingPage" className="loading-page">
-                <div id="bAlienArea" className="b-alien-area">
+            <div
+                id="loadingPage"
+                className="loading-page"
+            >
+                <div
+                    id="bAlienArea"
+                    className="b-alien-area"
+                >
                     { !trailerEnded && <BAlienSvg /> }
                     <div
                         id="bAlienHead"
                         className="review-head"
-                    ></div>
+                    >
+                    </div>
                 </div>
                 <canvas id="loadingCanvas" />
             </div>

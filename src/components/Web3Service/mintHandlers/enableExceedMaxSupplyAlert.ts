@@ -1,5 +1,5 @@
-import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import { Lang } from "src/lang";
+import enableGlobalAlert from 'src/functions/enableGlobalAlert';
+import { Lang } from 'src/lang';
 
 const enableExceedMaxSupplyAlert = ({
     lang

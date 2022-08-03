@@ -17,17 +17,28 @@ const BgEffects = () => {
         <div className="bg-effects">
             { diff > 0 && diff <= 60000 && <div className="red-warning"></div>}
 
-            <div className="perspective-lines" style={
-                {backgroundImage: `url(${Loader.shared.resources.perspective_lines.url})`}
-            }></div>
+            <div
+                className="perspective-lines"
+                style={
+                    {backgroundImage: `url(${Loader.shared.resources.perspective_lines.url})`}
+                }
+            >
+            </div>
 
-            <div id="canvasArea" className="canvas-area">
+            <div
+                id="canvasArea"
+                className="canvas-area"
+            >
                 <canvas id="canvas" />
             </div>
 
-            <div className="black-hole" style={
-                { backgroundImage: `url(${getResources('black_hole')})` }
-            }></div>
+            <div
+                className="black-hole"
+                style={
+                    { backgroundImage: `url(${getResources('black_hole')})` }
+                }
+            >
+            </div>
         </div>
     );
 };

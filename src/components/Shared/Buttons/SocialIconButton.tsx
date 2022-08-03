@@ -15,7 +15,9 @@ const SocialIconButton = ({ social }: IProps) => {
             <div
                 className="social-link-btn"
                 onClick={() => hrefTo(social)}
-                style={{backgroundImage: `url(${iconUrl})`}}></div>
+                style={{backgroundImage: `url(${iconUrl})`}}
+            >
+            </div>
             <div className={`social-text-bubble ${social.iconName}`}>
                 {social.iconName}
             </div>

@@ -1,7 +1,7 @@
-import gsap, { Power0 } from "gsap";
-import { CSSProperties, useMemo, useReducer } from "react";
-import { StableNftOption } from "src/@types/nft";
-import { getResources } from "src/functions/loader";
+import gsap, { Power0 } from 'gsap';
+import { CSSProperties, useMemo, useReducer } from 'react';
+import { StableNftOption } from 'src/@types/nft';
+import { getResources } from 'src/functions/loader';
 
 interface BtnState {
     left: boolean;
@@ -59,14 +59,18 @@ const NftListPaginator = ({
 
     return stableNfts.length > 2 ? (
         <>
-            <div className={`arrow-btn right ${btnState.right ? '' : 'disabled'}`}
+            <div
+                className={`arrow-btn right ${btnState.right ? '' : 'disabled'}`}
                 style={arrowRightStyle}
                 onClick={() => pageTransitionHelper('right')}
-            ></div>
-            <div className={`arrow-btn left ${btnState.left ? '' : 'disabled'}`}
+            >
+            </div>
+            <div
+                className={`arrow-btn left ${btnState.left ? '' : 'disabled'}`}
                 style={arrowRightStyle}
                 onClick={() => pageTransitionHelper('left')}
-            ></div>
+            >
+            </div>
         </>
     ) : null;
 };

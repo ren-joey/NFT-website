@@ -1,7 +1,7 @@
-import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import stringReplacer from "src/utils/stringFormat/stringReplacer";
-import fetchMintBetamon from "./fetchMintBetamon";
-import { IMintAlertHandler } from "./mintAlertHandler";
+import enableGlobalAlert from 'src/functions/enableGlobalAlert';
+import stringReplacer from 'src/utils/stringFormat/stringReplacer';
+import fetchMintBetamon from './fetchMintBetamon';
+import { IMintAlertHandler } from './mintAlertHandler';
 
 const enableConfirmAlert = ({
     amount,

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import moment from "moment";
-import React from "react";
-import { DeviceString, LangString } from "src/@types/basicVariable";
-import { getParameterByName } from "src/utils";
+import moment from 'moment';
+import React from 'react';
+import { DeviceString, LangString } from 'src/@types/basicVariable';
+import { getParameterByName } from 'src/utils';
 
 export interface ICounter {
     days: string,

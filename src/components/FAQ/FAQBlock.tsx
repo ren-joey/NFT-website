@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { LangContext } from "src/Context/LangContext";
-import { getResources } from "src/functions/loader";
+import { useContext } from 'react';
+import { LangContext } from 'src/Context/LangContext';
+import { getResources } from 'src/functions/loader';
 
 interface IProps {
     idx: number,
@@ -17,22 +17,32 @@ const FAQBlock = ({ idx, slotContent }: IProps) => {
 
     return (
         <div className="faq-block">
-            <div className="faq-skull-icon" style={
-                { backgroundImage: `url(${getResources('skull_icon')})` }
-            }></div>
+            <div
+                className="faq-skull-icon"
+                style={
+                    { backgroundImage: `url(${getResources('skull_icon')})` }
+                }
+            >
+            </div>
             <div className="body">
                 <div
                     className="faq-title"
                     dangerouslySetInnerHTML={{ __html: title }}
-                ></div>
+                >
+                </div>
                 <div
                     className="faq-content pre-line"
                     dangerouslySetInnerHTML={{ __html: content }}
-                ></div>
+                >
+                </div>
 
                 {
                     contentImage && (
-                        <div className="faq-content" dangerouslySetInnerHTML={{__html: content2}}></div>
+                        <div
+                            className="faq-content"
+                            dangerouslySetInnerHTML={{__html: content2}}
+                        >
+                        </div>
                     )
                 }
 
@@ -42,7 +52,11 @@ const FAQBlock = ({ idx, slotContent }: IProps) => {
 
                 {
                     content2 && (
-                        <div className="faq-content" dangerouslySetInnerHTML={{__html: content2}}></div>
+                        <div
+                            className="faq-content"
+                            dangerouslySetInnerHTML={{__html: content2}}
+                        >
+                        </div>
                     )
                 }
             </div>

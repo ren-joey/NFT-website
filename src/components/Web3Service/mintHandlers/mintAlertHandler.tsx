@@ -1,12 +1,12 @@
-import { Lang } from "src/lang";
-import enableMintNotOpenAlert from "./enableMintNotOpenAlert";
-import enableSoldOutAlert from "./enableSoldOutAlert";
-import enableNotEnoughEth from "./enableNotEnoughEth";
-import enableExceedAlert from "./enableExcessAlert";
-import enableConfirmAlert from "./enableConfirmAlert";
-import fetchMintBetamon from "./fetchMintBetamon";
-import { INativeBalance, MintMethodName, MoralisFetch } from "src/@types/contract";
-import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
+import { Lang } from 'src/lang';
+import enableMintNotOpenAlert from './enableMintNotOpenAlert';
+import enableSoldOutAlert from './enableSoldOutAlert';
+import enableNotEnoughEth from './enableNotEnoughEth';
+import enableExceedAlert from './enableExcessAlert';
+import enableConfirmAlert from './enableConfirmAlert';
+import fetchMintBetamon from './fetchMintBetamon';
+import { INativeBalance, MintMethodName, MoralisFetch } from 'src/@types/contract';
+import { Nullable, NullableBigNumber } from 'src/@types/basicVariable';
 
 export interface IMintAlertHandler {
     status: number,

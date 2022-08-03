@@ -1,10 +1,10 @@
-import axios from "axios";
-import { MoralisFetch } from "src/@types/contract";
-import { StableNft } from "src/@types/nft";
-import fetchContractVariable from "src/components/Web3Service/functions/fetchContractVariable";
-import sendSignatureRequest from "src/components/Web3Service/functions/sendSignatureRequest";
-import ethConfig from "src/configs/ethConfig";
-import { FormData } from "../../FormAlert";
+import axios from 'axios';
+import { MoralisFetch } from 'src/@types/contract';
+import { StableNft } from 'src/@types/nft';
+import fetchContractVariable from 'src/components/Web3Service/functions/fetchContractVariable';
+import sendSignatureRequest from 'src/components/Web3Service/functions/sendSignatureRequest';
+import ethConfig from 'src/configs/ethConfig';
+import { FormData } from '../../FormAlert';
 
 interface SignParams {
     account: string;

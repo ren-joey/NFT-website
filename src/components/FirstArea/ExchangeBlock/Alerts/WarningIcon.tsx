@@ -1,5 +1,5 @@
-import React from "react";
-import { getResources } from "src/functions/loader";
+import React from 'react';
+import { getResources } from 'src/functions/loader';
 
 const defaultStyle: React.CSSProperties = {
     display: 'inline-block',

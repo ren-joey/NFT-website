@@ -1,4 +1,4 @@
-import { SocialIconName } from "../@types/basicVariable";
+import { SocialIconName } from '../@types/basicVariable';
 
 export interface ISocialList {
     iconName: SocialIconName,

@@ -1,15 +1,15 @@
-import { BigNumber } from "ethers";
-import { useContext, useEffect, useState } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import { ContractVariables } from "src/@types/contract";
-import { EventBus } from "src/bus";
-import { ContractContext } from "src/Context/ContractContext";
-import { LangContext } from "src/Context/LangContext";
-import ethConfig from "src/configs/ethConfig";
-import { copyTextToClipboard } from "src/utils/stringFormat/copyTextToClipboard";
-import SharedAlert from "../Shared/SharedAlert";
-import fetchContractVariable from "./functions/fetchContractVariable";
-import { getContractContextBigNumSetter } from "./functions/getContractContextSetter";
+import { BigNumber } from 'ethers';
+import { useContext, useEffect, useState } from 'react';
+import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
+import { ContractVariables } from 'src/@types/contract';
+import { EventBus } from 'src/bus';
+import { ContractContext } from 'src/Context/ContractContext';
+import { LangContext } from 'src/Context/LangContext';
+import ethConfig from 'src/configs/ethConfig';
+import { copyTextToClipboard } from 'src/utils/stringFormat/copyTextToClipboard';
+import SharedAlert from '../Shared/SharedAlert';
+import fetchContractVariable from './functions/fetchContractVariable';
+import { getContractContextBigNumSetter } from './functions/getContractContextSetter';
 
 const LoginService = () => {
     const contractContext = useContext(ContractContext);

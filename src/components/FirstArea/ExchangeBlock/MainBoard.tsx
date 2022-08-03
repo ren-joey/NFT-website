@@ -1,9 +1,9 @@
-import NftList from "./NftList";
-import Planet from "./Planet";
+import NftList from './NftList';
+import Planet from './Planet';
 import 'src/components/FirstArea/ExchangeBlock/MainBoard.scss' ;
-import { useMemo, useState } from "react";
-import { StableNftOption } from "src/@types/nft";
-import ExchangeAlertController from "./ExchangeAlertController";
+import { useMemo, useState } from 'react';
+import { StableNftOption } from 'src/@types/nft';
+import ExchangeAlertController from './ExchangeAlertController';
 
 const MainBoard = () => {
     const [ stableNfts, setStableNfts ] = useState<StableNftOption[]>([]);

@@ -1,10 +1,10 @@
-import { BigNumber } from "ethers";
-import React, { Suspense, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
-import { ContractContext } from "src/Context/ContractContext";
-import { EventContext } from "src/Context/EventContext";
-import { getParameterByName } from "src/utils";
-import TimeArea from "./PurpleBlock/TimeArea";
+import { BigNumber } from 'ethers';
+import React, { Suspense, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { Nullable, NullableBigNumber } from 'src/@types/basicVariable';
+import { ContractContext } from 'src/Context/ContractContext';
+import { EventContext } from 'src/Context/EventContext';
+import { getParameterByName } from 'src/utils';
+import TimeArea from './PurpleBlock/TimeArea';
 
 const SupplyRemainProvider = () => {
     const {

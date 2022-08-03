@@ -1,11 +1,10 @@
-import all from 'gsap-trial/src/all';
 import Moralis from 'moralis';
-import { useContext, useEffect } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import { useContext, useEffect } from 'react';
+import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import { ContractVariables } from 'src/@types/contract';
 import { INft } from 'src/@types/nft';
 import { ContractContext } from 'src/Context/ContractContext';
-import ethConfig from "src/configs/ethConfig";
+import ethConfig from 'src/configs/ethConfig';
 import fetchContractVariable from './functions/fetchContractVariable';
 
 const NftCollection = () => {

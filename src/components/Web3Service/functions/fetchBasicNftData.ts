@@ -1,8 +1,8 @@
-import axios from "axios";
-import { ContractResponse, MoralisFetch } from "src/@types/contract";
-import { IMetadata } from "src/@types/metadata";
-import { BasicNft } from "src/@types/nft";
-import fetchContractVariable from "./fetchContractVariable";
+import axios from 'axios';
+import { ContractResponse, MoralisFetch } from 'src/@types/contract';
+import { IMetadata } from 'src/@types/metadata';
+import { BasicNft } from 'src/@types/nft';
+import fetchContractVariable from './fetchContractVariable';
 
 interface Props {
     nfts: string[],

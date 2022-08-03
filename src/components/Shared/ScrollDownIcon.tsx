@@ -18,7 +18,10 @@ const ScrollDownIcon = () => {
     }, []);
 
     return (
-        <div id="scrollDownArea" className="scroll-down-area">
+        <div
+            id="scrollDownArea"
+            className="scroll-down-area"
+        >
             {
                 Array.from({ length: 3 }, (_, i) => (
                     <div

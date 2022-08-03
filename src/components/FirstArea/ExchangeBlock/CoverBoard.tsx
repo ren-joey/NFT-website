@@ -1,4 +1,4 @@
-import { getResources } from "src/functions/loader";
+import { getResources } from 'src/functions/loader';
 import { useContext } from 'react';
 import { LangContext } from 'src/Context/LangContext';
 import SubeventButton from '../SubeventButton/SubeventButton';
@@ -18,9 +18,13 @@ const CoverBoard = () => {
                 <div className="cover-board">
                     <div className="b-alien-container-for-mint-block">
                         <div className="b-alien-area">
-                            <div className="b-alien-line" style={
-                                { backgroundImage: `url(${getResources('3d_betamon')})` }
-                            }></div>
+                            <div
+                                className="b-alien-line"
+                                style={
+                                    { backgroundImage: `url(${getResources('3d_betamon')})` }
+                                }
+                            >
+                            </div>
                         </div>
                     </div>
 
@@ -37,7 +41,8 @@ const CoverBoard = () => {
                     <SharedFaqButton />
                     <SubeventButton />
                 </div>
-            } />
+            }
+        />
     );
 };
 

@@ -1,5 +1,5 @@
-import { ChainList } from "./contract";
-import { IMetadata } from "./metadata";
+import { ChainList } from './contract';
+import { IMetadata } from './metadata';
 
 export type Web3Provider = 'metamask'
                             | 'walletconnect'

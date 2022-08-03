@@ -1,5 +1,5 @@
-import gsap, { Back } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap, { Back } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const scrollTriggerKillAll = () => {
     ScrollTrigger.getAll().forEach((scrollTrigger) => {
@@ -73,7 +73,7 @@ const scrollTriggerInit = () => {
                 id: dom.id,
                 trigger: dom,
                 start: 'top 70%',
-                end: `+=280`
+                end: '+=280'
             }
         });
     });
@@ -183,7 +183,7 @@ const scrollTriggerInit = () => {
                 id: dom.id,
                 trigger: dom,
                 start: 'top 70%',
-                end: `+=1300`
+                end: '+=1300'
             }
         });
     });

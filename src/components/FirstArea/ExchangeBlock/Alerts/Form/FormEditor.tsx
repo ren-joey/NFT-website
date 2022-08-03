@@ -1,13 +1,12 @@
-import { useContext, useMemo } from "react";
-import { EventBus } from "src/bus";
-import SharedButton from "src/components/Shared/Buttons/SharedButton";
-import { EventContext } from "src/Context/EventContext";
-import { LangContext } from "src/Context/LangContext";
-import AlertStar from "../AlertStar";
-import { FormEssentials } from "../FormAlert";
-import WarningIcon from "../WarningIcon";
-import SharedInput from "./SharedInput";
-import Terms from "./Terms";
+import { useContext } from 'react';
+import SharedButton from 'src/components/Shared/Buttons/SharedButton';
+import { EventContext } from 'src/Context/EventContext';
+import { LangContext } from 'src/Context/LangContext';
+import AlertStar from '../AlertStar';
+import { FormEssentials } from '../FormAlert';
+import WarningIcon from '../WarningIcon';
+import SharedInput from './SharedInput';
+import Terms from './Terms';
 
 const FormEditor = (formEssentials: FormEssentials) => {
     const {
@@ -127,7 +126,10 @@ const FormEditor = (formEssentials: FormEssentials) => {
                 <div className="form-nft-section">
                     {
                         aNft && (
-                            <div className="form-nft" key={aNft.token_id}>
+                            <div
+                                className="form-nft"
+                                key={aNft.token_id}
+                            >
                                 <div className="nft-img">
                                     <img
                                         width="100%"

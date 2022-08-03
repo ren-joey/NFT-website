@@ -1,6 +1,6 @@
-import enableGlobalAlert from "src/functions/enableGlobalAlert";
-import stringReplacer from "src/utils/stringFormat/stringReplacer";
-import { IMintAlertHandler } from "./mintAlertHandler";
+import enableGlobalAlert from 'src/functions/enableGlobalAlert';
+import stringReplacer from 'src/utils/stringFormat/stringReplacer';
+import { IMintAlertHandler } from './mintAlertHandler';
 
 const enableNotEnoughEth = ({
     lang,

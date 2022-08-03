@@ -1,5 +1,5 @@
-import Web3 from "web3";
-import { getUuid } from "src/utils";
+import Web3 from 'web3';
+import { getUuid } from 'src/utils';
 
 interface Props {
     account: string;

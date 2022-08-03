@@ -11,14 +11,20 @@ const Counter = () => {
         <div className="counter-area">
             <div className="row">
                 <div className="col">
-                    <div id="days" className="counter">
+                    <div
+                        id="days"
+                        className="counter"
+                    >
                         <div className="digit">{counter.days}</div>
                         <div className="digit-shadow">{counter.days}</div>
                         <div className="unit">days</div>
                     </div>
                 </div>
 
-                <div id="hours" className="col">
+                <div
+                    id="hours"
+                    className="col"
+                >
                     <div className="counter">
                         <div className="digit idx-2">{counter.hours}</div>
                         <div className="digit-shadow">{counter.hours}</div>
@@ -26,7 +32,10 @@ const Counter = () => {
                     </div>
                 </div>
 
-                <div id="minutes" className="col">
+                <div
+                    id="minutes"
+                    className="col"
+                >
                     <div className="counter">
                         <div className="digit idx-3">{counter.minutes}</div>
                         <div className="digit-shadow">{counter.minutes}</div>
@@ -34,7 +43,10 @@ const Counter = () => {
                     </div>
                 </div>
 
-                <div id="seconds" className="col">
+                <div
+                    id="seconds"
+                    className="col"
+                >
                     <div className="counter font-a4-speed">
                         <div className="digit idx-4">{counter.seconds}</div>
                         <div className="digit-shadow">{counter.seconds}</div>

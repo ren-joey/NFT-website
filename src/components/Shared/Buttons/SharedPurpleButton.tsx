@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import "src/components/Shared/Buttons/SharedPurpleButton.scss";
+import { useEffect, useState } from 'react';
+import 'src/components/Shared/Buttons/SharedPurpleButton.scss';
 
 interface Props {
     disable?: boolean;

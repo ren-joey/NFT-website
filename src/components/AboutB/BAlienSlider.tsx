@@ -25,9 +25,13 @@ const BAlienSlider = () => {
 
     return(
         <div className="b-alien-slider">
-            <div className="b-alien" style={
-                {backgroundImage: `url(${getResources(`b_alien_${alienIdx}`)})`}
-            }></div>
+            <div
+                className="b-alien"
+                style={
+                    {backgroundImage: `url(${getResources(`b_alien_${alienIdx}`)})`}
+                }
+            >
+            </div>
             {
                 Array.from({ length: 5 }, (_, i) => (
                     <div

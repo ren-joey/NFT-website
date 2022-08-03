@@ -1,4 +1,4 @@
-import DeviceDetector from "device-detector-js";
+import DeviceDetector from 'device-detector-js';
 
 const userAgent =  window.navigator.userAgent;
 const deviceDetector = new DeviceDetector();

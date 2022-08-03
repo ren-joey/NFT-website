@@ -1,8 +1,8 @@
-import { useContext, useMemo } from "react";
-import { LangContext } from "src/Context/LangContext";
-import { getResources } from "src/functions/loader";
+import { useContext, useMemo } from 'react';
+import { LangContext } from 'src/Context/LangContext';
+import { getResources } from 'src/functions/loader';
 import 'src/components/FAQ/FAQ.scss';
-import FAQBlock from "./FAQBlock";
+import FAQBlock from './FAQBlock';
 import faq_5_table_cn_m from 'src/assets/images/faq_5_table_cn_m.png';
 import faq_5_table_cn from 'src/assets/images/faq_5_table_cn.png';
 import faq_5_table_tw_m from 'src/assets/images/faq_5_table_tw_m.png';
@@ -15,9 +15,7 @@ import faq_6_table_cn_m from 'src/assets/images/faq_6_table_cn_m.png';
 import faq_6_table_cn from 'src/assets/images/faq_6_table_cn.png';
 import faq_6_table_tw_m from 'src/assets/images/faq_6_table_tw_m.png';
 import faq_6_table_tw from 'src/assets/images/faq_6_table_tw.png';
-import { EventContext } from "src/Context/EventContext";
-import { socialList } from "src/configs/socialMediaConfig";
-import SocialIconButton from "../Shared/Buttons/SocialIconButton";
+import { EventContext } from 'src/Context/EventContext';
 
 const FAQ = () => {
     const lang = useContext(LangContext);
@@ -57,56 +55,69 @@ const FAQ = () => {
     }, [lang, device]);
 
     return (
-        <div id="FAQ" className="faq-container">
-            <div className="faq-headline" style={
-                { backgroundImage: `url(${getResources('faq')})` }
-            }></div>
+        <div
+            id="FAQ"
+            className="faq-container"
+        >
+            <div
+                className="faq-headline"
+                style={
+                    { backgroundImage: `url(${getResources('faq')})` }
+                }
+            >
+            </div>
 
             <FAQBlock idx={1} />
             {/* <FAQBlock idx={2} slotContent={
                 <SocialIconButton social={socialList[1]} />
             } /> */}
-            <FAQBlock idx={6} slotContent={
-                <>
-                    <img
-                        style={{
-                            display: 'block',
-                            marginTop: '2rem',
-                            marginBottom: '2rem',
-                            width: device === 'desktop' ? '90%' : '100%',
-                            height: 'auto'
-                        }}
-                        src={images.faq_6_image}
-                        alt=""
-                    />
-                    <img
-                        style={{
-                            display: 'block',
-                            marginTop: '2rem',
-                            marginBottom: '2rem',
-                            width: device === 'desktop' ? '90%' : '100%',
-                            height: 'auto'
-                        }}
-                        src={images.faq_6_table}
-                        alt=""
-                    />
-                </>
-            } />
+            <FAQBlock
+                idx={6}
+                slotContent={
+                    <>
+                        <img
+                            style={{
+                                display: 'block',
+                                marginTop: '2rem',
+                                marginBottom: '2rem',
+                                width: device === 'desktop' ? '90%' : '100%',
+                                height: 'auto'
+                            }}
+                            src={images.faq_6_image}
+                            alt=""
+                        />
+                        <img
+                            style={{
+                                display: 'block',
+                                marginTop: '2rem',
+                                marginBottom: '2rem',
+                                width: device === 'desktop' ? '90%' : '100%',
+                                height: 'auto'
+                            }}
+                            src={images.faq_6_table}
+                            alt=""
+                        />
+                    </>
+                }
+            />
             {/* <FAQBlock idx={3} /> */}
             <FAQBlock idx={4} />
-            <FAQBlock idx={5} slotContent={
-                <img
-                    style={{
-                        display: 'block',
-                        marginTop: '2rem',
-                        marginBottom: '2rem',
-                        width: device === 'desktop' ? '90%' : '100%',
-                        height: 'auto'
-                    }}
-                    src={images.faq_5_table}
-                    alt=""
-                />
-            } />
+            <FAQBlock
+                idx={5}
+                slotContent={
+                    <img
+                        style={{
+                            display: 'block',
+                            marginTop: '2rem',
+                            marginBottom: '2rem',
+                            width: device === 'desktop' ? '90%' : '100%',
+                            height: 'auto'
+                        }}
+                        src={images.faq_5_table}
+                        alt=""
+                    />
+                }
+            />
             <FAQBlock idx={7} />
         </div>
     );

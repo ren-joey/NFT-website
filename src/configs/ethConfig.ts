@@ -1,4 +1,4 @@
-import { EthConfig } from "../@types/nft";
+import { EthConfig } from '../@types/nft';
 
 const ethConfig: EthConfig = {
     version: '1.3.0',

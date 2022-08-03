@@ -1,10 +1,9 @@
-import { Nullable, NullableBigNumber } from "src/@types/basicVariable";
-import { AlertData } from "src/@types/viewVariables";
-import { Lang } from "src/lang";
-import enableExceedMaxSupplyAlert from "../mintHandlers/enableExceedMaxSupplyAlert";
-import enableMintNotOpenAlert from "../mintHandlers/enableMintNotOpenAlert";
-import enableNotEnoughEth from "../mintHandlers/enableNotEnoughEth";
-import enableNotInWhiteList from "../mintHandlers/enableNotInWhiteList";
+import { Nullable, NullableBigNumber } from 'src/@types/basicVariable';
+import { Lang } from 'src/lang';
+import enableExceedMaxSupplyAlert from '../mintHandlers/enableExceedMaxSupplyAlert';
+import enableMintNotOpenAlert from '../mintHandlers/enableMintNotOpenAlert';
+import enableNotEnoughEth from '../mintHandlers/enableNotEnoughEth';
+import enableNotInWhiteList from '../mintHandlers/enableNotInWhiteList';
 
 interface IErrorMsgObj {
     message: string,

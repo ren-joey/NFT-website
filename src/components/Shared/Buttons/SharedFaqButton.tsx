@@ -10,7 +10,8 @@ const SharedFaqButton = ({ onClick }: Props) => (
         className="faq-button"
         onClick={
             () => onClick ? onClick() : scrollToFaq()
-        }>
+        }
+    >
         FAQ
     </div>
 );

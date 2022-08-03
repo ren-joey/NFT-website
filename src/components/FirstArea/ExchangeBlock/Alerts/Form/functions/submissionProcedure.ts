@@ -1,13 +1,13 @@
-import { NullableString } from "src/@types/basicVariable";
-import { MoralisFetch } from "src/@types/contract";
-import { StableNft } from "src/@types/nft";
-import transactionReceiptCheck from "src/components/Web3Service/functions/transactionReceiptCheck";
-import ethConfig from "src/configs/ethConfig";
-import { Lang } from "src/lang";
-import sleepHelper from "src/utils/basic/sleepHelper";
-import stringReplacer from "src/utils/stringFormat/stringReplacer";
-import { FormData } from "../../FormAlert";
-import { completeExchange, send, sign, transferNftToContractOwner } from "./formSubmitUtils";
+import { NullableString } from 'src/@types/basicVariable';
+import { MoralisFetch } from 'src/@types/contract';
+import { StableNft } from 'src/@types/nft';
+import transactionReceiptCheck from 'src/components/Web3Service/functions/transactionReceiptCheck';
+import ethConfig from 'src/configs/ethConfig';
+import { Lang } from 'src/lang';
+import sleepHelper from 'src/utils/basic/sleepHelper';
+import stringReplacer from 'src/utils/stringFormat/stringReplacer';
+import { FormData } from '../../FormAlert';
+import { completeExchange, send, sign, transferNftToContractOwner } from './formSubmitUtils';
 
 interface ProcedureEssentials {
     account: NullableString;
