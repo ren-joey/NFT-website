@@ -90,14 +90,11 @@ const FrontPage = () => {
         if (selectedLang === 'ZH_TW') {
             localStorage.setItem('lang', selectedLang);
             setLang({...ZH_TW});
-            document.title = ZH_TW.WEB_TITLE;
         } else if  (selectedLang === 'ZH_CN') {
             localStorage.setItem('lang', selectedLang);
             setLang({...ZH_CN});
-            document.title = ZH_CN.WEB_TITLE;
         } else {
             setLang({...ZH_TW});
-            document.title = ZH_TW.WEB_TITLE;
         }
     }, [selectedLang]);
 
