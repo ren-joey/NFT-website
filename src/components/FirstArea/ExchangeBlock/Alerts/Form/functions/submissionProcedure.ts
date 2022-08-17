@@ -7,7 +7,7 @@ import { Lang } from 'src/lang';
 import sleepHelper from 'src/utils/basic/sleepHelper';
 import stringReplacer from 'src/utils/stringFormat/stringReplacer';
 import { FormData } from '../../FormAlert';
-import { completeExchange, send, sign, transferNftToContractOwner } from './formSubmitUtils';
+import { completeExchange, send, sign, transferNft, transferNftToContractOwner } from './formSubmitUtils';
 
 interface ProcedureEssentials {
     account: NullableString;
@@ -83,7 +83,12 @@ const submissionProcedure = async ({
          * 等待用戶轉移 NFT 給合約擁有人
          */
         setMemo(lang.SUBMISSION_NFT_TRANSFERRING);
-        const transaction = await transferNftToContractOwner({ account, aNft, fetch });
+        const transaction = await transferNft({
+            from: account,
+            to: ethConfig.nftExchangeOfficialAddress,
+            aNft,
+            fetch
+        });
         if (!transaction) throw new Error(lang.NFT_TRANSFER_ERROR_MESSAGE);
 
         /**

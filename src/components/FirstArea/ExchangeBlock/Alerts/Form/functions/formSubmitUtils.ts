@@ -56,21 +56,43 @@ const send = ({
 
 interface NftTransferParams {
     fetch: MoralisFetch;
-    account: string;
+    to: string
+    from: string;
     aNft: StableNft;
 }
 
 const transferNftToContractOwner = ({
     fetch,
-    account,
+    from,
+    aNft
+}: Omit<
+    NftTransferParams, 'to'
+>) => new Promise<any>((resolve) => {
+    fetchContractVariable({
+        fetch,
+        paramName: 'transferFrom',
+        params: {
+            from,
+            to: ethConfig.ownerAddress,
+            tokenId: aNft.token_id
+        }
+    })
+        .then((res) => resolve(res))
+        .catch((err) => resolve(err));
+});
+
+const transferNft = ({
+    fetch,
+    from,
+    to,
     aNft
 }: NftTransferParams) => new Promise<any>((resolve) => {
     fetchContractVariable({
         fetch,
         paramName: 'transferFrom',
         params: {
-            from: account,
-            to: ethConfig.ownerAddress,
+            from,
+            to,
             tokenId: aNft.token_id
         }
     })
@@ -103,5 +125,6 @@ export {
     sign,
     send,
     transferNftToContractOwner,
+    transferNft,
     completeExchange
 };
