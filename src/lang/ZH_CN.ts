@@ -30,7 +30,7 @@ const ZH_CN: Lang = {
     ABOUT_B_CARD_5_TITLE: '永续营运',
     ABOUT_B_CARD_5_DESC: '已获<span class="lang-hgl">100万美元</span>投资的β计划<br />将逐一实现ROADMAP计划',
     ABOUT_B_CARD_5_BTN: '投资额质押钱包地址 ▶',
-    ABOUT_B_CARD_5_HREF: 'https://usdt.tokenview.com/cn/address/0xf7773501934d0a613935273b02454ec9376210d2',
+    ABOUT_B_CARD_5_HREF: 'https://etherscan.io/address/0xf7773501934d0a613935273b02454ec9376210d2',
     ROADMAP_CARD_1_DATE: '已完成',
     ROADMAP_CARD_1_TITLE: '社群 DISCORD x TWITTER 开放登陆',
     ROADMAP_CARD_1_SUBTITLE: 'β星人奖励空投 & 白名单卡位',

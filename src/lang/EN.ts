@@ -32,7 +32,7 @@ const EN: Lang = {
     ABOUT_B_CARD_5_TITLE: 'Sustainable Management',
     ABOUT_B_CARD_5_DESC: 'With US$1 million in investments secured, VBC plans to progressively implement its ROADMAP',
     ABOUT_B_CARD_5_BTN: 'Staking Wallet',
-    ABOUT_B_CARD_5_HREF: 'https://usdt.tokenview.com/cn/address/0xf7773501934d0a613935273b02454ec9376210d2',
+    ABOUT_B_CARD_5_HREF: 'https://etherscan.io/address/0xf7773501934d0a613935273b02454ec9376210d2',
     ROADMAP_CARD_1_DATE: 'Finish',
     ROADMAP_CARD_1_TITLE: 'Community DISCORD x TWITTER open registration',
     ROADMAP_CARD_1_SUBTITLE: 'Betamon Bonus Airdrop & Whitelist',
