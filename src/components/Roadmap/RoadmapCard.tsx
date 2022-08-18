@@ -1,8 +1,9 @@
-import React from 'react';
+import { useContext } from 'react';
 import { LangContext } from 'src/Context/LangContext';
 import 'src/components/Roadmap/RoadmapCard.scss';
 import { getResources } from 'src/functions/loader';
 import gaParser from 'src/functions/gaParser';
+import { EventContext } from 'src/Context/EventContext';
 
 interface Props {
     idx: number,
@@ -10,7 +11,8 @@ interface Props {
 }
 
 const RoadmapCard = ({ idx, className = '' }: Props) => {
-    const lang = React.useContext(LangContext);
+    const lang = useContext(LangContext);
+    const { selectedLang } =useContext(EventContext);
 
     const btn = () => {
         const btn = lang[`ROADMAP_CARD_${idx}_BTN`];
@@ -54,10 +56,10 @@ const RoadmapCard = ({ idx, className = '' }: Props) => {
             <div className="roadmap-main">
                 <div className="roadmap-card">
                     <div className="card-top">
-                        <div className="title pre-line">
+                        <div className={`title pre-line ${selectedLang}`}>
                             { lang[`ROADMAP_CARD_${idx}_TITLE`] }
                         </div>
-                        <div className="subtitle pre-line">
+                        <div className={`subtitle pre-line ${selectedLang}`}>
                             { lang[`ROADMAP_CARD_${idx}_SUBTITLE`] }
                         </div>
                         <div
@@ -69,7 +71,7 @@ const RoadmapCard = ({ idx, className = '' }: Props) => {
                         </div>
                     </div>
                     <div className="card-bottom">
-                        <div className="remark pre-line">
+                        <div className={`remark pre-line ${selectedLang}`}>
                             { lang[`ROADMAP_CARD_${idx}_REMARK`] }
                         </div>
                     </div>

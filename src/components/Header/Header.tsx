@@ -101,12 +101,12 @@ const Header = ({ selectedLang, setSelectedLang }: IHeader) => {
                         lang="ZH_TW"
                         title="繁"
                     />
-                    {/* <LangBtn
+                    <LangBtn
                         selectedLang={selectedLang}
                         setSelectedLang={setSelectedLang}
-                        lang='EN'
-                        title='EN'
-                    /> */}
+                        lang="EN"
+                        title="EN"
+                    />
                 </div>
 
                 <div

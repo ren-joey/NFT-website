@@ -60,18 +60,18 @@ const FeatureCard = ({ idx, line = true, selectedLang }: Props) => {
             >
             </div>
             <div
-                className="card-body"
+                className={`card-body ${selectedLang}`}
                 style={
                     { backgroundImage: `url(${getResources('bg')})` }
                 }
             >
                 <div
-                    className={`title ${selectedLang === 'EN' ? 'force-wrap' : ''}`}
+                    className={`title ${selectedLang}`}
                     dangerouslySetInnerHTML={{__html: title}}
                 >
                 </div>
                 <div
-                    className="desc pre-line"
+                    className={`desc pre-line ${selectedLang}`}
                     dangerouslySetInnerHTML={{__html: desc}}
                 >
                 </div>

@@ -107,6 +107,11 @@ $card-radius-pc: 2.4rem;
                     @media (min-width: 992px) {
                         font-size: 2rem;
                         line-height: 2.4rem;
+
+                        &.EN {
+                            font-size: 1.8rem;
+                            line-height: 2rem;
+                        }
                     }
 
                     .star {
@@ -127,6 +132,11 @@ $card-radius-pc: 2.4rem;
                         margin-top: 1rem;
                         font-size: 1.6rem;
                         line-height: 2.2rem;
+
+                        &.EN {
+                            font-size: 1.4rem;
+                            line-height: 2rem;
+                        }
                     }
                 }
 
@@ -177,6 +187,11 @@ $card-radius-pc: 2.4rem;
                     @media (min-width: 992px) {
                         font-size: 1.4rem;
                         line-height: 2.4rem;
+
+                        &.EN {
+                            font-size: 1.2rem;
+                            line-height: 2rem;
+                        }
                     }
                 }
 

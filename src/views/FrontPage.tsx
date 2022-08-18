@@ -15,6 +15,7 @@ import ResizeListener from 'src/functions/ResizeListener';
 import { LangContext } from 'src/Context/LangContext';
 import ZH_CN from 'src/lang/ZH_CN';
 import ZH_TW from 'src/lang/ZH_TW';
+import EN from 'src/lang/EN';
 
 import 'src/views/FrontPage.scss';
 import CountingHandler from 'src/functions/CountingHandler';
@@ -29,8 +30,13 @@ import KolSupport from 'src/components/KolSupport/KolSupport';
 import MediaSupport from 'src/components/MediaSupport/MediaSupport';
 import Roadmap from 'src/components/Roadmap/Roadmap';
 import GlobalAlert from 'src/components/Global/GlobalAlert';
+import allLang from 'src/lang';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+const prevLang: LangString = getParameterByName('lang') as LangString
+    || localStorage.getItem('lang') as LangString
+    || 'ZH_TW';
 
 const FrontPage = () => {
     const [device, setDevice] = useState<DeviceString>(window.innerWidth >= 992 ? 'desktop' : 'phone');
@@ -38,13 +44,7 @@ const FrontPage = () => {
     const [counter, setCounter] = useState(CountingHandler.getDateTime());
     const [end, setEnd] = useState(CountingHandler.getEnd());
     const [diff, setDiff] = useState(CountingHandler.diff);
-    const prevLang = getParameterByName('lang') as LangString
-        || localStorage.getItem('lang') as LangString
-        || 'ZH_TW';
-    const prevLangObj = prevLang === 'ZH_TW'
-        ? {...ZH_TW}
-        : {...ZH_CN};
-    const [lang, setLang] = useState(prevLangObj);
+    const [lang, setLang] = useState(allLang[prevLang]);
     const [selectedLang, setSelectedLang] = useState<LangString>(prevLang);
     const buttonSize = useMemo<React.CSSProperties>(() => {
         if (device === 'desktop') {
@@ -87,14 +87,12 @@ const FrontPage = () => {
     }, []);
 
     useEffect(() => {
-        if (selectedLang === 'ZH_TW') {
-            localStorage.setItem('lang', selectedLang);
+        if (!allLang[selectedLang]) {
+            localStorage.setItem('lang', 'ZH_TW');
             setLang({...ZH_TW});
-        } else if  (selectedLang === 'ZH_CN') {
-            localStorage.setItem('lang', selectedLang);
-            setLang({...ZH_CN});
         } else {
-            setLang({...ZH_TW});
+            localStorage.setItem('lang', selectedLang);
+            setLang({...allLang[selectedLang]});
         }
     }, [selectedLang]);
 
