@@ -19,6 +19,7 @@ const EN: Lang = {
     ABOUT_B_CARD_4_DESC: 'Limited with <span class="lang-hgl">Rarity Function design</span>, get a shot to become a millionaire',
     ABOUT_B_CARD_5_TITLE: 'Sustainability',
     ABOUT_B_CARD_5_DESC: 'We get a <span class="lang-hgl">$1 million</span> of βplan investment, we will begin to work on realizing the stated goal.',
+    ABOUT_B_CARD_5_HREF: 'https://etherscan.io/address/0xf7773501934d0a613935273b02454ec9376210d2',
     ROADMAP_CARD_1_DATE: '03/01',
     ROADMAP_CARD_1_TITLE: 'Discord + Twitter is now open join now',
     ROADMAP_CARD_1_SUBTITLE: 'Betamon NFTs airdrop & Whitelist giveaway',
