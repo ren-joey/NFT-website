@@ -111,7 +111,7 @@ const completeExchange = ({
 }: CompleteExchangeParams) => new Promise((resolve) => {
     axios({
         method: 'POST',
-        url: `${ethConfig.nftExchangeApiServer}/api/transfer-verify`,
+        url: `${ethConfig.nftExchangeApiServer}api/transfer-verify`,
         data: {
             ...form,
             nft_id: aNft.token_id

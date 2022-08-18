@@ -23,7 +23,7 @@ const ethConfig: EthConfig = {
 
     nftExchangeOfficialAddress: '0x178cE27bBB6FDBbA1717CD60A5D7CaF2B984D9bF',
 
-    nftExchangeApiServer: 'https://www.vbc-labs.com',
+    nftExchangeApiServer: 'https://www.vbc-labs.com/',
 
     // provider: 'eth',
     provider: 'rinkeby', // [DEV]
