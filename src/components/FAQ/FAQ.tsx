@@ -7,14 +7,20 @@ import faq_5_table_cn_m from 'src/assets/images/faq_5_table_cn_m.png';
 import faq_5_table_cn from 'src/assets/images/faq_5_table_cn.png';
 import faq_5_table_tw_m from 'src/assets/images/faq_5_table_tw_m.png';
 import faq_5_table_tw from 'src/assets/images/faq_5_table_tw.png';
+import faq_5_table_en_m from 'src/assets/images/faq_5_table_en_m.png';
+import faq_5_table_en from 'src/assets/images/faq_5_table_en.png';
 import faq_6_image_cn_m from 'src/assets/images/faq_6_image_cn_m.png';
 import faq_6_image_cn from 'src/assets/images/faq_6_image_cn.png';
 import faq_6_image_tw_m from 'src/assets/images/faq_6_image_tw_m.png';
 import faq_6_image_tw from 'src/assets/images/faq_6_image_tw.png';
+import faq_6_image_en_m from 'src/assets/images/faq_6_image_en_m.png';
+import faq_6_image_en from 'src/assets/images/faq_6_image_en.png';
 import faq_6_table_cn_m from 'src/assets/images/faq_6_table_cn_m.png';
 import faq_6_table_cn from 'src/assets/images/faq_6_table_cn.png';
 import faq_6_table_tw_m from 'src/assets/images/faq_6_table_tw_m.png';
 import faq_6_table_tw from 'src/assets/images/faq_6_table_tw.png';
+import faq_6_table_en_m from 'src/assets/images/faq_6_table_en_m.png';
+import faq_6_table_en from 'src/assets/images/faq_6_table_en.png';
 import { EventContext } from 'src/Context/EventContext';
 
 const FAQ = () => {
@@ -39,18 +45,34 @@ const FAQ = () => {
             };
         }
 
+        else if (selectedLang === 'ZH_CN') {
+            if (device === 'desktop') {
+                return {
+                    faq_5_table: faq_5_table_cn,
+                    faq_6_table: faq_6_table_cn,
+                    faq_6_image: faq_6_image_cn
+                };
+            }
+
+            return {
+                faq_5_table: faq_5_table_cn_m,
+                faq_6_table: faq_6_table_cn_m,
+                faq_6_image: faq_6_image_cn_m
+            };
+        }
+
         if (device === 'desktop') {
             return {
-                faq_5_table: faq_5_table_cn,
-                faq_6_table: faq_6_table_cn,
-                faq_6_image: faq_6_image_cn
+                faq_5_table: faq_5_table_en,
+                faq_6_table: faq_6_table_en,
+                faq_6_image: faq_6_image_en
             };
         }
 
         return {
-            faq_5_table: faq_5_table_cn_m,
-            faq_6_table: faq_6_table_cn_m,
-            faq_6_image: faq_6_image_cn_m
+            faq_5_table: faq_5_table_en_m,
+            faq_6_table: faq_6_table_en_m,
+            faq_6_image: faq_6_image_en_m
         };
     }, [lang, device]);
 
