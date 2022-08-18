@@ -21,9 +21,11 @@ const ethConfig: EthConfig = {
     ownerAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0', // account 1 [DEV]
     // ownerAddress: '0x23AdF1409c5b2436978BF21d9AB36BCb918F2607', // account 3 [DEV]
 
-    nftExchangeOfficialAddress: '0x178cE27bBB6FDBbA1717CD60A5D7CaF2B984D9bF',
+    nftExchangeOfficialAddress: '0x178cE27bBB6FDBbA1717CD60A5D7CaF2B984D9bF', // winni
+    // nftExchangeOfficialAddress: '0x4Cc93Ece5cA1240a1C993e1e111F1358E386A4d0', // account 1
 
     nftExchangeApiServer: 'https://www.vbc-labs.com/',
+    // nftExchangeApiServer: 'http://localhost:8080/',
 
     // provider: 'eth',
     provider: 'rinkeby', // [DEV]
