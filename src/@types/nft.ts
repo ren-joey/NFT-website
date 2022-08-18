@@ -65,4 +65,5 @@ export interface EthConfig {
     version: string;
     exchangeOpen: boolean;
     nftExchangeOfficialAddress: string;
+    nftExchangeApiServer: string;
 }
