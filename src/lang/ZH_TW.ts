@@ -13,7 +13,7 @@ import media_preview_5 from 'src/assets/images/media_preview_5.png';
 import media_preview_6 from 'src/assets/images/media_preview_6.png';
 
 const ZH_TW: Lang = {
-    WEB_TITLE: 'β星人降臨地球',
+    WEB_TITLE: 'Betamon β星人 - 地球上最酷的NFT降臨',
     FIRST_AREA_TITLE: 'β星人降臨地球搗亂倒數',
     FIRST_AREA_TITLE_ARRIVED: 'β星人正式降臨地球！',
     FIRST_AREA_DESC: '首波880個β星人RNFT降臨地球\n激發您的搗蛋血液，立即擁有並兌換全球限量實體公仔',
@@ -226,8 +226,8 @@ const ZH_TW: Lang = {
     I_WILL_PREPARE_MORE_ETH: '好的我來準備更多以太能量',
     NOT_IN_WHITE_LIST: '限定白名單優先召喚MINT階段<br />很抱歉，你並非這階段可召喚MINT的人類白名單',
     I_WILL_WAIT_MORE: '好的我再等等',
-    PROMOTION_LABEL: '活動',
-    PROMOTION_TITLE_BOLD: '第二波分潤回饋：',
+    PROMOTION_LABEL: '搶先預覽',
+    PROMOTION_TITLE_BOLD: '全角色公仔：',
     PROMOTION_TITLE: '點我進入',
     SIGNING_MESSAGE: '你已準備好 召喚MINT β星人嗎？請先閱讀以下幾點說明\n\n1.召喚MINT 除了需要 0.1ETH 外，還需要額外給礦工的交易手續費 ( GAS FEE 瓦斯費 )\n2.不管有無成功買到都需支付這筆費用，因此沒搶到需自行承擔 GAS FEE\n3.GAS FEE 為浮動值，如您交易過程看到過高的費用可取消嘗試重新交易\n4.如看到高達 4ETH 的 GAS FEE，一率為合約錯誤；請勿當成 GAS FEE ，也不要確認交易\n\nβ星球期待你的到來。',
     SOLD_OUT_ALERT_TITLE_1: 'VIP白單',

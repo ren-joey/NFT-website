@@ -14,6 +14,24 @@
     cursor: pointer;
     pointer-events: painted;
 
+    @media (max-width: 991.98px) {
+        &.EN {
+            left: 1%;
+            padding: 0.8rem 0.2rem;
+            width: 98%;
+
+            .label {
+                padding: 0.3rem 0.4rem;
+                font-size: 0.8rem;
+            }
+
+            .hgl,
+            .text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
     @media (min-width: 992px) {
         border-radius: 0 0 3rem 3rem;
     }

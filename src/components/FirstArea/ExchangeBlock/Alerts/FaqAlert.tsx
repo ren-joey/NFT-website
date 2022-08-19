@@ -5,6 +5,7 @@ import { LangContext } from 'src/Context/LangContext';
 import { getResources } from 'src/functions/loader';
 import 'src/components/FirstArea/ExchangeBlock/Alerts/FaqAlert.scss';
 import collapseHeader from 'src/animation/collapseHeader';
+import faq_6_image_en_m from 'src/assets/images/faq_6_image_en_m.png';
 
 const FaqAlert = () => {
     const lang = useContext(LangContext);
@@ -14,6 +15,8 @@ const FaqAlert = () => {
             return getResources('exchange_phase_rules_cn');
         } else if (selectedLang === 'ZH_TW') {
             return getResources('exchange_phase_rules');
+        } else {
+            return faq_6_image_en_m;
         }
     }, [selectedLang]);
 
