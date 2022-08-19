@@ -49,7 +49,7 @@ const EN: Lang = {
     SUBMISSION_CAVEAT_1: 'Every RNFT apply for the redemption only once.<br>VBC reserves the ownership and use rights of any figure that are not redeemed within the redemption period, while maintaining its commitment to sell a limited number of 880 worldwide.',
     SUBMISSION_CAVEAT_2: 'Once you apply for the redemption, you cannot withdraw or cancel it.Please think carefully before you redeem.Choose your Betamon to redeem the real figure Please don\'t change your wallet address after apply it. If your address be changed, VBC will cancel your application.',
     SUBMISSION_CAVEAT_3: 'After the application, VBC will check yor information on 3~5 days and send E-mail to your mail address.You can check the shipping status in the VBC website.',
-    SUBMISSION_CAVEAT_4: 'The redemption duration will end by XX XXX 23:59 (GMT+8) After the redemption, it will be into the packaging process, and all the receipt information cannot be changed. The figures will be shipped successively after that date.', // [DEV]
+    SUBMISSION_CAVEAT_4: 'The redemption duration will end by 10/31 12:00 PM  (GMT+8) After the redemption, it will be into the packaging process, and all the receipt information cannot be changed. The figures will be shipped successively after that date.',
     SUBMISSION_CAVEAT_5: 'Check the redeem process on our website. VBC reserves the right of final explanation.If you have any question, please join our discord.'
 };
 
