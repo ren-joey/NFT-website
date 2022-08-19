@@ -14,7 +14,7 @@ const FormReadOnly = ({
     const lang = useContext(LangContext);
 
     return (
-        <div className="alert-body">
+        <div className="alert-body read-only">
             <div className="form-title">
                 {lang.FILL_SUMMON_FORM_TITLE}<br />
                 <small>
@@ -30,18 +30,33 @@ const FormReadOnly = ({
                 <div className="form-row">
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">{lang.FULL_NAME}：{form.name}</div>
+                            <div className="form-input-label">
+                                {lang.FULL_NAME}：
+                                <span className="form-hgl">
+                                    {form.name}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">{lang.PHONE}：{form.phone}</div>
+                            <div className="form-input-label">
+                                {lang.PHONE}：
+                                <span className="form-hgl">
+                                    {form.phone}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="form-input-area">
-                    <div className="form-input-label">{lang.EMAIL}：{form.email}</div>
+                    <div className="form-input-label">
+                        {lang.EMAIL}：
+                        <span className="form-hgl">
+                            {form.email}
+                        </span>
+                    </div>
                 </div>
 
                 <div className="form-section-title">
@@ -51,56 +66,69 @@ const FormReadOnly = ({
                 <div className="form-row">
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">{lang.COUNTRY}：{form.country}</div>
+                            <div className="form-input-label">
+                                {lang.COUNTRY}：
+                                <span className="form-hgl">
+                                    {form.country}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">{lang.CITY}：{form.city}</div>
+                            <div className="form-input-label">
+                                {lang.CITY}：
+                                <span className="form-hgl">
+                                    {form.city}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div className="form-column">
                         <div className="form-input-area">
-                            <div className="form-input-label">{lang.ZIP}：{form.zip}</div>
+                            <div className="form-input-label">
+                                {lang.ZIP}：
+                                <span className="form-hgl">
+                                    {form.zip}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="form-input-area">
-                    <div className="form-input-label">{lang.REAL_ADDRESS}：{form.address}</div>
+                    <div className="form-input-label">
+                        {lang.REAL_ADDRESS}：
+                        <span className="form-hgl">
+                            {form.address}
+                        </span>
+                    </div>
                 </div>
 
                 <div className="form-section-title">
-                    <AlertStar /> {lang.SUMMON_ITEM}
+                    <AlertStar /> {lang.SUBMISSION_SHIPPING_RULE}
                 </div>
 
-                <div className="form-nft-section">
-                    {
-                        aNft && (
-                            <div
-                                className="form-nft"
-                                key={aNft.token_id}
-                            >
-                                <div className="nft-img">
-                                    <img
-                                        width="100%"
-                                        height="auto"
-                                        src={aNft.metadata.image}
-                                        alt={aNft.metadata.name}
-                                    />
-                                </div>
+                <div className="form-input-area">
+                    {lang.SUBMISSION_SHIPPING_TIME}
+                </div>
 
-                                <div className="nft-desc">
-                                    <div className="f-bold">{lang.CARD_NAME}</div>
+                <div className="form-section-title">
+                    <AlertStar /> {lang.SUBMISSION_CAVEATS}
+                </div>
 
-                                    <div className="nft-name">
-                                        {aNft.metadata.name}
-                                    </div>
-                                </div>
+                {
+                    Array(5).fill(0).map((val, idx) => (
+                        <div
+                            className="form-input-area"
+                            key={idx}
+                        >
+                            <div className="li">
+                                {lang[`SUBMISSION_CAVEAT_${idx + 1}`]}
                             </div>
-                        )
-                    }
-                </div>
+                        </div>
+                    ))
+                }
 
                 <br />
 
