@@ -287,7 +287,7 @@ const EN: Lang = {
     SUBMISSION_CONFIRM_TITLE: 'Check Your Redeem information',
     SUBMISSION_CONFIRM_SUBTITLE: 'Please make sure that are all correct.',
     SUBMISSION_SHIPPING_RULE: 'Shipping status',
-    SUBMISSION_SHIPPING_TIME: 'Estimated ship date at XX/XX ~ OO/OO', // [DEV]
+    SUBMISSION_SHIPPING_TIME: 'Estimated ship date at 11/20 ~ 12/20',
     SUBMISSION_CAVEATS: 'Caveats',
     SUBMISSION_CAVEAT_1: 'Every RNFT apply for the redemption only once.<br>VBC reserves the ownership and use rights of any figure that are not redeemed within the redemption period, while maintaining its commitment to sell a limited number of 880 worldwide.',
     SUBMISSION_CAVEAT_2: 'Once you apply for the redemption, you cannot withdraw or cancel it.Please think carefully before you redeem.Choose your Betamon to redeem the real figure Please don\'t change your wallet address after apply it. If your address be changed, VBC will cancel your application.',

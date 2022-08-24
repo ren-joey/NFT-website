@@ -289,7 +289,7 @@ const ZH_CN: Lang = {
     SUBMISSION_CONFIRM_TITLE: '召唤资料确认',
     SUBMISSION_CONFIRM_SUBTITLE: '请再次检视填写资料及注意事项无误后确认',
     SUBMISSION_SHIPPING_RULE: '出货须知',
-    SUBMISSION_SHIPPING_TIME: '预计出货时间XX/XX ~ OO/OO按批次出货', // [DEV]
+    SUBMISSION_SHIPPING_TIME: '预计出货时间11/20 ~ 12/20按批次出货',
     SUBMISSION_CAVEATS: '注意事项',
     SUBMISSION_CAVEAT_1: '每个NFT申请公仔以一次为限，不可重复申请；\n 兑换期限内未申请兑换的实体公仔，VBC将保有其所有权、使用权，同时维持880个全球限量发售承诺',
     SUBMISSION_CAVEAT_2: '一旦申请公仔兑换将不可取消撤回，请务必确认；已申请兑换的RNFT所在钱包不能作任何更动，经VBC团队发现位址更动将视为申请无效。',
