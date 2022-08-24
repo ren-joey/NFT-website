@@ -295,7 +295,22 @@ const ZH_CN: Lang = {
     SUBMISSION_CAVEAT_2: '一旦申请公仔兑换将不可取消撤回，请务必确认；已申请兑换的RNFT所在钱包不能作任何更动，经VBC团队发现位址更动将视为申请无效。',
     SUBMISSION_CAVEAT_3: '完成申请后，VBC团队会于3~5个工作天完成资料审核，审核结果将发送至您申请的E-mail，敬请留意通知。审核成功可前往官网观看公仔配送进度。',
     SUBMISSION_CAVEAT_4: '兑换期间至10/31 12:00 PM (GMT+8)截止，届时出货资讯将不能作任何更动，公仔将在截止日后陆续出货。',
-    SUBMISSION_CAVEAT_5: '兑换流程请参阅网站资讯，VBC团队将保留最终解释权力，如有其他相关问题，请加入我们Discord社群。'
+    SUBMISSION_CAVEAT_5: '兑换流程请参阅网站资讯，VBC团队将保留最终解释权力，如有其他相关问题，请加入我们Discord社群。',
+    FORM_ERROR_REQUIRED: '请完整填写表单',
+    FORM_ERROR_IP_REGEX: 'IP 不合法，请重新确认',
+    FORM_ERROR_HEX_COLOR_CODE: '请使用 HEX 色码',
+    FORM_ERROR_NUMBER: '排序只能为数字',
+    FORM_ERROR_NO_NUMBER: '不能包含数字',
+    FORM_ERROR_INT: '数字超出上限',
+    FORM_ERROR_NULLABLE: '此栏位若为空值请填入 null',
+    FORM_ERROR_BOOLEAN: '此栏位只可填入布林值',
+    FORM_ERROR_TIME_FORMAT: '请输入正确时间格式',
+    FORM_ERROR_FULL_DATE: '请输入正确日期格式',
+    FORM_ERROR_YEAR_MONTH: '此栏位仅包含年及月',
+    FORM_ERROR_YEAR_MONTH_DAY: '此栏位仅包含年月日',
+    FORM_ERROR_IMAGE: '档案格式必须为图片格式',
+    FORM_ERROR_EMAIL: '请输入正确信箱格式',
+    FORM_ERROR_PHONE: '电话格式有误'
 };
 
 export default ZH_CN;

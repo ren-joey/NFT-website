@@ -291,11 +291,26 @@ const ZH_TW: Lang = {
     SUBMISSION_SHIPPING_RULE: '出貨須知',
     SUBMISSION_SHIPPING_TIME: '預計出貨時間2022/11/20 ~ 2023/01/15按批次出貨',
     SUBMISSION_CAVEATS: '注意事項',
-    SUBMISSION_CAVEAT_1: '每個RNFT申請公仔以一次為限，不可重複申請；\n 兌換期限內未申請兌換的實體公仔，VBC將保有其所有權、使用權，同時維持880個全球限量發售承諾\n 公仔為大量生產，最終外觀和顏色可能會略有不同，恕不接受換貨或退貨。',
+    SUBMISSION_CAVEAT_1: '每個RNFT申請公仔以一次為限，不可重複申請；\n 兌換期限內未申請兌換的實體公仔，VBC將保有其所有權、使用權，同時維持880個全球限量發售承諾\n 公仔為大量生產，最終外觀和顏色可能會略有不同，若無重大瑕疵，恕不接受換貨或退貨。',
     SUBMISSION_CAVEAT_2: '一旦申請公仔兌換將不可取消撤回，請務必確認；已申請兌換的RNFT所在錢包不能作任何更動，經VBC團隊發現位址更動將視為申請無效。',
     SUBMISSION_CAVEAT_3: '完成申請後，VBC團隊會於3~5個工作天完成資料審核，審核結果將發送至您申請的E-mail，敬請留意通知。審核成功可前往官網觀看公仔配送進度。',
     SUBMISSION_CAVEAT_4: '兌換期間至10/31 12:00 PM (GMT+8)截止，屆時出貨資訊將不能作任何更動，公仔將在截止日後陸續出貨。',
-    SUBMISSION_CAVEAT_5: '兌換流程請參閱網站資訊，VBC團隊將保留最終解釋權力，如有其他相關問題，請加入我們Discord社群。'
+    SUBMISSION_CAVEAT_5: '兌換流程請參閱網站資訊，VBC團隊將保留最終解釋權力，如有其他相關問題，請加入我們Discord社群。',
+    FORM_ERROR_REQUIRED: '請完整填寫表單',
+    FORM_ERROR_IP_REGEX: 'IP 不合法，請重新確認',
+    FORM_ERROR_HEX_COLOR_CODE: '請使用 HEX 色碼',
+    FORM_ERROR_NUMBER: '排序只能為數字',
+    FORM_ERROR_NO_NUMBER: '不能包含數字',
+    FORM_ERROR_INT: '數字超出上限',
+    FORM_ERROR_NULLABLE: '此欄位若為空值請填入 null',
+    FORM_ERROR_BOOLEAN: '此欄位只可填入布林值',
+    FORM_ERROR_TIME_FORMAT: '請輸入正確時間格式',
+    FORM_ERROR_FULL_DATE: '請輸入正確日期格式',
+    FORM_ERROR_YEAR_MONTH: '此欄位僅包含年及月',
+    FORM_ERROR_YEAR_MONTH_DAY: '此欄位僅包含年月日',
+    FORM_ERROR_IMAGE: '檔案格式必須為圖片格式',
+    FORM_ERROR_EMAIL: '請輸入正確信箱格式',
+    FORM_ERROR_PHONE: '電話格式有誤'
 };
 
 export default ZH_TW;

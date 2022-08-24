@@ -16,9 +16,9 @@ const FormReadOnly = ({
     return (
         <div className="alert-body read-only">
             <div className="form-title">
-                {lang.FILL_SUMMON_FORM_TITLE}<br />
+                {lang.SUBMISSION_CONFIRM_TITLE}<br />
                 <small>
-                    {lang.FILL_SUMMON_FORM_SUBTITLE}
+                    {lang.SUBMISSION_CONFIRM_SUBTITLE}
                 </small>
             </div>
 

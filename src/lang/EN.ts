@@ -254,7 +254,7 @@ const EN: Lang = {
     FILL_SUMMON_FORM_SUBTITLE: 'Please filling in all the information. Betamon\'ll see you soon.',
     BASIC_INFORMATION: 'Information',
     FULL_NAME: 'Name',
-    PHONE: 'Phone Number',
+    PHONE: 'Phone',
     EMAIL: 'E-Mail',
     DELIVERY_ADDRESS: 'Delivery address',
     REAL_ADDRESS: 'Address',
@@ -291,9 +291,24 @@ const EN: Lang = {
     SUBMISSION_CAVEATS: 'Caveats',
     SUBMISSION_CAVEAT_1: 'Every RNFT apply for the redemption only once.\nVBC reserves the ownership and use rights of any figure that are not redeemed within the redemption period, while maintaining its commitment to sell a limited number of 880 worldwide.\n Figures are all standard and mass produced,variations in the product\'s final appearance and color may occur. If the product is not defective, we will not be able to provide exchange services.',
     SUBMISSION_CAVEAT_2: 'Once you apply for the redemption, you cannot withdraw or cancel it.Please think carefully before you redeem.Choose your Betamon to redeem the real figure Please don\'t change your wallet address after apply it. If your address be changed, VBC will cancel your application.',
-    SUBMISSION_CAVEAT_3: 'After the application, VBC will check yor information on 3~5 days and send E-mail to your mail address.You can check the shipping status in the VBC website.',
+    SUBMISSION_CAVEAT_3: 'After the application, VBC will check your information on 3~5 days and send E-mail to your mail address.You can check the shipping status in the VBC website.',
     SUBMISSION_CAVEAT_4: 'The redemption duration will end by 10/31 12:00 PM  (GMT+8) After the redemption, it will be into the packaging process, and all the receipt information cannot be changed. The figures will be shipped successively after that date.',
-    SUBMISSION_CAVEAT_5: 'Check the redeem process on our website. VBC reserves the right of final explanation. If you have any question, please join our discord.'
+    SUBMISSION_CAVEAT_5: 'Check the redeem process on our website. VBC reserves the right of final explanation. If you have any question, please join our discord.',
+    FORM_ERROR_REQUIRED: 'This field is required',
+    FORM_ERROR_IP_REGEX: 'Invalid IP address',
+    FORM_ERROR_HEX_COLOR_CODE: 'Invalid HEX code',
+    FORM_ERROR_NUMBER: 'This field must be a number',
+    FORM_ERROR_NO_NUMBER: 'This field can not contain numbers',
+    FORM_ERROR_INT: 'This number is too large',
+    FORM_ERROR_NULLABLE: 'If the field is empty, please enter \'null\'',
+    FORM_ERROR_BOOLEAN: 'This field must be true or false',
+    FORM_ERROR_TIME_FORMAT: 'Invalid time format',
+    FORM_ERROR_FULL_DATE: 'Invalid date format',
+    FORM_ERROR_YEAR_MONTH: 'This field contains only year and month',
+    FORM_ERROR_YEAR_MONTH_DAY: 'This field contains only year, month and date',
+    FORM_ERROR_IMAGE: 'Invalid file extension',
+    FORM_ERROR_EMAIL: 'Invalid e-mail address format',
+    FORM_ERROR_PHONE: 'Invalid phone format'
 };
 
 export default EN;
