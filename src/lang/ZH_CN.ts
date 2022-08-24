@@ -285,7 +285,17 @@ const ZH_CN: Lang = {
     SUBMISSION_NFT_TRANSFERRING: 'NFT 转移中',
     NFT_TRANSFER_ERROR_MESSAGE: 'NFT 转移失败，请重新申请',
     SUBMISSION_TRANSACTION_WAITING: '等待交易中，可能需要数分钟的时间，请耐心等候，勿关闭视窗',
-    TRANSACTION_ERROR_MESSAGE: 'ETH 交易失败，请确认钱包后重新申请'
+    TRANSACTION_ERROR_MESSAGE: 'ETH 交易失败，请确认钱包后重新申请',
+    SUBMISSION_CONFIRM_TITLE: '召唤资料确认',
+    SUBMISSION_CONFIRM_SUBTITLE: '请再次检视填写资料及注意事项无误后确认',
+    SUBMISSION_SHIPPING_RULE: '出货须知',
+    SUBMISSION_SHIPPING_TIME: '预计出货时间XX/XX ~ OO/OO按批次出货', // [DEV]
+    SUBMISSION_CAVEATS: '注意事项',
+    SUBMISSION_CAVEAT_1: '每个NFT申请公仔以一次为限，不可重复申请；\n 兑换期限内未申请兑换的实体公仔，VBC将保有其所有权、使用权，同时维持880个全球限量发售承诺',
+    SUBMISSION_CAVEAT_2: '一旦申请公仔兑换将不可取消撤回，请务必确认；已申请兑换的RNFT所在钱包不能作任何更动，经VBC团队发现位址更动将视为申请无效。',
+    SUBMISSION_CAVEAT_3: '完成申请后，VBC团队会于3~5个工作天完成资料审核，审核结果将发送至您申请的E-mail，敬请留意通知。审核成功可前往官网观看公仔配送进度。',
+    SUBMISSION_CAVEAT_4: '兑换期间至10/31 12:00 PM (GMT+8)截止，届时出货资讯将不能作任何更动，公仔将在截止日后陆续出货。',
+    SUBMISSION_CAVEAT_5: '兑换流程请参阅网站资讯，VBC团队将保留最终解释权力，如有其他相关问题，请加入我们Discord社群。'
 };
 
 export default ZH_CN;
