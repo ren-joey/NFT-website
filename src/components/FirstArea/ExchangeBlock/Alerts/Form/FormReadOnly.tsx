@@ -123,7 +123,7 @@ const FormReadOnly = ({
                             className="form-input-area"
                             key={idx}
                         >
-                            <div className="li">
+                            <div className="li pre-line">
                                 {lang[`SUBMISSION_CAVEAT_${idx + 1}`]}
                             </div>
                         </div>
