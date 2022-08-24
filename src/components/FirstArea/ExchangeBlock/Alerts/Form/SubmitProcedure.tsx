@@ -104,7 +104,7 @@ const SubmitProcedure = ({
 
                 <br />
 
-                <div className="text-center message">
+                <div className="text-center message pre-line">
                     { memoIcon }&nbsp;{ memo }
                 </div>
 
@@ -114,7 +114,6 @@ const SubmitProcedure = ({
                 status === 1 && (
                     <div className="button-area">
                         <SharedButton
-                            type="gray"
                             text={lang.CLOSE}
                             onClick={() => {
                                 cancel(true);

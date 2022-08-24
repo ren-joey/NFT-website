@@ -239,7 +239,7 @@ const ZH_CN: Lang = {
     EXCHANGE_COVER_TITLE: 'RNFT 1:1 兑换\n20公分高品质实体潮玩',
     // EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
     EXCHANGE_COVER_BTN: '发动实体具象超能力',
-    ZERO_BALANCE: '您尚未持有β星人',
+    ZERO_BALANCE: '无β星人可申请兑换',
     PLANET_BTN_REIFICATION: '实体具象召唤所',
     PLANET_BTN_SUMMON_BETAMON: '召唤β星人',
     PLANET_BTN_ARENA: '竞技场',
