@@ -43,7 +43,7 @@ const ZH_TW: Lang = {
     ROADMAP_CARD_3_TITLE: '10% 以太能量分潤回饋',
     ROADMAP_CARD_3_SUBTITLE: '不論銷售結果，統一於公售後7天\n將盈利最少10%隨機回饋給β星人的持有者',
     ROADMAP_CARD_3_REMARK: '＊以NFT位置進行抽獎，中獎者每人可獲得 0.1 ETH，持有多個可重覆中獎\n＊銷售>500，將空投贈送 20個 β星人至「搗蛋俱樂部」',
-    ROADMAP_CARD_4_DATE: '2022 Q2-Q3',
+    ROADMAP_CARD_4_DATE: '已完成',
     ROADMAP_CARD_4_TITLE: 'β星人召喚現身，同步啟動 25% 以太能量分潤回饋',
     ROADMAP_CARD_4_SUBTITLE: 'RNFT 盲盒全面解盲\n並同時公布NFT持有者分潤計劃內容',
     ROADMAP_CARD_4_REMARK: '＊將25%利潤回饋予β星人召喚師們',
