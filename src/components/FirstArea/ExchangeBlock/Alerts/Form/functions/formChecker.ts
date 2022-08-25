@@ -22,13 +22,13 @@ const formChecker = (
         error.term_1 = lang.FORM_NOT_COMPLETELY_FILLED;
     } else {
         const emailRes = formatChecker.email(form.email);
-        if (emailRes !== true) error.term_1 = emailRes;
+        if (emailRes !== true) error.term_1 = lang[emailRes];
 
         const phoneRes = formatChecker.phone(form.phone);
-        if (phoneRes !== true) error.term_1 = phoneRes;
+        if (phoneRes !== true) error.term_1 = lang[phoneRes];
 
         const nameRes = formatChecker.noNumber(form.name);
-        if (nameRes !== true) error.term_1 = lang.FULL_NAME + nameRes;
+        if (nameRes !== true) error.term_1 = `【${lang.FULL_NAME}】 ${lang[nameRes]}`;
     }
 
     if (!form.country

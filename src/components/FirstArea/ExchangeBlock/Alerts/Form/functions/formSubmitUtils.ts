@@ -40,7 +40,7 @@ const send = ({
 }: SendParams) => new Promise<any>((resolve) => {
     axios({
         method: 'POST',
-        url: '/api/submit',
+        url: `${ethConfig.nftExchangeApiServer}api/submit`,
         data: {
             ...form,
             full_name: form.name,
@@ -56,21 +56,43 @@ const send = ({
 
 interface NftTransferParams {
     fetch: MoralisFetch;
-    account: string;
+    to: string
+    from: string;
     aNft: StableNft;
 }
 
 const transferNftToContractOwner = ({
     fetch,
-    account,
+    from,
+    aNft
+}: Omit<
+    NftTransferParams, 'to'
+>) => new Promise<any>((resolve) => {
+    fetchContractVariable({
+        fetch,
+        paramName: 'transferFrom',
+        params: {
+            from,
+            to: ethConfig.ownerAddress,
+            tokenId: aNft.token_id
+        }
+    })
+        .then((res) => resolve(res))
+        .catch((err) => resolve(err));
+});
+
+const transferNft = ({
+    fetch,
+    from,
+    to,
     aNft
 }: NftTransferParams) => new Promise<any>((resolve) => {
     fetchContractVariable({
         fetch,
         paramName: 'transferFrom',
         params: {
-            from: account,
-            to: ethConfig.ownerAddress,
+            from,
+            to,
             tokenId: aNft.token_id
         }
     })
@@ -89,7 +111,7 @@ const completeExchange = ({
 }: CompleteExchangeParams) => new Promise((resolve) => {
     axios({
         method: 'POST',
-        url: '/api/transfer-verify',
+        url: `${ethConfig.nftExchangeApiServer}api/transfer-verify`,
         data: {
             ...form,
             nft_id: aNft.token_id
@@ -103,5 +125,6 @@ export {
     sign,
     send,
     transferNftToContractOwner,
+    transferNft,
     completeExchange
 };

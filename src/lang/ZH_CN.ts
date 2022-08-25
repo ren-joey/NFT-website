@@ -13,7 +13,7 @@ import media_preview_5 from 'src/assets/images/media_preview_5.png';
 import media_preview_6 from 'src/assets/images/media_preview_6.png';
 
 const ZH_CN: Lang = {
-    WEB_TITLE: 'β星人降临地球',
+    WEB_TITLE: 'Betamon β星人 - 地球上最酷的NFT降临',
     FIRST_AREA_TITLE: 'β星人降临地球捣乱倒数',
     FIRST_AREA_TITLE_ARRIVED: 'β星人正式降临地球！',
     FIRST_AREA_DESC: '首波880个β星人RNFT降临地球\n激发您的捣蛋血液，立即拥有并兑换全球限量实体公仔',
@@ -145,13 +145,13 @@ const ZH_CN: Lang = {
     MEMBER_12_DESC: '拥有来无影去无踪的创意想法，涉足行销领域5年经历，是团队中的行销鬼才。',
     MEMBER_13_TITLE: '通讯士',
     MEMBER_13_NAME: 'RT',
+    MEMBER_13_DESC: '专案执行企划专才,多媒体背景与跨领域数位行销领域6年经历。',
     MEMBER_14_TITLE: '宇航士',
     MEMBER_14_NAME: 'OC',
     MEMBER_14_DESC: '擅长手绘插图的涂鸦鬼才，曾入围金点设计奖项，拥有绘图主播经历',
     MEMBER_15_TITLE: '????士', // [DEV]
     MEMBER_15_NAME: 'WC', // [DEV]
     MEMBER_15_DESC: '?', // [DEV]
-    MEMBER_13_DESC: '专案执行企划专才,多媒体背景与跨领域数位行销领域6年经历。',
     ABOUT_VBC_DIVIDER_1: '目前创意飞船β的成员有以下多位身怀各种绝技正打算大展身手',
     ABOUT_VBC_DIVIDER_2: '注：将随着进程持续增加成员。',
     FAQ_1_TITLE: '如何购买β星人NFT？ ',
@@ -226,10 +226,10 @@ const ZH_CN: Lang = {
     I_WILL_PREPARE_MORE_ETH: '好的我来准备更多以太能量',
     NOT_IN_WHITE_LIST: '限定白名单优先召唤MINT阶段<br />很抱歉，你并非这阶段可召唤MINT的人类白名单',
     I_WILL_WAIT_MORE: '好的我再等等',
-    PROMOTION_LABEL: '活动',
-    PROMOTION_TITLE_BOLD: '第二波分润回馈：',
+    PROMOTION_LABEL: '抢先预览',
+    PROMOTION_TITLE_BOLD: '全角色公仔：',
     PROMOTION_TITLE: '点我进入',
-    SIGNING_MESSAGE: '你已准备好 召唤MINT β星人吗？请先阅读以下几点说明\n\n1.召唤MINT 除了需要 0.1ETH 外，还需要额外给矿工的交易手续费 ( GAS FEE 瓦斯费 )\n2.不管有无成功买到都需支付这笔费用，因此没抢到需自行承担 GAS FEE\n3.GAS FEE 为浮动值，如您交易过程看到过高的费用可取消尝试重新交易\n4.如看到高达 4ETH 的 GAS FEE，一率为合约错误；请勿当成 GAS FEE ，也不要确认交易\n\nβ星球期待你的到来。',
+    SIGNING_MESSAGE: '你已准备好使用实体具象超能力兑换β星人公仔吗？请先阅读以下说明\n\n1.申請兑换β星人公仔皆需由RNFT持有者負擔簽署合約的GAS FEE费用\n2.進入申請程序，原有的RNFT會暫時傳送至VBC錢包中驗證，驗證完成後VBC將會空投給您持有原角色3D版NFT \n3.GAS FEE 为浮动值，如您交易过程看到过高的费用可取消重新尝试\n\nβ星人期待與你相見。',
     SOLD_OUT_ALERT_TITLE_1: 'VIP白单',
     SOLD_OUT_ALERT_TITLE_2: 'β星人优先 Mint 召唤阶段',
     SOLD_OUT_ALERT_TITLE_XL: '7分钟售罄',
@@ -239,7 +239,7 @@ const ZH_CN: Lang = {
     EXCHANGE_COVER_TITLE: 'RNFT 1:1 兑换\n20公分高品质实体潮玩',
     // EXCHANGE_COVER_TITLE: '7/27 15:00 前\n可用RNFT申请兑换潮玩',
     EXCHANGE_COVER_BTN: '发动实体具象超能力',
-    ZERO_BALANCE: '您尚未持有β星人',
+    ZERO_BALANCE: '无β星人可申请兑换',
     PLANET_BTN_REIFICATION: '实体具象召唤所',
     PLANET_BTN_SUMMON_BETAMON: '召唤β星人',
     PLANET_BTN_ARENA: '竞技场',
@@ -285,7 +285,32 @@ const ZH_CN: Lang = {
     SUBMISSION_NFT_TRANSFERRING: 'NFT 转移中',
     NFT_TRANSFER_ERROR_MESSAGE: 'NFT 转移失败，请重新申请',
     SUBMISSION_TRANSACTION_WAITING: '等待交易中，可能需要数分钟的时间，请耐心等候，勿关闭视窗',
-    TRANSACTION_ERROR_MESSAGE: 'ETH 交易失败，请确认钱包后重新申请'
+    TRANSACTION_ERROR_MESSAGE: 'ETH 交易失败，请确认钱包后重新申请',
+    SUBMISSION_CONFIRM_TITLE: '召唤资料确认',
+    SUBMISSION_CONFIRM_SUBTITLE: '请再次检视填写资料及注意事项无误后确认',
+    SUBMISSION_SHIPPING_RULE: '出货须知',
+    SUBMISSION_SHIPPING_TIME: '预计出货时间2022/11/20 ~ 2023/01/15按批次出货',
+    SUBMISSION_CAVEATS: '注意事项',
+    SUBMISSION_CAVEAT_1: '每个RNFT申请公仔以一次为限，不可重复申请；\n 兑换期限内未申请兑换的实体公仔，VBC将保有其所有权、使用权，同时维持880个全球限量发售承诺\n 公仔為大量生产，最终外观和颜色可能会略有不同，若无重大瑕疵，恕不接受退换货。',
+    SUBMISSION_CAVEAT_2: '一旦申请公仔兑换将不可取消撤回，请务必确认；已申请兑换的RNFT所在钱包不能作任何更动，经VBC团队发现位址更动将视为申请无效。',
+    SUBMISSION_CAVEAT_3: '完成申请后，VBC团队会于3~5个工作天完成资料审核，审核结果将发送至您申请的E-mail，敬请留意通知。审核成功可前往官网观看公仔配送进度。',
+    SUBMISSION_CAVEAT_4: '兑换期间至10/31 12:00 PM (GMT+8)截止，届时出货资讯将不能作任何更动，公仔将在截止日后陆续出货。',
+    SUBMISSION_CAVEAT_5: '兑换流程请参阅网站资讯，VBC团队将保留最终解释权力，如有其他相关问题，请加入我们Discord社群。',
+    FORM_ERROR_REQUIRED: '请完整填写表单',
+    FORM_ERROR_IP_REGEX: 'IP 不合法，请重新确认',
+    FORM_ERROR_HEX_COLOR_CODE: '请使用 HEX 色码',
+    FORM_ERROR_NUMBER: '排序只能为数字',
+    FORM_ERROR_NO_NUMBER: '不能包含数字',
+    FORM_ERROR_INT: '数字超出上限',
+    FORM_ERROR_NULLABLE: '此栏位若为空值请填入 null',
+    FORM_ERROR_BOOLEAN: '此栏位只可填入布林值',
+    FORM_ERROR_TIME_FORMAT: '请输入正确时间格式',
+    FORM_ERROR_FULL_DATE: '请输入正确日期格式',
+    FORM_ERROR_YEAR_MONTH: '此栏位仅包含年及月',
+    FORM_ERROR_YEAR_MONTH_DAY: '此栏位仅包含年月日',
+    FORM_ERROR_IMAGE: '档案格式必须为图片格式',
+    FORM_ERROR_EMAIL: '请输入正确信箱格式',
+    FORM_ERROR_PHONE: '电话格式有误'
 };
 
 export default ZH_CN;

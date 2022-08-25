@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { LangContext } from 'src/Context/LangContext';
 import 'src/components/Roadmap/RoadmapCard.scss';
 import { getResources } from 'src/functions/loader';
@@ -12,7 +12,8 @@ interface Props {
 }
 
 const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
-    const lang = React.useContext(LangContext);
+    const lang = useContext(LangContext);
+    const { selectedLang } =useContext(EventContext);
     const { device } = useContext(EventContext);
 
     const btn = () => {
@@ -58,28 +59,18 @@ const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
     return (
         <div className="roadmap-card-row">
             <div className="roadmap-time">
-                <div
-                    className={`time ${className}`}
-                    dangerouslySetInnerHTML={{
-                        __html: lang[`ROADMAP_CARD_${idx}_DATE`]
-                    }}
-                >
+                <div className={`pre-line time ${className}`}>
+                    { lang[`ROADMAP_CARD_${idx}_DATE`] }
                 </div>
             </div>
             <div className="roadmap-main">
                 <div className="roadmap-card">
                     <div className="card-top">
-                        <div
-                            className="title"
-                            dangerouslySetInnerHTML={{__html: lang[`ROADMAP_CARD_${idx}_TITLE`]}}
-                        >
+                        <div className={`title pre-line ${selectedLang}`}>
+                            { lang[`ROADMAP_CARD_${idx}_TITLE`] }
                         </div>
-                        <div
-                            className="subtitle"
-                            dangerouslySetInnerHTML={
-                                {__html: lang[`ROADMAP_CARD_${idx}_SUBTITLE`]}
-                            }
-                        >
+                        <div className={`subtitle pre-line ${selectedLang}`}>
+                            { lang[`ROADMAP_CARD_${idx}_SUBTITLE`] }
                         </div>
                         <div
                             className="star"
@@ -90,7 +81,7 @@ const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
                         </div>
                     </div>
                     <div className={`card-bottom ${device === 'desktop' ? 'social-card' : ''}`}>
-                        <div className="remark">
+                        <div className={`remark pre-line ${selectedLang}`}>
                             { lang[`ROADMAP_CARD_${idx}_REMARK`] }
                         </div>
                         {

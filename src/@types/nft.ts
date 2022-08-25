@@ -64,4 +64,6 @@ export interface EthConfig {
     authConfig: Provider;
     version: string;
     exchangeOpen: boolean;
+    nftExchangeOfficialAddress: string;
+    nftExchangeApiServer: string;
 }

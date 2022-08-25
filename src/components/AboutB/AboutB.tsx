@@ -47,6 +47,7 @@ const AboutB = ({ selectedLang }: Props) => {
 
             {
                 device === 'desktop' ?
+                    // PC 版特色卡片
                     <div className="feature-card-area">
                         <div
                             id="featureCardRow1"
@@ -116,42 +117,37 @@ const AboutB = ({ selectedLang }: Props) => {
                         </div>
                     </div>
                     :
+                    // 手機版特色卡片
                     <div className="feature-card-area phone">
-                        <div className="feature-card-row">
-                            <div className="feature-card-col space-left">
-                                <div id="featureCard1">
-                                    <FeatureCard
-                                        idx={1}
-                                        selectedLang={selectedLang}
-                                    />
-                                </div>
-                                <div id="featureCard3">
-                                    <FeatureCard
-                                        idx={3}
-                                        selectedLang={selectedLang}
-                                    />
-                                </div>
-                                <div id="featureCard5">
-                                    <FeatureCard
-                                        idx={5}
-                                        selectedLang={selectedLang}
-                                    />
-                                </div>
-                            </div>
-                            <div className="feature-card-col space-right">
-                                <div id="featureCard2">
-                                    <FeatureCard
-                                        idx={2}
-                                        selectedLang={selectedLang}
-                                    />
-                                </div>
-                                <div id="featureCard4">
-                                    <FeatureCard
-                                        idx={4}
-                                        selectedLang={selectedLang}
-                                    />
-                                </div>
-                            </div>
+                        <div id="featureCard1">
+                            <FeatureCard
+                                idx={1}
+                                selectedLang={selectedLang}
+                            />
+                        </div>
+                        <div id="featureCard2">
+                            <FeatureCard
+                                idx={2}
+                                selectedLang={selectedLang}
+                            />
+                        </div>
+                        <div id="featureCard3">
+                            <FeatureCard
+                                idx={3}
+                                selectedLang={selectedLang}
+                            />
+                        </div>
+                        <div id="featureCard4">
+                            <FeatureCard
+                                idx={4}
+                                selectedLang={selectedLang}
+                            />
+                        </div>
+                        <div id="featureCard5">
+                            <FeatureCard
+                                idx={5}
+                                selectedLang={selectedLang}
+                            />
                         </div>
 
                         <BAlienSlider />

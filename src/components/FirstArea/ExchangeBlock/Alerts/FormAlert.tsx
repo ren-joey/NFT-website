@@ -83,6 +83,7 @@ const FormAlert = ({
     });
     const closeFormAlert = () => {
         setState(false);
+        setForm(defaultForm);
         releaseBody();
     };
 
