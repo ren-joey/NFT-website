@@ -13,9 +13,7 @@ import ResizeListener from 'src/functions/ResizeListener';
 
 // 語系相關
 import { LangContext } from 'src/Context/LangContext';
-import ZH_CN from 'src/lang/ZH_CN';
 import ZH_TW from 'src/lang/ZH_TW';
-import EN from 'src/lang/EN';
 
 import 'src/views/FrontPage.scss';
 import CountingHandler from 'src/functions/CountingHandler';

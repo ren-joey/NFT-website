@@ -14,6 +14,12 @@ $arrow-size: 60px;
             text-align: center;
             pointer-events: painted;
 
+            .fetching {
+                position: relative;
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
             .arrow-btn {
                 position: absolute;
                 top: calc(50% - #{$arrow-size-m / 2});

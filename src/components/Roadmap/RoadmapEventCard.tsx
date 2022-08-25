@@ -4,14 +4,14 @@ import 'src/components/Roadmap/RoadmapCard.scss';
 import { getResources } from 'src/functions/loader';
 import { EventContext } from 'src/Context/EventContext';
 import { socialList } from 'src/configs/socialMediaConfig';
-import SocialIconButton from '../Shared/Buttons/SocialIconButton';
+import hrefTo from 'src/functions/hrefTo';
 
 interface Props {
     idx: number,
     className?: string
 }
 
-const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
+const RoadmapEventCard = ({ idx, className = '' }: Props) => {
     const lang = useContext(LangContext);
     const { selectedLang } = useContext(EventContext);
     const { device } = useContext(EventContext);
@@ -46,12 +46,32 @@ const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
     };
 
     const socialLinks = () => {
-        if (idx !== 1 || device === 'phone') return;
+        if (device === 'phone') return;
 
         return (
             <div className="social-links">
-                <SocialIconButton social={socialList[1]} />
-                <SocialIconButton social={socialList[2]} />
+                <div className="social-link-area">
+                    <div
+                        className="social-link-btn"
+                        onClick={() => hrefTo(socialList[5])}
+                        style={{backgroundImage: `url(${getResources('eth_icon_2')})`}}
+                    >
+                    </div>
+                    <div className={`social-text-bubble ${socialList[5].title}-1`}>
+                        {lang.PROMOTION_1}
+                    </div>
+                </div>
+                <div className="social-link-area">
+                    <div
+                        className="social-link-btn"
+                        onClick={() => hrefTo(socialList[6])}
+                        style={{backgroundImage: `url(${getResources('eth_icon_3')})`}}
+                    >
+                    </div>
+                    <div className={`social-text-bubble ${socialList[6].title}-2`}>
+                        {lang.PROMOTION_2}
+                    </div>
+                </div>
             </div>
         );
     };
@@ -106,5 +126,5 @@ const RoadmapSocialCard = ({ idx, className = '' }: Props) => {
     );
 };
 
-export default RoadmapSocialCard;
+export default RoadmapEventCard;
 

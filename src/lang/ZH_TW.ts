@@ -172,7 +172,7 @@ const ZH_TW: Lang = {
     FAQ_6_CONTENT_2: 'VBC labs近期將公布說明與開放兌換系統，敬請關注',
     FAQ_7_TITLE: 'Roadmap提到的β幣、獎勵任務、元宇宙是什麼？',
     FAQ_7_CONTENT: '這些是 VBC labs 與 β星人將持續合作帶給各位召喚師的獎勵回饋機制，相關內容將陸續公佈說明',
-    COPYRIGHT: '©2022 Vision Beyond Cosmos 保留所有權利',
+    COPYRIGHT: 'Copyright ©2022 Vision Beyond Cosmos',
     STATEMENT_TITLE: 'VBC labs β星人召喚聲明',
     STATEMENT_CONTENT_1: '1. 搶購除了售價 0.1ETH 外，還需要額外給礦工的交易手續費 ( GAS FEE 瓦斯費 )；不管有無成功買到都需支付這筆費用，因此沒搶到需自行承擔 GAS FEE 。',
     STATEMENT_CONTENT_2: '2. GAS FEE 為浮動值，如您交易過程看到過高的費用可取消嘗試重新交易。',
@@ -226,8 +226,8 @@ const ZH_TW: Lang = {
     I_WILL_PREPARE_MORE_ETH: '好的我來準備更多以太能量',
     NOT_IN_WHITE_LIST: '限定白名單優先召喚MINT階段<br />很抱歉，你並非這階段可召喚MINT的人類白名單',
     I_WILL_WAIT_MORE: '好的我再等等',
-    PROMOTION_LABEL: '搶先預覽',
-    PROMOTION_TITLE_BOLD: '全角色公仔：',
+    PROMOTION_LABEL: '預覽公仔',
+    PROMOTION_TITLE_BOLD: '搗蛋變身：',
     PROMOTION_TITLE: '點我進入',
     SIGNING_MESSAGE: '你已準備好使用實體具象超能力兌換β星人公仔嗎？請先閱讀以下說明\n\n1.申請兌換β星人公仔皆需由RNFT持有者負擔簽署合約的GAS FEE費用\n2.進入申請程序，原有的RNFT會暫時傳送至VBC錢包中驗證，驗證完成後VBC將會空投給您持有原角色3D版NFT \n3.GAS FEE 為浮動值，如您交易過程看到過高的費用可取消重新嘗試\n\nβ星人期待與你相見。',
     SOLD_OUT_ALERT_TITLE_1: 'VIP白單',
@@ -310,7 +310,9 @@ const ZH_TW: Lang = {
     FORM_ERROR_YEAR_MONTH_DAY: '此欄位僅包含年月日',
     FORM_ERROR_IMAGE: '檔案格式必須為圖片格式',
     FORM_ERROR_EMAIL: '請輸入正確信箱格式',
-    FORM_ERROR_PHONE: '電話格式有誤'
+    FORM_ERROR_PHONE: '電話格式有誤',
+    PROMOTION_1: '首波分潤',
+    PROMOTION_2: '二波分潤'
 };
 
 export default ZH_TW;

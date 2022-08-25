@@ -7,7 +7,7 @@ import { Lang } from 'src/lang';
 import sleepHelper from 'src/utils/basic/sleepHelper';
 import stringReplacer from 'src/utils/stringFormat/stringReplacer';
 import { FormData } from '../../FormAlert';
-import { completeExchange, send, sign, transferNft, transferNftToContractOwner } from './formSubmitUtils';
+import { completeExchange, send, sign, transferNft } from './formSubmitUtils';
 
 interface ProcedureEssentials {
     account: NullableString;

@@ -31,6 +31,9 @@ import line_turning_around from 'src/assets/images/line_turning_around.png';
 import line_turning_left from 'src/assets/images/line_turning_left.png';
 import line_turning_skew from 'src/assets/images/line_turning_skew.png';
 import opensea_icon from 'src/assets/images/opensea_icon.svg';
+import betamon_loading_icon  from 'src/assets/images/betamon_loading_icon.gif';
+import eth_icon_2  from 'src/assets/images/eth_icon_2.png';
+import eth_icon_3  from 'src/assets/images/eth_icon_3.png';
 
 import perspective_lines from 'src/assets/images/perspective_lines.png';
 
@@ -153,6 +156,9 @@ const loader = () => new Promise<void>((res) => {
         .add('orange_ball_2', orange_ball_2)
         .add('green_ball_1', green_ball_1)
         .add('green_ball_2', green_ball_2)
+        .add('betamon_loading_icon', betamon_loading_icon)
+        .add('eth_icon_2', eth_icon_2)
+        .add('eth_icon_3', eth_icon_3)
 
         // for front page
         .add('perspective_lines', perspective_lines)

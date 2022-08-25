@@ -6,6 +6,10 @@ import { ContractContext } from 'src/Context/ContractContext';
 import fetchBasicNftData from './functions/fetchBasicNftData';
 import fetchContractVariable from './functions/fetchContractVariable';
 
+const nftBalanceStatus = {
+    fetching: false
+};
+
 const NftBalance = () => {
     const {
         account,
@@ -16,7 +20,8 @@ const NftBalance = () => {
     const { setNfts } = useContext(ContractContext);
 
     const getNftBalance = () => {
-        if (!account) return;
+        if (!account || nftBalanceStatus.fetching === true) return;
+        nftBalanceStatus.fetching = true;
         fetchContractVariable<ContractResponse>({
             paramName: 'getBetamonByOwner',
             params: {
@@ -31,8 +36,9 @@ const NftBalance = () => {
                     nfts
                 }).then((processedNfts) => {
                     setNfts(processedNfts);
+                    nftBalanceStatus.fetching = false;
                 });
-            }
+            } else nftBalanceStatus.fetching = false;
         });
     };
 
@@ -50,3 +56,6 @@ const NftBalance = () => {
 };
 
 export default NftBalance;
+export {
+    nftBalanceStatus
+};

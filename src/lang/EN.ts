@@ -171,7 +171,7 @@ const EN: Lang = {
     FAQ_6_CONTENT_2: 'VBC labs will soon announce the description and open exchange system, please stay tuned!',
     FAQ_7_TITLE: 'What are the β coins, bonus missions, and metaverse mentioned \n in the Roadmap?',
     FAQ_7_CONTENT: 'These are reward programs that VBC labs and Betamon are continuously developing to offer to our holders,\ndetails of which will be announced soon.',
-    COPYRIGHT: '©2022 Vision Beyond Cosmos all rights reserved.',
+    COPYRIGHT: 'Copyright ©2022 Vision Beyond Cosmos',
     STATEMENT_TITLE: '',
     STATEMENT_CONTENT_1: '',
     STATEMENT_CONTENT_2: '',
@@ -225,8 +225,8 @@ const EN: Lang = {
     I_WILL_PREPARE_MORE_ETH: '',
     NOT_IN_WHITE_LIST: '',
     I_WILL_WAIT_MORE: '',
-    PROMOTION_LABEL: 'Preview',
-    PROMOTION_TITLE_BOLD: 'Full character figures:\u00A0\u00A0',
+    PROMOTION_LABEL: 'Figure preview',
+    PROMOTION_TITLE_BOLD: 'Transformed:\u00A0\u00A0',
     PROMOTION_TITLE: 'Read more',
     SIGNING_MESSAGE: 'Are you ready to redeem betamon figure? Please read the notice before redeem.\n\n1.Redeem applications require the RNFT holder to bear the gas fee in the contract signing.\n2.The RNFT you apply for will be temporarily transferred to the VBC wallet for verification. VBC will airdrop 3D NFT after verification complete.\n3.GAS FEE is a floating value, if you see excessive fees during the transaction process, you can cancel and try again.\n\n Betamon looking forward to seeing you.',
     SOLD_OUT_ALERT_TITLE_1: '',
@@ -308,7 +308,9 @@ const EN: Lang = {
     FORM_ERROR_YEAR_MONTH_DAY: 'This field contains only year, month and date',
     FORM_ERROR_IMAGE: 'Invalid file extension',
     FORM_ERROR_EMAIL: 'Invalid e-mail address format',
-    FORM_ERROR_PHONE: 'Invalid phone format'
+    FORM_ERROR_PHONE: 'Invalid phone format',
+    PROMOTION_1: 'Wave I',
+    PROMOTION_2: 'Wave II'
 };
 
 export default EN;

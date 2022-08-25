@@ -39,11 +39,13 @@ $card-padding-pc: 1.8rem;
         transform: translate(-50%, 50%);
         text-transform: capitalize;
 
-        &.twitter {
+        &.twitter,
+        &.promotion-1 {
             color: #4ccef8;
         }
 
-        &.discord {
+        &.discord,
+        &.promotion-2 {
             color: #5b88f0;
         }
 
