@@ -46,7 +46,7 @@ const NftListPaginator = ({
                 onComplete: () => {
                     const currentPos = container.scrollLeft;
                     if (currentPos === 0) dispatch('start');
-                    else if ((currentPos - legacyPos) < width) dispatch('end');
+                    else if (Math.abs(currentPos - legacyPos) < width) dispatch('end');
                     else dispatch('middle');
                 }
             });
