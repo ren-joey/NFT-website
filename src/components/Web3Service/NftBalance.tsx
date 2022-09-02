@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import { ContractResponse } from 'src/@types/contract';
 import { EventBus } from 'src/bus';
@@ -6,11 +6,7 @@ import { ContractContext } from 'src/Context/ContractContext';
 import fetchBasicNftData from './functions/fetchBasicNftData';
 import fetchContractVariable from './functions/fetchContractVariable';
 
-const nftBalanceStatus = {
-    fetching: false
-};
-
-const NftBalance = () => {
+const useNftBalance = () => {
     const {
         account,
         isAuthenticated,
@@ -18,10 +14,12 @@ const NftBalance = () => {
     } = useMoralis();
     const { fetch } = useWeb3ExecuteFunction();
     const { setNfts } = useContext(ContractContext);
+    const [fetching, setFetching] = useState(false);
 
     const getNftBalance = () => {
-        if (!account || nftBalanceStatus.fetching === true) return;
-        nftBalanceStatus.fetching = true;
+        if (!account || fetching === true) return;
+        setFetching(true);
+
         fetchContractVariable<ContractResponse>({
             paramName: 'getBetamonByOwner',
             params: {
@@ -36,9 +34,12 @@ const NftBalance = () => {
                     nfts
                 }).then((processedNfts) => {
                     setNfts(processedNfts);
-                    nftBalanceStatus.fetching = false;
+                }).finally(() => {
+                    setFetching(false);
                 });
-            } else nftBalanceStatus.fetching = false;
+            } else setFetching(false);
+        }).catch(() => {
+            setFetching(false);
         });
     };
 
@@ -52,10 +53,9 @@ const NftBalance = () => {
         EventBus.$on('get-nft-balance', getNftBalance);
     }, []);
 
-    return (null);
+    return {
+        fetching
+    };
 };
 
-export default NftBalance;
-export {
-    nftBalanceStatus
-};
+export default useNftBalance;

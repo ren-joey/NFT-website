@@ -1,8 +1,9 @@
 import { useContext, useEffect } from 'react';
-import { StableNftMembers, StableNftOption } from 'src/@types/nft';
+import { StableNftMembers } from 'src/@types/nft';
 import { ContractContext } from 'src/Context/ContractContext';
 import { LangContext } from 'src/Context/LangContext';
 import CheckSign from '../Shared/CheckSign';
+import stableNfts__test from './stableNfts.test';
 
 const NftStableBalance = ({
     stableNfts,
@@ -24,20 +25,21 @@ const NftStableBalance = ({
     };
 
     useEffect(() => {
-        const nfts_: StableNftOption[] = nfts.reduce<StableNftOption[]>((resArr, nft) => {
-            if (nft.metadata
-                && nft.owner_of
-                && typeof nft.metadata !== 'string') {
-                resArr.push({
-                    select: false,
-                    token_id: nft.token_id,
-                    metadata: nft.metadata,
-                    owner_of: nft.owner_of
-                });
-            }
-            return resArr;
-        }, []);
-        setStableNfts(nfts_);
+        // const nfts_: StableNftOption[] = nfts.reduce<StableNftOption[]>((resArr, nft) => {
+        //     if (nft.metadata
+        //         && nft.owner_of
+        //         && typeof nft.metadata !== 'string') {
+        //         resArr.push({
+        //             select: false,
+        //             token_id: nft.token_id,
+        //             metadata: nft.metadata,
+        //             owner_of: nft.owner_of
+        //         });
+        //     }
+        //     return resArr;
+        // }, []);
+        // setStableNfts(nfts_);
+        setStableNfts(stableNfts__test);
     }, [nfts]);
 
     return (
@@ -57,6 +59,7 @@ const NftStableBalance = ({
                     ) : stableNfts.map((nft, idx) => nft.metadata && (
                         typeof nft.metadata !== 'string' && (
                             <div
+                                id={`nft${idx}`}
                                 className="nft-card"
                                 key={nft.metadata.name}
                             >

@@ -1,6 +1,7 @@
-import gsap, { Power0 } from 'gsap';
-import { CSSProperties, useMemo, useReducer } from 'react';
+import gsap, { Power3 } from 'gsap';
+import { CSSProperties, useMemo, useReducer, useState } from 'react';
 import { StableNftOption } from 'src/@types/nft';
+import { scrollToElementByX } from 'src/animation/scrollToTrigger';
 import { getResources } from 'src/functions/loader';
 
 interface BtnState {
@@ -28,30 +29,26 @@ const NftListPaginator = ({
     stableNfts: StableNftOption[]
 }) => {
     const [btnState, dispatch] = useReducer(reducer, initBtnState);
+    const [paginatorIdx, setPaginatorIdx] = useState(0);
     const pageTransitionHelper = (direction: 'right'|'left') => {
-        if ((btnState.left === false && direction === 'left')
-            || (btnState.right === false && direction === 'right')
-        ) return;
+        const additional = direction === 'right' ? 2 : -2;
+        let nextTarget = paginatorIdx + additional;
+        if (nextTarget >= stableNfts.length - 2) {
+            nextTarget = stableNfts.length - 2;
+            dispatch('end');
+        } else if (nextTarget <= 0) {
+            nextTarget = 0;
+            dispatch('start');
+        } else  dispatch('middle');
 
-        const container = document.getElementById('nftListContainer');
-        if (container) {
-            const width = container.clientWidth;
-            const legacyPos = container.scrollLeft;
-            gsap.to(container, {
-                duration: 0.2,
-                scrollTo: {
-                    x: `${direction === 'right' ? '+=' : '-='}${width}`
-                },
-                ease: Power0.easeNone,
-                onComplete: () => {
-                    const currentPos = container.scrollLeft;
-                    if (currentPos === 0) dispatch('start');
-                    else if (Math.abs(currentPos - legacyPos) < width) dispatch('end');
-                    else dispatch('middle');
-                }
-            });
-        }
+        setPaginatorIdx(nextTarget);
+        scrollToElementByX(
+            '#nftListContainer',
+            `#nft${nextTarget}`,
+            5
+        );
     };
+
     const arrowRightStyle = useMemo<CSSProperties>(
         () => ({ backgroundImage: `url(${getResources('arrow_right')})` }),
         []

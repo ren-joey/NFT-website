@@ -6,7 +6,6 @@ import SharedButtonLg from 'src/components/Shared/Buttons/SharedButtonLg';
 import SharedFaqButton from 'src/components/Shared/Buttons/SharedFaqButton';
 import SharedPurpleBlock from 'src/components/Shared/SharedPurpleBlock';
 import sendSignatureRequest from 'src/components/Web3Service/functions/sendSignatureRequest';
-import NftBalance, { nftBalanceStatus } from 'src/components/Web3Service/NftBalance';
 import NftStableBalance from 'src/components/Web3Service/NftStableBalance';
 import { LangContext } from 'src/Context/LangContext';
 import { getResources } from 'src/functions/loader';
@@ -17,6 +16,7 @@ import 'src/components/FirstArea/ExchangeBlock/NftList.scss';
 import hrefTo from 'src/functions/hrefTo';
 import { socialList } from 'src/configs/socialMediaConfig';
 import BetamonLoadingIcon from 'src/components/Shared/BetamonLoadingIcon';
+import useNftBalance from 'src/components/Web3Service/NftBalance';
 
 const NftList = ({
     stableNfts,
@@ -25,6 +25,7 @@ const NftList = ({
 }: StableNftMembers) => {
     const lang = useContext(LangContext);
     const { account } = useMoralis();
+    const { fetching } = useNftBalance();
 
     return (
         <div className="nft-list">
@@ -44,16 +45,13 @@ const NftList = ({
                             </div>
                         </div>
 
-                        {/* 單純取得 nftBalance 資料 */}
-                        <NftBalance />
-
                         {
-                            nftBalanceStatus.fetching && (
+                            fetching && (
                                 <BetamonLoadingIcon />
                             )
                         }
 
-                        <div className={`${nftBalanceStatus.fetching ? 'fetching' : ''}`}>
+                        <div className={`${fetching ? 'fetching' : ''}`}>
                             <div className="nft-title">
                                 { lang.REIFICATION_DESC }
                             </div>

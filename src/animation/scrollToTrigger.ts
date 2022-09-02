@@ -1,11 +1,28 @@
 import gsap, { Power3 } from 'gsap';
 import gaParser from 'src/functions/gaParser';
 
-const scrollToElement = (target: string, offsetY = 200) => {
+const scrollToElement = (
+    target: string|Element|undefined,
+    offsetY = 200
+) => {
     gsap.to(window, {
         duration: 1, scrollTo: {
             y: target,
             offsetY
+        },
+        ease: Power3.easeOut
+    });
+};
+
+const scrollToElementByX = (
+    container: gsap.TweenTarget,
+    target: string|Element|undefined,
+    offsetX = 200
+) => {
+    gsap.to(container, {
+        duration: 0.3, scrollTo: {
+            x: target,
+            offsetX
         },
         ease: Power3.easeOut
     });
@@ -34,6 +51,7 @@ const scrollToTop = () => {
 };
 
 export {
+    scrollToElementByX,
     scrollToRoadmap,
     scrollToTop,
     scrollToFaq
