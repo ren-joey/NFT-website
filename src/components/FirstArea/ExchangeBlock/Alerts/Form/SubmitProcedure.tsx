@@ -20,6 +20,8 @@ const SubmitProcedure = ({
     const { fetch } = useWeb3ExecuteFunction();
     const [status, setStatus] = useState(0);
     const [memo, setMemo] = useState('');
+    const [advancedMessage, setAdvancedMessage] = useState('');
+    const [showAdvancedMessage, setShowAdvancedMessage] = useState(false);
     const iconSize: CSSProperties = { width: '0.8rem', height: '0.8rem' };
     const {
         alertClassName,
@@ -58,6 +60,7 @@ const SubmitProcedure = ({
             form,
             lang,
             setMemo,
+            setAdvancedMessage,
             setStatus
         });
     }, []);
@@ -105,7 +108,24 @@ const SubmitProcedure = ({
                 <br />
 
                 <div className="text-center message pre-line">
-                    { memoIcon }&nbsp;{ memo }
+                    { memoIcon }&nbsp;{ memo } {
+                        (status === -1 && advancedMessage) && (
+                            <span
+                                className="details"
+                                onClick={() => setShowAdvancedMessage((x) => !x)}
+                            >
+                                {lang.SUBMISSION_SHOW_DETAILS}
+                            </span>
+                        )
+                    }
+
+                    {
+                        showAdvancedMessage && (
+                            <div className="advanced-message">
+                                {advancedMessage}
+                            </div>
+                        )
+                    }
                 </div>
 
             </div> {/* form-content */}
@@ -119,6 +139,17 @@ const SubmitProcedure = ({
                                 cancel(true);
                                 EventBus.$emit('get-nft-balance');
                             }}
+                        />
+                    </div>
+                )
+            }
+
+            {
+                status === -1 && (
+                    <div className="button-area">
+                        <SharedButton
+                            text={lang.CLOSE}
+                            onClick={() => cancel()}
                         />
                     </div>
                 )

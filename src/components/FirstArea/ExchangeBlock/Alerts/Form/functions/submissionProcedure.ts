@@ -14,6 +14,7 @@ interface ProcedureEssentials {
     aNft: StableNft;
     lang: Lang;
     setMemo: (key: string) => void;
+    setAdvancedMessage: (key: string) => void;
     setStatus: (key: number) => void;
     cancel: (key?: boolean) => any;
     fetch: MoralisFetch,
@@ -25,20 +26,24 @@ const submissionProcedure = async ({
     lang,
     aNft,
     setMemo,
+    setAdvancedMessage,
     setStatus,
     cancel,
     fetch,
     form
 }: ProcedureEssentials) => {
-    const failHandler = (error: string) => {
-        setMemo(error ? error : lang.SUBMISSION_FAILED_ERROR_MESSAGE);
+    const failHandler = (error: string, advancedMessage = '') => {
+        error = error ? error : lang.SUBMISSION_FAILED_ERROR_MESSAGE;
+        setMemo(error);
+        setAdvancedMessage(advancedMessage + error);
         setStatus(-1);
-        setTimeout(cancel, 3000);
+        // setTimeout(cancel, 3000);
     };
     const successHandler = () => {
         setMemo(lang.SUBMISSION_SUCCEEDED_MESSAGE);
         setStatus(1);
     };
+    let requestCache = '';
 
     try {
         /**
@@ -60,7 +65,10 @@ const submissionProcedure = async ({
          */
         setMemo(lang.SUBMISSION_SIGNING);
         const signature =  await sign({ account, message });
-        if (!signature) throw new Error();
+        requestCache = 'sign: ' + JSON.stringify({ account, message });
+        if (!signature) throw new Error(
+            'Signature process error, please check your wallet application and try again.'
+        );
 
         /**
          * 驗證簽署訊息並提交申請
@@ -68,6 +76,7 @@ const submissionProcedure = async ({
          */
         setMemo(lang.SUBMISSION_VERIFYING);
         const resForm = await send({ account, aNft, form, message, signature });
+        requestCache = 'send: ' + JSON.stringify({ account, aNft, form, message, signature });
         if (!resForm || resForm.message || !resForm.id) {
             throw new Error(
                 typeof resForm?.message === 'string'
@@ -84,6 +93,12 @@ const submissionProcedure = async ({
          */
         setMemo(lang.SUBMISSION_NFT_TRANSFERRING);
         const transaction = await transferNft({
+            from: account,
+            to: ethConfig.nftExchangeOfficialAddress,
+            aNft,
+            fetch
+        });
+        requestCache = 'transferNft: ' + JSON.stringify({
             from: account,
             to: ethConfig.nftExchangeOfficialAddress,
             aNft,
@@ -107,6 +122,7 @@ const submissionProcedure = async ({
             receipt = await transactionReceiptCheck(transaction.hash);
             await sleepHelper(1000);
         }
+        requestCache = transaction.hash + ': ' + JSON.stringify(receipt);
         if (receipt.status === false) throw new Error(lang.TRANSACTION_ERROR_MESSAGE);
 
         /**
@@ -115,12 +131,13 @@ const submissionProcedure = async ({
          * 並且將該筆資料的 is_transferred 更新為 true
          */
         const finalSubmission: any = await completeExchange({ aNft, form });
+        requestCache = 'completeExchange: ' + JSON.stringify({ aNft, form });
         if (finalSubmission.is_transferred === true) {
             successHandler();
         } else throw new Error();
     } catch (error) {
         if (error instanceof Error) {
-            failHandler(error.message);
+            failHandler(error?.message, requestCache);
         }
     }
 };

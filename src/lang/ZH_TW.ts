@@ -312,7 +312,8 @@ const ZH_TW: Lang = {
     FORM_ERROR_EMAIL: '請輸入正確信箱格式',
     FORM_ERROR_PHONE: '電話格式有誤',
     PROMOTION_1: '首波分潤',
-    PROMOTION_2: '二波分潤'
+    PROMOTION_2: '二波分潤',
+    SUBMISSION_SHOW_DETAILS: '詳細資訊'
 };
 
 export default ZH_TW;

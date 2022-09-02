@@ -310,7 +310,8 @@ const EN: Lang = {
     FORM_ERROR_EMAIL: 'Invalid e-mail address format',
     FORM_ERROR_PHONE: 'Invalid phone format',
     PROMOTION_1: 'Wave I',
-    PROMOTION_2: 'Wave II'
+    PROMOTION_2: 'Wave II',
+    SUBMISSION_SHOW_DETAILS: 'details'
 };
 
 export default EN;

@@ -312,7 +312,8 @@ const ZH_CN: Lang = {
     FORM_ERROR_EMAIL: '请输入正确信箱格式',
     FORM_ERROR_PHONE: '电话格式有误',
     PROMOTION_1: '首波分润',
-    PROMOTION_2: '二波分润'
+    PROMOTION_2: '二波分润',
+    SUBMISSION_SHOW_DETAILS: '详细资讯'
 };
 
 export default ZH_CN;

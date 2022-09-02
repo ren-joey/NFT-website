@@ -81,6 +81,19 @@ $form-input-radius: 0.5rem;
 
             .message {
                 color: $form-red;
+
+                .details {
+                    font-size: 0.8rem;
+                    text-decoration: underline;
+                    color: #aaa;
+                    cursor: pointer;
+                }
+
+                .advanced-message {
+                    font-size: 0.8rem;
+                    line-break: anywhere;
+                    color: #000;
+                }
             }
         }
 
