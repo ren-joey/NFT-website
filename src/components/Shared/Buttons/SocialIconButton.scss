@@ -21,6 +21,7 @@ $card-padding-pc: 1.8rem;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 100% auto;
+        filter: hue-rotate(100deg);
         cursor: pointer;
     }
 
@@ -41,12 +42,12 @@ $card-padding-pc: 1.8rem;
 
         &.twitter,
         &.promotion-1 {
-            color: #4ccef8;
+            color: #f77;
         }
 
         &.discord,
         &.promotion-2 {
-            color: #5b88f0;
+            color: #f33;
         }
 
         @media (min-width: 1440px) {

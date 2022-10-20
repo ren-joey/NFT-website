@@ -19,15 +19,15 @@ class CountingHandler {
             getMoment('2022/04/29 15:00'), // 搗蛋
             getMoment('2022/05/04 16:30'), // 全面
             getMoment('2022/05/04 16:33'), // 解盲
-            getMoment('2022/06/17 13:45') // 兌換活動
-            // getMoment(`2022/06/30 15:00`) // further
+            getMoment('2022/06/17 13:45'), // 兌換活動
+            getMoment('2022/10/19 00:00') // 黑暗 betamon 預告期
 
             // getMoment(`2022/03/31 15:00`), // VIP
             // getMoment(`2022/04/26 15:00`), // 搗蛋
             // getMoment(`2022/04/27 15:00`), // 全面
             // getMoment(`2022/05/12 15:00`), // 解盲
-            // getMoment(`2022/06/22 15:00`) // 兌換活動
-            // getMoment(`2022/06/30 15:00`) // 下一波活動
+            // getMoment(`2022/06/22 15:00`), // 兌換活動
+            // getMoment('2022/11/1 00:00') // 黑暗 betamon 預告期
         ];
 
         /**

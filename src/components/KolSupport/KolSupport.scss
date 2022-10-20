@@ -187,7 +187,7 @@
                     position: relative;
                     display: flex;
                     padding: 0.4rem 1rem;
-                    background-color: #67daf5;
+                    background-color: #f00;
                     border-radius: 0 0 0.5rem 0.5rem;
                     z-index: 2;
 
@@ -248,10 +248,10 @@
                 padding: 0.5rem 1rem;
                 font-weight: bolder;
                 color: #fff;
-                background-color: #7c87a9;
+                background-color: #262626;
                 border: 1px solid #fff;
                 border-radius: 2rem;
-                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 5px 5px rgba(255, 0, 0, 0.5);
                 cursor: pointer;
 
                 @media (min-width: 992px) {
@@ -268,7 +268,10 @@
                 }
 
                 &.active {
-                    background-color: #66d9f4;
+                    background-color: #f00;
+                    box-shadow:
+                        0 3px 3px rgba(255, 0, 0, 0.5),
+                        0 6px 8px rgba(255, 0, 0, 1);
                 }
 
                 > .star-icon {
