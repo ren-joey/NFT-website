@@ -93,7 +93,7 @@ const FAQ = () => {
             {/* <FAQBlock idx={2} slotContent={
                 <SocialIconButton social={socialList[1]} />
             } /> */}
-            <FAQBlock
+            {/* <FAQBlock
                 idx={6}
                 slotContent={
                     <>
@@ -121,7 +121,7 @@ const FAQ = () => {
                         />
                     </>
                 }
-            />
+            /> */}
             {/* <FAQBlock idx={3} /> */}
             <FAQBlock idx={4} />
             <FAQBlock
