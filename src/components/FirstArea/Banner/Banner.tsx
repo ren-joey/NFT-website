@@ -6,9 +6,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './Banner.scss';
-import SwiperButtonNext from './SwiperButtonNext';
-import SwiperButtonPrev from './SwiperButtonPrev';
-import { useEffect } from 'react';
+// import SwiperButtonNext from './SwiperButtonNext';
+// import SwiperButtonPrev from './SwiperButtonPrev';
+// import { useEffect } from 'react';
 
 const Banner = () => {
     return (
@@ -18,7 +18,7 @@ const Banner = () => {
                 modules={[Autoplay]}
                 spaceBetween={50}
                 slidesPerView={1}
-                loop={true}
+                // loop={true}
                 autoplay={{
                     delay: 3000
                 }}
@@ -26,14 +26,14 @@ const Banner = () => {
                 // onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
             >
-                <SwiperButtonPrev />
-                <SwiperButtonNext />
+                {/* <SwiperButtonPrev />
+                <SwiperButtonNext /> */}
                 <SwiperSlide>
                     <div className="banner idx-1"></div>
                 </SwiperSlide>
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <div className="banner idx-2"></div>
-                </SwiperSlide>
+                </SwiperSlide> */}
             </Swiper>
         </div>
     );

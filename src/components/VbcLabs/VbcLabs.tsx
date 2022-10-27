@@ -63,12 +63,12 @@ const VbcLabs = () => {
 
                         <div className="second-section">
                             {
-                                Array(7).fill(0).map((val, idx) => (
+                                Array(8).fill(0).map((val, idx) => (
                                     <div
                                         className="f-1"
                                         key={idx}
                                     >
-                                        <VbcCharacter idx={14 - idx} />
+                                        <VbcCharacter idx={15 - idx} />
                                     </div>
                                 ))
                             }
@@ -77,7 +77,7 @@ const VbcLabs = () => {
                 ) : (
                     <div className="second-section">
                         {
-                            Array(12).fill(0).map((val, idx) => (
+                            Array(13).fill(0).map((val, idx) => (
                                 <div
                                     className="f-1"
                                     key={idx}
