@@ -33,9 +33,9 @@ $card-radius-pc: 2.4rem;
             padding: 0.5rem 1.2rem;
             font-size: 1.4rem;
             font-weight: bolder;
-            color: #8525bb;
+            color: #f00;
             background-color: #fff;
-            border: 2px solid #8525bb;
+            border: 2px solid #f00;
             border-radius: 1.4rem;
             box-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
             letter-spacing: 1px;
@@ -90,7 +90,7 @@ $card-radius-pc: 2.4rem;
                 position: relative;
                 padding: #{$card-padding * 2} $card-padding $card-padding #{$card-padding * 4};
                 color: #fff;
-                background-color: rgba(255, 255, 255, 0.3);
+                background-color: rgba(255, 255, 255, 0.1);
                 border-radius: $card-radius $card-radius 0 0;
 
                 @media (min-width: 992px) {
@@ -162,8 +162,8 @@ $card-radius-pc: 2.4rem;
                 display: flex;
                 align-items: center;
                 padding: #{$card-padding - 0.2rem} $card-padding $card-padding;
-                color: #00e4ff;
-                background-color: rgba(85, 0, 141, 0.3);
+                color: #f00;
+                background-color: rgba(0, 0, 0, 0.5);
                 border-radius: 0 0 $card-radius $card-radius;
 
                 &.social-card {
@@ -235,7 +235,7 @@ $card-radius-pc: 2.4rem;
                 font-size: 0.8rem;
                 font-weight: bolder;
                 color: #fff;
-                background-color: #6b23a3;
+                background-color: #f00;
                 border-radius: 1rem;
             }
 
@@ -243,7 +243,7 @@ $card-radius-pc: 2.4rem;
                 margin-left: 0.5rem;
                 font-size: 1rem;
                 font-weight: bolder;
-                color: #6b23a3;
+                color: #f00;
             }
         }
 

@@ -1,0 +1,82 @@
+.swiper-banner {
+    position: relative;
+    margin-right: -10px;
+    margin-left: -10px;
+
+    @media (min-width: 992px) {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .banner {
+        width: 100%;
+        height: 266px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto 92%;
+
+        &.idx-1 {
+            background-image: url("/assets/images/banner_1_m.png");
+        }
+
+        &.idx-2 {
+            background-image: url("/assets/images/banner_2_m.png");
+        }
+
+        @media (min-width: 992px) {
+            height: 428px;
+            background-size: auto 100%;
+
+            &.idx-1 {
+                background-image: url("/assets/images/banner_1.png");
+            }
+
+            &.idx-2 {
+                background-image: url("/assets/images/banner_2.png");
+            }
+        }
+    }
+
+    .slider-arrow {
+        position: absolute;
+        top: calc(50% - 20px);
+        width: 83px * 0.5;
+        height: 131px * 0.5;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        z-index: 2;
+        cursor: pointer;
+
+        &.right {
+            right: 0;
+        }
+
+        &.left {
+            left: 0;
+            transform: scaleX(-1);
+        }
+
+        @media (min-width: 992px) {
+            width: 83px * 0.7;
+            height: 131px * 0.7;
+
+            &.right {
+                right: 50px;
+            }
+
+            &.left {
+                left: 50px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            &.right {
+                right: 105px;
+            }
+
+            &.left {
+                left: 105px;
+            }
+        }
+    }
+}

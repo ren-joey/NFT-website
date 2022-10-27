@@ -126,7 +126,7 @@ const FrontPage = () => {
                     <div className="fp-container">
                         <FirstArea />
                         <AboutB selectedLang={selectedLang} />
-                        <KolSupport total={5} />
+                        <KolSupport total={4} />
                         <MediaSupport total={6} />
                         <Roadmap selectedLang={selectedLang} />
                     </div>

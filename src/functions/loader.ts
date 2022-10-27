@@ -100,6 +100,8 @@ import oc_hover from 'src/assets/images/oc_hover.png';
 import oc from 'src/assets/images/oc.png';
 import wc_hover from 'src/assets/images/wc_hover.png';
 import wc from 'src/assets/images/wc.png';
+import yu_hover from 'src/assets/images/yu_hover.png';
+import yu from 'src/assets/images/yu.png';
 import slashes_divider from 'src/assets/images/slashes_divider.png';
 import ig_icon from 'src/assets/images/ig_icon.svg';
 
@@ -255,6 +257,8 @@ const loader = () => new Promise<void>((res) => {
         .add('oc', oc)
         .add('wc_hover', wc_hover)
         .add('wc', wc)
+        .add('yu_hover', yu_hover)
+        .add('yu', yu)
         .add('ig_icon', ig_icon)
 
         // for 兌換期

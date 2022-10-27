@@ -107,6 +107,7 @@
         "subevent",
         "walletconnect",
         "tailwindcss",
-        "laravel"
+        "laravel",
+        "swiper"
     ]
 }
