@@ -24,7 +24,7 @@ const MintButtonHandler = ({
     buttonSize
 }: IProps) => {
     const { data: nativeBalance }: { data: INativeBalance } = useNativeBalance({
-        chain: ethConfig.provider as ChainList
+        chain: ethConfig.provider as any
     });
 
     const lang = useContext(LangContext);
