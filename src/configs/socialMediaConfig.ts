@@ -49,5 +49,17 @@ export const socialList: ISocialList[] = [
         title: 'promotion',
         href: 'https://www.vbc-labs.com/promotion/2',
         visible: false
+    },
+    {
+        iconName: 'opensea',
+        title: 'OPENSEA',
+        href: 'https://opensea.io/collection/vbc-dark-betamon',
+        visible: false
+    },
+    {
+        iconName: 'skull',
+        title: 'vbc-shopfy',
+        href: 'https://shop.vbc-labs.com/',
+        visible: false
     }
 ];

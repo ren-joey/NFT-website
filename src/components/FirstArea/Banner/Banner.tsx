@@ -6,6 +6,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './Banner.scss';
+import hrefTo from 'src/functions/hrefTo';
+import { socialList } from 'src/configs/socialMediaConfig';
 // import SwiperButtonNext from './SwiperButtonNext';
 // import SwiperButtonPrev from './SwiperButtonPrev';
 // import { useEffect } from 'react';
@@ -28,12 +30,16 @@ const Banner = () => {
             >
                 {/* <SwiperButtonPrev />
                 <SwiperButtonNext /> */}
-                <SwiperSlide>
-                    <div className="banner idx-1"></div>
-                </SwiperSlide>
                 {/* <SwiperSlide>
-                    <div className="banner idx-2"></div>
+                    <div className="banner idx-1"></div>
                 </SwiperSlide> */}
+                <SwiperSlide>
+                    <div
+                        className="banner idx-2"
+                        onClick={() => hrefTo(socialList[8])}
+                    >
+                    </div>
+                </SwiperSlide>
             </Swiper>
         </div>
     );

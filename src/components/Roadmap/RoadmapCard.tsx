@@ -12,13 +12,14 @@ interface Props {
 
 const RoadmapCard = ({ idx, className = '' }: Props) => {
     const lang = useContext(LangContext);
-    const { selectedLang } =useContext(EventContext);
+    const { selectedLang } = useContext(EventContext);
+    const remarkHref = lang[`ROADMAP_CARD_${idx}_REMARK_HREF`];
 
     const btn = () => {
         const btn = lang[`ROADMAP_CARD_${idx}_BTN`];
         if (!btn) return;
 
-        const label = lang[`ROADMAP_CARD_${idx}_BTN_LABEL`];
+        // const label = lang[`ROADMAP_CARD_${idx}_BTN_LABEL`];
         const href = lang[`ROADMAP_CARD_${idx}_HREF`];
         const action = () => {
             gaParser('主站', '土地', '0303版網站');
@@ -35,9 +36,9 @@ const RoadmapCard = ({ idx, className = '' }: Props) => {
                 onClick={action}
             >
                 <div className="roadmap-btn">
-                    <div className="label">
+                    {/* <div className="label">
                         {label}
-                    </div>
+                    </div> */}
                     <div className="title">
                         {btn}
                     </div>
@@ -71,7 +72,11 @@ const RoadmapCard = ({ idx, className = '' }: Props) => {
                         </div>
                     </div>
                     <div className="card-bottom">
-                        <div className={`remark pre-line ${selectedLang}`}>
+                        <div
+                            className={`remark pre-line ${selectedLang}`}
+                            onClick={ () => window.open(remarkHref, '_blank') }
+                            style={{ cursor: 'pointer' }}
+                        >
                             { lang[`ROADMAP_CARD_${idx}_REMARK`] }
                         </div>
                     </div>
