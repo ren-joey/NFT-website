@@ -20,7 +20,7 @@ class CountingHandler {
             getMoment('2022/05/04 16:30'), // 全面
             getMoment('2022/05/04 16:33'), // 解盲
             getMoment('2022/06/17 13:45'), // 兌換活動
-            getMoment('2022/11/1 00:00') // 黑暗 betamon 預告期
+            getMoment('2022/11/24 10:09') // 黑暗 betamon 預告期
 
             // getMoment(`2022/03/31 15:00`), // VIP
             // getMoment(`2022/04/26 15:00`), // 搗蛋

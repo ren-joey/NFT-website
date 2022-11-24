@@ -1,3 +1,5 @@
+// eslint-disable
+
 import { CSSProperties, useContext, useEffect, useMemo, useState } from 'react';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import { EventBus } from 'src/bus';
