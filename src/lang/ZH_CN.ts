@@ -28,7 +28,7 @@ const ZH_CN: Lang = {
     ABOUT_B_CARD_3_TITLE: '社群',
     ABOUT_B_CARD_3_DESC: '「捣蛋俱乐部」<br />将<span class="lang-hgl">不定期发送奖励</span>与最新资讯',
     ABOUT_B_CARD_4_TITLE: '实体潮流公仔',
-    ABOUT_B_CARD_4_DESC: 'RNFT专属赋能可兑换全球限量潮玩',
+    ABOUT_B_CARD_4_DESC: 'RNFT专属赋能\n可兑换全球限量潮玩',
     ABOUT_B_CARD_5_TITLE: '永续营运',
     ABOUT_B_CARD_5_DESC: '已获<span class="lang-hgl">100万美元</span>投资的β计划<br />将逐一实现ROADMAP计划',
     ABOUT_B_CARD_5_BTN: '投资额质押钱包地址 ▶',

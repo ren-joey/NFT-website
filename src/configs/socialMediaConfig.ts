@@ -59,7 +59,7 @@ export const socialList: ISocialList[] = [
     {
         iconName: 'skull',
         title: 'vbc-shopfy',
-        href: 'https://shop.vbc-labs.com/',
+        href: 'https://shop.vbc-labs.com/collections/dark-betamon',
         visible: false
     }
 ];
